@@ -27,7 +27,7 @@ var NAVTREE =
     [ "eBoard  - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
-      [ "Philosphy", "index.html#s4", null ],
+      [ "Philosophy", "index.html#s4", null ],
       [ "Examples", "index.html#s3", null ]
     ] ],
     [ "About", "page1.html", [

@@ -56,6 +56,7 @@ var eBoard_8h =
     [ "eVirtual_main", "eBoard_8h.html#a3161479854ea3c6efccc25dfb4f83a99", null ],
     [ "loop", "eBoard_8h.html#a0b33edabd7f1c4e4a0bf32c67269be2f", null ],
     [ "pingI2C", "eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641", null ],
+    [ "readI2C", "eBoard_8h.html#a8f9fa5f96b3e529e43d56b569cb4e957", null ],
     [ "readPin", "eBoard_8h.html#aca4f96af7c6736bf2b61c88d731af741", null ],
     [ "sendI2C", "eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6", null ],
     [ "sendI2C", "eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203", null ],

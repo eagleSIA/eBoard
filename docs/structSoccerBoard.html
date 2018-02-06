@@ -180,15 +180,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac415567d530e78c9f46b00db4e64d9d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5">digital</a> (<a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> id)</td></tr>
 <tr class="memdesc:ac415567d530e78c9f46b00db4e64d9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a digital value from a pin.  <a href="#ac415567d530e78c9f46b00db4e64d9d5">More...</a><br /></td></tr>
 <tr class="separator:ac415567d530e78c9f46b00db4e64d9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a870ec597f3061deea255327da7e22bed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSoccerBoard.html#a870ec597f3061deea255327da7e22bed">analogRead</a> (<a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> id)</td></tr>
-<tr class="memdesc:a870ec597f3061deea255327da7e22bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an analog value from a pin.  <a href="#a870ec597f3061deea255327da7e22bed">More...</a><br /></td></tr>
-<tr class="separator:a870ec597f3061deea255327da7e22bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a72ca75182aa71d297d3cee80b1054a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a">analog</a> (<a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> id)</td></tr>
+<tr class="memdesc:a8a72ca75182aa71d297d3cee80b1054a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an analog value from a pin.  <a href="#a8a72ca75182aa71d297d3cee80b1054a">More...</a><br /></td></tr>
+<tr class="separator:a8a72ca75182aa71d297d3cee80b1054a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">[COPY&amp;PASTE] This is the <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> ghost struct :D </p>
 <dl class="section note"><dt>Note</dt><dd>Some calls like led-calls won't have any effect due to the hardware of the UNO</dd></dl>
 <p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> toggle = <span class="keyword">true</span>;</div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div><div class="line">  board.<a class="code" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06">power</a>(3,toggle);</div><div class="line">  board.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(1);</div><div class="line">  toggle = !toggle;</div><div class="line">  }</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00916">916</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01095">1095</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a92982113e80865edf52a32fd36e0997c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92982113e80865edf52a32fd36e0997c">&#9670;&nbsp;</a></span>SoccerBoard()</h2>
@@ -220,8 +220,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a870ec597f3061deea255327da7e22bed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a870ec597f3061deea255327da7e22bed">&#9670;&nbsp;</a></span>analogRead()</h2>
+<a id="a8a72ca75182aa71d297d3cee80b1054a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a72ca75182aa71d297d3cee80b1054a">&#9670;&nbsp;</a></span>analog()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +230,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> SoccerBoard::analogRead </td>
+          <td class="memname"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> SoccerBoard::analog </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -794,7 +794,7 @@ shortcut for power(id, HIGH)</dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structSoccerBoard.html">SoccerBoard</a></li>
-    <li class="footer">EagleoutIce 5.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
   </ul>
 </div>
 </body>

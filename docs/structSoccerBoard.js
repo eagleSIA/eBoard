@@ -1,7 +1,7 @@
 var structSoccerBoard =
 [
     [ "SoccerBoard", "structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c", null ],
-    [ "analogRead", "structSoccerBoard.html#a870ec597f3061deea255327da7e22bed", null ],
+    [ "analog", "structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a", null ],
     [ "button", "structSoccerBoard.html#a70c27c12fb6612fc229994b20256b50a", null ],
     [ "digital", "structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5", null ],
     [ "led", "structSoccerBoard.html#a4ae5d7cb22667a1e91ee52539a8c7742", null ],

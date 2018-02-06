@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: eBoard  - shackle the Arduino!</title>
+<title>eBoard: eBoard 1.2a - shackle the Arduino!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,15 +108,16 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">eBoard - shackle the Arduino! </div>  </div>
+<div class="title">eBoard 1.2a - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
+<div class="textblock"><dl class="section warning"><dt>Warning</dt><dd>This is a WIP-DOC</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
 <dd>
 This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard </dd>
 <dd>
 This code comes completely wihtout any warranty - no example was tested right now^^</dd></dl>
-<p>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. To use it you'll have to replace all qfix-related header-files [*.h] with the following: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --><p class="">If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p class="">While in development you shouldn't change any macro... If you change to release mode, write the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
+<p>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. To use it you'll have to replace all qfix-related header-files [*.h] with the following: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --><p class="">If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
 <ul>
@@ -131,8 +132,8 @@ Macros</h1>
 <li><a class="el" href="eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a> : Sets the amount of the visible, connected AX-12</li>
 <li><a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> : 0x1: enables I2C tools</li>
 <li><a class="el" href="eBoard_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a> : 0x1: enables SHIFT_REGISTER</li>
-<li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(0) of RX-Pin</li>
-<li><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> : pinID(1) of TX-Pin</li>
+<li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2) of RX-Pin &ndash; why? [<a class="el" href="p5.html#su3">[PRE] Version 1.2e - On your command, master</a>]</li>
+<li><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> : pinID(3) of TX-Pin &ndash; why? [<a class="el" href="p5.html#su3">[PRE] Version 1.2e - On your command, master</a>]</li>
 <li><a class="el" href="eBoard_8h.html#a834f33b1c264b485a083e8800fa38b36">PIN_MOTOR_DIR</a> : pinID(4) for MotorControl [DIR]</li>
 <li><a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a> : pinID(5) for MotorControl [SPE]</li>
 <li><a class="el" href="eBoard_8h.html#a22c712be288c2b94e2e864cbbe9d3d91">PIN_SHIFT_CLK</a> : pinID(6) of shift-Clock</li>
@@ -149,9 +150,9 @@ Smart Servo Shield</h1>
 Philosophy</h1>
 <p class="">On small projects I prefer the single-file header! <br />
  Your able to 'manage the includings' via the preprocessor constants</p>
+<dl class="section note"><dt>Note</dt><dd>There is no internal reset command on the Arduino. To 'create' a remote reset mechanism use the onBoard Reset-Pin!</dd></dl>
 <h1><a class="anchor" id="s3"></a>
 Examples</h1>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>fill with more examples^^</dd></dl>
 <ul>
 <li><a class="el" href="i2c.html">I2C-Functionality</a></li>
 <li><a class="el" href="shift.html">SHIFT-Functionality</a> </li>
@@ -163,7 +164,7 @@ Examples</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">EagleoutIce 5.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
   </ul>
 </div>
 </body>

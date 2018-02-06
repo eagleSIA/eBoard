@@ -111,13 +111,22 @@ $(document).ready(function(){initNavTree('shift.html','');});
 <div class="title">SHIFT-Functionality </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#EBOARD_SHIFT_REGISTER 0x1</span></div></div><!-- fragment --> It is possible to set a Data of a single Pin with <a class="el" href="eBoard_8h.html#ad6372ab439a73887b0800cc695599436" title="[SHIFT] Changes a single output Pin ">shiftSingle()</a>; It is also possible to shift the modified <a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a> with <a class="el" href="eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>; </dd></dl>
-<h1><a class="anchor" id="ex"></a>
-Example</h1>
-<p class="">Connect the SN74HC595(s) like the following: </p><div class="image">
+<div class="textblock"><dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div></div><!-- fragment --> </dd></dl>
+<h1><a class="anchor" id="pinExt"></a>
+Pin extensions</h1>
+<p class="">It is possible to extend the amount of available pins via SN74HC595 Shift-Registers. Connect them like this: </p><div class="image">
 <img src="t.png" alt="t.png"/>
 </div>
-  Now your able to run this code: </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>insert code [SHIFT reference and reference to <a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a>]</dd></dl>
+ <dl class="section note"><dt>Note</dt><dd>it is possible to extend the amount of shiftregisters. This version of eBoard supports up to 32 (64) additional pins. <br />
+ But it is possible to connect even more!</dd></dl>
+<p>To assign this pins with the special values you can use the <a class="el" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="Set the state of a certain D-pin. ">SoccerBoard::power()</a> [<a class="el" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f" title="Set the state of a certain D-pin to HIGH. ">SoccerBoard::powerOn()</a>; <a class="el" href="structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd" title="Set the state of a certain D-pin to LOW. ">SoccerBoard::powerOff()</a>] Syntax with pinIDs &gt;99 [100 =&gt; 0 etc.] This is an example-program: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  board.<a class="code" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f">powerOn</a>(100);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p class="">This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.</p>
+<h1><a class="anchor" id="Hardware"></a>
+specific</h1>
+<ul>
+<li>It is possible to set a Data of a single Pin with <a class="el" href="eBoard_8h.html#ad6372ab439a73887b0800cc695599436" title="[SHIFT] Changes a single output Pin ">shiftSingle()</a>;</li>
+<li>It is also possible to shift the modified <a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a> with <a class="el" href="eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>;</li>
+</ul>
+<p class=""><a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a> can be modified via bitSet()/bitClear() or long assignment (like = 1000); </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -125,7 +134,7 @@ Example</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">EagleoutIce 5.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
   </ul>
 </div>
 </body>

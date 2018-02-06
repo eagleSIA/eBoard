@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard  - shackle the Arduino!", "index.html", [
+    [ "eBoard 1.2a - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
       [ "Philosophy", "index.html#s4", null ],
@@ -38,7 +38,23 @@ var NAVTREE =
       [ "Example", "i2c.html#Example", null ]
     ] ],
     [ "SHIFT-Functionality", "shift.html", [
-      [ "Example", "shift.html#ex", null ]
+      [ "Pin extensions", "shift.html#pinExt", null ],
+      [ "specific", "shift.html#Hardware", null ]
+    ] ],
+    [ "Bluetooth-Connection", "blue.html", [
+      [ "How to use Bluetooth-Communication:", "blue.html#blCon", null ]
+    ] ],
+    [ "Statistics", "stats.html", [
+      [ "1 Occupied Space", "stats.html#ss1", [
+        [ "1.1 Empty program", "stats.html#ssu1", null ]
+      ] ]
+    ] ],
+    [ "Changelog", "p5.html", [
+      [ "Version 1 - Olivander", "p5.html#ver1", [
+        [ "Version 1.0e - I ate the alpha-cookie :D", "p5.html#su1", null ],
+        [ "Version 1.1b - Hello Slave", "p5.html#su2", null ],
+        [ "[PRE] Version 1.2e - On your command, master", "p5.html#su3", null ]
+      ] ]
     ] ],
     [ "The source code", "page2.html", null ],
     [ "Todo List", "todo.html", null ],

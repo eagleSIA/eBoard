@@ -1,6 +1,7 @@
 var searchData=
 [
   ['eboard_2eh',['eBoard.h',['../eBoard_8h.html',1,'']]],
+  ['eboard_5fbluetooth',['EBOARD_BLUETOOTH',['../eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2',1,'eBoard.h']]],
   ['eboard_5fcheck_5fpins',['EBOARD_CHECK_PINS',['../eBoard_8h.html#a832845f47786296c94e24d6c27821503',1,'eBoard.h']]],
   ['eboard_5fcheck_5fpins_5fpwm',['EBOARD_CHECK_PINS_PWM',['../eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'eBoard.h']]],
   ['eboard_5fcopy_5fand_5fpaste',['EBOARD_COPY_AND_PASTE',['../eBoard_8h.html#aa3b98de0551fc7154d125da50865d539',1,'eBoard.h']]],
@@ -12,5 +13,5 @@ var searchData=
   ['eboard_5fuse_5fspi',['EBOARD_USE_SPI',['../eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713',1,'eBoard.h']]],
   ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'eBoard.h']]],
   ['evirtual_5fmain',['eVirtual_main',['../eBoard_8h.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eBoard.h']]],
-  ['eboard_20_20_2d_20shackle_20the_20arduino_21',['eBoard  - shackle the Arduino!',['../index.html',1,'']]]
+  ['eboard_201_2e2a_20_2d_20shackle_20the_20arduino_21',['eBoard 1.2a - shackle the Arduino!',['../index.html',1,'']]]
 ];

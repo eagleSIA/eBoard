@@ -2,7 +2,7 @@ var searchData=
 [
   ['sendi2c',['sendI2C',['../eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6',1,'sendI2C(optVAL_t deviceID, byte *buf, byte buf_len):&#160;eBoard.h'],['../eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203',1,'sendI2C(optVAL_t deviceID, byte buf):&#160;eBoard.h']]],
   ['sendwait',['sendWait',['../structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3',1,'ServoCds55']]],
-  ['servocds55',['ServoCds55',['../structServoCds55.html',1,'ServoCds55'],['../structServoCds55.html#aa2e8ecd5f9dfc2aebae11c0963df628c',1,'ServoCds55::ServoCds55()']]],
+  ['servocds55',['ServoCds55',['../structServoCds55.html',1,'ServoCds55'],['../structServoCds55.html#aed686a295cc58ce378a8b5a7c2174e6c',1,'ServoCds55::ServoCds55()']]],
   ['setid',['setID',['../structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a',1,'AX12Servo::setID()'],['../structServoCds55.html#a7912b0d3025efafc54ad237016e65067',1,'ServoCds55::SetID()']]],
   ['setmotormode',['SetMotormode',['../structServoCds55.html#ad3fc005fbbddc35b9676e286b0fbcc8a',1,'ServoCds55']]],
   ['setpin',['setPin',['../eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4',1,'eBoard.h']]],
@@ -20,6 +20,7 @@ var searchData=
   ['shiftsingle',['shiftSingle',['../eBoard_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
   ['soccerboard',['SoccerBoard',['../structSoccerBoard.html',1,'SoccerBoard'],['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard::SoccerBoard()']]],
+  ['statistics',['Statistics',['../stats.html',1,'']]],
   ['store_5fbits',['store_bits',['../eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff',1,'eBoard.h']]],
   ['storedpos',['storedPos',['../structAX12Servo.html#a9f6d8f378c9db6ce245cd8fca2f88793',1,'AX12Servo']]],
   ['storedspe',['storedSpe',['../structAX12Servo.html#ab3f39f0d3020cd38aeb0d2dcf313c261',1,'AX12Servo']]],

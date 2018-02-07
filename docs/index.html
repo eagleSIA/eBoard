@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: eBoard 1.2a - shackle the Arduino!</title>
+<title>eBoard: eBoard 1.2e - shackle the Arduino!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,11 +108,10 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">eBoard 1.2a - shackle the Arduino! </div>  </div>
+<div class="title">eBoard 1.2e - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section warning"><dt>Warning</dt><dd>This is a WIP-DOC</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
+<div class="textblock"><dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
 <dd>
 This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard </dd>
 <dd>
@@ -120,6 +119,7 @@ This code comes completely wihtout any warranty - no example was tested right no
 <p>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. To use it you'll have to replace all qfix-related header-files [*.h] with the following: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --><p class="">If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
+<p><b>General</b></p>
 <ul>
 <li>[IGNORE_SIZE] : DEF: the size of this program will grow but the used variable-space will shrink...</li>
 <li><a class="el" href="eBoard_8h.html#a9576a738d44de713d21e71123b5ee344">EBOARD_DEBUG_MODE</a> : 0x0: disable [DEBUG_MODE]</li>
@@ -132,30 +132,41 @@ Macros</h1>
 <li><a class="el" href="eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a> : Sets the amount of the visible, connected AX-12</li>
 <li><a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> : 0x1: enables I2C tools</li>
 <li><a class="el" href="eBoard_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a> : 0x1: enables SHIFT_REGISTER</li>
-<li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2) of RX-Pin &ndash; why? [<a class="el" href="p5.html#su3">[PRE] Version 1.2e - On your command, master</a>]</li>
-<li><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> : pinID(3) of TX-Pin &ndash; why? [<a class="el" href="p5.html#su3">[PRE] Version 1.2e - On your command, master</a>]</li>
+<li><a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> : 0x1: enables Bluetooth support</li>
+<li><a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> : Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a></li>
+</ul>
+<p class=""><b>Pins</b></p><ul>
+<li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2) of RX-Pin &ndash; why? [<a class="el" href="p5.html#su3">Version 1.2e - On your command, master [~100m]</a>]</li>
+<li><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> : pinID(3) of TX-Pin &ndash; why? [<a class="el" href="p5.html#su3">Version 1.2e - On your command, master [~100m]</a>]</li>
 <li><a class="el" href="eBoard_8h.html#a834f33b1c264b485a083e8800fa38b36">PIN_MOTOR_DIR</a> : pinID(4) for MotorControl [DIR]</li>
 <li><a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a> : pinID(5) for MotorControl [SPE]</li>
 <li><a class="el" href="eBoard_8h.html#a22c712be288c2b94e2e864cbbe9d3d91">PIN_SHIFT_CLK</a> : pinID(6) of shift-Clock</li>
 <li><a class="el" href="eBoard_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2">PIN_SHIFT_DAT</a> : pinID(7) of shift-Data</li>
 <li><a class="el" href="eBoard_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52">PIN_SHIFT_LAT</a> : pinID(8) of shift-Latch</li>
+<li><a class="el" href="eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLUETOOTH_STATE</a> : If == RX-Pin: not set. Else: Pin of HC-05 connection-state</li>
 </ul>
 <h1><a class="anchor" id="s2"></a>
 Smart Servo Shield</h1>
 <div class="image">
 <img src="sss.jpeg" alt="sss.jpeg"/>
 </div>
-  This is the smart-servo shield this code was written for its connected by SPI with the UNO R3</p>
+  This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/</p>
 <h1><a class="anchor" id="s4"></a>
 Philosophy</h1>
 <p class="">On small projects I prefer the single-file header! <br />
  Your able to 'manage the includings' via the preprocessor constants</p>
 <dl class="section note"><dt>Note</dt><dd>There is no internal reset command on the Arduino. To 'create' a remote reset mechanism use the onBoard Reset-Pin!</dd></dl>
+<h2><a class="anchor" id="su111"></a>
+Async task execution</h2>
+<p class="">The Arduino is a single core processor. That means it isn't possible to do multiple tasks at once. <br />
+ To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). <br />
+ The execution cycle is <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
 <h1><a class="anchor" id="s3"></a>
 Examples</h1>
 <ul>
 <li><a class="el" href="i2c.html">I2C-Functionality</a></li>
-<li><a class="el" href="shift.html">SHIFT-Functionality</a> </li>
+<li><a class="el" href="shift.html">SHIFT-Functionality</a></li>
+<li><a class="el" href="blue.html">BLUETOOTH-Connection</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -164,7 +175,7 @@ Examples</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: Bluetooth-Connection</title>
+<title>eBoard: BLUETOOTH-Connection</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,17 +108,25 @@ $(document).ready(function(){initNavTree('blue.html','');});
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Bluetooth-Connection </div>  </div>
+<div class="title">BLUETOOTH-Connection </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --></dd></dl>
-<p>Include as RB14Scan</p>
-<dl class="section note"><dt>Note</dt><dd>Why using SoftwareSerial? <br />
+<div class="textblock"><p class="">A tutorial for the Bluetooth-Extension</p>
+<dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --></dd>
+<dd>
+Why using SoftwareSerial? <br />
  The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. <br />
  Furthermore Debugging would create a lot of problems ^^</dd></dl>
 <h1><a class="anchor" id="blCon"></a>
 How to use Bluetooth-Communication:</h1>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>fill bluetooth</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>it is important to identify the layout of the HC-05 it is different from the one showed below the wiring may not apply [KEY is probably represented by a button]!</dd></dl>
+<div class="image">
+<img src="bt.jpg" alt="bt.jpg"/>
+</div>
+ <dl class="section warning"><dt>Warning</dt><dd>mistakes were made ^^ - somethings wrong with the power connection.... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>don't be stupid^^</dd></dl>
+<p class="">You can replace the 1kΩ- with a 1.1kΩ-Resistor</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>fill bluetooth</dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -126,7 +134,7 @@ How to use Bluetooth-Communication:</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
   </ul>
 </div>
 </body>

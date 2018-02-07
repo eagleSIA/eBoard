@@ -111,11 +111,12 @@ $(document).ready(function(){initNavTree('p5.html','');});
 <div class="title">Changelog </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="ver1"></a>
+<div class="textblock"><p class="">A short overview about the developing process</p>
+<h1><a class="anchor" id="ver1"></a>
 Version 1 - Olivander</h1>
 <dl class="section note"><dt>Note</dt><dd>this changelog is maintained by EagleoutIce</dd></dl>
 <h2><a class="anchor" id="su1"></a>
-Version 1.0e - I ate the alpha-cookie :D</h2>
+Version 1.0e - I ate the alpha-cookie :D [~130m]</h2>
 <p class="">leaving the alpha-state :D [after 130 minutes :P]</p>
 <ul>
 <li>Macros to enable full control over included content</li>
@@ -124,7 +125,7 @@ Version 1.0e - I ate the alpha-cookie :D</h2>
 <li>logfile support</li>
 </ul>
 <h2><a class="anchor" id="su2"></a>
-Version 1.1b - Hello Slave</h2>
+Version 1.1b - Hello Slave [~70m]</h2>
 <p class="">Added support for several external devices</p>
 <ul>
 <li>Macros for devices</li>
@@ -133,13 +134,16 @@ Version 1.1b - Hello Slave</h2>
 <li>Shift-register support</li>
 </ul>
 <h2><a class="anchor" id="su3"></a>
-[PRE] Version 1.2e - On your command, master</h2>
-<p class="">[PLAN ]Create handler for RB14Scan [planned] and LCD [planned]</p>
-<ul>
-<li>Changed <a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> and <a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> to 2,3 for SoftwareSerial based on common problems</li>
-<li>Rewritten <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield ">ServoCds55</a></li>
-<li>Tried to make code more compact :D </li>
+Version 1.2e - On your command, master [~100m]</h2>
+<pre class="fragment">Changed #PIN_BLUETOOTH_RX and #PIN_BLUETOOTH_TX to 2,3 for SoftwareSerial based on common problems
+Rewritten ServoCds55
+Tried to make code more compact :D
+Optimized PWM support
+</pre><ul>
+<li>Async Task execution</li>
+<li><a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a> [No protocoll!]</li>
 </ul>
+<p class="">! <a class="el" href="eBoard_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a> doesn't checks full range anymore ... should be fixed </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -147,7 +151,7 @@ Version 1.1b - Hello Slave</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[WIP-BUILD] EagleoutIce 6.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
   </ul>
 </div>
 </body>

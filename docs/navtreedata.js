@@ -24,10 +24,12 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard 1.2a - shackle the Arduino!", "index.html", [
+    [ "eBoard 1.2e - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
-      [ "Philosophy", "index.html#s4", null ],
+      [ "Philosophy", "index.html#s4", [
+        [ "Async task execution", "index.html#su111", null ]
+      ] ],
       [ "Examples", "index.html#s3", null ]
     ] ],
     [ "About", "page1.html", [
@@ -41,7 +43,7 @@ var NAVTREE =
       [ "Pin extensions", "shift.html#pinExt", null ],
       [ "specific", "shift.html#Hardware", null ]
     ] ],
-    [ "Bluetooth-Connection", "blue.html", [
+    [ "BLUETOOTH-Connection", "blue.html", [
       [ "How to use Bluetooth-Communication:", "blue.html#blCon", null ]
     ] ],
     [ "Statistics", "stats.html", [
@@ -51,9 +53,9 @@ var NAVTREE =
     ] ],
     [ "Changelog", "p5.html", [
       [ "Version 1 - Olivander", "p5.html#ver1", [
-        [ "Version 1.0e - I ate the alpha-cookie :D", "p5.html#su1", null ],
-        [ "Version 1.1b - Hello Slave", "p5.html#su2", null ],
-        [ "[PRE] Version 1.2e - On your command, master", "p5.html#su3", null ]
+        [ "Version 1.0e - I ate the alpha-cookie :D [~130m]", "p5.html#su1", null ],
+        [ "Version 1.1b - Hello Slave [~70m]", "p5.html#su2", null ],
+        [ "Version 1.2e - On your command, master [~100m]", "p5.html#su3", null ]
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],

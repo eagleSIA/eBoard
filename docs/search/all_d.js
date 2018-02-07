@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['raw',['raw',['../structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce',1,'RB14Scan']]],
+  ['rb14scan',['RB14Scan',['../structRB14Scan.html',1,'RB14Scan'],['../structRB14Scan.html#a0d14437180746170471cf0ec5ea6c547',1,'RB14Scan::RB14Scan()']]],
   ['read',['read',['../structI2CInOut.html#a5446f02a6b5cb6a2e47dc3af03d4a692',1,'I2CInOut']]],
   ['readi2c',['readI2C',['../eBoard_8h.html#a9410e48b56af483fa869e4b9375f094c',1,'eBoard.h']]],
   ['readpin',['readPin',['../eBoard_8h.html#aca4f96af7c6736bf2b61c88d731af741',1,'eBoard.h']]],

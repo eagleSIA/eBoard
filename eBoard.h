@@ -2,13 +2,12 @@
 ///IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
 /**
  * @file eBoard.h
- * @todo 1. include, if necessary, support for rb14scan
- * @todo 2. test position-ranges for smart-servo-shield control
- * @todo 3. clean code :D
- * @todo 4. bluetooth connection via I²C?
+ * @todo 1. test position-ranges for smart-servo-shield control
+ * @todo 2. bluetooth connection Serial [2biF]
+ * @todo 3. LCd support
  */
 /**
- @mainpage eBoard  - shackle the Arduino!
+ @mainpage eBoard 1.2e - shackle the Arduino!
 
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
@@ -28,8 +27,8 @@
  #include <WIRE.h>
  @endcode
 
- While in development you shouldn't change any macro...
- If you change to release mode, write the following before all includings:
+ While in development you shouldn't disable any macro...
+ If you change to release mode, write (as a minimum) the following before all includings:
  @code
  #define EBOARD_DEBUG_MODE 0x0
  @endcode
@@ -38,6 +37,8 @@
  @section s1 Macros
  There are multiple macros you can manipulate the behaviour of this header:
  @note The constants will appear with their default values in codeSnippets -> be careful with assumptions ;)
+
+ <b>General</b>
 
  - [IGNORE_SIZE]             : DEF: the size of this program will grow but the used variable-space will shrink...
  - #EBOARD_DEBUG_MODE        : 0x0: disable [DEBUG_MODE]
@@ -50,44 +51,65 @@
  - #EBOARD_SPI_SERVO_MAX     : Sets the amount of the visible, connected AX-12
  - #EBOARD_I2C               : 0x1: enables I2C tools
  - #EBOARD_SHIFT_REGISTER    : 0x1: enables SHIFT_REGISTER
+ - #EBOARD_BLUETOOTH         : 0x1: enables Bluetooth support
+ - #EBOARD_PWM_SPE           : Sets the duty cycle for @ref su111
 
- - #PIN_BLUETOOTH_RX         : pinID(0) of RX-Pin
- - #PIN_BLUETOOTH_TX         : pinID(1) of TX-Pin
+ <b>Pins</b>
+ - #PIN_BLUETOOTH_RX         : pinID(2) of RX-Pin   -- why? [@ref su3]
+ - #PIN_BLUETOOTH_TX         : pinID(3) of TX-Pin   -- why? [@ref su3]
  - #PIN_MOTOR_DIR            : pinID(4) for MotorControl [DIR]
  - #PIN_MOTOR_SPE            : pinID(5) for MotorControl [SPE]
  - #PIN_SHIFT_CLK            : pinID(6) of shift-Clock
  - #PIN_SHIFT_DAT            : pinID(7) of shift-Data
  - #PIN_SHIFT_LAT            : pinID(8) of shift-Latch
+ - #PIN_BLUETOOTH_STATE      : If == RX-Pin: not set. Else: Pin of HC-05 connection-state
 
  @section s2 Smart Servo Shield
  @image html /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
  @image latex /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
- This is the smart-servo shield this code was written for its connected by SPI with the UNO R3
+This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/
 
- @section s4 Philosphy
+ @section s4 Philosophy
  On small projects I prefer the single-file header! \n Your able to 'manage the includings' via the preprocessor constants
 
+ @note There is no internal reset command on the Arduino. To 'create' a remote reset mechanism use the onBoard Reset-Pin!
+
+ @subsection su111 Async task execution
+
+ The Arduino is a single core processor. That means it isn't possible to do multiple tasks at once. \n
+ To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). \n
+ The execution cycle is #EBOARD_PWM_SPE seconds and the method will be invoked after the resend of the Motor-PWM value.
+ @code
+ #define REPT_TASK
+ void rept_task(void){
+   //do some stuff - non blocking!!!!
+ }
+ @endcode
+
+ @warning Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than #EBOARD_PWM_SPE seconds !
+
  @section s3 Examples
- @todo fill with more examples^^
 
  - @ref i2c
  - @ref shift
+ - @ref blue
 */
 
 /**
  @page page1 About
+ @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
- @version 1.0d
+ @version 1.2e
  @date 4.2.2018
 
  @section m1 Motivation
  This header was created to port SoccerBoard-Code to the Arduino UNO R3 \n
- It was written ~250 minutes and documented by Doxygen 1.8.15. \n
+ It was written in ~300 [v1.2e] minutes and documented by Doxygen 1.8.15. \n
 
 
  @section m2 General Information
- I am a 18-year old programmer and I am coding since i was a kid. \n
+ I am an 18-year old programmer and I am coding since i was a kid. \n
  @warning Any Errors or Bugs? florian.sihler@web.de
 
 
@@ -98,12 +120,16 @@
 
 /**
   @page i2c I2C-Functionality
+  @brief a tutorial for the I²C-Extension
+  @todo examples and sections for all functions
   @note To use this:
   @code
-  #EBOARD_I2C 0x1
+  #define EBOARD_I2C 0x1
   @endcode
-  It is possible to send Data via I2C with sendI2C() \n
-  It is also possible to scan for I2C addresses with pingI2C();
+
+  - It is possible to send Data via I2C with sendI2C() \n
+  - It is possible to read Data via I2C with readI2C() \n
+  - It is possible to scan for I2C addresses with pingI2C(); \n
   @section Example
   An Example of how to scan for I2C addresses:
   @code
@@ -127,27 +153,182 @@
   @endcode
 
   @note The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost.
-
 */
 /**
   @page shift SHIFT-Functionality
+  @brief A tutorial for the Pin-Extension
   @note To use this:
   @code
-  #EBOARD_SHIFT_REGISTER 0x1
+  #define EBOARD_SHIFT_REGISTER 0x1
   @endcode
-  It is possible to set a Data of a single Pin with shiftSingle();
-  It is also possible to shift the modified #store_bits with shiftAll();
-  @section ex Example
-  Connect the SN74HC595(s) like the following:
-  @todo insert image of wiring
+  @section pinExt Pin extensions
 
-  No your able to run this code:
-  @todo insert code
+  It is possible to extend the amount of available pins via SN74HC595 Shift-Registers.
+  Connect them like this:
+  @image html /home/eagleoutice/Dokumente/proj/_sia/t.png
+  @image latex /home/eagleoutice/Dokumente/proj/_sia/t.png
+
+  @note it is possible to extend the amount of shiftregisters. This version of eBoard supports up to 32 (64) additional pins. \n But it is possible to connect even more!
+
+  To assign this pins with the special values you can use the SoccerBoard::power() [SoccerBoard::powerOn(); SoccerBoard::powerOff()] Syntax with pinIDs >99 [100 => 0 etc.]
+  This is an example-program:
+  @code
+  #define EBOARD_SHIFT_REGISTER 0x1
+  #include <SPI.h>
+  #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+
+  SoccerBoard board;
+  int main() {
+    board.powerOn(100);
+    return 0;
+  }
+  @endcode
+
+  This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.
+
+  @section Hardware specific
+
+  - It is possible to set a Data of a single Pin with shiftSingle();
+  - It is also possible to shift the modified #store_bits with shiftAll();
+
+  #store_bits can be modified via bitSet()/bitClear() or long assignment (like = 1000);
+
 
 */
+/**
+  @page blue BLUETOOTH-Connection
+  @brief A tutorial for the Bluetooth-Extension
+  @note To use this:
+  @code
+  #include <SoftwareSerial.h>
+  #define EBOARD_BLUETOOTH 0x1
+  @endcode
+
+  @note Why using SoftwareSerial? \n     The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. \n Furthermore Debugging would create a lot of problems ^^
+
+  @section blCon How to use Bluetooth-Communication:
+    @warning it is important to identify the layout of the HC-05 it is different from the one showed below the wiring may not apply [KEY is probably represented by a button]!
+
+    @image html /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+    @image latex /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+
+    @warning mistakes were made ^^ - somethings wrong with the power connection....
+    @todo don't be stupid^^
+
+    You can replace the 1kΩ- with a 1.1kΩ-Resistor
+
+  @todo fill bluetooth
+
+*/
+
+/**
+  @page stats Statistics
+  @brief Cuz everyone loves them :O
+    @warning it's easy to misinterpret this statistics!
+     \n eBoard is taking care of many things and only occupying a minimum of space! Most things you would have to write by yourselve otherwise (which may resulted in an even higher amount of used space!)
+
+
+    @section ss1 1 Occupied Space
+
+    Because everyone loves statistics♥:
+
+    @note Development Build:
+    @code
+    #include <Wire.h>
+    #define EBOARD_I2C 0x1
+    #define EBOARD_SHIFT_REGISTER 0x1
+    #include <SoftwareSerial.h>
+    #define EBOARD_BLUETOOTH 0x1
+    #include <SPI.h>
+    @endcode
+
+    @note Release Build:
+    @note removed I2C due to the hope that Bluetooth is enough ^^
+    @code
+    #define IGNORE_SIZE
+    #define EBOARD_USE_UTILITY 0x0
+    #define EBOARD_DEBUG_MODE 0x0
+    #define EBOARD_CHECK_PINS 0x0
+    #define EBOARD_CHECK_PINS_PWM 0x0
+    #define EBOARD_SHIFT_REGISTER 0x1
+    #include <SoftwareSerial.h>
+    #define EBOARD_BLUETOOTH 0x1
+    #include <SPI.h>
+    @endcode
+
+
+    @subsection ssu1 1.1 Empty program
+
+    @note Used:
+    @code
+    [...]
+    int main() {return 0;}
+    @endcode
+
+    Following results: \n
+    [Version: 1.2a] \n
+    [Dev]: 'Binäre Sketchgröße: 6.994 Bytes (von einem Maximum von 32.256 Bytes)' \n
+    [Rel]: 'Binäre Sketchgröße: 3.264 Bytes (von einem Maximum von 32.256 Bytes)' \n
+
+    [Stats for other releases will be evaluated asap]
+*/
+/**
+  @page p5 Changelog
+  @brief A short overview about the developing process
+  @section ver1 Version 1 - Olivander
+
+  @note this changelog is maintained by EagleoutIce
+
+  @subsection su1 Version 1.0e - I ate the alpha-cookie :D [~130m]
+
+   leaving the alpha-state :D [after 130 minutes :P]
+
+   + Macros to enable full control over included content
+   + Documantation
+   + Todo list ._.
+   - logfile support
+
+  @subsection su2 Version 1.1b - Hello Slave [~70m]
+
+    Added support for several external devices
+
+    + Macros for devices
+    + I²C support
+    + S.C.H.I.E.L.D support
+    + Shift-register support
+
+  @subsection su3 Version 1.2e - On your command, master [~100m]
+
+    * Changed #PIN_BLUETOOTH_RX and #PIN_BLUETOOTH_TX to 2,3 for SoftwareSerial based on common problems
+    * Rewritten ServoCds55
+    * Tried to make code more compact :D
+    * Optimized PWM support
+
+    + Async Task execution
+    + RB14Scan [No protocoll!]
+
+    ! #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
+*/
+
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD
 #define EBOARD_HEADER_GUARD
+
+#ifdef DOC
+#define ARDUINO 200
+/**
+ * @note This will appear as 0x1 in the docs but the real default value is 0x0
+ */
+#define EBOARD_I2C 0x1
+/**
+ * @note This will appear as 0x1 in the docs but the real default value is 0x0
+ */
+#define EBOARD_SHIFT_REGISTER 0x1
+/**
+ * @note This will appear as 0x1 in the docs but the real default value is 0x0
+ */
+#define EBOARD_BLUETOOTH 0x1
+#endif
 
 #if defined(ARDUINO) //general platform-check
 
@@ -162,6 +343,8 @@
     #include <wiring.h>
   #endif
 
+#include <avr/io.h>
+#include <avr/interrupt.h>
 
 /**
  * @def if you define IGNORE_SIZE before including this file. The size of this program will grow but the used variable-space will shrink...
@@ -186,14 +369,12 @@
   #define EBOARD_CHECK_PINS 0x1
 #endif
 
+
+#ifndef EBOARD_SHIFT_REGISTER
 /**
  * @note set this to 0x1 to enable the control for shiftregister
- * @note for the docs it will appear as a 0x1 but the default value is 0x0
  */
-#ifndef EBOARD_SHIFT_REGISTER
   #define EBOARD_SHIFT_REGISTER 0x0
-#else
-  #define EBOARD_SHIFT_REGISTER 0x1
 #endif
 
 /**
@@ -237,27 +418,50 @@
 #endif
 
 /**
- * @note set this to 0x1 to enable internal I2C support
- * @note for the docs it will appear as a 0x1 but the default value is 0x0
+ * @note duty cycle for async task execution... should be higher than 1
  */
+#ifndef EBOARD_PWM_SPE
+  #define EBOARD_PWM_SPE 2
+#endif
+
+
 #ifndef EBOARD_I2C
+/**
+ * @note set this to 0x1 to enable internal I²C support
+ */
   #define EBOARD_I2C 0x0 //disabled by default
-#else
-  #define EBOARD_I2C 0x1 //for the doc :D
+#endif
+
+
+#ifndef EBOARD_BLUETOOTH
+/**
+ * @note set this to 0x1 to enable bluetooth support
+ */
+  #define EBOARD_BLUETOOTH 0x0
+#endif
+
+
+
+
+/**
+ * @note this is the STATE PIN. If it is equal to the #PIN_BLUETOOTH_RX it won't be used!
+ */
+#ifndef PIN_BLUETOOTH_STATE
+  #define PIN_BLUETOOTH_STATE 0x2
 #endif
 
 /**
  * @note this is the RX-Pin reserved for bluetooth communictaion
  */
 #ifndef PIN_BLUETOOTH_RX
-  #define PIN_BLUETOOTH_RX 0x0
+  #define PIN_BLUETOOTH_RX 0x2
 #endif
 
 /**
  * @note this is the TX-Pin reserved for bluetooth communictaion
  */
 #ifndef PIN_BLUETOOTH_TX
-  #define PIN_BLUETOOTH_TX 0x1
+  #define PIN_BLUETOOTH_TX 0x3
 #endif
 
 /**
@@ -307,6 +511,10 @@
   #define LOW 0
 #endif
 
+#if EBOARD_BLUETOOTH > 0x0
+  SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
+#endif
+
 #if EBOARD_DEBUG_MODE > 0x0
   /**
    * @note [DEBUG_MODE] enables to use custom assert output
@@ -320,15 +528,15 @@
     @param __lineno the line number
     @param __sexp the expression
     @note Example output when using a not-allowed pin:
-    @code
+    @verbatim
     Error with: checkIdx in /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h @222
              >>idx>0x1 && idx < 0xA
        This happens if an out of bounds exception
        has occured. Following pins shouldn't be used:
-       D0&D1 : Used for Bluetooth communictaion
+       D2&D3 : Used for Bluetooth communictaion
        D4&D5 : Used for main motor control
        D10-13: Used for smart-servo-shield
-    @endcode
+    @endverbatim
   */
   void __assert (const char *__func, const char *__file, optVAL_t __lineno, const char *__sexp);
   ///@cond
@@ -373,7 +581,7 @@ inline void checkIdx(optVAL_t idx);
 ///@cond
 inline void checkIdx(optVAL_t idx){
   #if EBOARD_DEBUG_MODE > 0x0
-    assert(idx>0x1 && idx < 0xA); //changed pins? change me! (didn't want to use macros)
+    assert(idx>=0x0 && idx < 0xA); //changed pins? change me! (didn't want to use macros)
     assert(idx!=PIN_BLUETOOTH_RX&&idx!=PIN_BLUETOOTH_TX);
   #endif
 }
@@ -392,7 +600,7 @@ inline void checkIdx(optVAL_t idx){
     optVAL_t countSetBits (optVAL_t x);
     ///@cond
     optVAL_t countSetBits (optVAL_t x) {
-        optVAL_t count;
+        optVAL_t count; //dont't want to overuse global space^^
         for (count = 0; x; count++)
             x &= x - 1;
         return count;
@@ -415,7 +623,7 @@ inline void checkIdx(optVAL_t idx){
     @note this is no hardware test... this test is based on hard coded data
     @param idx the index of the pin to check
     @param mode the mode the pin should be checked for
-    @ @brief I prevent errors! if the pin is in the requested mode
+    @brief I prevent errors! if the pin is in the requested mode
    */
   inline bool checkPin(optVAL_t idx, optVAL_t mode = OUTPUT);
 
@@ -446,15 +654,72 @@ inline void checkIdx(optVAL_t idx){
       pin_out &= ~(1<<idx);
     }
     #endif
-    pinMode((idx!=0x3)?(idx+0x2):(idx), mode);
+    pinMode(idx, mode);
   }
   ///@endcond
 #endif
 
+#if EBOARD_BLUETOOTH > 0x0
+
+  /*!
+  @brief [BLUETOOTH] reads a single value from bluetooth if available!
+  @return the character read. Returns '.' on failure!
+ */
+  inline char readVal(void);
+  /*!
+  @brief [BLUETOOTH] checks if theres a lack of Data!
+  @note if this happens you should consider to lower the sending or faster the receiving rate ;)
+  @return the character read. Returns '.' on failure!
+ */
+  inline bool checkOverflow(void);
+  /*!
+  @brief [BLUETOOTH] writes Data to bluetooth
+  @param val This is the data to be written. Can be int, str etc...
+ */
+  template <typename T>
+  inline void writeVal(const T& val);
+
+  /*!
+  @brief [BLUETOOTH] this will check if the HC-05 is paired
+
+
+    @return if #PIN_BLUETOOTH_STATE != #PIN_BLUETOOTH_RX: \n
+    &nbsp;&nbsp;&nbsp; true if the HC-05 is paired \n
+    &nbsp;&nbsp;&nbsp; false if the HC-05 is disconnected
+
+    @return if #PIN_BLUETOOTH_STATE == #PIN_BLUETOOTH_RX \n
+    &nbsp;&nbsp;&nbsp; true in any case - because we don't know ^^
+
+  */
+  inline bool isConnected(void);
+
+  ///@cond
+  inline bool checkOverflow(void) {
+    return (_serial.overflow());
+  }
+  inline char readVal(void) {
+    return ((_serial.available())?(_serial.read()):('.'));
+  }
+  template<typename T>
+  inline void writeVal(const T& val){
+    _serial.write(val);
+  }
+  inline bool isConnected(void) {
+    #if PIN_BLUETOOTH_RX != PIN_BLUETOOTH_STATE
+      return digitalRead(PIN_BLUETOOTH_STATE);
+    #else
+      return true;
+    #endif
+  }
+  ///@endcond
+
+#endif
+
+
 #if EBOARD_I2C > 0x0
 /**
-    @brief Sends a buffer of bytes to a certain I2C-Device
-    @note Using I2C won't block the analog pins!
+    @brief Sends a buffer of bytes to a certain I²C-Device
+    @note Using I²C won't block the analog pins!
     @param deviceID the target device
     @param buf the buffer to send
     @param buf_len size of buffer
@@ -481,12 +746,14 @@ inline optVAL_t sendI2C(optVAL_t deviceID, byte buf);
 
 
 /**
-  @brief Sends a byte to a certain I2C-Device
-  @note Using I2C won't block the analog pins!
+  @brief Sends a byte to a certain I²C-Device
+  @note Using I²C won't block the analog pins!
   @param ret an array of optVAL_t
   @param ret_len the length of the array
 */
 inline void pingI2C(optVAL_t ret[], optVAL_t ret_len);
+///@cond
+
 inline void pingI2C(optVAL_t ret[], optVAL_t ret_len){
   optVAL_t count = 0;
   for (byte i = 1; i < 255; i++) /*ignore special*/ {
@@ -499,7 +766,6 @@ inline void pingI2C(optVAL_t ret[], optVAL_t ret_len){
       }
   }
 }
-///@cond
 inline optVAL_t sendI2C(optVAL_t deviceID,byte *buf, byte buf_len) {
   Wire.beginTransmission(deviceID);
   Wire.write(buf,buf_len);
@@ -513,30 +779,45 @@ inline optVAL_t sendI2C(optVAL_t deviceID, byte buf){
 }
 ///@endcond
 
-//As long as it isn't needed there won't be a read function
-/*inline byte readI2C(optVAL_t deviceID,optVAL_t rec_length,bool blocking=true,bool request=true);
-inline byte readI2C(optVAL_t deviceID,optVAL_t rec_length,bool blocking,bool request) {
-  char ret_buf[rec_length];
-  optVAL_t rect = 0x0;
-  if(request)
-    Wire.requestFrom(deviceID,rec_length);
 
-  while(Wire.available() || (blocking && rect < rec_length)){
-
-  }
-}*/
-
+/**
+  @brief Reads a special amount of bits from a certain I²C-Device
+  @note Using I²C won't block the analog pins!
+  @param deviceID the target device
+  @param ret the buffer to send
+  @param ret_len size of buffer
+  @param blocking should the Arduino wait until there is Data?
+  @todo write a global BREAK To stop while loops
+*/
+inline void readI2C(optVAL_t deviceID, optVAL_t ret[], optVAL_t ret_len,bool blocking=true);
+///@cond
+inline void readI2C(optVAL_t deviceID,optVAL_t ret[] , optVAL_t ret_len,bool blocking) {
+  for(optVAL_t rect = 0x0; (Wire.available() || (blocking && (rect < ret_len))); rect++)
+    ret[rect] = Wire.read();
+}
+///@endcond
 
 #endif
 
 
 #if EBOARD_SHIFT_REGISTER > 0x0
+/**
+  @brief [SHIFT] Manipulate me to set Pins via bitSet operations
+*/
 long store_bits = 0L;
-
-void shiftSingle(optVAL_t idx, bool val);
+/**
+  @brief [SHIFT] Changes a single output Pin
+  @param idx index of the bit :D
+  @param val the new state of this bit
+  @note uses store_bits
+*/
+inline void shiftSingle(optVAL_t idx, bool val);
+/**
+  @brief [SHIFT] Changes bits according to store_bits
+*/
 void shiftAll(void);
 ///@cond
-void shiftSingle(optVAL_t idx, bool val) {
+inline void shiftSingle(optVAL_t idx, bool val) {
   bitWrite(store_bits,idx,val);
   shiftAll();
 }
@@ -553,27 +834,33 @@ void shiftAll(void){
 
 #endif
 
+///@note this is the current to-write PWM value
+optVAL_t _pwmValue = 0x0;
+
 /*!
   @brief write a clamped pwm value to an output pin
-  @warning if you spam this command to fast the motor will fail to sync and may crash there is no internal handling of this error
-  @param idx  the index of the pin to use
-  @param val  the pwm value [0-255] to use
+  @note this will use #PIN_MOTOR_SPE \n The value gets updated every #EBOARD_PWM_SPE seconds
+  @param val the pwm value [0-255] to use
  */
- inline void writePWM(optVAL_t idx, optVAL_t val);
+ inline void writePWM (optVAL_t val);
  ///@cond
-inline void writePWM(optVAL_t idx, optVAL_t val){
-  #if EBOARD_CHECK_PINS_PWM > 0x0
-  val = min(val,0xFF); val = max(0x0,val); //bind
-  if(!(idx>0x0 && idx <0xA && countSetBits(idx) == 2))
-  if(!checkPin(idx))
-  #endif
-  #if EBOARD_COPY_AND_PASTE > 0x0
-  setPin(idx);
-  #else
-   pinMode(idx,OUTPUT);
-   #endif
-  analogWrite(idx,val);
+inline void writePWM(optVAL_t val){
+  val = min(val,0xFF); val = max(0x0,val);
+  _pwmValue = val;
 }
+
+#ifdef REPT_TASK
+extern void rept_task(void);
+#endif
+
+ISR(TIMER1_COMPA_vect) {
+    analogWrite(PIN_MOTOR_SPE,_pwmValue);
+    #ifdef REPT_TASK
+    rept_task();
+    #endif
+}
+
+
 ///@endcond
 /*!
   @brief write a boolean state to an output pin
@@ -637,6 +924,7 @@ setPin(idx,INPUT);
 
   /*!
     @struct ServoCds55
+    @author EagleoutIce
     @brief [SPI] This is used to communicate with the smart servo shield
     @note If you want to do this manually use this class aswell
     @copyright This code is based on the offical library [https://github.com/leffhub/ServoCds55 (undocumented :/)] cheers!
@@ -662,7 +950,7 @@ setPin(idx,INPUT);
       @note This class isn't static!
 
       */
-      ServoCds55(int CS=10);
+      ServoCds55(optVAL_t CS=10);
       /// @brief begin the communication and setup SPI
       void begin();
       /**
@@ -691,12 +979,9 @@ setPin(idx,INPUT);
       */
       void setPoslimit(optVAL_t posLimit);
       /**
-        @brief make a servo rotating
-        @param ID the target ID of the Servo
-        @param velocity the speed the servo should have
-        @warning this shouldnt be used... really
+        @brief makes nothing
       */
-      void rotate(optVAL_t ID,optVAL_t velocity);
+      void rotate(optVAL_t,optVAL_t);
       /**
         @brief (probably) set the posLimit for only one servo (will be overwritten by write() => writePos())
         @param ID the target ID of the Servo
@@ -734,9 +1019,11 @@ setPin(idx,INPUT);
       /// @brief stores the velocity value send with writePos()
       optVAL_t velocity_temp;
       /// @brief stores the posLimit value send with write()
-      optVAL_t upperLimit_temp;
+      int upperLimit_temp;
       /// @brief stores the ControlPin id
       optVAL_t cs;
+      // @brief prevents arduino from endless recallocating memory
+      byte tmp;
     };
     ///@cond
     ServoCds55::ServoCds55 (optVAL_t CS):cs(CS) {
@@ -752,9 +1039,9 @@ setPin(idx,INPUT);
       }
 
       byte ServoCds55::sendWait(const byte what) {
-        byte a = SPI.transfer (what);
+        this->tmp = SPI.transfer (what);
         delayMicroseconds (23);
-        return a;
+        return this->tmp;
       }
 
       inline void ServoCds55::setVelocity(optVAL_t velocity){this->velocity_temp = velocity;}
@@ -765,42 +1052,30 @@ setPin(idx,INPUT);
         WritePos(ID,Pos);
       }
 
-      void ServoCds55::rotate(optVAL_t ID,optVAL_t velocity){ //shouldnt use this... remove?
-      SetServoLimit(ID,0x0);
-      delay(102);
-      SetMotormode(ID,velocity);
-    }
+      void ServoCds55::rotate(optVAL_t ID,optVAL_t velocity){}
 
     void ServoCds55::WritePos(optVAL_t ID,optVAL_t Pos){
-      int PosB = (Pos>>0x8 & 0xff);//low
-      int PosS = (Pos & 0xff);//high
-      int velocityB = (this->velocity_temp>>0x8 & 0xff);
-      int velocityS = (this->velocity_temp & 0xff);
       digitalWrite(this->cs, LOW);
-      sendWait('p');  sendWait(ID);        sendWait(PosB);
-      sendWait(PosS); sendWait(velocityB); sendWait(velocityS);
-      sendWait('\t'); sendWait('\r');      sendWait('\n');
+      sendWait('p');          sendWait(ID);                                sendWait((Pos>>0x8 & 0xff));
+      sendWait((Pos & 0xff)); sendWait((this->velocity_temp>>0x8 & 0xff)); sendWait((this->velocity_temp & 0xff));
+      sendWait('\t');         sendWait('\r');                              sendWait('\n');
       digitalWrite(this->cs, HIGH);
       delay(10);
     }
 
     void ServoCds55::SetServoLimit(optVAL_t ID,optVAL_t upperLimit_tempT){
-      int upperLimitB = (upperLimit_tempT>>0x8 & 0xff);
-      int upperLimitS =  (upperLimit_tempT & 0xff);
       digitalWrite(this->cs, LOW);
-      sendWait('s');         sendWait(ID);   sendWait(upperLimitB);
-      sendWait(upperLimitS); sendWait('\t'); sendWait('\r');
+      sendWait('s');                       sendWait(ID);   sendWait((upperLimit_tempT>>0x8 & 0xff));
+      sendWait((upperLimit_tempT & 0xff)); sendWait('\t'); sendWait('\r');
       sendWait('\n');
       digitalWrite(this->cs, HIGH);
       delay(10);
     }
 
     void ServoCds55::SetMotormode(optVAL_t ID, optVAL_t velocity){
-      int velocityB = (velocity>>0x8 & 0xff);
-      int velocityS = (velocity & 0xff);
       digitalWrite(this->cs, LOW);
-      sendWait('m');       sendWait(ID);   sendWait(velocityB);
-      sendWait(velocityS); sendWait('\t'); sendWait('\r');
+      sendWait('m');               sendWait(ID);   sendWait((velocity>>0x8 & 0xff));
+      sendWait((velocity & 0xff)); sendWait('\t'); sendWait('\r');
       sendWait('\n');
       digitalWrite(this->cs, HIGH);
       delay(10);
@@ -840,6 +1115,19 @@ void setup(void) {
   #if EBOARD_DEBUG_MODE > 0x0
     Serial.begin(EBOARD_DEBUG_SPEED);
   #endif
+  //this will initialize the interrupt handling!
+  cli();
+  TCCR1A = 0; TCCR1B = 0; //clear registers;
+  OCR1A = EBOARD_PWM_SPE * 15624;
+  TCCR1B |= (1 << WGM12); TCCR1B |= (1 << CS10); TCCR1B |= (1 << CS12);
+  TIMSK1 |= (1 << OCIE1A);
+  sei();
+  #if EBOARD_BLUETOOTH > 0x0
+    ///@warning Some modules have 9600 as default, some have 38400
+    _serial.begin(38400); ///@todo ask for configure custom BAUD
+    if(PIN_BLUETOOTH_STATE!=PIN_BLUETOOTH_RX) setPin(PIN_BLUETOOTH_STATE,INPUT);
+  #endif
+
   #if EBOARD_I2C > 0x0
     Wire.begin();
   #endif
@@ -849,7 +1137,7 @@ void setup(void) {
   pinMode(PIN_SHIFT_LAT,OUTPUT);
   shiftAll(); //set all to 0
   #endif
-
+  pinMode(9,OUTPUT);
   #if EBOARD_USE_SPI > 0x0
   _servoHandler.begin(); //Setup SPI
   #endif
@@ -861,6 +1149,9 @@ void setup(void) {
   eVirtual_main();
 
   #endif
+  delay(200);
+  cli(); //disable timers after running the program :D
+  writePWM(0);
 }
 ///@endcond
 /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
@@ -874,6 +1165,7 @@ void loop(void){
 
 /*!
   @struct SoccerBoard
+  @author EagleoutIce
   @brief [COPY&PASTE] This is the SoccerBoard ghost struct :D
   @note Some calls like led-calls won't have any effect due to the hardware of the UNO
 
@@ -973,7 +1265,7 @@ struct SoccerBoard {
     @param id The id of the pin
     @return returns the value read
   */
-  inline optVAL_t  analogRead (optVAL_t id);
+  inline optVAL_t  analog (optVAL_t id);
 
 
 };
@@ -997,7 +1289,7 @@ void SoccerBoard::powerOff(optVAL_t id) {this->power(id,0);}
 void SoccerBoard::sleep(uint16_t t) {delay(1000*t);}
 void SoccerBoard::msleep(uint16_t t) {delay(t);}
 bool SoccerBoard::digital (optVAL_t id) {return readPin(id);}
-optVAL_t  analogRead (optVAL_t id) {return readPin(id,0);}
+optVAL_t  SoccerBoard::analog (optVAL_t id) {return readPin(id,0);}
 
 //@endcond
 //To avoid not_found issues
@@ -1052,6 +1344,7 @@ optVAL_t  analogRead (optVAL_t id) {return readPin(id,0);}
 
 /*!
   @struct I2CInOut
+  @author EagleoutIce
   @brief [COPY&PASTE] This is the I2CInOut ghost struct :D
   @note any assignment to Port A won't has anny effect!
 
@@ -1107,7 +1400,7 @@ void I2CInOut::changeModes(optVAL_t,optVAL_t,optVAL_t) {}
 #endif
 void I2CInOut::write(void){
   setPin(PIN_MOTOR_DIR,((this->B)!=0x0));
-  writePWM(PIN_MOTOR_SPE,(this->C));
+  writePWM(this->C);
 }
 ///@endcond
 
@@ -1118,8 +1411,8 @@ struct DynamixelBoard;
 
 /*!
   @struct AX12Servo
+  @author EagleoutIce
   @brief [COPY&PASTE] This is the AX12Servo ghost struct :D
-  @note any assignment to Port A won't has anny effect!
 
   [COPY&PASTE] You can use this class like this:
   @code
@@ -1272,6 +1565,7 @@ bool AX12Servo::isMoving(void) {return false;} //we don't know^^
 
 /*!
   @struct DynamixelBoard
+  @author EagleoutIce
   @brief [COPY&PASTE] This is the DynamixelBoard ghost struct :D
 
   [COPY&PASTE] You can use this class like this:
@@ -1348,12 +1642,60 @@ AX12Servo::AX12Servo(DynamixelBoard dBoard, optVAL_t servoID): id(servoID) {
 }
 ///@endcond
 
+#if EBOARD_BLUETOOTH > 0x0
+
+/*!
+  @struct RB14Scan
+  @author EagleoutIce
+  @brief [COPY&PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D
+  @todo add error explaining and problem resolving page
+  [COPY&PASTE] [BLUETOOTH] You can use this class like this:
+  @code
+  RB14Scan remote;
+
+  int main() {
+    int x = remote.channel(0); //stores value, if available in 'x'
+  }
+  @endcode
+ */
+struct RB14Scan {
+    /*!
+    @brief The constructor
+    */
+    inline RB14Scan(void);
+    ///@brief this will check for connection status [will return true if pin not connected]
+    ///@return the state of the connection [1 if paired or unknown; 0 if disconnected]
+    inline int raw(optVAL_t);
+    ///@brief will return the next char received by the module. A 64 byte Serial buffer is included!
+    ///@return the next character in queue
+    inline char channel(optVAL_t);
+    /**
+      @brief this will write a constant string literal to the output
+      @note this is a new function :D
+
+    */
+    inline void write(const char* const  val);
+};
+
+///@cond
+inline RB14Scan::RB14Scan(void) {}
+inline int RB14Scan::raw(optVAL_t) {return isConnected();}
+inline char RB14Scan::channel(optVAL_t) {return ((isConnected())?(readVal()):(-1));}
+inline void RB14Scan::write(const char* const val) {writeVal(val);}
+///@endcond
+
+#endif
+
 /**
  @page page2 The source code
+ @brief Welcome to the matrix (:
  @includelineno /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h
 */
 
 #endif
+
+
+
 
 #else
   #error This library is build for arduino-devices and should be used only in the Arduino IDE

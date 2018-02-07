@@ -101,7 +101,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
  @version 1.2e
- @date 4.2.2018
+ @date 7.2.2018
 
  @section m1 Motivation
  This header was created to port SoccerBoard-Code to the Arduino UNO R3 \n
@@ -299,15 +299,17 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
   @subsection su3 Version 1.2e - On your command, master [~100m]
 
-    * Changed #PIN_BLUETOOTH_RX and #PIN_BLUETOOTH_TX to 2,3 for SoftwareSerial based on common problems
-    * Rewritten ServoCds55
-    * Tried to make code more compact :D
-    * Optimized PWM support
+    Added support for remote control
 
+    + Changed #PIN_BLUETOOTH_RX and #PIN_BLUETOOTH_TX to 2,3 for SoftwareSerial based on common problems
+    + Rewritten ServoCds55
+    + Tried to make code more compact :D
+    + Optimized PWM support
+    \n
     + Async Task execution
     + RB14Scan [No protocoll!]
-
-    ! #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
+    \n
+    + ! #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
 */
 
 //i am a guard... leave me alone :D

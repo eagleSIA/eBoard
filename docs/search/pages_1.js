@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bluetooth_2dconnection',['Bluetooth-Connection',['../blue.html',1,'']]]
+  ['bluetooth_2dconnection',['BLUETOOTH-Connection',['../blue.html',1,'']]]
 ];

@@ -2,9 +2,7 @@
 ///IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
 /**
  * @file eBoard.h
- * @todo 1. test position-ranges for smart-servo-shield control
- * @todo 2. bluetooth connection Serial [2biF]
- * @todo 3. LCd support
+ * @todo 1. LCd support
  */
 /**
  @mainpage eBoard 1.2e - shackle the Arduino!
@@ -53,6 +51,8 @@
  - #EBOARD_SHIFT_REGISTER    : 0x1: enables SHIFT_REGISTER
  - #EBOARD_BLUETOOTH         : 0x1: enables Bluetooth support
  - #EBOARD_PWM_SPE           : Sets the duty cycle for @ref su111
+ - #EBOARD_CLAMP             : 0x0: disables clamp
+ - #EBOARD_USE_RESET         : 0x0: disable software reset
 
  <b>Pins</b>
  - #PIN_BLUETOOTH_RX         : pinID(2) of RX-Pin   -- why? [@ref su3]
@@ -310,6 +310,11 @@ This is the smart-servo shield this code was written for its connected by SPI wi
     + RB14Scan [No protocoll!]
     \n
     + ! #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
+
+  @subsection su4 Version 1.3g - Make this safe!
+    [PRE]
+
+    + Clamped Motorpositions
 */
 
 //i am a guard... leave me alone :D
@@ -330,6 +335,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  * @note This will appear as 0x1 in the docs but the real default value is 0x0
  */
 #define EBOARD_BLUETOOTH 0x1
+
 #endif
 
 #if defined(ARDUINO) //general platform-check
@@ -347,6 +353,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+
 
 /**
  * @def if you define IGNORE_SIZE before including this file. The size of this program will grow but the used variable-space will shrink...
@@ -441,9 +448,23 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  */
   #define EBOARD_BLUETOOTH 0x0
 #endif
+/**
+ * @note set this to 0x0 to disable clamp
+ */
+#ifndef EBOARD_CLAMP
+  #define EBOARD_CLAMP 0x1
+#endif
 
+/**
+ * @note set this to 0x0 to disable software reset
+ */
+#ifndef EBOARD_USE_RESET
+  #define EBOARD_USE_RESET 0x1
+#endif
 
-
+#if EBOARD_USE_RESET > 0x0
+  #include <avr/wdt.h>
+#endif
 
 /**
  * @note this is the STATE PIN. If it is equal to the #PIN_BLUETOOTH_RX it won't be used!
@@ -502,6 +523,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 #ifndef PIN_SHIFT_LAT
   #define PIN_SHIFT_LAT 0x8
 #endif
+
 
 
 //done by arduino
@@ -967,7 +989,7 @@ setPin(idx,INPUT);
         @param ID the target ID of the Servo
         @param Pos the target position of the Servo
       */
-      void write(optVAL_t ID,optVAL_t Pos);
+      inline void write(optVAL_t ID,optVAL_t Pos);
       /**
         @brief Sets the default speed of servos
         @param velocity the new speed value...
@@ -977,7 +999,6 @@ setPin(idx,INPUT);
         @brief Sets the position limits for the servos
         @param posLimit the new positionLimit
         @warning the values are neither clamped nor masked!
-        @todo check if a mask/clamp/filter is needed
       */
       void setPoslimit(optVAL_t posLimit);
       /**
@@ -1017,11 +1038,11 @@ setPin(idx,INPUT);
       */
       byte sendWait(const byte what);
 
+      /// @brief stores the posLimit value send with write()
+      int upperLimit_temp;
     private:
       /// @brief stores the velocity value send with writePos()
       optVAL_t velocity_temp;
-      /// @brief stores the posLimit value send with write()
-      int upperLimit_temp;
       /// @brief stores the ControlPin id
       optVAL_t cs;
       // @brief prevents arduino from endless recallocating memory
@@ -1049,8 +1070,7 @@ setPin(idx,INPUT);
       inline void ServoCds55::setVelocity(optVAL_t velocity){this->velocity_temp = velocity;}
       inline void ServoCds55::setPoslimit(optVAL_t posLimit){this->upperLimit_temp =  posLimit;}
 
-      void ServoCds55::write(optVAL_t ID,optVAL_t Pos){
-        SetServoLimit(ID,this->upperLimit_temp);
+      inline void ServoCds55::write(optVAL_t ID,optVAL_t Pos){
         WritePos(ID,Pos);
       }
 
@@ -1269,7 +1289,7 @@ struct SoccerBoard {
   */
   inline optVAL_t  analog (optVAL_t id);
 
-
+  static inline void stop(void);
 };
 ///@cond
      SoccerBoard::SoccerBoard(void) {}
@@ -1281,10 +1301,22 @@ void SoccerBoard::ledsOff(void) {}
 void SoccerBoard::ledMeter(int) {}
 void SoccerBoard::button(int) {}
 void SoccerBoard::waitForButton(int) {}
-void SoccerBoard::reset(void) {};
 void SoccerBoard::motor(int,int8_t) {}
 void SoccerBoard::motorsOff(void) {}
 #endif
+
+
+static inline void SoccerBoard::stop(void){
+  
+}
+
+void SoccerBoard::reset(void) {
+    #if EBOARD_USE_RESET > 0x0
+      wdt_enable(WDTO_15MS);
+      while(true) {}
+    #endif
+}
+
 void SoccerBoard::power(optVAL_t id, bool state) {writePin(id,state);}
 void SoccerBoard::powerOn(optVAL_t id) {this->power(id,1);}
 void SoccerBoard::powerOff(optVAL_t id) {this->power(id,0);}
@@ -1473,6 +1505,7 @@ struct AX12Servo {
     */
     inline void setSpeed(optVAL_t);
     ///@brief Noone needs the AX-12 Servo LED^^
+    ///@todo maybe enable support (?)
     inline void ledOff(void);
     ///@brief Noone needs the AX-12 Servo LED^^
     inline void ledOn(void);
@@ -1486,18 +1519,16 @@ struct AX12Servo {
       This will overwrite storedPos and storedSpeed!
       @param pos the Position the Servo should go to
       @param speed the speed of the Servo
-      @warning actually the pos isn't clamped etc => use carefully
     */
-    void setPosition(optVAL_t pos, optVAL_t speed=0x96);
+    void setPosition(uint16_t pos, uint16_t speed=0x96);
     /**
       @brief This saves the Servo Position
 
       Sets the values used by DynamixelBoard::action()
       @param pos the Position the Servo should go to
       @param speed the speed of the Servo
-      @warning actually the pos isn't clamped etc => use carefully
     */
-    inline void storePosition(optVAL_t pos, optVAL_t speed = 0x96);
+    inline void storePosition(uint16_t pos, uint16_t speed = 0x96);
     /**
       @brief This "kind of" returns the Servo-Position
       @returns The position the servo is (actually driving to)
@@ -1514,21 +1545,21 @@ struct AX12Servo {
       @brief stores the position the Servo should go to DynamixelBoard::action()
       @note pls do me a favour and don't change them manually... use AX12Servo::storePosition()
     */
-    optVAL_t storedPos;
+    uint16_t storedPos;
     /**
       @brief stores the Speed of the Servo DynamixelBoard::action()
       @note pls do me a favour and don't change them manually... use AX12Servo::storePosition()
     */
-    optVAL_t storedSpe;
+    uint16_t storedSpe;
 
   //bool posMode; //we don't care wich mode we are in ^^
 private:
   ///@brief stores the id of the AX12Servo obejct
   optVAL_t id;
   ///@brief stores the actual pos or move-to pos of the AX12Servo
-  optVAL_t actPos;
+  uint16_t actPos;
   ///@brief stores the actual 'would use speed' of the AX12Servo
-  optVAL_t actSpe;
+  uint16_t actSpe;
 
 
 
@@ -1537,9 +1568,10 @@ private:
 ///@cond
 AX12Servo::AX12Servo(void) {}
 #if EBOARD_USE_UTILITY > 0x0
-void AX12Servo::setID(optVAL_t newID) {this->id = newID;}
+void AX12Servo::setID(optVAL_t newID) {this->id = newID;_servoHandler.SetServoLimit(this->id,_servoHandler.upperLimit_temp);
+}
 void AX12Servo::changeMotorID(optVAL_t newID) {this->id = newID;} //this should change the hardwareaddress...
-                                                                //IF needed: _servoHandler.setID(this->id, newID);
+ //IF needed: _servoHandler.setID(this->id, newID);
 void AX12Servo::setPositionMode(void)  {}
 void AX12Servo::setSpeedMode(void) {}
 void AX12Servo::setSpeed(optVAL_t) {} //i won't use the rotate functions...
@@ -1548,13 +1580,20 @@ void AX12Servo::ledOn(void) {} //really.... noone ^^
 void AX12Servo::setTorque(uint16_t) {} //which damn register? xD
 #endif
 
-void AX12Servo::setPosition(optVAL_t pos, optVAL_t speed) {
-    //TODO apply position_filter (maybe ((pos-511.5)/511.5) * 300 )
+void AX12Servo::setPosition(uint16_t pos, uint16_t speed) {
+  #if EBOARD_CLAMP > 0x0
+    speed = speed*600/1023 - 300;
+    pos   = pos  *600/1023 - 300;
+  #endif
     if(speed != actSpe){ _servoHandler.setVelocity(speed); this->actSpe=speed;}
     _servoHandler.write(this->id,pos);
     this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
   }
-void AX12Servo::storePosition(optVAL_t pos, optVAL_t speed){
+void AX12Servo::storePosition(uint16_t pos, uint16_t speed){
+  #if EBOARD_CLAMP > 0x0
+    speed = speed*600/1023 - 300;
+    pos   = pos  *600/1023 - 300;
+  #endif
     this->storedPos=pos;this->storedSpe=speed;
   }
 

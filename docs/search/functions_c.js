@@ -6,7 +6,7 @@ var searchData=
   ['setid',['setID',['../structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a',1,'AX12Servo::setID()'],['../structServoCds55.html#a7912b0d3025efafc54ad237016e65067',1,'ServoCds55::SetID()']]],
   ['setmotormode',['SetMotormode',['../structServoCds55.html#ad3fc005fbbddc35b9676e286b0fbcc8a',1,'ServoCds55']]],
   ['setpin',['setPin',['../eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4',1,'eBoard.h']]],
-  ['setposition',['setPosition',['../structAX12Servo.html#ae32153bcc3e9d63591e205ecf564a0d0',1,'AX12Servo']]],
+  ['setposition',['setPosition',['../structAX12Servo.html#a7b242be4e26737cb9e3a4c6809a3cf29',1,'AX12Servo']]],
   ['setpositionmode',['setPositionMode',['../structAX12Servo.html#ad87d3cc9e6c4090591e80978a785c70b',1,'AX12Servo']]],
   ['setposlimit',['setPoslimit',['../structServoCds55.html#a3f3715fb4a0f6e5194f0b3c9dd5294bd',1,'ServoCds55']]],
   ['setservolimit',['SetServoLimit',['../structServoCds55.html#aed56d4577b7c0b6535758b8b57bdd067',1,'ServoCds55']]],
@@ -19,5 +19,5 @@ var searchData=
   ['shiftsingle',['shiftSingle',['../eBoard_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
   ['soccerboard',['SoccerBoard',['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard']]],
-  ['storeposition',['storePosition',['../structAX12Servo.html#a137cb183d21abf5959dfbcb236ee92fe',1,'AX12Servo']]]
+  ['storeposition',['storePosition',['../structAX12Servo.html#a6a87ff6b4c1abce86258e50c039348c3',1,'AX12Servo']]]
 ];

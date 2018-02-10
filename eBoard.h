@@ -68,6 +68,7 @@
  @image html /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
  @image latex /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
 This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/
+@note to use the motors properly you <i>have</i> to connect the Board with a ~12V power supply!
 
  @section s4 Philosophy
  On small projects I prefer the single-file header! \n Your able to 'manage the includings' via the preprocessor constants
@@ -86,6 +87,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  }
  @endcode
 
+ @todo make portable for MEGA
  @warning Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than #EBOARD_PWM_SPE seconds !
 
  @section s3 Examples
@@ -100,7 +102,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
- @version 1.2e
+ @version 1.3g
  @date 7.2.2018
 
  @section m1 Motivation
@@ -117,8 +119,10 @@ This is the smart-servo shield this code was written for its connected by SPI wi
   @image html /home/eagleoutice/Dokumente/proj/_sia/pp.jpeg
   @image latex /home/eagleoutice/Dokumente/proj/_sia/pp.jpeg
 */
+/// @defgroup i2cEx I2C-Tutorial 
 
 /**
+  @ingroup i2cEx
   @page i2c I2C-Functionality
   @brief a tutorial for the I²C-Extension
   @todo examples and sections for all functions
@@ -130,7 +134,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
   - It is possible to send Data via I2C with sendI2C() \n
   - It is possible to read Data via I2C with readI2C() \n
   - It is possible to scan for I2C addresses with pingI2C(); \n
-  @section Example
+  @section example Example
   An Example of how to scan for I2C addresses:
   @code
   #include <Wire.h>
@@ -154,7 +158,9 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
   @note The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost.
 */
+/// @defgroup shiftEx SHIFT-Tutorial
 /**
+  @ingroup shiftEx
   @page shift SHIFT-Functionality
   @brief A tutorial for the Pin-Extension
   @note To use this:
@@ -186,7 +192,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
   This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.
 
-  @section Hardware specific
+  @section hs Hardware specific
 
   - It is possible to set a Data of a single Pin with shiftSingle();
   - It is also possible to shift the modified #store_bits with shiftAll();
@@ -195,7 +201,9 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
 
 */
+///  @defgroup blueEx BLUETOOTH-Tutorial
 /**
+  @ingroup blueEx
   @page blue BLUETOOTH-Connection
   @brief A tutorial for the Bluetooth-Extension
   @note To use this:
@@ -211,9 +219,6 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
     @image html /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
     @image latex /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
-
-    @warning mistakes were made ^^ - somethings wrong with the power connection....
-    @todo don't be stupid^^
 
     You can replace the 1kΩ- with a 1.1kΩ-Resistor
 
@@ -270,6 +275,7 @@ This is the smart-servo shield this code was written for its connected by SPI wi
     [Dev]: 'Binäre Sketchgröße: 6.994 Bytes (von einem Maximum von 32.256 Bytes)' \n
     [Rel]: 'Binäre Sketchgröße: 3.264 Bytes (von einem Maximum von 32.256 Bytes)' \n
 
+    @todo renew for newer version
     [Stats for other releases will be evaluated asap]
 */
 /**
@@ -283,14 +289,21 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
    leaving the alpha-state :D [after 130 minutes :P]
 
+  <b>Added</b>
+
    + Macros to enable full control over included content
    + Documantation
    + Todo list ._.
+
+  <b>Removed</b>
+
    - logfile support
 
   @subsection su2 Version 1.1b - Hello Slave [~70m]
 
     Added support for several external devices
+
+ <b>Added</b>
 
     + Macros for devices
     + I²C support
@@ -301,20 +314,37 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 
     Added support for remote control
 
+ <b>Changed</b>
+
     + Changed #PIN_BLUETOOTH_RX and #PIN_BLUETOOTH_TX to 2,3 for SoftwareSerial based on common problems
     + Rewritten ServoCds55
     + Tried to make code more compact :D
     + Optimized PWM support
-    \n
+
+  <b>Added</b>
+
     + Async Task execution
     + RB14Scan [No protocoll!]
-    \n
-    + ! #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
+    
+  <b>Removed</b>
+    + #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
 
   @subsection su4 Version 1.3g - Make this safe!
     [PRE]
 
+  <b>Changed</b>
+
     + Clamped Motorpositions
+    + Grouped Examples
+    + Animated Logo & New Colors
+
+  <b>Added</b>
+
+    + Global Break function
+
+    @todo complete pinouts enumeration
+
+    + Preprocessor support for ARDUINO MEGA 2560
 */
 
 //i am a guard... leave me alone :D
@@ -335,7 +365,19 @@ This is the smart-servo shield this code was written for its connected by SPI wi
  * @note This will appear as 0x1 in the docs but the real default value is 0x0
  */
 #define EBOARD_BLUETOOTH 0x1
+/**
+ * @note This constant won't be defined by default :D
+ */
+#define REPT_TASK
 
+/**
+ * @note This is the Macro that will be defined automatically by the ARUDINO IDE if you compile this program for an ARDUINO MEGA 2560
+ */
+#define __AVR_ATmega2560__
+/**
+ * @note This is the Macro that will be defined automatically by the ARUDINO IDE if you compile this program for an ARDUINO UNO R3
+ */
+#define __AVR_ATmega328P__
 #endif
 
 #if defined(ARDUINO) //general platform-check
@@ -351,9 +393,20 @@ This is the smart-servo shield this code was written for its connected by SPI wi
     #include <wiring.h>
   #endif
 
+#if not ( defined(__AVR_ATmega2560__) || defined(__AVR_ATmega328P__))
+#error "This library was build for ARDUINO UNO R3 Aand ARDUINO MEGA 2560!"
+#endif
+
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+
+  /**
+    @brief this will end any loop done by eBoard 
+    @note you can manipulate this with #REPT_TASK
+  */
+  static bool STOP = false;
 
 /**
  * @def if you define IGNORE_SIZE before including this file. The size of this program will grow but the used variable-space will shrink...
@@ -536,6 +589,11 @@ This is the smart-servo shield this code was written for its connected by SPI wi
 #endif
 
 #if EBOARD_BLUETOOTH > 0x0
+  /**
+   * @brief this is the recomenned-to-use _serial object for bluetooth communcation :D
+   * 
+   * The used pins are based on #PIN_BLUETOOTH_RX and PIN_BLUETOOTH_TX
+   */
   SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
 #endif
 
@@ -670,7 +728,7 @@ inline void checkIdx(optVAL_t idx){
     #if EBOARD_CHECK_PINS > 0x0
     checkIdx(idx);
     if(mode==OUTPUT) {  //possible to read from OUTPUT digital ... won't do it
-      pin_out |=  (1<<idx); // we won't use bit Operations
+      pin_out |=  (1<<idx); 
       pin_in  &=  ~(1<<idx);
     }
     else {
@@ -780,7 +838,7 @@ inline void pingI2C(optVAL_t ret[], optVAL_t ret_len);
 
 inline void pingI2C(optVAL_t ret[], optVAL_t ret_len){
   optVAL_t count = 0;
-  for (byte i = 1; i < 255; i++) /*ignore special*/ {
+  for (byte i = 1; (i < 255 && !STOP); i++) /*ignore special*/ {
     if(i==200)continue; //internal
     Wire.beginTransmission (i);
     if (Wire.endTransmission () == 0) {
@@ -811,12 +869,11 @@ inline optVAL_t sendI2C(optVAL_t deviceID, byte buf){
   @param ret the buffer to send
   @param ret_len size of buffer
   @param blocking should the Arduino wait until there is Data?
-  @todo write a global BREAK To stop while loops
 */
 inline void readI2C(optVAL_t deviceID, optVAL_t ret[], optVAL_t ret_len,bool blocking=true);
 ///@cond
 inline void readI2C(optVAL_t deviceID,optVAL_t ret[] , optVAL_t ret_len,bool blocking) {
-  for(optVAL_t rect = 0x0; (Wire.available() || (blocking && (rect < ret_len))); rect++)
+  for(optVAL_t rect = 0x0; (Wire.available() || ((blocking && (rect < ret_len))) && (!STOP)); rect++)
     ret[rect] = Wire.read();
 }
 ///@endcond
@@ -848,7 +905,7 @@ inline void shiftSingle(optVAL_t idx, bool val) {
 
 void shiftAll(void){
   digitalWrite(PIN_SHIFT_LAT,LOW);
-  for(optVAL_t c = 0; c<32; c++){
+  for(optVAL_t c = 0; (c<32 && !STOP); c++){
     digitalWrite(PIN_SHIFT_CLK,LOW);
     shiftOut(PIN_SHIFT_DAT,PIN_SHIFT_CLK,MSBFIRST,bitRead(store_bits,c));
   }
@@ -949,8 +1006,13 @@ setPin(idx,INPUT);
   /*!
     @struct ServoCds55
     @author EagleoutIce
-    @brief [SPI] This is used to communicate with the smart servo shield
-    @note If you want to do this manually use this class aswell
+
+    @brief [SPI] This is used to communicate with the smart servo shield 
+    \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
+
+    @warning [COPY&PASTE] use SoccerBoard, DynamixelBoard and I2CInOut !
+    @warning <b>Don't</b> use this!
+
     @copyright This code is based on the offical library [https://github.com/leffhub/ServoCds55 (undocumented :/)] cheers!
 
     [COPY&PASTE] [SPI] You can use this class like this:
@@ -1288,8 +1350,6 @@ struct SoccerBoard {
     @return returns the value read
   */
   inline optVAL_t  analog (optVAL_t id);
-
-  static inline void stop(void);
 };
 ///@cond
      SoccerBoard::SoccerBoard(void) {}
@@ -1304,11 +1364,6 @@ void SoccerBoard::waitForButton(int) {}
 void SoccerBoard::motor(int,int8_t) {}
 void SoccerBoard::motorsOff(void) {}
 #endif
-
-
-static inline void SoccerBoard::stop(void){
-  
-}
 
 void SoccerBoard::reset(void) {
     #if EBOARD_USE_RESET > 0x0
@@ -1505,7 +1560,6 @@ struct AX12Servo {
     */
     inline void setSpeed(optVAL_t);
     ///@brief Noone needs the AX-12 Servo LED^^
-    ///@todo maybe enable support (?)
     inline void ledOff(void);
     ///@brief Noone needs the AX-12 Servo LED^^
     inline void ledOn(void);
@@ -1520,7 +1574,7 @@ struct AX12Servo {
       @param pos the Position the Servo should go to
       @param speed the speed of the Servo
     */
-    void setPosition(uint16_t pos, uint16_t speed=0x96);
+    void setPosition(uint16_t pos, uint16_t speed=0x3FF);
     /**
       @brief This saves the Servo Position
 
@@ -1528,7 +1582,7 @@ struct AX12Servo {
       @param pos the Position the Servo should go to
       @param speed the speed of the Servo
     */
-    inline void storePosition(uint16_t pos, uint16_t speed = 0x96);
+    inline void storePosition(uint16_t pos, uint16_t speed = 0x3FF);
     /**
       @brief This "kind of" returns the Servo-Position
       @returns The position the servo is (actually driving to)
@@ -1667,7 +1721,7 @@ void DynamixelBoard::ledOn(optVAL_t) {}
 void DynamixelBoard::ledOff(optVAL_t) {}
 #endif
 void DynamixelBoard::action(void) {
-  for(optVAL_t i = 0; i < EBOARD_SPI_SERVO_MAX; i++ ){
+  for(optVAL_t i = 0; (i < EBOARD_SPI_SERVO_MAX && !STOP); i++ ){
     if(this->connected[i] != NULL)
       (*connected[i]).setPosition((*connected[i]).storedPos,(*connected[i]).storedSpe);
   }
@@ -1689,7 +1743,7 @@ AX12Servo::AX12Servo(DynamixelBoard dBoard, optVAL_t servoID): id(servoID) {
   @struct RB14Scan
   @author EagleoutIce
   @brief [COPY&PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D
-  @todo add error explaining and problem resolving page
+ 
   [COPY&PASTE] [BLUETOOTH] You can use this class like this:
   @code
   RB14Scan remote;
@@ -1711,7 +1765,7 @@ struct RB14Scan {
     ///@return the next character in queue
     inline char channel(optVAL_t);
     /**
-      @brief this will write a constant string literal to the output
+      @brief this will write a constant string to the output
       @note this is a new function :D
 
     */

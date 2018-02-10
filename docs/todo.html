@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -112,23 +114,18 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000003"></a>Page <a class="el" href="blue.html">BLUETOOTH-Connection</a>  </dt>
-<dd><p class="startdd">don't be stupid^^</p>
-<p class="enddd">fill bluetooth </p>
-</dd>
+<dt><a class="anchor" id="_todo000004"></a>Page <a class="el" href="group__blueEx.html">BLUETOOTH-Connection</a>  </dt>
+<dd>fill bluetooth </dd>
+<dt><a class="anchor" id="_todo000006"></a>Page <a class="el" href="p5.html">Changelog</a>  </dt>
+<dd>complete pinouts enumeration </dd>
+<dt><a class="anchor" id="_todo000002"></a>page <a class="el" href="index.html">eBoard 1.2e - shackle the Arduino!</a>  </dt>
+<dd>make portable for MEGA  </dd>
 <dt><a class="anchor" id="_todo000001"></a>File <a class="el" href="eBoard_8h.html">eBoard.h</a>  </dt>
-<dd><p class="startdd">1. test position-ranges for smart-servo-shield control </p>
-<p class="">2. bluetooth connection Serial [2biF] </p>
-<p class="enddd">3. LCd support  </p>
-</dd>
-<dt><a class="anchor" id="_todo000002"></a>Page <a class="el" href="i2c.html">I2C-Functionality</a>  </dt>
+<dd>1. LCd support  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Page <a class="el" href="group__i2cEx.html">I2C-Functionality</a>  </dt>
 <dd>examples and sections for all functions  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="structRB14Scan.html">RB14Scan</a>  </dt>
-<dd>add error explaining and problem resolving page [COPY&amp;PASTE] [BLUETOOTH] You can use this class like this:  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="eBoard_8h.html#a9410e48b56af483fa869e4b9375f094c">readI2C</a>  (optVAL_t deviceID, optVAL_t ret[], optVAL_t ret_len, bool blocking=true)</dt>
-<dd>write a global BREAK To stop while loops  </dd>
-<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="structServoCds55.html#a3f3715fb4a0f6e5194f0b3c9dd5294bd">ServoCds55::setPoslimit</a>  (optVAL_t posLimit)</dt>
-<dd>check if a mask/clamp/filter is needed </dd>
+<dt><a class="anchor" id="_todo000005"></a>Page <a class="el" href="stats.html">Statistics</a>  </dt>
+<dd>renew for newer version [Stats for other releases will be evaluated asap] </dd>
 </dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -137,7 +134,7 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

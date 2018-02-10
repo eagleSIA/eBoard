@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -139,15 +141,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a35ff55470a07767513fb0c619ed78258"><td class="mdescLeft">&#160;</td><td class="mdescRight">will return the next char received by the module. A 64 byte Serial buffer is included!  <a href="#a35ff55470a07767513fb0c619ed78258">More...</a><br /></td></tr>
 <tr class="separator:a35ff55470a07767513fb0c619ed78258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c3e020ffb6d8f23f6394e33c93964fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc">write</a> (const char *const val)</td></tr>
-<tr class="memdesc:a2c3e020ffb6d8f23f6394e33c93964fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will write a constant string literal to the output  <a href="#a2c3e020ffb6d8f23f6394e33c93964fc">More...</a><br /></td></tr>
+<tr class="memdesc:a2c3e020ffb6d8f23f6394e33c93964fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will write a constant string to the output  <a href="#a2c3e020ffb6d8f23f6394e33c93964fc">More...</a><br /></td></tr>
 <tr class="separator:a2c3e020ffb6d8f23f6394e33c93964fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">[COPY&amp;PASTE] [BLUETOOTH] This is the <a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a> ghost struct :D </p>
-<dl class="section author"><dt>Author</dt><dd>EagleoutIce </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>add error explaining and problem resolving page [COPY&amp;PASTE] [BLUETOOTH] You can use this class like this: </dd></dl>
-<div class="fragment"><div class="line"><a class="code" href="structRB14Scan.html">RB14Scan</a> remote;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  <span class="keywordtype">int</span> x = remote.<a class="code" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a>(0); <span class="comment">//stores value, if available in &#39;x&#39;</span></div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01663">1663</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<dl class="section author"><dt>Author</dt><dd>EagleoutIce [COPY&amp;PASTE] [BLUETOOTH] You can use this class like this: <div class="fragment"><div class="line"><a class="code" href="structRB14Scan.html">RB14Scan</a> remote;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  <span class="keywordtype">int</span> x = remote.<a class="code" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a>(0); <span class="comment">//stores value, if available in &#39;x&#39;</span></div><div class="line">}</div></div><!-- fragment --> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01756">1756</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d14437180746170471cf0ec5ea6c547"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d14437180746170471cf0ec5ea6c547">&#9670;&nbsp;</a></span>RB14Scan()</h2>
@@ -260,7 +261,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>this will write a constant string literal to the output </p>
+<p>this will write a constant string to the output </p>
 <dl class="section note"><dt>Note</dt><dd>this is a new function :D </dd></dl>
 
 </div>
@@ -275,7 +276,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structRB14Scan.html">RB14Scan</a></li>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

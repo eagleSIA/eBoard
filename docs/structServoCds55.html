@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -116,6 +118,7 @@ $(document).ready(function(){initNavTree('structServoCds55.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structServoCds55-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -123,7 +126,8 @@ $(document).ready(function(){initNavTree('structServoCds55.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>[SPI] This is used to communicate with the smart servo shield  
+<p>[SPI] This is used to communicate with the smart servo shield <br />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <b>Don't use manually</b>  
  <a href="structServoCds55.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="eBoard_8h_source.html">eBoard.h</a>&gt;</code></p>
@@ -167,14 +171,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0ddbf204d991dae881cc22b8985efee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">sends data. This is used internally and shouldnt be used!  <a href="#a0ddbf204d991dae881cc22b8985efee3">More...</a><br /></td></tr>
 <tr class="separator:a0ddbf204d991dae881cc22b8985efee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6f7a62964e32990b3e92bda071a0ecb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServoCds55.html#a6f7a62964e32990b3e92bda071a0ecb9">upperLimit_temp</a></td></tr>
+<tr class="memdesc:a6f7a62964e32990b3e92bda071a0ecb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the posLimit value send with <a class="el" href="structServoCds55.html#abb910cf0d72273dd1f285b5e55f62287" title="Moves a Servo to a certain position. ">write()</a>  <a href="#a6f7a62964e32990b3e92bda071a0ecb9">More...</a><br /></td></tr>
+<tr class="separator:a6f7a62964e32990b3e92bda071a0ecb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7eb09087e264c9659fb041f90ea65917"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServoCds55.html#a7eb09087e264c9659fb041f90ea65917">velocity_temp</a></td></tr>
 <tr class="memdesc:a7eb09087e264c9659fb041f90ea65917"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the velocity value send with writePos()  <a href="#a7eb09087e264c9659fb041f90ea65917">More...</a><br /></td></tr>
 <tr class="separator:a7eb09087e264c9659fb041f90ea65917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f7a62964e32990b3e92bda071a0ecb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServoCds55.html#a6f7a62964e32990b3e92bda071a0ecb9">upperLimit_temp</a></td></tr>
-<tr class="memdesc:a6f7a62964e32990b3e92bda071a0ecb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the posLimit value send with <a class="el" href="structServoCds55.html#abb910cf0d72273dd1f285b5e55f62287" title="Moves a Servo to a certain position. ">write()</a>  <a href="#a6f7a62964e32990b3e92bda071a0ecb9">More...</a><br /></td></tr>
-<tr class="separator:a6f7a62964e32990b3e92bda071a0ecb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa82a455946cfc8ddeaa4b23c4eb9a02b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServoCds55.html#aa82a455946cfc8ddeaa4b23c4eb9a02b">cs</a></td></tr>
 <tr class="memdesc:aa82a455946cfc8ddeaa4b23c4eb9a02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the ControlPin id  <a href="#aa82a455946cfc8ddeaa4b23c4eb9a02b">More...</a><br /></td></tr>
 <tr class="separator:aa82a455946cfc8ddeaa4b23c4eb9a02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,12 +189,15 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a5c3957a21525f5103fab634a82d78cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p class="">[SPI] This is used to communicate with the smart servo shield </p>
-<dl class="section author"><dt>Author</dt><dd>EagleoutIce </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>If you want to do this manually use this class aswell </dd></dl>
+<div class="textblock"><p class="">[SPI] This is used to communicate with the smart servo shield <br />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <b>Don't use manually</b> </p>
+<dl class="section author"><dt>Author</dt><dd>EagleoutIce</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>[COPY&amp;PASTE] use <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a>, <a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> and <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> ! </dd>
+<dd>
+<b>Don't</b> use this!</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>This code is based on the offical library [<a href="https://github.com/leffhub/ServoCds55">https://github.com/leffhub/ServoCds55</a> (undocumented :/)] cheers!</dd></dl>
 <p>[COPY&amp;PASTE] [SPI] You can use this class like this: </p><div class="fragment"><div class="line"><a class="code" href="eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#abb910cf0d72273dd1f285b5e55f62287">write</a>(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --><p> [SPI] You can use this class like this: </p><div class="fragment"><div class="line"><span class="comment">//in setup:</span></div><div class="line"><a class="code" href="eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#a3858bceac16a453ec83f99c646090406">begin</a>();</div><div class="line"></div><div class="line"><span class="comment">//... in code:</span></div><div class="line"><a class="code" href="eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#abb910cf0d72273dd1f285b5e55f62287">write</a>(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00947">947</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01031">1031</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aed686a295cc58ce378a8b5a7c2174e6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed686a295cc58ce378a8b5a7c2174e6c">&#9670;&nbsp;</a></span>ServoCds55()</h2>
@@ -415,7 +425,6 @@ This class isn't static! </dd></dl>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>the values are neither clamped nor masked! </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>check if a mask/clamp/filter is needed </dd></dl>
 
 </div>
 </div>
@@ -488,6 +497,9 @@ This class isn't static! </dd></dl>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ServoCds55::write </td>
@@ -507,6 +519,11 @@ This class isn't static! </dd></dl>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Moves a Servo to a certain position. </p>
@@ -581,7 +598,7 @@ This class isn't static! </dd></dl>
 
 <p>stores the ControlPin id </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01026">1026</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01109">1109</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -605,7 +622,7 @@ This class isn't static! </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01028">1028</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01111">1111</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -614,24 +631,16 @@ This class isn't static! </dd></dl>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int ServoCds55::upperLimit_temp</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>stores the posLimit value send with <a class="el" href="structServoCds55.html#abb910cf0d72273dd1f285b5e55f62287" title="Moves a Servo to a certain position. ">write()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01024">1024</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01104">1104</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +666,7 @@ This class isn't static! </dd></dl>
 
 <p>stores the velocity value send with writePos() </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01022">1022</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01107">1107</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -671,7 +680,7 @@ This class isn't static! </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structServoCds55.html">ServoCds55</a></li>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

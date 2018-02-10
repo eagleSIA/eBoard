@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -163,7 +165,7 @@ Private Attributes</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>EagleoutIce </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>any assignment to Port A won't has anny effect!</dd></dl>
 <p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="comment">//nothing in this brackets will have any effect :D</span></div><div class="line"><a class="code" href="structI2CInOut.html">I2CInOut</a> io1(board,127,<a class="code" href="eBoard_8h.html#a8e3597e352e3c5ee4e2e4cfed5f12403">ANALOG_IN_10_BIT</a>,<a class="code" href="eBoard_8h.html#a1c6856832cc9aad00c5d406925f81d1c">COUNTER_RISE_8_BIT</a>, <a class="code" href="eBoard_8h.html#ad783c59bd6197d2160e05922a288df69">FREQ_HIGH</a>);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  io1.B = HIGH;</div><div class="line">  io1.C = 108;</div><div class="line">  io1.write();</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01366">1366</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01453">1453</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1318322287c3fa9de9c111a64564fd5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1318322287c3fa9de9c111a64564fd5c">&#9670;&nbsp;</a></span>I2CInOut()</h2>
@@ -367,7 +369,7 @@ Private Attributes</h2></td></tr>
 
 <p>storing value for A-pin (I prevent errors!) </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01387">1387</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01474">1474</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +395,7 @@ Private Attributes</h2></td></tr>
 
 <p>storing value for B-pin [MOTOR DIR] </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01390">1390</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01477">1477</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +421,7 @@ Private Attributes</h2></td></tr>
 
 <p>storing value for C-pin [MOTOR SPE] </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01392">1392</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01479">1479</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -433,7 +435,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structI2CInOut.html">I2CInOut</a></li>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -134,6 +136,8 @@ Macros</h1>
 <li><a class="el" href="eBoard_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a> : 0x1: enables SHIFT_REGISTER</li>
 <li><a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> : 0x1: enables Bluetooth support</li>
 <li><a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> : Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a></li>
+<li><a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a> : 0x0: disables clamp</li>
+<li><a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a> : 0x0: disable software reset</li>
 </ul>
 <p class=""><b>Pins</b></p><ul>
 <li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2) of RX-Pin &ndash; why? [<a class="el" href="p5.html#su3">Version 1.2e - On your command, master [~100m]</a>]</li>
@@ -150,7 +154,7 @@ Smart Servo Shield</h1>
 <div class="image">
 <img src="sss.jpeg" alt="sss.jpeg"/>
 </div>
-  This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/</p>
+  This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/ </p><dl class="section note"><dt>Note</dt><dd>to use the motors properly you <em>have</em> to connect the Board with a ~12V power supply!</dd></dl>
 <h1><a class="anchor" id="s4"></a>
 Philosophy</h1>
 <p class="">On small projects I prefer the single-file header! <br />
@@ -160,13 +164,14 @@ Philosophy</h1>
 Async task execution</h2>
 <p class="">The Arduino is a single core processor. That means it isn't possible to do multiple tasks at once. <br />
  To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). <br />
- The execution cycle is <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
+ The execution cycle is <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>make portable for MEGA </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
 <h1><a class="anchor" id="s3"></a>
 Examples</h1>
 <ul>
-<li><a class="el" href="i2c.html">I2C-Functionality</a></li>
-<li><a class="el" href="shift.html">SHIFT-Functionality</a></li>
-<li><a class="el" href="blue.html">BLUETOOTH-Connection</a> </li>
+<li><a class="el" href="group__i2cEx.html">I2C-Functionality</a></li>
+<li><a class="el" href="group__shiftEx.html">SHIFT-Functionality</a></li>
+<li><a class="el" href="group__blueEx.html">BLUETOOTH-Connection</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -175,7 +180,7 @@ Examples</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

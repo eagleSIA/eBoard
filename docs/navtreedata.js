@@ -34,17 +34,11 @@ var NAVTREE =
     ] ],
     [ "About", "page1.html", [
       [ "Motivation", "page1.html#m1", null ],
-      [ "General Information", "page1.html#m2", null ]
-    ] ],
-    [ "I2C-Functionality", "i2c.html", [
-      [ "Example", "i2c.html#Example", null ]
-    ] ],
-    [ "SHIFT-Functionality", "shift.html", [
-      [ "Pin extensions", "shift.html#pinExt", null ],
-      [ "specific", "shift.html#Hardware", null ]
-    ] ],
-    [ "BLUETOOTH-Connection", "blue.html", [
-      [ "How to use Bluetooth-Communication:", "blue.html#blCon", null ]
+      [ "General Information", "page1.html#m2", null ],
+      [ "Example", "group__i2cEx.html#example", null ],
+      [ "Pin extensions", "group__shiftEx.html#pinExt", null ],
+      [ "Hardware specific", "group__shiftEx.html#hs", null ],
+      [ "How to use Bluetooth-Communication:", "group__blueEx.html#blCon", null ]
     ] ],
     [ "Statistics", "stats.html", [
       [ "1 Occupied Space", "stats.html#ss1", [
@@ -55,11 +49,13 @@ var NAVTREE =
       [ "Version 1 - Olivander", "p5.html#ver1", [
         [ "Version 1.0e - I ate the alpha-cookie :D [~130m]", "p5.html#su1", null ],
         [ "Version 1.1b - Hello Slave [~70m]", "p5.html#su2", null ],
-        [ "Version 1.2e - On your command, master [~100m]", "p5.html#su3", null ]
+        [ "Version 1.2e - On your command, master [~100m]", "p5.html#su3", null ],
+        [ "Version 1.3g - Make this safe!", "p5.html#su4", null ]
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],
     [ "Todo List", "todo.html", null ],
+    [ "Examples", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

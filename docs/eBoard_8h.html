@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -126,11 +128,12 @@ $(document).ready(function(){initNavTree('eBoard_8h.html','');});
 <div class="textblock"><code>#include &quot;Arduino.h&quot;</code><br />
 <code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;avr/interrupt.h&gt;</code><br />
+<code>#include &lt;avr/wdt.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for eBoard.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="eBoard_8h__incl.svg" width="399" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="eBoard_8h__incl.svg" width="499" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="eBoard_8h_source.html">Go to the source code of this file.</a></p>
@@ -138,7 +141,8 @@ Include dependency graph for eBoard.h:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structServoCds55.html">ServoCds55</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[SPI] This is used to communicate with the smart servo shield  <a href="structServoCds55.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[SPI] This is used to communicate with the smart servo shield <br />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <b>Don't use manually</b>  <a href="structServoCds55.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSoccerBoard.html">SoccerBoard</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[COPY&amp;PASTE] This is the <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> ghost struct :D  <a href="structSoccerBoard.html#details">More...</a><br /></td></tr>
@@ -166,6 +170,12 @@ Macros</h2></td></tr>
 <tr class="separator:abb24d7ee5b65e44b961cba7186cc5ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf57ef5be6e1891dbe06d2233d8575d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a>&#160;&#160;&#160;0x1</td></tr>
 <tr class="separator:acf57ef5be6e1891dbe06d2233d8575d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f16e9572527274c376a2a369915ea51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a9f16e9572527274c376a2a369915ea51">REPT_TASK</a></td></tr>
+<tr class="separator:a9f16e9572527274c376a2a369915ea51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf42623921c4853f2e40a168b3b6ea81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#abf42623921c4853f2e40a168b3b6ea81">__AVR_ATmega2560__</a></td></tr>
+<tr class="separator:abf42623921c4853f2e40a168b3b6ea81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2464d5866ae72bdc91c0e47e15c5c322"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a2464d5866ae72bdc91c0e47e15c5c322">__AVR_ATmega328P__</a></td></tr>
+<tr class="separator:a2464d5866ae72bdc91c0e47e15c5c322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e97f3782107649d3e4eb3875090b3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>&#160;&#160;&#160;<a class="el" href="eBoard_8h.html#a3161479854ea3c6efccc25dfb4f83a99">eVirtual_main</a></td></tr>
 <tr class="separator:aa4e97f3782107649d3e4eb3875090b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9576a738d44de713d21e71123b5ee344"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a9576a738d44de713d21e71123b5ee344">EBOARD_DEBUG_MODE</a>&#160;&#160;&#160;0x1</td></tr>
@@ -186,6 +196,10 @@ Macros</h2></td></tr>
 <tr class="separator:aa3b98de0551fc7154d125da50865d539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c1a88f38da45b69ecf6461a3bad667f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a9c1a88f38da45b69ecf6461a3bad667f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbec632cd64539f26aaeb1bc68948749"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a>&#160;&#160;&#160;0x1</td></tr>
+<tr class="separator:afbec632cd64539f26aaeb1bc68948749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb888e82f2423b0e0dfef28e4337c9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a>&#160;&#160;&#160;0x1</td></tr>
+<tr class="separator:a4cb888e82f2423b0e0dfef28e4337c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51c325bd8d1f4fa9fd1d8db16a52fa52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLUETOOTH_STATE</a>&#160;&#160;&#160;0x2</td></tr>
 <tr class="separator:a51c325bd8d1f4fa9fd1d8db16a52fa52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89aeef1315893831a4aa3841884b15a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a>&#160;&#160;&#160;0x2</td></tr>
@@ -285,6 +299,7 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a18b2173216a21396bf85ab1cb382d7ba"><td class="memItemLeft" align="right" valign="top">SoftwareSerial&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a18b2173216a21396bf85ab1cb382d7ba">_serial</a> (0x2, 0x3)</td></tr>
+<tr class="memdesc:a18b2173216a21396bf85ab1cb382d7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the recomenned-to-use _serial object for bluetooth communcation :D  <a href="#a18b2173216a21396bf85ab1cb382d7ba">More...</a><br /></td></tr>
 <tr class="separator:a18b2173216a21396bf85ab1cb382d7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7109653e8639e76fca829933181ad2af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a7109653e8639e76fca829933181ad2af">__assert</a> (const char *__func, const char *__file, <a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> __lineno, const char *__sexp)</td></tr>
 <tr class="memdesc:a7109653e8639e76fca829933181ad2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">[DEBUG_MODE] custom assert message  <a href="#a7109653e8639e76fca829933181ad2af">More...</a><br /></td></tr>
@@ -353,6 +368,9 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ae72a810f4976962c2cafb810b17ae158"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#ae72a810f4976962c2cafb810b17ae158">STOP</a> = false</td></tr>
+<tr class="memdesc:ae72a810f4976962c2cafb810b17ae158"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will end any loop done by eBoard  <a href="#ae72a810f4976962c2cafb810b17ae158">More...</a><br /></td></tr>
+<tr class="separator:ae72a810f4976962c2cafb810b17ae158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a677f16c8412ad8289a5ffba425c94e85"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a677f16c8412ad8289a5ffba425c94e85">pin_out</a> = 0x0</td></tr>
 <tr class="separator:a677f16c8412ad8289a5ffba425c94e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aff27155409ec07c1787da96f2e2478"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a1aff27155409ec07c1787da96f2e2478">pin_in</a> = 0x0</td></tr>
@@ -363,16 +381,14 @@ Variables</h2></td></tr>
 <tr class="memitem:a7dbb2f6e99e0eda923f12e97aeaa1238"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a7dbb2f6e99e0eda923f12e97aeaa1238">_pwmValue</a> = 0x0</td></tr>
 <tr class="separator:a7dbb2f6e99e0eda923f12e97aeaa1238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a176c8fd69620a612067a5a2f3adc7f21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structServoCds55.html">ServoCds55</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a></td></tr>
-<tr class="memdesc:a176c8fd69620a612067a5a2f3adc7f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the "to_use" instance of <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield ">ServoCds55</a>  <a href="#a176c8fd69620a612067a5a2f3adc7f21">More...</a><br /></td></tr>
+<tr class="memdesc:a176c8fd69620a612067a5a2f3adc7f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the "to_use" instance of <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Don&#39;t use manually ...">ServoCds55</a>  <a href="#a176c8fd69620a612067a5a2f3adc7f21">More...</a><br /></td></tr>
 <tr class="separator:a176c8fd69620a612067a5a2f3adc7f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">EagleoutIce 2018 IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS <br />
  </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><ol type="1">
-<li>test position-ranges for smart-servo-shield control </li>
+<li>LCd support </li>
 </ol>
-<p class="">2. bluetooth connection Serial [2biF] </p>
-<p class="enddd">3. LCd support </p>
 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
@@ -390,7 +406,41 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>[DEBUG_MODE] enables to use custom assert output </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00524">524</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00604">604</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="abf42623921c4853f2e40a168b3b6ea81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf42623921c4853f2e40a168b3b6ea81">&#9670;&nbsp;</a></span>__AVR_ATmega2560__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __AVR_ATmega2560__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>This is the Macro that will be defined automatically by the ARUDINO IDE if you compile this program for an ARDUINO MEGA 2560 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00376">376</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a2464d5866ae72bdc91c0e47e15c5c322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2464d5866ae72bdc91c0e47e15c5c322">&#9670;&nbsp;</a></span>__AVR_ATmega328P__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __AVR_ATmega328P__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>This is the Macro that will be defined automatically by the ARUDINO IDE if you compile this program for an ARDUINO UNO R3 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00380">380</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +458,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01317">1317</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01404">1404</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +476,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01315">1315</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01402">1402</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -444,7 +494,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01321">1321</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01408">1408</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -462,7 +512,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01319">1319</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01406">1406</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -478,7 +528,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00320">320</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00355">355</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +546,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01325">1325</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01412">1412</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +564,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01323">1323</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01410">1410</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +582,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01339">1339</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01426">1426</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -550,7 +600,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01341">1341</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01428">1428</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -568,7 +618,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01345">1345</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01432">1432</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -586,7 +636,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01343">1343</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01430">1430</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -604,7 +654,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01329">1329</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01416">1416</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -622,7 +672,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01327">1327</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01414">1414</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -640,7 +690,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01299">1299</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01386">1386</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -658,7 +708,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01301">1301</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01388">1388</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -676,7 +726,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01303">1303</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01390">1390</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -694,7 +744,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01305">1305</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01392">1392</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -712,7 +762,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01307">1307</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01394">1394</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -730,7 +780,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01313">1313</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01400">1400</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -748,7 +798,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01309">1309</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01396">1396</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -766,7 +816,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01311">1311</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01398">1398</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -783,7 +833,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>This will appear as 0x1 in the docs but the real default value is 0x0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00332">332</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00367">367</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -800,7 +850,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is a copy and paste guard to check if the pins used are still in Bound... it was designed for digital pins and shouldnt be disabled </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00371">371</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00431">431</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -817,7 +867,24 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this should be disabled when reaching RELEASED-state. This will check if an PWM-controlled pin is really capable of HPWM ^^ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00386">386</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00446">446</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="afbec632cd64539f26aaeb1bc68948749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbec632cd64539f26aaeb1bc68948749">&#9670;&nbsp;</a></span>EBOARD_CLAMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EBOARD_CLAMP&#160;&#160;&#160;0x1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>set this to 0x0 to disable clamp </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00508">508</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -834,7 +901,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>just don't disable it </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00419">419</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00479">479</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -851,7 +918,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>you should definitly set EBOARD_DEBUG_MODE to 0x0 when completed developing. This will shrink the size of the program :D </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00364">364</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00424">424</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -868,7 +935,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this sets the speed of the Serial connection.... you probably don't need to change this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00398">398</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00458">458</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -885,7 +952,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>This will appear as 0x1 in the docs but the real default value is 0x0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00324">324</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00359">359</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -902,7 +969,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>duty cycle for async task execution... should be higher than 1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00426">426</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00486">486</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -919,7 +986,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>This will appear as 0x1 in the docs but the real default value is 0x0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00328">328</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00363">363</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -936,7 +1003,24 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this sets the amount of connected servos to the shield </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00405">405</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00465">465</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a4cb888e82f2423b0e0dfef28e4337c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb888e82f2423b0e0dfef28e4337c9a">&#9670;&nbsp;</a></span>EBOARD_USE_RESET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EBOARD_USE_RESET&#160;&#160;&#160;0x1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>set this to 0x0 to disable software reset </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00515">515</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -953,7 +1037,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this has to be enabled to use the shield </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00392">392</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00452">452</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -970,7 +1054,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this will remove multiple wrapper from compile-segment. Probably <em>won't</em> change program size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00412">412</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00472">472</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -988,7 +1072,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01337">1337</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01424">1424</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1006,7 +1090,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01335">1335</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01422">1422</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1107,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>This is used for copy_and_paste and renames the copied main-method </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00340">340</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00388">388</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1040,7 +1124,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the RX-Pin reserved for bluetooth communictaion </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00459">459</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00533">533</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1141,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the STATE PIN. If it is equal to the <a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> it won't be used! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00452">452</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00526">526</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1074,7 +1158,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the TX-Pin reserved for bluetooth communictaion </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00466">466</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00540">540</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1091,7 +1175,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the DiOut pin reserved to control the dir of the main motor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00473">473</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00547">547</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1192,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the DiOut FAST_PWM [~1kHz] pin reserved to control the dir of the main motor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00480">480</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00554">554</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1125,7 +1209,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the clock pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00489">489</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00563">563</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1226,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the data pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00496">496</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00570">570</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1159,7 +1243,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the latch pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00503">503</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00577">577</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1177,7 +1261,7 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01333">1333</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01420">1420</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1195,7 +1279,24 @@ Variables</h2></td></tr>
 
 <p><a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> servant. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01331">1331</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01418">1418</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f16e9572527274c376a2a369915ea51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f16e9572527274c376a2a369915ea51">&#9670;&nbsp;</a></span>REPT_TASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REPT_TASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>This constant won't be defined by default :D </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00371">371</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1313,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00357">357</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00417">417</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1301,6 +1402,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this is the recomenned-to-use _serial object for bluetooth communcation :D </p>
+<p class="">The used pins are based on <a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> and PIN_BLUETOOTH_TX </p>
 
 </div>
 </div>
@@ -1621,7 +1725,6 @@ if <a class="el" href="eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLU
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>write a global BREAK To stop while loops </dd></dl>
 
 </div>
 </div>
@@ -2075,7 +2178,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>this is the current to-write PWM value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00840">840</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00919">919</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -2091,9 +2194,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>this is the "to_use" instance of <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield ">ServoCds55</a> </p>
+<p>this is the "to_use" instance of <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Don&#39;t use manually ...">ServoCds55</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01103">1103</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01185">1185</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -2110,7 +2213,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>[COPY&amp;PASTE] [CHECK_PINS] bool set of already declared INPUT pins </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00621">621</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00701">701</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -2127,7 +2230,34 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>[COPY&amp;PASTE] [CHECK_PINS] bool set of already declared OUTPUT pins </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00617">617</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00697">697</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="ae72a810f4976962c2cafb810b17ae158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72a810f4976962c2cafb810b17ae158">&#9670;&nbsp;</a></span>STOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool STOP = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this will end any loop done by eBoard </p>
+<dl class="section note"><dt>Note</dt><dd>you can manipulate this with <a class="el" href="eBoard_8h.html#a9f16e9572527274c376a2a369915ea51">REPT_TASK</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00409">409</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -2145,7 +2275,7 @@ template&lt;typename T &gt; </div>
 
 <p>[SHIFT] Manipulate me to set Pins via bitSet operations </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00809">809</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00888">888</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -2156,7 +2286,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="eBoard_8h.html">eBoard.h</a></li>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

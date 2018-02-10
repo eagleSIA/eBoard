@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -99,7 +101,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
-      <li class="current"><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li class="current"><a href="#index_r"><span>r</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -139,6 +142,12 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 <h3><a id="index__"></a>- _ -</h3><ul>
 <li>__ASSERT_USE_STDERR
 : <a class="el" href="eBoard_8h.html#a412557130ca57a31095a506f4535b5fe">eBoard.h</a>
+</li>
+<li>__AVR_ATmega2560__
+: <a class="el" href="eBoard_8h.html#abf42623921c4853f2e40a168b3b6ea81">eBoard.h</a>
+</li>
+<li>__AVR_ATmega328P__
+: <a class="el" href="eBoard_8h.html#a2464d5866ae72bdc91c0e47e15c5c322">eBoard.h</a>
 </li>
 </ul>
 
@@ -228,6 +237,9 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 <li>EBOARD_CHECK_PINS_PWM
 : <a class="el" href="eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119">eBoard.h</a>
 </li>
+<li>EBOARD_CLAMP
+: <a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">eBoard.h</a>
+</li>
 <li>EBOARD_COPY_AND_PASTE
 : <a class="el" href="eBoard_8h.html#aa3b98de0551fc7154d125da50865d539">eBoard.h</a>
 </li>
@@ -248,6 +260,9 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 </li>
 <li>EBOARD_SPI_SERVO_MAX
 : <a class="el" href="eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43">eBoard.h</a>
+</li>
+<li>EBOARD_USE_RESET
+: <a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">eBoard.h</a>
 </li>
 <li>EBOARD_USE_SPI
 : <a class="el" href="eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713">eBoard.h</a>
@@ -307,13 +322,20 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 : <a class="el" href="eBoard_8h.html#a6e20dff41fbcc35133f54db161cca0f9">eBoard.h</a>
 </li>
 </ul>
+
+
+<h3><a id="index_r"></a>- r -</h3><ul>
+<li>REPT_TASK
+: <a class="el" href="eBoard_8h.html#a9f16e9572527274c376a2a369915ea51">eBoard.h</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

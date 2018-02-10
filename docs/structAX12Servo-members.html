@@ -26,6 +26,7 @@
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -33,9 +34,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ohnezahn.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">eBoard
+   <div id="projectname"><font color="#e868e8">eBoard</font>
    &#160;<span id="projectnumber">id: 189</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,6 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Examples</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -121,8 +123,8 @@ $(document).ready(function(){initNavTree('structAX12Servo.html','');});
 
 <p>This is the complete list of members for <a class="el" href="structAX12Servo.html">AX12Servo</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#ad266df435f74f9a9a4fac863b8bdc57a">actPos</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structAX12Servo.html#a72586abfefabde5178592c06868326d8">actSpe</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a64c8a352b8ffd91849dcb8e16bb98c8c">actPos</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structAX12Servo.html#a9b7b17461cac167293f8b3e075f773fa">actSpe</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a632577b2931f3312dc0f242b53331aac">AX12Servo</a>(void)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="structAX12Servo.html#a08e52255e33a78d8a3e773dd46e903d4">AX12Servo</a>(DynamixelBoard dBoard, optVAL_t servoID)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#ad5cdfcbff1f77985e939ba4988fb78ad">changeMotorID</a>(optVAL_t newID)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -132,21 +134,21 @@ $(document).ready(function(){initNavTree('structAX12Servo.html','');});
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a773e15c74df00d88e57364da466645a9">ledOff</a>(void)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="structAX12Servo.html#a38eb04b3fce092ada19c1413fb6ac0b6">ledOn</a>(void)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a">setID</a>(optVAL_t newID)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structAX12Servo.html#ae32153bcc3e9d63591e205ecf564a0d0">setPosition</a>(optVAL_t pos, optVAL_t speed=0x96)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structAX12Servo.html#a7b242be4e26737cb9e3a4c6809a3cf29">setPosition</a>(uint16_t pos, uint16_t speed=0x3FF)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#ad87d3cc9e6c4090591e80978a785c70b">setPositionMode</a>(void)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="structAX12Servo.html#a616d5d693fcd7a106228fbe46dc13887">setSpeed</a>(optVAL_t)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a0a529574cd452a8e8d87b8368e3bd2fa">setSpeedMode</a>(void)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="structAX12Servo.html#ae30eb5190a1c7c6c456fab20056fe6e2">setTorque</a>(uint16_t)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a9f6d8f378c9db6ce245cd8fca2f88793">storedPos</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structAX12Servo.html#ab3f39f0d3020cd38aeb0d2dcf313c261">storedSpe</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a137cb183d21abf5959dfbcb236ee92fe">storePosition</a>(optVAL_t pos, optVAL_t speed=0x96)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a7f450127a38d47a88a1e65f160b54da7">storedPos</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structAX12Servo.html#aae02a55fa52dc7ba3110b5d4b030e864">storedSpe</a></td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structAX12Servo.html#a6a87ff6b4c1abce86258e50c039348c3">storePosition</a>(uint16_t pos, uint16_t speed=0x3FF)</td><td class="entry"><a class="el" href="structAX12Servo.html">AX12Servo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 7.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
   </ul>
 </div>
 </body>

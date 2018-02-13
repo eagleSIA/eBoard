@@ -23,7 +23,7 @@ for the JavaScript code in this file
 */
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
-{text:"Related Pages",url:"pages.html"},
+{text:"Pages",url:"pages.html"},
 {text:"Examples",url:"modules.html"},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
@@ -65,10 +65,12 @@ var menudata={children:[
 {text:"All",url:"globals.html",children:[
 {text:"_",url:"globals.html#index__"},
 {text:"a",url:"globals.html#index_a"},
+{text:"b",url:"globals.html#index_b"},
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
 {text:"f",url:"globals.html#index_f"},
+{text:"h",url:"globals.html#index_h"},
 {text:"i",url:"globals.html#index_i"},
 {text:"l",url:"globals.html#index_l"},
 {text:"m",url:"globals.html#index_m"},
@@ -87,6 +89,8 @@ var menudata={children:[
 {text:"d",url:"globals_defs.html#index_d"},
 {text:"e",url:"globals_defs.html#index_e"},
 {text:"f",url:"globals_defs.html#index_f"},
+{text:"h",url:"globals_defs.html#index_h"},
+{text:"l",url:"globals_defs.html#index_l"},
 {text:"m",url:"globals_defs.html#index_m"},
 {text:"p",url:"globals_defs.html#index_p"},
 {text:"r",url:"globals_defs.html#index_r"}]}]}]}]}

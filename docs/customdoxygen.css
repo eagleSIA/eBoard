@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1.glow, h2.glow, h3.glow, h4.glow, h5.glow, h6.glow {
-	text-shadow: 0 0 15px cyan;
+	text-shadow: 0 0 15px #DF75BC;
 }
 
 dt {
@@ -162,11 +162,11 @@ a.elRef {
 }
 
 a.code, a.code:visited, a.line, a.line:visited {
-	color: #4665A2; 
+	color: #A6267B; 
 }
 
 a.codeRef, a.codeRef:visited, a.lineRef, a.lineRef:visited {
-	color: #4665A2; 
+	color: #A6267B; 
 }
 
 /* @end */
@@ -187,7 +187,7 @@ ul {
 }
 
 pre.fragment {
-        border: 1px solid #C4CFE5;
+        border: 1px solid #faceeb;
         background-color: #FBFCFD;
         padding: 4px 6px;
         margin: 4px 8px 4px 2px;
@@ -239,15 +239,15 @@ div.line:after {
 }
 
 div.line.glow {
-	background-color: cyan;
-	box-shadow: 0 0 10px cyan;
+	background-color: #E695CB;
+	box-shadow: 0 0 10px #E695CB;
 }
 
 
 span.lineno {
 	padding-right: 4px;
 	text-align: right;
-	border-right: 2px solid #0F0;
+	border-right: 2px solid #E695CB;
 	background-color: #E8E8E8;
         white-space: pre;
 }
@@ -375,31 +375,32 @@ img.footer {
 /* @group Code Colorization */
 
 span.keyword {
-	color: #008000
+	color: #ff2f74d0
 }
 
 span.keywordtype {
-	color: #604020
+        color: #d80065;
+        font-weight: medium;
 }
 
 span.keywordflow {
-	color: #e08000
+	color: #ff00a2
 }
 
 span.comment {
-	color: #800000
+	color: #928b92
 }
 
 span.preprocessor {
-	color: #806020
+	color: #575270
 }
 
 span.stringliteral {
-	color: #002080
+	color: #80001c
 }
 
 span.charliteral {
-	color: #008080
+	color: #ff0037
 }
 
 span.vhdldigit { 
@@ -415,7 +416,7 @@ span.vhdlkeyword {
 }
 
 span.vhdllogic { 
-	color: #ff0000 
+	color: #002249 
 }
 
 blockquote {
@@ -427,7 +428,7 @@ blockquote {
 
 blockquote.DocNodeRTL {
    border-left: 0;
-   border-right: 2px solid #9CAFD4;
+   border-right: 2px solid #E695CB;
    margin: 0 4px 0 24px;
    padding: 0 16px 0 12px;
 }
@@ -499,8 +500,8 @@ table.memberdecls {
 }
 
 .memberdecls td.glow, .fieldtable tr.glow {
-	background-color: cyan;
-	box-shadow: 0 0 15px cyan;
+	background-color: #E695CB;
+	box-shadow: 0 0 15px #E695CB;
 }
 
 .mdescLeft, .mdescRight,
@@ -601,7 +602,7 @@ table.memberdecls {
 }
 
 .memitem.glow {
-         box-shadow: 0 0 15px cyan;
+         box-shadow: 0 0 15px #E695CB;
 }
 
 .memname {
@@ -681,7 +682,7 @@ dl.reflist dd {
 }
 
 .paramname {
-	color: #602020;
+	color: #601178;
 	white-space: nowrap;
 }
 .paramname em {
@@ -1137,7 +1138,7 @@ dl.note {
   margin-left: -7px;
   padding-left: 3px;
   border-left: 4px solid;
-  border-color: #D0C000;
+  border-color: #00d080;
 }
 
 dl.note.DocNodeRTL {
@@ -1147,14 +1148,14 @@ dl.note.DocNodeRTL {
   margin-right: -7px;
   padding-right: 3px;
   border-right: 4px solid;
-  border-color: #D0C000;
+  border-color: #00d080;
 }
 
 dl.warning, dl.attention {
   margin-left: -7px;
   padding-left: 3px;
   border-left: 4px solid;
-  border-color: #FF0000;
+  border-color: #af006c;
 }
 
 dl.warning.DocNodeRTL, dl.attention.DocNodeRTL {
@@ -1164,14 +1165,14 @@ dl.warning.DocNodeRTL, dl.attention.DocNodeRTL {
   margin-right: -7px;
   padding-right: 3px;
   border-right: 4px solid;
-  border-color: #FF0000;
+  border-color: #af006c;
 }
 
 dl.pre, dl.post, dl.invariant {
   margin-left: -7px;
   padding-left: 3px;
   border-left: 4px solid;
-  border-color: #00D000;
+  border-color: #ffee00;
 }
 
 dl.pre.DocNodeRTL, dl.post.DocNodeRTL, dl.invariant.DocNodeRTL {
@@ -1181,7 +1182,7 @@ dl.pre.DocNodeRTL, dl.post.DocNodeRTL, dl.invariant.DocNodeRTL {
   margin-right: -7px;
   padding-right: 3px;
   border-right: 4px solid;
-  border-color: #00D000;
+  border-color: #00d080;
 }
 
 dl.deprecated {
@@ -1205,7 +1206,7 @@ dl.todo {
   margin-left: -7px;
   padding-left: 3px;
   border-left: 4px solid;
-  border-color: #00C0E0;
+  border-color: #006db6;
 }
 
 dl.todo.DocNodeRTL {
@@ -1215,7 +1216,7 @@ dl.todo.DocNodeRTL {
   margin-right: -7px;
   padding-right: 3px;
   border-right: 4px solid;
-  border-color: #00C0E0;
+  border-color: #006db6;
 }
 
 dl.test {
@@ -1239,7 +1240,7 @@ dl.bug {
   margin-left: -7px;
   padding-left: 3px;
   border-left: 4px solid;
-  border-color: #C08050;
+  border-color: #ff6f00;
 }
 
 dl.bug.DocNodeRTL {
@@ -1249,7 +1250,7 @@ dl.bug.DocNodeRTL {
   margin-right: -7px;
   padding-right: 3px;
   border-right: 4px solid;
-  border-color: #C08050;
+  border-color: #ff6f00;
 }
 
 dl.section dd {
@@ -1276,7 +1277,7 @@ dl.section dd {
 
 #projectname
 {
-	font: 217% Lato Thin, Arial,bold;
+	font: 217% Lato Thin, Arial,sans-serif;
 	margin: 0px;
 	color: #000000;
 	padding: 2px 0px;
@@ -1284,7 +1285,7 @@ dl.section dd {
     
 #projectbrief
 {
-	font: 120% Tahoma, Arial,italic;
+	font: 70% Tahoma, Arial,italic;
 	margin: 0px;
 	color: #808080;
 	padding: 0px;
@@ -1292,7 +1293,7 @@ dl.section dd {
 
 #projectnumber
 {
-	font: 50% Tahoma, Arial,sans-serif;
+	font: 50% Lato, Arial,sans-serif;
 	margin: 0px;
 	padding: 0px;
 }

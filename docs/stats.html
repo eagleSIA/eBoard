@@ -36,8 +36,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard</font>
-   &#160;<span id="projectnumber">id: 189</span>
+   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
   </td>
@@ -55,7 +55,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Pages</span></a></li>
       <li><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -119,19 +119,30 @@ $(document).ready(function(){initNavTree('stats.html','');});
 <h1><a class="anchor" id="ss1"></a>
 1 Occupied Space</h1>
 <p class="">Because everyone loves statistics♥:</p>
-<dl class="section note"><dt>Note</dt><dd>Development Build: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>Development Build: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line">[VER 2.0c]</div><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task (<span class="keywordtype">void</span>) {}</div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd>
 <dd>
 Release Build: </dd>
 <dd>
-removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><div class="line"><span class="preprocessor">#define IGNORE_SIZE</span></div><div class="line"><span class="preprocessor">#define EBOARD_USE_UTILITY 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS_PWM 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div></div><!-- fragment --></dd></dl>
+removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><div class="line"><span class="preprocessor">#define IGNORE_SIZE</span></div><div class="line"><span class="preprocessor">#define EBOARD_USE_UTILITY 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS_PWM 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line">[VER 2.0c]</div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
 <h2><a class="anchor" id="ssu1"></a>
 1.1 Empty program</h2>
 <dl class="section note"><dt>Note</dt><dd>Used: <div class="fragment"><div class="line">[...]</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {<span class="keywordflow">return</span> 0;}</div></div><!-- fragment --></dd></dl>
 <p>Following results: <br />
- [Version: 1.2a] <br />
+ <b> [Version: 1.2a] </b> <br />
  [Dev]: 'Binäre Sketchgröße: 6.994 Bytes (von einem Maximum von 32.256 Bytes)' <br />
  [Rel]: 'Binäre Sketchgröße: 3.264 Bytes (von einem Maximum von 32.256 Bytes)' <br />
- </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>renew for newer version [Stats for other releases will be evaluated asap] </dd></dl>
+ <br />
+ <b> [Version: 2.0c] </b> <br />
+ [Dev]: 'Binäre Sketchgröße: 7.530 Bytes (von einem Maximum von 32.256 Bytes)' <br />
+ [Rel]: 'Binäre Sketchgröße: 3.770 Bytes (von einem Maximum von 32.256 Bytes)' <br />
+ </p>
+<h2><a class="anchor" id="ssu2"></a>
+1.2 Output to an OLED-Display</h2>
+<dl class="section note"><dt>Note</dt><dd>Used Code: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><a class="code" href="structLCD.html">LCD</a> lcd(board);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    lcd.print(<span class="stringliteral">&quot;Hallo Welt&quot;</span>); <span class="comment">//Actually there is no println! =&gt; shame</span></div><div class="line">    lcd.print(<span class="stringliteral">&quot;Scheint die Sonne?&quot;</span>);</div><div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2000; i++){</div><div class="line">        lcd.print(i);</div><div class="line">        board.<a class="code" href="structSoccerBoard.html#a52bcbb2cc7e2d56ee0b0deff26a45b49">msleep</a>(100);</div><div class="line">        lcd.clear();</div><div class="line">        board.<a class="code" href="structSoccerBoard.html#a52bcbb2cc7e2d56ee0b0deff26a45b49">msleep</a>(100);</div><div class="line">    }</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --></dd></dl>
+<p>Following results: <br />
+ <b> [Version: 2.0c] </b> <br />
+ [SAM]: 'Binäre Sketchgröße: 7.716 Bytes (von einem Maximum von 32.256 Bytes)' <br />
+</p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -139,7 +150,7 @@ removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><d
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
   </ul>
 </div>
 </body>

@@ -36,8 +36,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard</font>
-   &#160;<span id="projectnumber">id: 189</span>
+   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
   </td>
@@ -55,7 +55,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
       <li><a href="modules.html"><span>Examples</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -186,8 +186,20 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>changeAddress()
 : <a class="el" href="structI2CInOut.html#ac521401621b0e515b87f2ca269d167e5">I2CInOut</a>
 </li>
+<li>changeBackground()
+: <a class="el" href="structLCD.html#a3e929ea3ff4b7e62a482ad28c10f091a">LCD</a>
+</li>
+<li>changeBrightness()
+: <a class="el" href="structLCD.html#a75cacb94de3b3ff71e9a4497b5cc4a81">LCD</a>
+</li>
 <li>changeId()
 : <a class="el" href="structDynamixelBoard.html#a2a5f04581a43485266464a29c3f23cff">DynamixelBoard</a>
+</li>
+<li>changeID()
+: <a class="el" href="structLCD.html#aa5e25fef7649532af402df06f05b6d4c">LCD</a>
+</li>
+<li>changeMode()
+: <a class="el" href="structLCD.html#a485213a4d8fd3430c09486d302030add">LCD</a>
 </li>
 <li>changeModes()
 : <a class="el" href="structI2CInOut.html#af97125d8c60cbede65bb08437a1e7aa3">I2CInOut</a>
@@ -198,6 +210,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>channel()
 : <a class="el" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">RB14Scan</a>
+</li>
+<li>clear()
+: <a class="el" href="structLCD.html#ad3120f397273bac2ad60e0291554b9e6">LCD</a>
 </li>
 <li>connected
 : <a class="el" href="structDynamixelBoard.html#a4f7fc4f15083c565173a29bbdca5ad1f">DynamixelBoard</a>
@@ -211,6 +226,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>digital()
 : <a class="el" href="structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5">SoccerBoard</a>
+</li>
+<li>drawBitmap()
+: <a class="el" href="structLCD.html#ab8571092d08ec9247e2f025ebc9d13dd">LCD</a>
 </li>
 <li>DynamixelBoard()
 : <a class="el" href="structDynamixelBoard.html#ad47e8beb1be07c2e245ef05ea3c7cb3f">DynamixelBoard</a>
@@ -232,6 +250,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>id
 : <a class="el" href="structAX12Servo.html#a92165b8fef8c2be2f0e969f34145938e">AX12Servo</a>
 </li>
+<li>ID
+: <a class="el" href="structLCD.html#a65dc1d312b581121a2f859e323c26337">LCD</a>
+</li>
+<li>init()
+: <a class="el" href="structLCD.html#a632d9c641930fe16c0b623b82136196e">LCD</a>
+</li>
 <li>isMoving()
 : <a class="el" href="structAX12Servo.html#a8eb518460ee42716f8801c47295783e0">AX12Servo</a>
 </li>
@@ -239,8 +263,11 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>LCD()
+: <a class="el" href="structLCD.html#ad9f2d73441bde885fc34b567738c73fb">LCD</a>
+</li>
 <li>led()
-: <a class="el" href="structSoccerBoard.html#a4ae5d7cb22667a1e91ee52539a8c7742">SoccerBoard</a>
+: <a class="el" href="structSoccerBoard.html#a01ff8231432776da9e5e5e1c05257606">SoccerBoard</a>
 </li>
 <li>ledMeter()
 : <a class="el" href="structSoccerBoard.html#a978649a6b3089e6215da01b0f87ee3f1">SoccerBoard</a>
@@ -248,15 +275,21 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>ledOff()
 : <a class="el" href="structAX12Servo.html#a773e15c74df00d88e57364da466645a9">AX12Servo</a>
 , <a class="el" href="structDynamixelBoard.html#a865165161b96b0bc6b5df46bfd4e3780">DynamixelBoard</a>
-, <a class="el" href="structSoccerBoard.html#ad94a7db49aeda88931e37837d1e264df">SoccerBoard</a>
+, <a class="el" href="structSoccerBoard.html#af358ec89f0eab4a87b00959dc54f3e16">SoccerBoard</a>
 </li>
 <li>ledOn()
 : <a class="el" href="structAX12Servo.html#a38eb04b3fce092ada19c1413fb6ac0b6">AX12Servo</a>
 , <a class="el" href="structDynamixelBoard.html#aae5f709212aeb7177af44d2adc860d21">DynamixelBoard</a>
-, <a class="el" href="structSoccerBoard.html#ac9faf1d97e595e1612e3cd6b8c3baf73">SoccerBoard</a>
+, <a class="el" href="structSoccerBoard.html#abaefeaaf5c0ea659dce35903284ee577">SoccerBoard</a>
 </li>
 <li>ledsOff()
 : <a class="el" href="structSoccerBoard.html#a80d7f7690654433e3253f6924eb1164d">SoccerBoard</a>
+</li>
+<li>lightOff()
+: <a class="el" href="structLCD.html#a3f437907a543226be7c527a2d304ad95">LCD</a>
+</li>
+<li>lightOn()
+: <a class="el" href="structLCD.html#aa4c1e7d41ca93af28769aaba704d5c1f">LCD</a>
 </li>
 </ul>
 
@@ -284,6 +317,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>powerOn()
 : <a class="el" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f">SoccerBoard</a>
 </li>
+<li>print()
+: <a class="el" href="structLCD.html#aa9c5618ffc1c26d568cc090f5f8ca026">LCD</a>
+</li>
+<li>pX
+: <a class="el" href="structLCD.html#a0b9ca6a9475933ad8da45315fe74693f">LCD</a>
+</li>
+<li>pY
+: <a class="el" href="structLCD.html#afb51248bd06d7ccd87ba5f4eac99ede2">LCD</a>
+</li>
 </ul>
 
 
@@ -296,6 +338,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>read()
 : <a class="el" href="structI2CInOut.html#a5446f02a6b5cb6a2e47dc3af03d4a692">I2CInOut</a>
+</li>
+<li>reset()
+: <a class="el" href="structLCD.html#a7912ad9a12d649cdec2dd53ae893a8ce">LCD</a>
 </li>
 <li>Reset()
 : <a class="el" href="structServoCds55.html#a0938b600a10dc996457162e20ec5388b">ServoCds55</a>
@@ -310,11 +355,23 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>s1Cmd()
+: <a class="el" href="structLCD.html#ab65995b7a57e37d4dee243eb2a67229e">LCD</a>
+</li>
+<li>s1Dat()
+: <a class="el" href="structLCD.html#ae5873763db265cd00da32664cce88873">LCD</a>
+</li>
+<li>s2Cmd()
+: <a class="el" href="structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229">LCD</a>
+</li>
 <li>sendWait()
 : <a class="el" href="structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3">ServoCds55</a>
 </li>
 <li>ServoCds55()
-: <a class="el" href="structServoCds55.html#aed686a295cc58ce378a8b5a7c2174e6c">ServoCds55</a>
+: <a class="el" href="structServoCds55.html#a5c964af69605c00dfba79bd31e9045a2">ServoCds55</a>
+</li>
+<li>setCursor()
+: <a class="el" href="structLCD.html#ad1a67d455563026a5064ef9cab86ae4d">LCD</a>
 </li>
 <li>setID()
 : <a class="el" href="structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a">AX12Servo</a>
@@ -331,8 +388,8 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>setPositionMode()
 : <a class="el" href="structAX12Servo.html#ad87d3cc9e6c4090591e80978a785c70b">AX12Servo</a>
 </li>
-<li>setPoslimit()
-: <a class="el" href="structServoCds55.html#a3f3715fb4a0f6e5194f0b3c9dd5294bd">ServoCds55</a>
+<li>setPosLimit()
+: <a class="el" href="structServoCds55.html#a8d9267c50ce4c46815a22e22a4e5edc7">ServoCds55</a>
 </li>
 <li>SetServoLimit()
 : <a class="el" href="structServoCds55.html#aed56d4577b7c0b6535758b8b57bdd067">ServoCds55</a>
@@ -407,7 +464,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: SHIFT-Tutorial</title>
+<title>eBoard: [ 🐼 ] SHIFT</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,8 +36,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard</font>
-   &#160;<span id="projectnumber">id: 189</span>
+   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
   </td>
@@ -55,7 +55,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
       <li class="current"><a href="modules.html"><span>Examples</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -110,20 +110,25 @@ $(document).ready(function(){initNavTree('group__shiftEx.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SHIFT-Tutorial</div>  </div>
+<div class="title">[ 🐼 ] SHIFT</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This tutorial tells you how to deal with the Shift extension!  
+<a href="#details">More...</a></p>
+<p class="">This tutorial tells you how to deal with the Shift extension! </p>
 
 
 <h3><a id="shift"></a>SHIFT-Functionality</h3><div class="textblock">A tutorial for the Pin-Extension<dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div></div><!-- fragment --> </dd></dl>
 <h1><a class="anchor" id="pinExt"></a>
 Pin extensions</h1>
-<p class="">It is possible to extend the amount of available pins via SN74HC595 Shift-Registers. Connect them like this: </p><div class="image">
+<p class="">It is possible to extend the amount of available pins via SN74HC595 Shift-Registers. Connect them like this:</p>
+<div class="image">
 <img src="t.png" alt="t.png"/>
 </div>
  <dl class="section note"><dt>Note</dt><dd>it is possible to extend the amount of shiftregisters. This version of eBoard supports up to 32 (64) additional pins. <br />
  But it is possible to connect even more!</dd></dl>
-<p>To assign this pins with the special values you can use the <a class="el" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="Set the state of a certain D-pin. ">SoccerBoard::power()</a> [<a class="el" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f" title="Set the state of a certain D-pin to HIGH. ">SoccerBoard::powerOn()</a>; <a class="el" href="structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd" title="Set the state of a certain D-pin to LOW. ">SoccerBoard::powerOff()</a>] Syntax with pinIDs &gt;99 [100 =&gt; 0 etc.] This is an example-program: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  board.<a class="code" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f">powerOn</a>(100);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p class="">This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.</p>
+<p>To assign this pins with the special values you can use the <a class="el" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="Set the state of a certain D-pin. ">SoccerBoard::power()</a> [<a class="el" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f" title="Set the state of a certain D-pin to HIGH. ">SoccerBoard::powerOn()</a>; <a class="el" href="structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd" title="Set the state of a certain D-pin to LOW. ">SoccerBoard::powerOff()</a>] Syntax with pinIDs &gt;99 [100 =&gt; 0 etc.] This is an example-program: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    board.<a class="code" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f">powerOn</a>(100);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p class="">This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.</p>
 <h1><a class="anchor" id="hs"></a>
 Hardware specific</h1>
 <ul>
@@ -137,7 +142,7 @@ Hardware specific</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
   </ul>
 </div>
 </body>

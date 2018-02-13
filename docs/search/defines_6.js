@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a',1,'eBoard.h']]]
+  ['highspeed',['HIGHSPEED',['../eBoard_8h.html#ab0a1f7733eaf1448e5b3bd9f4771da81',1,'eBoard.h']]]
 ];

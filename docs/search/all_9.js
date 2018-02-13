@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['led',['led',['../structSoccerBoard.html#a4ae5d7cb22667a1e91ee52539a8c7742',1,'SoccerBoard']]],
-  ['ledmeter',['ledMeter',['../structSoccerBoard.html#a978649a6b3089e6215da01b0f87ee3f1',1,'SoccerBoard']]],
-  ['ledoff',['ledOff',['../structSoccerBoard.html#ad94a7db49aeda88931e37837d1e264df',1,'SoccerBoard::ledOff()'],['../structAX12Servo.html#a773e15c74df00d88e57364da466645a9',1,'AX12Servo::ledOff()'],['../structDynamixelBoard.html#a865165161b96b0bc6b5df46bfd4e3780',1,'DynamixelBoard::ledOff()']]],
-  ['ledon',['ledOn',['../structSoccerBoard.html#ac9faf1d97e595e1612e3cd6b8c3baf73',1,'SoccerBoard::ledOn()'],['../structAX12Servo.html#a38eb04b3fce092ada19c1413fb6ac0b6',1,'AX12Servo::ledOn()'],['../structDynamixelBoard.html#aae5f709212aeb7177af44d2adc860d21',1,'DynamixelBoard::ledOn()']]],
-  ['ledsoff',['ledsOff',['../structSoccerBoard.html#a80d7f7690654433e3253f6924eb1164d',1,'SoccerBoard']]],
-  ['loop',['loop',['../eBoard_8h.html#a0b33edabd7f1c4e4a0bf32c67269be2f',1,'eBoard.h']]]
+  ['i2c_2dfunctionality',['I2C-Functionality',['../group__i2cEx.html',1,'']]],
+  ['i2cinout',['I2CInOut',['../structI2CInOut.html',1,'I2CInOut'],['../structI2CInOut.html#a1318322287c3fa9de9c111a64564fd5c',1,'I2CInOut::I2CInOut()']]],
+  ['id',['ID',['../structLCD.html#a65dc1d312b581121a2f859e323c26337',1,'LCD::ID()'],['../structAX12Servo.html#a92165b8fef8c2be2f0e969f34145938e',1,'AX12Servo::id()']]],
+  ['init',['init',['../structLCD.html#a632d9c641930fe16c0b623b82136196e',1,'LCD']]],
+  ['isconnected',['isConnected',['../eBoard_8h.html#a490de796838813d1148e3d684f9c88a0',1,'eBoard.h']]],
+  ['ismoving',['isMoving',['../structAX12Servo.html#a8eb518460ee42716f8801c47295783e0',1,'AX12Servo']]]
 ];

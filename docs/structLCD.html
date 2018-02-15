@@ -215,7 +215,7 @@ Private Attributes</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
 <p>[I2C] [<a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a>] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><a class="code" href="structLCD.html#ad9f2d73441bde885fc34b567738c73fb">LCD</a>(board);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    board.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(2); <span class="comment">// not needed (it&#39;s just funny :P)</span></div><div class="line">    lcd.clear();</div><div class="line">    lcd.print(<span class="stringliteral">&quot;Hallo Mama,\n Wie gehts&#39;?&quot;</span>);</div><div class="line">    lcd.print(2,2,<span class="stringliteral">&quot;-- Gut&quot;</span>);</div><div class="line">    lcd.print(3,0,42);</div><div class="line">}</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>positions will only apply if both of them are smaller as the maximum declared with <a class="el" href="eBoard_8h.html#a53a8b2a971de4b88047192655a48b651">LCD_HEIGHT</a> and <a class="el" href="eBoard_8h.html#a19693eac3018d3e7800fde141921b812">LCD_WIDTH</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02352">2352</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02351">2351</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad9f2d73441bde885fc34b567738c73fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9f2d73441bde885fc34b567738c73fb">&#9670;&nbsp;</a></span>LCD()</h2>
@@ -1033,7 +1033,7 @@ false if there was one of the following errors:<ul>
 
 <p>ID of the Display. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02535">2535</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02534">2534</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1058,10 +1058,10 @@ false if there was one of the following errors:<ul>
 </div><div class="memdoc">
 
 <p>the addressing mode (page/horizontal) </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
 <p>posX </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02531">2531</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02530">2530</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1087,7 @@ false if there was one of the following errors:<ul>
 
 <p>posY </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02533">2533</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l02532">2532</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>

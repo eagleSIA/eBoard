@@ -55,8 +55,8 @@ var NAVTREE =
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],
-    [ "[ 🐲 ] Macros and Constants", "macro.html", null ],
     [ "Todo List", "todo.html", null ],
+    [ "[ 🐲 ] Macros and Constants", "macro.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Tutorials", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [

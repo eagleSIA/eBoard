@@ -2,8 +2,7 @@
 ///IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
 /**
  * @file eBoard.h
- * @todo 1. LCd support
- * @todo 2. Include tuto page port from UNO to MEGA
+ * @todo 1. Include tuto page port from UNO to MEGA
  */
 
 /**
@@ -11,7 +10,8 @@
 
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
- @note This code comes completely wihtout any warranty - no example was tested right now^^
+ 
+ @warning This code comes with absolutely  warranty
 
 
  @pre This Header file was created to port Codes running on the qfix SoccerBoard [DynamixelBoard etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield].
@@ -91,11 +91,13 @@
 
  @warning Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than #EBOARD_PWM_SPE seconds !
 
- @section s3 Examples
+ @section s3 Tutorials
 
- - @ref i2c
- - @ref shift
- - @ref blue
+ - @ref i2cEx
+ - @ref shiftEx
+ - @ref blueEx
+ - @ref lcdEx
+ - @ref portTu
 */
 /**
  @page page1 About
@@ -107,7 +109,7 @@
 
  @section m1 Motivation
  This header was created to port SoccerBoard-Code to the Arduino UNO R3 [or MEGA R3]\n
- It was written in ~300 [v1.2e] minutes and documented by Doxygen 1.8.15. \n
+ It was written in a funny amount of time (@ref p5) and documented by Doxygen 1.8.15. \n
 
 
  @section m2 General Information
@@ -127,6 +129,7 @@
     @warning it's easy to misinterpret this statistics!
      \n eBoard is taking care of many things and only occupying a minimum of space! Most things you would have to write by yourselve otherwise (which may resulted in an even higher amount of used space!)
 
+    @note every test was run with an Arduino UNO R3 It is possible that the code size vary 
 
     @section ss1 1 Occupied Space
 
@@ -140,7 +143,7 @@
     #include <SoftwareSerial.h>
     #define EBOARD_BLUETOOTH 0x1
     #include <SPI.h>
-    [VER 2.0c]
+    //[VER 2.0c]
     #define REPT_TASK
     void rept_task (void) {}
     #define EBOARD_LCD 0x1
@@ -158,7 +161,7 @@
     #include <SoftwareSerial.h>
     #define EBOARD_BLUETOOTH 0x1
     #include <SPI.h>
-    [VER 2.0c]
+    //[VER 2.0c]
     #define EBOARD_LCD 0x1
     @endcode
 
@@ -167,7 +170,7 @@
 
     @note Used:
     @code
-    [...]
+    //[...]
     int main() {return 0;}
     @endcode
 
@@ -262,7 +265,9 @@
 
     + #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
 
-  @subsection su4 Version 1.3g 🐊 - Make this safe!
+  @subsection su4 Version 1.3g 🐊 - Make this safe! [~30m]
+
+  Optimized and added some safety and control features
 
   <b>Changed</b>
 
@@ -280,9 +285,11 @@
 
     + Control over #EBOARD_COPY_AND_PASTE 
 
-  @section ver2 Version 2 - NoName 🐩
+  @section ver2 Version 2 - Scofield 🐩
 
-  @subsection su5 Version 2.0c 🐈 - Facing Interfaces
+  @subsection su5 Version 2.0c 🐈 - Facing Interfaces [~130m]
+
+    Added support for the OLED 128x64 Monochrome Display
 
     <b>Added</b>
       
@@ -294,9 +301,26 @@
 
   @subsection su6 Version 2.1d 🐺 - \#Oversize
 
-  placeholder
-*/
+  Included many Optimizations and fixes
 
+  <b>Added</b>
+      
+    - New statistics
+    - Pre flags
+    - New tutorial stuff
+    - Port-tutorial
+  
+  <b>Changed</b>
+
+    - Cleaned Code (a lot ^^) [with 2.0]
+    - Some tutorial declarations
+    - Serial feature on MEGA R3 [No need for SoftwareSerial anymore :D]
+
+  <b>Fixes</b>
+    - Fixed bug in I2CInOut  (private access failure)
+    - Fixed bug in AX12Servo (double clamp on AX12Servo::storePosition())
+    - Fixed bug of clamp_overflow (no check for in_range and out_range in AX12Servo::setPosition())
+*/
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD
     #define EBOARD_HEADER_GUARD
@@ -371,11 +395,12 @@
     #include <avr/interrupt.h>
     #if (EBOARD_I2C > 0x0) && (EBOARD_LCD > 0x0)
         #include <avr/pgmspace.h>
-        #endif
+    #endif
 
     /**
      * @macro_def this will end any loop done by eBoard 
-     * @note you can manipulate this with #REPT_TASK
+     * @note you can manipulate this with #REPT_TASK 
+     * @note to avoid desync bug this won't stop the nonblocking LCD connection!
      */
     static bool STOP = false;
 
@@ -555,7 +580,7 @@
         #define LOW 0
     #endif
 
-    #if EBOARD_BLUETOOTH > 0x0
+    #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
         /**
          * @brief this is the recomenned-to-use _serial object for bluetooth communcation :D
          * 
@@ -665,7 +690,9 @@
                 @param idx the index of the pin to check
                 @param mode the mode the pin should be checked for
                 
-                🔧 I prevent errors! if the pin is in the requested mode
+                @returns true if the pin is in the requested mode
+                
+                🔧 I prevent errors! 
             */
             inline bool checkPin(optVAL_t idx, optVAL_t mode = OUTPUT);
             ///@cond
@@ -686,7 +713,7 @@
         void setPin(optVAL_t idx, optVAL_t mode){
             #if EBOARD_CHECK_PINS > 0x0
                 checkIdx(idx);
-                if(mode==OUTPUT) {  //possible to read from OUTPUT digital ... won't do it
+                if(mode==OUTPUT) {  //possible to read from OUTPUT digital ... we won't do it
                     pin_out |=  (1<<idx); 
                     pin_in  &=  ~(1<<idx);
                 }
@@ -703,14 +730,19 @@
     #if EBOARD_BLUETOOTH > 0x0
 
         /*!
-          @brief [BLUETOOTH] reads a single value from bluetooth if available!
-          @return the character read. Returns '.' on failure!
+            @brief [BLUETOOTH] reads a single value from bluetooth if available!
+
+            @param oF the character returned on failure
+
+            @return the character read. Returns {oF} on failure!
          */
-        inline char readVal(void);
+        inline char readVal(char oF = '.');
         /*!
             @brief [BLUETOOTH] checks if theres a lack of Data!
             @note if this happens you should consider to lower the sending or faster the receiving rate ;)
-            @return the character read. Returns '.' on failure!
+            @return true if the overflow has happened
+            @return false if used on MEGA with default pins as there is no hardware based buffer control :/
+            @return false if there is no overflow (recognized)
         */
         inline bool checkOverflow(void);
         /*!
@@ -734,14 +766,26 @@
         inline bool isConnected(void);      
         ///@cond
         inline bool checkOverflow(void) {
-            return (_serial.overflow());
+            #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
+                return false; //there is no hardware provided control for hardwareserial overflow
+            #else
+                return (_serial.overflow());
+            #endif
         }
-        inline char readVal(void) {
-            return ((_serial.available())?(_serial.read()):('.'));
+        inline char readVal(char oF) {
+            #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
+                return ((Serial1.available())?(Serial1.read()):(oF));
+            #else
+                return ((_serial.available())?(_serial.read()):(oF));
+            #endif
         }
         template<typename T>
         inline void writeVal(const T& val){
-            _serial.write(val);
+            #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
+                Serial1.write(val);
+            #else
+                _serial.write(val);
+            #endif
         }
         inline bool isConnected(void) {
             #if PIN_BLUETOOTH_RX != PIN_BLUETOOTH_STATE
@@ -832,7 +876,8 @@
         #if EBOARD_SHIFT_REGISTER > 0x0
             if(idx>0x63) {
                 idx -= 0x64;
-                return shiftSingle(idx,val);
+                shiftSingle(idx,val);
+                return;
             }
         #endif
         #if EBOARD_CHECK_PINS > 0x0
@@ -1111,7 +1156,12 @@
             sei();
             #if EBOARD_BLUETOOTH > 0x0
                 ///@warning Some modules have 9600 as default, some have 38400
-                _serial.begin(38400); ///@todo ask for configure custom BAUD
+                ///@todo ask for configure custom BAUD
+                #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
+                    Serial1.begin(38400); 
+                #else
+                    _serial.begin(38400); 
+                #endif
                 if(PIN_BLUETOOTH_STATE!=PIN_BLUETOOTH_RX) setPin(PIN_BLUETOOTH_STATE,INPUT);
             #endif
             #if EBOARD_I2C > 0x0
@@ -1157,6 +1207,8 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
+            #include <SPI.h>
+            #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             bool toggle = true;
             SoccerBoard board;
 
@@ -1393,6 +1445,10 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
+            #include <Wire.h>
+            #define EBOARD_I2C 0x1
+            #include <SPI.h>
+            #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             //nothing in this brackets will have any effect :D
             I2CInOut io1(board,127,ANALOG_IN_10_BIT,COUNTER_RISE_8_BIT, FREQ_HIGH);
@@ -1423,8 +1479,7 @@
                 @note 404 'A' not found :D
             */
             inline void write(void);
-        
-        private:
+            
             ///@brief storing value for A-pin (🔧 I prevent errors!)
             optVAL_t A; //if you've used uint16_t values you'll have to replace it here
             //we only have B - DiOut and C - AO [OUT]
@@ -1462,13 +1517,16 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
+            #include <SPI.h>
+            #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            SoccerBoard board;
             DynamixelBoard servoBoard(board);
             AX12Servo Links(servoBoard,1);
             AX12Servo Rechts(servoBoard,2);
 
             int main() {
-                Links.setPosition(50);
-                Rechts.setPosition(10);
+                Links.setPosition(500);
+                Rechts.setPosition(200);
                 while(true) {}
             }
             @endcode
@@ -1535,7 +1593,7 @@
                 @brief This moves the Servo to the new position
 
                 This will overwrite storedPos and storedSpeed!
-                @param pos the Position the Servo should go to
+                @param pos the Position the Servo should go to [0;1023 (w #EBOARD_CLAMP)]
                 @param speed the speed of the Servo
             */
             void setPosition(uint16_t pos, uint16_t speed=0x3FF);
@@ -1543,7 +1601,7 @@
                 @brief This saves the Servo Position
 
                 Sets the values used by DynamixelBoard::action()
-                @param pos the Position the Servo should go to
+                @param pos the Position the Servo should go to [0;1023 (w #EBOARD_CLAMP)]
                 @param speed the speed of the Servo
             */
             inline void storePosition(uint16_t pos, uint16_t speed = 0x3FF);
@@ -1601,18 +1659,19 @@
 
         void AX12Servo::setPosition(uint16_t pos, uint16_t speed) {
             #if EBOARD_CLAMP > 0x0
+                if(pos>1023 || speed > 1023) return;
+                this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
                 speed = speed*600/1023 - 300;
                 pos   = pos  *600/1023 - 300;
+
+            #else
+                if(pos>300 || speed > 300) return;
+                this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
             #endif
             if(speed != actSpe){ _servoHandler.setVelocity(speed); this->actSpe=speed;}
             _servoHandler.write(this->id,pos);
-            this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
         }
         void AX12Servo::storePosition(uint16_t pos, uint16_t speed){
-            #if EBOARD_CLAMP > 0x0
-                speed = speed*600/1023 - 300;
-                pos   = pos  *600/1023 - 300;
-            #endif
             this->storedPos=pos;this->storedSpe=speed;
         }
         optVAL_t AX12Servo::getPosition(void) {
@@ -1630,14 +1689,16 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
+            #include <SPI.h>
+            #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            SoccerBoard board;
             DynamixelBoard servoBoard(board);
             AX12Servo Links(servoBoard,1);
             AX12Servo Rechts(servoBoard,2);
 
             int main() {
-                Links.storePosition(50);
-                Rechts.storePosition(10);
-                servoBoard.action();
+                Links.setPosition(500);
+                Rechts.setPosition(200);
                 while(true) {}
             }
             @endcode
@@ -1706,8 +1767,23 @@
             
                 @brief [COPY&PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D
 
-                [COPY&PASTE] [BLUETOOTH] You can use this class like this:
+                @pre to use this class on UNO:
                 @code
+                #include <SoftwareSerial.h>
+                #define EBOARD_BLUETOOTH   0x1
+                @endcode
+                \n \n  If you don't reconfigure the TX and RX on MEGA:
+                @code
+                #define EBOARD_BLUETOOTH 0x1
+                @endcode
+
+                [COPY&PASTE] [BLUETOOTH] You can use this class like this on UNO:
+                @code
+                #include <SoftwareSerial.h>
+                #define EBOARD_BLUETOOTH   0x1
+                #include <SPI.h>
+                #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+
                 RB14Scan remote;
 
                 int main() {
@@ -1747,12 +1823,6 @@
             @brief Welcome to the matrix (:
         
             @includelineno /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h
-        */
-
-        /**
-            @page _void LinkPage
-        
-            @brief This page is used for linking purpose :D Ignore it if you don't know how to deal with it :D
         */
     #endif
 #if EBOARD_I2C > 0x0
@@ -2231,7 +2301,6 @@
 
             #ifndef LCD_WIDTH
                 /// @macro_def WIDTH of all displays
-                /// @todo: make manual?
                 #define LCD_WIDTH 0x80
             #endif
             #ifndef LCD_HEIGHT
@@ -2249,12 +2318,36 @@
 
                 @copyright This code is based on the offical library [https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library] if you wan't to use this library in any official purpose, send a message to deloarts. cheers!
 
+                @warning the usage of the LCD will need many Space due to the fact that font is handled by arduino
+
+
+                @pre to use this class:
+                @code
+                #include <Wire.h>
+                #define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D
+                #define EBOARD_LCD 0x1
+                @endcode
+
+                [I2C] [LCD] You can use this class like this:
+                @code
+                #include <Wire.h>
+                #define EBOARD_I2C 0x1
+                #define EBOARD_LCD 0x1
+                #include <SPI.h>
+                #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+                SoccerBoard board;
+                LCD(board);
+                int main() {
+                    board.sleep(2); // not needed (it's just funny :P)
+                    lcd.clear();
+                    lcd.print("Hallo Mama,\n Wie gehts'?");
+                    lcd.print(2,2,"-- Gut");
+                    lcd.print(3,0,42);
+                }
+                @endcode
+                
                 @note positions will only apply if both of them are smaller as the maximum declared with #LCD_HEIGHT and #LCD_WIDTH
 
-                @warning the usage of the LCD will need many Space to to the fact that font is handled by arduino
-
-                @todo example code missing
-                @todo tutorial page
             */
             struct LCD {
                 /*!
@@ -2321,11 +2414,19 @@
                /**
                     @brief enable the backlight
 
-                    @todo get values
+                    This is similar with:
+                    @code
+                    [LCD::]brightness(255);
+                    @endcode
                  */
                 inline void lightOn(void);
                 /**
                     @brief disable the backlight
+
+                    This is similar to:
+                    @code
+                    [LCD::]brightness(0);
+                    @endcode
                  */
                 inline void lightOff(void);
                 /**
@@ -2423,9 +2524,7 @@
                 private:
                 /**
                  * @brief the addressing mode (page/horizontal)
-                 * @todo scrollMode?
-                 * @todo font? [size]
-                 * @todo invert?
+                 * @todo possbile Ads: scrollMode?; font? [size]; invert?
                  * 
                  */
                 ///@brief posX
@@ -2436,20 +2535,20 @@
                 optVAL_t ID;
                 
                 /**
-                 * @brief this function will execute two Command sends without start and without ending the transmission
+                 * @brief this function will execute two cmd sends without starting and without ending the transmission
                  * 
                  * @param o the first param
                  * @param t the second param
                  */
                 inline void s2Cmd(optVAL_t o, optVAL_t t);
                 /**
-                 * @brief this function will execute one Command send without start and without ending the transmission
+                 * @brief this function will execute one cmd send without starting and without ending the transmission
                  * 
                  * @param o the param
                  */
                 inline void s1Cmd(optVAL_t o);
                 /**
-                 * @brief this function will execute one Data send without start and without ending the transmission
+                 * @brief this function will execute one dat send without starting and without ending the transmission
                  * 
                  * @param o the param
                  */
@@ -2588,20 +2687,16 @@
     #endif
     /** 
      * @defgroup i2cEx [ 🐼 ] I2C
-     * @brief This tutorial tells you how to deal with the I²C extension!
+     * 
      */ 
 
     /**
-        @ingroup i2cEx
-        
-        @page i2c I2C-Functionality
-        
-        @brief a tutorial for the I²C-Extension
-       
-        @todo examples and sections for all functions
+        @addtogroup i2cEx        
+        @brief This tutorial shows you how to deal with the I²C extension!
 
         @note To use this:
         @code
+        #include <Wire.h>
         #define EBOARD_I2C 0x1
         @endcode
         If you use the ARDUINO MEGA the I2C pins are not A4 (SDA) and A5 (SDL). They are seperate (20-SDA;21-SDL)!
@@ -2633,15 +2728,52 @@
 
         @note The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost.
     */
-    /// @defgroup shiftEx [ 🐼 ] SHIFT
-    /// @brief This tutorial tells you how to deal with the Shift extension!
+
+    /** 
+     * @defgroup blueEx [ 🐼 ] BLUETOOTH
+     * 
+     */
     /**
-        @ingroup shiftEx
-        
-        @page shift SHIFT-Functionality
-        
-        @brief A tutorial for the Pin-Extension
-        
+        @addtogroup blueEx
+        @brief This tutorial shows you how to deal with the Bluetooth extension!
+
+        @note To use this on UNO:
+        @code
+        #include <SoftwareSerial.h>
+        #define EBOARD_BLUETOOTH 0x1
+        @endcode
+        \n  If you don't reconfigure the TX and RX on MEGA:
+        @code
+        #define EBOARD_BLUETOOTH 0x1
+        @endcode
+        \n
+        @note <b>Why using SoftwareSerial on UNO?</b> \n The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. \n Furthermore Debugging would create a lot of problems ^^
+
+        @section blCon How to use Bluetooth-Communication:
+
+        @warning it is important to identify the layout of the HC-05 it is different from the one showed below the wiring may not apply [KEY is probably represented by a button]!
+
+        @image html /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+        @image latex /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+
+        You can replace the 1kΩ- with a 1.1kΩ-Resistor
+
+        @subsection suBL1 RB14Scan
+
+        You are able to:
+            + Get received values via RB14Scan::channel()
+            + Get connection status via RB14Scan::raw()
+            + Send values via RB14Scan::write()
+    */
+
+    /**
+     * @defgroup shiftEx [ 🐼 ] SHIFT
+     * 
+     */
+    /**
+        @addtogroup shiftEx
+        @brief This tutorial shows you how to deal with the Shift extension!
+                        
         @note To use this:
         @code
         #define EBOARD_SHIFT_REGISTER 0x1
@@ -2679,41 +2811,82 @@
 
         #store_bits can be modified via bitSet()/bitClear() or long assignment (like = 1000);
     */
-    ///@defgroup blueEx [ 🐼 ] BLUETOOTH
-    ///@brief This tutorial tells you how to deal with the Bluetooth extension!
     /**
-        @ingroup blueEx
-        @page blue BLUETOOTH-Connection
-        @todo include https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library
+     * @defgroup lcdEx [ 🐼 ] OLED
+     * 
+     */
+    /**
+        @addtogroup lcdEx
+        @brief This tutorial shows you how to deal with the LCD extension!
 
-        @brief A tutorial for the Bluetooth-Extension
+        @note This is related to @ref i2cEx
         @note To use this:
         @code
-        #include <SoftwareSerial.h>
-        #define EBOARD_BLUETOOTH 0x1
+        #include <Wire.h>
+        #define EBOARD_I2C 0x1
+        #define EBOARD_LCD 0x1
         @endcode
 
-        @note Why using SoftwareSerial? \n     The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. \n Furthermore Debugging would create a lot of problems ^^
+        The OLED 128x64 Monochrome Display is connected via I²C (operating: 5V):
+        @verbatim
+        Arduino UNO|MEGA       OLED
+        SDA     (A4|20)    =>  SDA
+        SCL     (A5|21)    =>  SCL
+        5V      ( 5 V )    =>  VCC
+        GND     ( GND )    =>  GND
+        @endverbatim
 
-        @section blCon How to use Bluetooth-Communication:
-        @warning it is important to identify the layout of the HC-05 it is different from the one showed below the wiring may not apply [KEY is probably represented by a button]!
+        @note It is possible to connect multiple devices via I²C ! Just forward the SCL and SDA lines
+    */
 
-        @image html /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
-        @image latex /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+    /**
+     * @defgroup portTu [ 🐼 ] UNO2MEGA
+     * 
+     */
+    /**
+        @addtogroup portTu
+        @brief This tutorial shows you how to 'port' code and setup from the Arduino UNO R3 to the Arduino MEGA R3
 
-        You can replace the 1kΩ- with a 1.1kΩ-Resistor
+        @pre Layout of UNO R3 and MEGA R3:
+            @image html /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
+            @image latex /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
+        
+        @section sprt1 Software
 
-        @subsection suBL1 RB14Scan
+        If you haven't changed any Pin-configuration there is no need to change anything with the code! :D 
+        \n If you use #EBOARD_BLUETOOTH (RB14Scan) this line is obsolete:
+        @code
+        #include <SoftwareSerial.h>
+        @endcode 
 
-        You are able to:
-            + Get received values via RB14Scan::channel()
-            + Get connection status via RB14Scan::raw()
-            + Send values via RB14Scan::write()
+        Consider this:
+        - use D22-D53 [D49] before using the additional pins [D100...]
+        - every Pin from D2 to D13 is capable of PWM! \n it is possible to change the prescaler and therefore raise the PWM value for #PIN_MOTOR_SPE to the recommended 31 kHz [this shouldn't be done on UNO!!!!] \n If you use the default D5 pin the upgrade would work like this:
+            @code
+            //[...]
+            int main() {
+            TCCR3B &= ~7;
+            TCCR3B |= 1;
+            //[...]
+            }
+            @endcode
+            Please keep in mind that this affect the pins D3 and D2 aswell!
+        
+        @section sprt2 Hardware
+            
+        There are some things you have to consider due to the fact that the MEGA has more pins :P \n Most shields can be applied directly ;)
+
+        - the pins used for shield communication aren't D11 (D10) to D13! they are D51 (D50) to D53!! you shouldn't use them :/
+        - I²C communication isn't handled by A4 (SDA) and A5 (SCL)! It works via the communication pins 20 (SDA) and 21 (SCL)
+        - the MEGA has 4 hardware-serial ports! (3 (2, one is used for the basic RB14Scan communication by Default :D) of them for custom use)
+        - you are able to use the full range of 16 Analog In pins!
+        
     */
 
 
+
 #else
-  #error This library is build for arduino-devices and should be used only in the Arduino IDE
+    #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process
 #endif
 
 #endif

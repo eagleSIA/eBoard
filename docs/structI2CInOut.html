@@ -56,7 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
-      <li><a href="modules.html"><span>Examples</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('structI2CInOut.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structI2CInOut-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">I2CInOut Struct Reference</div>  </div>
@@ -148,8 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac475882f9f5cf8634f74084b416e9b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will write values stored in B and C  <a href="#ac475882f9f5cf8634f74084b416e9b39">More...</a><br /></td></tr>
 <tr class="separator:ac475882f9f5cf8634f74084b416e9b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
 <tr class="memitem:a8238ef3bba1ade093198c90ba8132fe5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structI2CInOut.html#a8238ef3bba1ade093198c90ba8132fe5">A</a></td></tr>
 <tr class="memdesc:a8238ef3bba1ade093198c90ba8132fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">storing value for A-pin (🔧 I prevent errors!)  <a href="#a8238ef3bba1ade093198c90ba8132fe5">More...</a><br /></td></tr>
 <tr class="separator:a8238ef3bba1ade093198c90ba8132fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,8 +164,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p class="">[COPY&amp;PASTE] This is the <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> ghost struct :D </p>
 <dl class="section author"><dt>Author</dt><dd>EagleoutIce</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>any assignment to Port A won't has anny effect!</dd></dl>
-<p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="comment">//nothing in this brackets will have any effect :D</span></div><div class="line"><a class="code" href="structI2CInOut.html">I2CInOut</a> io1(board,127,<a class="code" href="eBoard_8h.html#a8e3597e352e3c5ee4e2e4cfed5f12403">ANALOG_IN_10_BIT</a>,<a class="code" href="eBoard_8h.html#a1c6856832cc9aad00c5d406925f81d1c">COUNTER_RISE_8_BIT</a>, <a class="code" href="eBoard_8h.html#ad783c59bd6197d2160e05922a288df69">FREQ_HIGH</a>);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    io1.B = HIGH;</div><div class="line">    io1.C = 108;</div><div class="line">    io1.write();</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01406">1406</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><span class="comment">//nothing in this brackets will have any effect :D</span></div><div class="line"><a class="code" href="structI2CInOut.html">I2CInOut</a> io1(board,127,<a class="code" href="eBoard_8h.html#a8e3597e352e3c5ee4e2e4cfed5f12403">ANALOG_IN_10_BIT</a>,<a class="code" href="eBoard_8h.html#a1c6856832cc9aad00c5d406925f81d1c">COUNTER_RISE_8_BIT</a>, <a class="code" href="eBoard_8h.html#ad783c59bd6197d2160e05922a288df69">FREQ_HIGH</a>);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    io1.B = HIGH;</div><div class="line">    io1.C = 108;</div><div class="line">    io1.write();</div><div class="line">}</div></div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01462">1462</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1318322287c3fa9de9c111a64564fd5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1318322287c3fa9de9c111a64564fd5c">&#9670;&nbsp;</a></span>I2CInOut()</h2>
@@ -352,24 +352,16 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> I2CInOut::A</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>storing value for A-pin (🔧 I prevent errors!) </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01429">1429</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01484">1484</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -378,24 +370,16 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> I2CInOut::B</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>storing value for B-pin [MOTOR DIR] </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01432">1432</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01487">1487</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -404,24 +388,16 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> I2CInOut::C</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>storing value for C-pin [MOTOR SPE] </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01434">1434</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l01489">1489</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -435,7 +411,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structI2CInOut.html">I2CInOut</a></li>
-    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

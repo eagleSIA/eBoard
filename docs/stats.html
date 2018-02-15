@@ -56,7 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Pages</span></a></li>
-      <li><a href="modules.html"><span>Examples</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -116,17 +116,18 @@ $(document).ready(function(){initNavTree('stats.html','');});
 <div class="textblock"><p class="">Cuz everyone loves them :O</p>
 <dl class="section warning"><dt>Warning</dt><dd>it's easy to misinterpret this statistics! <br />
  eBoard is taking care of many things and only occupying a minimum of space! Most things you would have to write by yourselve otherwise (which may resulted in an even higher amount of used space!)</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>every test was run with an Arduino UNO R3 It is possible that the code size vary</dd></dl>
 <h1><a class="anchor" id="ss1"></a>
 1 Occupied Space</h1>
 <p class="">Because everyone loves statistics♥:</p>
-<dl class="section note"><dt>Note</dt><dd>Development Build: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line">[VER 2.0c]</div><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task (<span class="keywordtype">void</span>) {}</div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>Development Build: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="comment">//[VER 2.0c]</span></div><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task (<span class="keywordtype">void</span>) {}</div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd>
 <dd>
 Release Build: </dd>
 <dd>
-removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><div class="line"><span class="preprocessor">#define IGNORE_SIZE</span></div><div class="line"><span class="preprocessor">#define EBOARD_USE_UTILITY 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS_PWM 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line">[VER 2.0c]</div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
+removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><div class="line"><span class="preprocessor">#define IGNORE_SIZE</span></div><div class="line"><span class="preprocessor">#define EBOARD_USE_UTILITY 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_CHECK_PINS_PWM 0x0</span></div><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="comment">//[VER 2.0c]</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
 <h2><a class="anchor" id="ssu1"></a>
 1.1 Empty program</h2>
-<dl class="section note"><dt>Note</dt><dd>Used: <div class="fragment"><div class="line">[...]</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {<span class="keywordflow">return</span> 0;}</div></div><!-- fragment --></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Used: <div class="fragment"><div class="line"><span class="comment">//[...]</span></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {<span class="keywordflow">return</span> 0;}</div></div><!-- fragment --></dd></dl>
 <p>Following results: <br />
  <b> [Version: 1.2a] </b> <br />
  [Dev]: 'Binäre Sketchgröße: 6.994 Bytes (von einem Maximum von 32.256 Bytes)' <br />
@@ -150,7 +151,7 @@ removed I2C due to the hope that Bluetooth is enough ^^ <div class="fragment"><d
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

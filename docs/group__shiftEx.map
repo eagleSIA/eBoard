@@ -1,3 +1,4 @@
-<map id="SHIFT&#45;Tutorial" name="SHIFT&#45;Tutorial">
-<area shape="rect" id="node1" href="$group__i2cEx.html" title="I2C&#45;Tutorial" alt="" coords="5,5,96,31"/>
+<map id="[ 🐼 ] SHIFT" name="[ 🐼 ] SHIFT">
+<area shape="rect" id="node1" href="$group__lcdEx.html" title="[ &#160;] OLED" alt="" coords="305,5,384,31"/>
+<area shape="rect" id="node2" href="$group__blueEx.html" title="[ &#160;] BLUETOOTH" alt="" coords="5,5,128,31"/>
 </map>

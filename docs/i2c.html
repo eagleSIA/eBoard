@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard</font>
+   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -55,8 +55,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Examples</span></a></li>
+      <li class="current"><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -113,20 +113,7 @@ $(document).ready(function(){initNavTree('i2c.html','');});
 <div class="title">I2C-Functionality </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p class="">a tutorial for the I²C-Extension</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>examples and sections for all functions </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --></dd></dl>
-<ul>
-<li>It is possible to send Data via I2C with <a class="el" href="eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6" title="Sends a buffer of bytes to a certain I²C-Device. ">sendI2C()</a> <br />
-</li>
-<li>It is possible to read Data via I2C with <a class="el" href="eBoard_8h.html#a9410e48b56af483fa869e4b9375f094c" title="Reads a special amount of bits from a certain I²C-Device. ">readI2C()</a> <br />
-</li>
-<li>It is possible to scan for I2C addresses with <a class="el" href="eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641" title="Sends a byte to a certain I²C-Device. ">pingI2C()</a>; <br />
-</li>
-</ul>
-<h1><a class="anchor" id="example"></a>
-Example</h1>
-<p class="">An Example of how to scan for I2C addresses: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">  <a class="code" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> test[3] = {0,0,0};</div><div class="line">  <a class="code" href="eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641">pingI2C</a>(test,3);</div><div class="line">  Serial.println(test[0]);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p> Connected an PCF8591 this produces this output: </p><div class="fragment"><div class="line">72</div><div class="line">0 -- Exit Code.</div><div class="line"> Program has finished. Reset to start again</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost. </dd></dl>
+<div class="textblock"><p class="">This tutorial shows you how to deal with the I²C extension! </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -134,7 +121,7 @@ Example</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 11.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

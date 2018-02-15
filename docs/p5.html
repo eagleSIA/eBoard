@@ -56,7 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Pages</span></a></li>
-      <li><a href="modules.html"><span>Examples</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -160,7 +160,8 @@ Version 1.2e 🐧 - On your command, master [~100m]</h2>
 <li><a class="el" href="eBoard_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a> doesn't checks full range anymore ... should be fixed</li>
 </ul>
 <h2><a class="anchor" id="su4"></a>
-Version 1.3g 🐊 - Make this safe!</h2>
+Version 1.3g 🐊 - Make this safe! [~30m]</h2>
+<p class="">Optimized and added some safety and control features</p>
 <p class=""><b>Changed</b></p>
 <ul>
 <li>Clamped Motorpositions</li>
@@ -178,9 +179,10 @@ Version 1.3g 🐊 - Make this safe!</h2>
 <li>Control over <a class="el" href="eBoard_8h.html#aa3b98de0551fc7154d125da50865d539">EBOARD_COPY_AND_PASTE</a></li>
 </ul>
 <h1><a class="anchor" id="ver2"></a>
-Version 2 - NoName 🐩</h1>
+Version 2 - Scofield 🐩</h1>
 <h2><a class="anchor" id="su5"></a>
-Version 2.0c 🐈 - Facing Interfaces</h2>
+Version 2.0c 🐈 - Facing Interfaces [~130m]</h2>
+<p class="">Added support for the OLED 128x64 Monochrome Display</p>
 <p class=""><b>Added</b></p>
 <ul>
 <li>LCD-Display support via I2C</li>
@@ -191,7 +193,25 @@ Version 2.0c 🐈 - Facing Interfaces</h2>
 </ul>
 <h2><a class="anchor" id="su6"></a>
 Version 2.1d 🐺 - #Oversize</h2>
-<p class="">placeholder </p>
+<p class="">Included many Optimizations and fixes</p>
+<p class=""><b>Added</b></p>
+<ul>
+<li>New statistics</li>
+<li>Pre flags</li>
+<li>New tutorial stuff</li>
+<li>Port-tutorial</li>
+</ul>
+<p class=""><b>Changed</b></p>
+<ul>
+<li>Cleaned Code (a lot ^^) [with 2.0]</li>
+<li>Some tutorial declarations</li>
+<li>Serial feature on MEGA R3 [No need for SoftwareSerial anymore :D]</li>
+</ul>
+<p class=""><b>Fixes</b></p><ul>
+<li>Fixed bug in <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> (private access failure)</li>
+<li>Fixed bug in <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> (double clamp on <a class="el" href="structAX12Servo.html#a6a87ff6b4c1abce86258e50c039348c3" title="This saves the Servo Position. ">AX12Servo::storePosition()</a>)</li>
+<li>Fixed bug of clamp_overflow (no check for in_range and out_range in <a class="el" href="structAX12Servo.html#a7b242be4e26737cb9e3a4c6809a3cf29" title="This moves the Servo to the new position. ">AX12Servo::setPosition()</a>) </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -199,7 +219,7 @@ Version 2.1d 🐺 - #Oversize</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

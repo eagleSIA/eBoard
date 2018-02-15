@@ -30,7 +30,7 @@ var NAVTREE =
       [ "Philosophy", "index.html#s4", [
         [ "Async task execution", "index.html#su111", null ]
       ] ],
-      [ "Examples", "index.html#s3", null ]
+      [ "Tutorials", "index.html#s3", null ]
     ] ],
     [ "About", "page1.html", [
       [ "Motivation", "page1.html#m1", null ],
@@ -47,26 +47,18 @@ var NAVTREE =
         [ "Version 1.0e 🐪 - I ate the alpha-cookie :D [~130m]", "p5.html#su1", null ],
         [ "Version 1.1b 🐓 - Hello Slave [~70m]", "p5.html#su2", null ],
         [ "Version 1.2e 🐧 - On your command, master [~100m]", "p5.html#su3", null ],
-        [ "Version 1.3g 🐊 - Make this safe!", "p5.html#su4", null ]
+        [ "Version 1.3g 🐊 - Make this safe! [~30m]", "p5.html#su4", null ]
       ] ],
-      [ "Version 2 - NoName 🐩", "p5.html#ver2", [
-        [ "Version 2.0c 🐈 - Facing Interfaces", "p5.html#su5", null ],
+      [ "Version 2 - Scofield 🐩", "p5.html#ver2", [
+        [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "p5.html#su5", null ],
         [ "Version 2.1d 🐺 - #Oversize", "p5.html#su6", null ]
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],
-    [ "LinkPage", "_void.html", [
-      [ "Example", "group__i2cEx.html#example", null ],
-      [ "Pin extensions", "group__shiftEx.html#pinExt", null ],
-      [ "Hardware specific", "group__shiftEx.html#hs", null ],
-      [ "How to use Bluetooth-Communication:", "group__blueEx.html#blCon", [
-        [ "RB14Scan", "group__blueEx.html#suBL1", null ]
-      ] ]
-    ] ],
     [ "[ 🐲 ] Macros and Constants", "macro.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
-    [ "Examples", "modules.html", "modules" ],
+    [ "Tutorials", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -91,8 +83,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_void.html",
-"structSoccerBoard.html#a4318ef2a49b14d4e0d2dff6af662fd9c"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

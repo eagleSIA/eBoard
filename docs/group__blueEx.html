@@ -56,7 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
-      <li class="current"><a href="modules.html"><span>Examples</span></a></li>
+      <li class="current"><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -114,15 +114,14 @@ $(document).ready(function(){initNavTree('group__blueEx.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>This tutorial tells you how to deal with the Bluetooth extension!  
+<p>This tutorial shows you how to deal with the Bluetooth extension!  
 <a href="#details">More...</a></p>
-<p class="">This tutorial tells you how to deal with the Bluetooth extension! </p>
-
-
-<h3><a id="blue"></a>BLUETOOTH-Connection</h3><div class="textblock">A tutorial for the Bluetooth-Extension<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>include <a href="https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library">https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library</a></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --></dd>
+<p class="">This tutorial shows you how to deal with the Bluetooth extension! </p>
+<dl class="section note"><dt>Note</dt><dd>To use this on UNO: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
+ If you don't reconfigure the TX and RX on MEGA: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
+</dd>
 <dd>
-Why using SoftwareSerial? <br />
+<b>Why using SoftwareSerial on UNO?</b> <br />
  The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. <br />
  Furthermore Debugging would create a lot of problems ^^</dd></dl>
 <h1><a class="anchor" id="blCon"></a>
@@ -139,13 +138,13 @@ RB14Scan</h2>
 <li>Get connection status via <a class="el" href="structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce" title="this will check for connection status [will return true if pin not connected] ">RB14Scan::raw()</a></li>
 <li>Send values via <a class="el" href="structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc" title="this will write a constant string to the output ">RB14Scan::write()</a> </li>
 </ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

@@ -88,7 +88,7 @@ var eBoard_8h =
     [ "pingI2C", "eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641", null ],
     [ "readI2C", "eBoard_8h.html#a9410e48b56af483fa869e4b9375f094c", null ],
     [ "readPin", "eBoard_8h.html#aca4f96af7c6736bf2b61c88d731af741", null ],
-    [ "readVal", "eBoard_8h.html#a76560414a2bcd890e7f50cdc4c27438b", null ],
+    [ "readVal", "eBoard_8h.html#a013ff57a97587f0064777a3a28f9a2dd", null ],
     [ "sendI2C", "eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6", null ],
     [ "sendI2C", "eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203", null ],
     [ "setPin", "eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4", null ],

@@ -56,7 +56,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
-      <li><a href="modules.html"><span>Examples</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -115,9 +115,8 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="contents">
 <div class="textblock"><dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
 <dd>
-This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard </dd>
-<dd>
-This code comes completely wihtout any warranty - no example was tested right now^^</dd></dl>
+This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely warranty</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --></dd></dl>
 <p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
@@ -168,11 +167,13 @@ Async task execution</h2>
 To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). <br />
 The execution cycle is <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
 <h1><a class="anchor" id="s3"></a>
-Examples</h1>
+Tutorials</h1>
 <ul>
-<li><a class="el" href="group__i2cEx.html">I2C-Functionality</a></li>
-<li><a class="el" href="group__shiftEx.html">SHIFT-Functionality</a></li>
-<li><a class="el" href="group__blueEx.html">BLUETOOTH-Connection</a> </li>
+<li><a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a></li>
+<li><a class="el" href="group__shiftEx.html">[ 🐼 ] SHIFT</a></li>
+<li><a class="el" href="group__blueEx.html">[ 🐼 ] BLUETOOTH</a></li>
+<li><a class="el" href="group__lcdEx.html">[ 🐼 ] OLED</a></li>
+<li><a class="el" href="group__portTu.html">[ 🐼 ] UNO2MEGA</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -181,7 +182,7 @@ Examples</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 12.2.2018</li>
+    <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: File Members</title>
+<title>eBoard: [ 🐼 ] OLED</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,9 +56,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
-      <li><a href="modules.html"><span>Tutorials</span></a></li>
+      <li class="current"><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +77,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li class="current"><a href="globals.html"><span>File&#160;Members</span></a></li>
-    </ul>
-  </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="globals.html"><span>All</span></a></li>
-      <li><a href="globals_func.html"><span>Functions</span></a></li>
-      <li class="current"><a href="globals_vars.html"><span>Variables</span></a></li>
-      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
-      <li><a href="globals_defs.html"><span>Macros</span></a></li>
-    </ul>
-  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -105,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('globals_vars.html','');});
+$(document).ready(function(){initNavTree('group__lcdEx.html','');});
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -123,30 +108,24 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 </iframe>
 </div>
 
+<div class="header">
+  <div class="headertitle">
+<div class="title">[ 🐼 ] OLED</div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>_pwmValue
-: <a class="el" href="eBoard_8h.html#a7dbb2f6e99e0eda923f12e97aeaa1238">eBoard.h</a>
-</li>
-<li>_servoHandler
-: <a class="el" href="eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21">eBoard.h</a>
-</li>
-<li>basicFont
-: <a class="el" href="eBoard_8h.html#a55181965197fb6a2375306ca62593643">eBoard.h</a>
-</li>
-<li>pin_in
-: <a class="el" href="eBoard_8h.html#a1aff27155409ec07c1787da96f2e2478">eBoard.h</a>
-</li>
-<li>pin_out
-: <a class="el" href="eBoard_8h.html#a677f16c8412ad8289a5ffba425c94e85">eBoard.h</a>
-</li>
-<li>STOP
-: <a class="el" href="eBoard_8h.html#ae72a810f4976962c2cafb810b17ae158">eBoard.h</a>
-</li>
-<li>store_bits
-: <a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff">eBoard.h</a>
-</li>
-</ul>
+
+<p>This tutorial shows you how to deal with the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> extension!  
+<a href="#details">More...</a></p>
+<p class="">This tutorial shows you how to deal with the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> extension! </p>
+<dl class="section note"><dt>Note</dt><dd>This is related to <a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a> </dd>
+<dd>
+To use this: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
+<p>The OLED 128x64 Monochrome Display is connected via I²C (operating: 5V): </p><pre class="fragment">Arduino UNO|MEGA       OLED
+SDA     (A4|20)    =&gt;  SDA
+SCL     (A5|21)    =&gt;  SCL
+5V      ( 5 V )    =&gt;  VCC
+GND     ( GND )    =&gt;  GND
+</pre><dl class="section note"><dt>Note</dt><dd>It is possible to connect multiple devices via I²C ! Just forward the SCL and SDA lines </dd></dl>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.11-->

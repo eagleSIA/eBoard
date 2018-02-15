@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['shift_2dfunctionality',['SHIFT-Functionality',['../group__shiftEx.html',1,'']]],
-  ['statistics',['Statistics',['../stats.html',1,'']]]
+  ['the_20source_20code',['The source code',['../page2.html',1,'']]],
+  ['todo_20list',['Todo List',['../todo.html',1,'']]]
 ];

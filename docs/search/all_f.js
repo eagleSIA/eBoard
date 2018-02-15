@@ -19,7 +19,6 @@ var searchData=
   ['settorque',['setTorque',['../structAX12Servo.html#ae30eb5190a1c7c6c456fab20056fe6e2',1,'AX12Servo']]],
   ['setup',['setup',['../eBoard_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'eBoard.h']]],
   ['setvelocity',['setVelocity',['../structServoCds55.html#ac5452690bbb923045e15f58358b4ad36',1,'ServoCds55']]],
-  ['shift_2dfunctionality',['SHIFT-Functionality',['../group__shiftEx.html',1,'']]],
   ['shiftall',['shiftAll',['../eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a',1,'eBoard.h']]],
   ['shiftsingle',['shiftSingle',['../eBoard_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],

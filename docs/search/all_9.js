@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['i2c_2dfunctionality',['I2C-Functionality',['../group__i2cEx.html',1,'']]],
   ['i2cinout',['I2CInOut',['../structI2CInOut.html',1,'I2CInOut'],['../structI2CInOut.html#a1318322287c3fa9de9c111a64564fd5c',1,'I2CInOut::I2CInOut()']]],
   ['id',['ID',['../structLCD.html#a65dc1d312b581121a2f859e323c26337',1,'LCD::ID()'],['../structAX12Servo.html#a92165b8fef8c2be2f0e969f34145938e',1,'AX12Servo::id()']]],
   ['init',['init',['../structLCD.html#a632d9c641930fe16c0b623b82136196e',1,'LCD']]],

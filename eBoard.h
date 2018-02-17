@@ -2,15 +2,18 @@
 ///IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
 /**
  * @file eBoard.h
- * @todo 1. Include tuto page port from UNO to MEGA
  */
 
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic ignored "-Wall"
+ #pragma GCC diagnostic ignored "-Wextra"
+
 /**
- @mainpage eBoard 2.1d - shackle the Arduino!
+ @mainpage eBoard 2.2b - shackle the Arduino!
 
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
- 
+
  @warning This code comes with absolutely  warranty
 
 
@@ -104,7 +107,7 @@
  @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
- @version 2.1d
+ @version 2.2b
  @date 7.2.2018
 
  @section m1 Motivation
@@ -129,7 +132,7 @@
     @warning it's easy to misinterpret this statistics!
      \n eBoard is taking care of many things and only occupying a minimum of space! Most things you would have to write by yourselve otherwise (which may resulted in an even higher amount of used space!)
 
-    @note every test was run with an Arduino UNO R3 It is possible that the code size vary 
+    @note every test was run with an Arduino UNO R3 It is possible that the code size vary
 
     @section ss1 1 Occupied Space
 
@@ -207,7 +210,7 @@
         return 0;
     }
     @endcode
-    
+
     Following results: \n
     <b> [Version: 2.0c] </b> \n
     [SAM]: 'Binäre Sketchgröße: 7.716 Bytes (von einem Maximum von 32.256 Bytes)' \n
@@ -260,7 +263,7 @@
 
     + Async Task execution
     + RB14Scan [No protocoll!]
-    
+
   <b>Removed</b>
 
     + #EBOARD_CHECK_PINS doesn't checks full range anymore ... should be fixed
@@ -283,7 +286,7 @@
 
   <b>Removed</b>
 
-    + Control over #EBOARD_COPY_AND_PASTE 
+    + Control over #EBOARD_COPY_AND_PASTE
 
   @section ver2 Version 2 - Scofield 🐩
 
@@ -292,24 +295,24 @@
     Added support for the OLED 128x64 Monochrome Display
 
     <b>Added</b>
-      
+
     - LCD-Display support via I2C
 
     <b>Changed</b>
 
     - Cleaned Code
 
-  @subsection su6 Version 2.1d 🐺 - \#Oversize
+  @subsection su6 Version 2.1d 🐺 - \#Oversize [~60m]
 
   Included many Optimizations and fixes
 
   <b>Added</b>
-      
+
     - New statistics
     - Pre flags
     - New tutorial stuff
     - Port-tutorial
-  
+
   <b>Changed</b>
 
     - Cleaned Code (a lot ^^) [with 2.0]
@@ -320,6 +323,20 @@
     - Fixed bug in I2CInOut  (private access failure)
     - Fixed bug in AX12Servo (double clamp on AX12Servo::storePosition())
     - Fixed bug of clamp_overflow (no check for in_range and out_range in AX12Servo::setPosition())
+
+    @subsection su7 Version 2.2b 🐏 - Optimize it
+
+    Fixed many bugs
+
+    <b>Added</b>
+
+      - images for LCD
+      - dancing_dragon as funny example (created while debugging)
+
+    <b>Fixes</b>
+      - Fixed blocking bug on Hardware-calls (pre init)
+      - Fixed LCD err send
+      - Fixed several bugs/optimized ranges to avoid undefined behaviour
 */
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD
@@ -358,8 +375,8 @@
         #define __AVR_ATmega328P__
 
         /**
-         * @macro_def This isn't defined by default. If you define it the LCD will be addressed with 400kHz. This will only work if every connected device supports 400kHz I²C! 
-         * 
+         * @macro_def This isn't defined by default. If you define it the LCD will be addressed with 400kHz. This will only work if every connected device supports 400kHz I²C!
+         *
          * @warning Don't do if you don't know!
          */
         #define HIGHSPEED
@@ -381,10 +398,10 @@
     #if not ( defined(__AVR_ATmega2560__) || defined(__AVR_ATmega328P__))
         #error "This library was build for ARDUINO UNO R3 Aand ARDUINO MEGA 2560!"
     #endif
- 
+
     #if defined(__AVR_ATmega2560__)
         /**
-         * @macro_def This defines the Maximum to-address pin. On MEGA its 49 on UNO its 9 
+         * @macro_def This defines the Maximum to-address pin. On MEGA its 49 on UNO its 9
          */
         #define PIN_MAX 0x32 //53 pins to address - 4 !!53 is SS
     #else
@@ -398,8 +415,8 @@
     #endif
 
     /**
-     * @macro_def this will end any loop done by eBoard 
-     * @note you can manipulate this with #REPT_TASK 
+     * @macro_def this will end any loop done by eBoard
+     * @note you can manipulate this with #REPT_TASK
      * @note to avoid desync bug this won't stop the nonblocking LCD connection!
      */
     static bool STOP = false;
@@ -472,7 +489,7 @@
      * @macro_def duty cycle for async task execution... should be higher than 1
      */
     #ifndef EBOARD_PWM_SPE
-        #define EBOARD_PWM_SPE 2
+        #define EBOARD_PWM_SPE 1
     #endif
 
     #ifndef EBOARD_I2C
@@ -583,7 +600,7 @@
     #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
         /**
          * @brief this is the recomenned-to-use _serial object for bluetooth communcation :D
-         * 
+         *
          * The used pins are based on #PIN_BLUETOOTH_RX and PIN_BLUETOOTH_TX
          */
         SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
@@ -689,10 +706,10 @@
                 @note this is no hardware test... this test is based on hard coded data
                 @param idx the index of the pin to check
                 @param mode the mode the pin should be checked for
-                
+
                 @returns true if the pin is in the requested mode
-                
-                🔧 I prevent errors! 
+
+                🔧 I prevent errors!
             */
             inline bool checkPin(optVAL_t idx, optVAL_t mode = OUTPUT);
             ///@cond
@@ -714,7 +731,7 @@
             #if EBOARD_CHECK_PINS > 0x0
                 checkIdx(idx);
                 if(mode==OUTPUT) {  //possible to read from OUTPUT digital ... we won't do it
-                    pin_out |=  (1<<idx); 
+                    pin_out |=  (1<<idx);
                     pin_in  &=  ~(1<<idx);
                 }
                 else {
@@ -754,7 +771,7 @@
 
         /*!
             @brief [BLUETOOTH] this will check if the HC-05 is paired
-        
+
             @return if #PIN_BLUETOOTH_STATE != #PIN_BLUETOOTH_RX: \n
             &nbsp;&nbsp;&nbsp; true if the HC-05 is paired \n
             &nbsp;&nbsp;&nbsp; false if the HC-05 is disconnected
@@ -763,7 +780,7 @@
             &nbsp;&nbsp;&nbsp; true in any case - because we don't know ^^
 
           */
-        inline bool isConnected(void);      
+        inline bool isConnected(void);
         ///@cond
         inline bool checkOverflow(void) {
             #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
@@ -804,10 +821,10 @@
         long store_bits = 0L;
         /**
             @brief [SHIFT] Changes a single output Pin
-            
+
             @param idx index of the bit :D
             @param val the new state of this bit
-            
+
             @note uses store_bits
         */
         inline void shiftSingle(optVAL_t idx, bool val);
@@ -833,13 +850,13 @@
     #endif
 
     ///@note this is the current to-write PWM value
-    optVAL_t _pwmValue = 0x0;
+    optVAL_t _pwmValue = 0x0, _OpwmValue = 0x0;
 
     /*!
         @brief write a clamped pwm value to an output pin
-    
+
         @note this will use #PIN_MOTOR_SPE \n The value gets updated every #EBOARD_PWM_SPE seconds
-    
+
         @param val the pwm value [0-255] to use
     */
     inline void writePWM (optVAL_t val);
@@ -854,7 +871,10 @@
     #endif
 
     ISR(TIMER1_COMPA_vect) {
+      if (_pwmValue!=_OpwmValue){
         analogWrite(PIN_MOTOR_SPE,_pwmValue);
+        _OpwmValue = _pwmValue;
+      }
         #ifdef REPT_TASK
             rept_task();
         #endif
@@ -863,10 +883,10 @@
     ///@endcond
     /*!
         @brief write a boolean state to an output pin
-    
+
         @note this will automatically call setPin if COPY&PASTE
         @note if SHIFT_REGISTER is enabled all you can assign the outputs 0-based from 100
-     
+
         @param idx  the index of the pin to use
         @param val  the state the pin should have
     */
@@ -894,12 +914,12 @@
     ///@endcond
     /*!
         @brief read a digital state from an INPUTpin
-    
+
         @note this will automatically call setPin if COPY&PASTE
-    
+
         @param idx  the index of the pin to use
         @param dig  determines if the value should be from the digital or the analog pins
-    
+
         @return the read value as optVAL_t
     */
     inline optVAL_t readPin(optVAL_t idx,bool dig = true);
@@ -931,10 +951,10 @@
     #if EBOARD_USE_SPI > 0x0
         /*!
             @struct ServoCds55
-            
+
             @author EagleoutIce
 
-            @brief [SPI] This is used to communicate with the smart servo shield 
+            @brief [SPI] This is used to communicate with the smart servo shield
             \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
 
             @warning [COPY&PASTE] use SoccerBoard, DynamixelBoard and I2CInOut !
@@ -972,31 +992,31 @@
             void begin();
             /**
                 @brief Moves a Servo to a certain position
-            
+
                 @param ID the target ID of the Servo
                 @param Pos the target position of the Servo
-            
+
                 @note don't use this function... use write() instead
             */
             void WritePos(optVAL_t ID,optVAL_t Pos);
             /**
                 @brief Moves a Servo to a certain position
-            
+
                 @param ID the target ID of the Servo
                 @param Pos the target position of the Servo
             */
             inline void write(optVAL_t ID,optVAL_t Pos);
             /**
                 @brief Sets the default speed of servos
-            
+
                 @param velocity the new speed value...
             */
             void setVelocity(optVAL_t velocity);
             /**
                 @brief Sets the position limits for the servos
-                
+
                 @param posLimit the new positionLimit
-                
+
                 @attention the values are neither clamped nor masked!
             */
             void setPosLimit(optVAL_t posLimit);
@@ -1006,49 +1026,49 @@
             void rotate(optVAL_t,optVAL_t);
             /**
                 @brief (probably) set the posLimit for only one servo (will be overwritten by write() => writePos())
-            
+
                 @param ID the target ID of the Servo
                 @param upperLimit (probably) the upperLimit for a specific servo
-            
+
                 @warning could do something different... lack of documentation
             */
             void SetServoLimit(optVAL_t ID,optVAL_t upperLimit);
             /**
                 @brief (probably) set the velocity of only one Servo
-            
+
                 @param ID the target ID of the Servo
                 @param velocity (probably) the speed for a specific servo
-            
+
                 @warning could do something different... lack of documentation
             */
             void SetMotormode(optVAL_t ID, optVAL_t velocity);
             /**
                 @brief change the ID of a special Servo
-            
+
                 @param ID the target ID of the Servo
                 @param newID the newID of the Servo
-            
+
                 @warning using this may result in a total failure of the program... pls no what you're doing!
             */
             void SetID(optVAL_t ID, optVAL_t newID);
             /**
                 @brief resets a servo
-                
+
                 @param ID the target ID of the Servo
             */
             void Reset(optVAL_t ID);
             /**
                 @brief sends data. This is used internally and shouldnt be used!
-            
+
                 @param what the byte to send
-            
+
                 @returns feedback of SPI.transfer();
             */
             byte sendWait(const byte what);
 
             /// @brief stores the posLimit value send with write()
             int upperLimit_temp;
-       
+
         private:
             /// @brief stores the velocity value send with writePos()
             optVAL_t velocity_temp;
@@ -1072,7 +1092,7 @@
 
         byte ServoCds55::sendWait(const byte what) {
             this->tmp = SPI.transfer (what);
-            delayMicroseconds (23);
+            delayMicroseconds (20);
             return this->tmp;
         }
 
@@ -1091,7 +1111,7 @@
             sendWait((Pos & 0xff)); sendWait((this->velocity_temp>>0x8 & 0xff)); sendWait((this->velocity_temp & 0xff));
             sendWait('\t');         sendWait('\r');                              sendWait('\n');
             digitalWrite(this->cs, HIGH);
-            delay(10);
+            delay(8);
         }
 
         void ServoCds55::SetServoLimit(optVAL_t ID,optVAL_t upperLimit_tempT){
@@ -1100,7 +1120,7 @@
             sendWait((upperLimit_tempT & 0xff)); sendWait('\t'); sendWait('\r');
             sendWait('\n');
             digitalWrite(this->cs, HIGH);
-            delay(10);
+            delay(8);
         }
 
         void ServoCds55::SetMotormode(optVAL_t ID, optVAL_t velocity){
@@ -1109,7 +1129,7 @@
             sendWait((velocity & 0xff)); sendWait('\t'); sendWait('\r');
             sendWait('\n');
             digitalWrite(this->cs, HIGH);
-            delay(10);
+            delay(8);
         }
 
         void ServoCds55::SetID(optVAL_t ID, optVAL_t newID){
@@ -1117,7 +1137,7 @@
             sendWait('i');  sendWait(ID);   sendWait(newID);
             sendWait('\t'); sendWait('\r'); sendWait('\n');
             digitalWrite(this->cs, HIGH);
-            delay(10);
+            delay(8);
         }
 
         void ServoCds55::Reset(optVAL_t ID){
@@ -1125,7 +1145,7 @@
             sendWait('r');  sendWait(ID); sendWait('\t');
             sendWait('\r'); sendWait('\n');
             digitalWrite(this->cs, HIGH);
-            delay(10);
+            delay(8);
         }
         ///@endcond
         ///@brief this is the "to_use" instance of ServoCds55
@@ -1134,75 +1154,13 @@
 
     #if EBOARD_COPY_AND_PASTE > 0x0
 
-        /// @brief [COPY&PASTE] Assures the existence of the "qfix-code-main-method"
-        extern int eVirtual_main();
-
-        /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
-        void setup(void);
-        ///@cond
-        void setup(void) {
-            //setup of RX and TX should be handled manually - in everyCase ^^
-            setPin(PIN_MOTOR_DIR);
-            setPin(PIN_MOTOR_SPE);
-            #if EBOARD_DEBUG_MODE > 0x0
-                Serial.begin(EBOARD_DEBUG_SPEED);
-            #endif
-            //this will initialize the interrupt handling!
-            cli();
-            TCCR1A = 0; TCCR1B = 0; //clear registers;
-            OCR1A = EBOARD_PWM_SPE * 15624;
-            TCCR1B |= (1 << WGM12); TCCR1B |= (1 << CS10); TCCR1B |= (1 << CS12);
-            TIMSK1 |= (1 << OCIE1A);
-            sei();
-            #if EBOARD_BLUETOOTH > 0x0
-                ///@warning Some modules have 9600 as default, some have 38400
-                ///@todo ask for configure custom BAUD
-                #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
-                    Serial1.begin(38400); 
-                #else
-                    _serial.begin(38400); 
-                #endif
-                if(PIN_BLUETOOTH_STATE!=PIN_BLUETOOTH_RX) setPin(PIN_BLUETOOTH_STATE,INPUT);
-            #endif
-            #if EBOARD_I2C > 0x0
-                Wire.begin();
-            #endif
-            #if EBOARD_SHIFT_REGISTER > 0x0
-                pinMode(PIN_SHIFT_CLK,OUTPUT);
-                pinMode(PIN_SHIFT_DAT,OUTPUT);
-                pinMode(PIN_SHIFT_LAT,OUTPUT);
-                shiftAll(); //set all to 0
-            #endif
-            pinMode(9,OUTPUT);
-            #if EBOARD_USE_SPI > 0x0
-                _servoHandler.begin(); //Setup SPI
-            #endif
-            #if EBOARD_DEBUG_MODE > 0x0
-                Serial.print(eVirtual_main());
-                Serial.println(" -- Exit Code. \n Program has finished. Reset to start again");
-            #else
-                eVirtual_main();
-            #endif
-            delay(200);
-            cli(); //disable timers after running the program :D
-            writePWM(0);
-        }
-        ///@endcond
-        /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
-        void loop(void);
-        ///@cond
-        void loop(void){
-            //i shall be empty
-        }
-        ///@endcond
-
         /*!
             @struct SoccerBoard
-            
+
             @author EagleoutIce
-            
+
             @brief [COPY&PASTE] This is the SoccerBoard ghost struct :D
-            
+
             @note Some calls like led-calls won't have any effect due to the hardware of the UNO \n But they will work on the MEGA!
 
             [COPY&PASTE] You can use this class like this:
@@ -1231,40 +1189,40 @@
             #if EBOARD_USE_UTILITY > 0x0 or defined(__AVR_ATmega2560__) //won't shrink space... just speed things up
                 /**
                     *  @brief [MEGA] Control the OnBoard LED
-                    *  
+                    *
                     *  @warning this will take control over the Di13 pin on the MEGA
-                    * 
+                    *
                     *  @param idx the index of the LED. Won't be checked always be assumed as 1
                     *  @param state the state of the LED
                  */
                 inline void led(int idx,bool state);
                 /**
                     *  @brief [MEGA] Activate the OnBoard LED
-                    *  
+                    *
                     *  @warning this will take control over the Di13 pin on the MEGA
-                    * 
+                    *
                     *  @param idx the index of the LED. Won't be checked always be assumed as 1
-                    */ 
+                    */
                 inline void ledOn(int idx);
                 /**
                     *  @brief [MEGA] Deactivate the OnBoard LED
-                    *  
+                    *
                     *  @warning this will take control over the Di13 pin on the MEGA
-                    * 
+                    *
                     *  @param idx the index of the LED. Won't be checked always be assumed as 1
-                */   
+                */
                 inline void ledOff(int idx);
                 /**
                     *  @brief [MEGA] Deactivate the OnBoard LED
-                    *  
+                    *
                     *  @warning this will take control over the Di13 pin on the MEGA
-                    */     
+                    */
                 inline void ledsOff(void);
                 /**
                     *  @brief [MEGA] Activate the OnBoard LED
-                    *  
+                    *
                     *  @warning this will take control over the Di13 pin on the MEGA
-                    */   
+                    */
                 inline void ledMeter(int);
 
             #endif
@@ -1285,17 +1243,17 @@
 
             /**
                 @brief Set the state of a certain D-pin
-                
+
                 @note unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins
                 @note if you want to have e.g. 64 bits you can hack the specific code (shiftAll()) to your needs;)
-                
+
                 @param id The id of the pin
                 @param state The state the pin should have
             */
             inline void power(optVAL_t id, bool state);
             /**
                 @brief Set the state of a certain D-pin to HIGH
-                
+
                 @note unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins
                 @note if you want to have e.g. 64 bits you can hack the specific code (shiftAll()) to your needs;)
                 @note shortcut for power(id, HIGH)
@@ -1305,7 +1263,7 @@
             inline void powerOn(optVAL_t id);
             /**
                 @brief Set the state of a certain D-pin to LOW
-                
+
                 @note unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins
                 @note if you want to have e.g. 64 bits you can hack the specific code (shiftAll()) to your needs;)
                 @note shortcut for power(id, LOW)
@@ -1315,29 +1273,29 @@
             inline void powerOff(optVAL_t id);
             /**
                 @brief Say goodnight!
-                
+
                 @param t time in seconds the UNO gets to sleep ;)
             */
             inline void sleep(uint16_t t);
             /**
                 @brief Say goodnight!
-                
+
                 @param t time in milliseconds the UNO gets to sleep ;)
             */
             inline void msleep(uint16_t t);
             /**
                 @brief Reads a digital value from a pin
-                
+
                 @param id The id of the pin
-                
+
                 @return returns the value read
             */
             inline bool digital (optVAL_t id);
             /**
                 @brief Reads an analog value from a pin
-                
+
                 @param id The id of the pin
-                
+
                 @return returns the value read
             */
             inline optVAL_t  analog (optVAL_t id);
@@ -1436,11 +1394,11 @@
 
         /*!
             @struct I2CInOut
-            
+
             @author EagleoutIce
-            
+
             @brief [COPY&PASTE] This is the I2CInOut ghost struct :D
-            
+
             @note any assignment to Port A won't has anny effect!
 
             [COPY&PASTE] You can use this class like this:
@@ -1462,7 +1420,7 @@
         struct I2CInOut{
             /*!
                 @brief The constructor
-            
+
                 @note It does nothing! :D (well its initalizing pin values but.... nothing special^^)
             */
             I2CInOut(SoccerBoard&, optVAL_t, optVAL_t, optVAL_t, optVAL_t);
@@ -1479,7 +1437,7 @@
                 @note 404 'A' not found :D
             */
             inline void write(void);
-            
+
             ///@brief storing value for A-pin (🔧 I prevent errors!)
             optVAL_t A; //if you've used uint16_t values you'll have to replace it here
             //we only have B - DiOut and C - AO [OUT]
@@ -1510,9 +1468,9 @@
 
         /*!
             @struct AX12Servo
-            
+
             @author EagleoutIce
-            
+
             @brief [COPY&PASTE] This is the AX12Servo ghost struct :D
 
             [COPY&PASTE] You can use this class like this:
@@ -1534,23 +1492,26 @@
         struct AX12Servo {
             /*!
                 @brief The constructor
-            
+                @todo include same guard as in LCD
                 @warning This constructor shouldn't be called!
             */
             AX12Servo(void);
             /*!
                 @brief The constructor
-            
+
                 @param dBoard this will be used to register new Servos
                 @param servoID the ID of the AX-12 Servo
             */
-            AX12Servo(DynamixelBoard dBoard, optVAL_t servoID); //if borders => setPosLimit
+            AX12Servo(DynamixelBoard &dBoard, optVAL_t servoID); //if borders => setPosLimit
+
+            DynamixelBoard *_conBoard;
+
             #if EBOARD_USE_UTILITY > 0x0
                 /**
                     @brief change the AX-12 Servo this object should speak to
-                
+
                     @param newID the new ID of the Servo
-                
+
                     @note why should anyone need that?
                 */
                 inline void setID(optVAL_t newID);
@@ -1565,19 +1526,19 @@
                 inline void changeMotorID(optVAL_t newID);                    //this should change the hardwareaddress...
                 /**
                     @brief set the AX-12 Servo to positionMode
-                
+
                     @note as there is no rotationMode there is nothing this does
                 */
                 inline void setPositionMode(void);
                 /**
                     @brief set the AX-12 Servo *NOT* to speedMode
-                
+
                     @note as there is no rotationMode there is nothing this does
                 */
                 inline void setSpeedMode(void);
                 /**
                     @brief 🔧 I prevent errors!
-                
+
                     @note as there is no rotationMode there is nothing this does
                 */
                 inline void setSpeed(optVAL_t);
@@ -1596,7 +1557,7 @@
                 @param pos the Position the Servo should go to [0;1023 (w #EBOARD_CLAMP)]
                 @param speed the speed of the Servo
             */
-            void setPosition(uint16_t pos, uint16_t speed=0x3FF);
+            void setPosition(int pos, int speed=0x3FF);
             /**
                 @brief This saves the Servo Position
 
@@ -1604,42 +1565,43 @@
                 @param pos the Position the Servo should go to [0;1023 (w #EBOARD_CLAMP)]
                 @param speed the speed of the Servo
             */
-            inline void storePosition(uint16_t pos, uint16_t speed = 0x3FF);
+            inline void storePosition(int pos, int speed = 0x3FF);
             /**
                 @brief This "kind of" returns the Servo-Position
-            
+
                 @returns The position the servo is (actually driving to)
             */
             inline optVAL_t getPosition(void);
             /**
                 @brief Use this if you wan't to have a nice way of writing false
-            
+
                 @note this doesnt talk to the servo
-             
+
                 @returns false
             */
             inline bool isMoving(void);
             /**
                 @brief stores the position the Servo should go to DynamixelBoard::action()
-                
+
                 @note pls do me a favour and don't change them manually... use AX12Servo::storePosition()
             */
-            uint16_t storedPos;
+            int storedPos;
             /**
                 @brief stores the Speed of the Servo DynamixelBoard::action()
-                
+
                 @note pls do me a favour and don't change them manually... use AX12Servo::storePosition()
             */
-            uint16_t storedSpe;
+            int storedSpe;
 
             //bool posMode; //we don't care wich mode we are in ^^
-        private:
+
             ///@brief stores the id of the AX12Servo obejct
             optVAL_t id;
+        private:
             ///@brief stores the actual pos or move-to pos of the AX12Servo
-            uint16_t actPos;
+            int actPos;
             ///@brief stores the actual 'would use speed' of the AX12Servo
-            uint16_t actSpe;
+            int actSpe;
 
         }; //shield //set limits auto register for begin
 
@@ -1657,7 +1619,7 @@
             void AX12Servo::setTorque(uint16_t) {} //which damn register? xD
         #endif
 
-        void AX12Servo::setPosition(uint16_t pos, uint16_t speed) {
+        void AX12Servo::setPosition(int pos, int speed) {
             #if EBOARD_CLAMP > 0x0
                 if(pos>1023 || speed > 1023) return;
                 this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
@@ -1671,9 +1633,6 @@
             if(speed != actSpe){ _servoHandler.setVelocity(speed); this->actSpe=speed;}
             _servoHandler.write(this->id,pos);
         }
-        void AX12Servo::storePosition(uint16_t pos, uint16_t speed){
-            this->storedPos=pos;this->storedSpe=speed;
-        }
         optVAL_t AX12Servo::getPosition(void) {
             return this->actPos; //when moving... false value;
         }
@@ -1682,9 +1641,9 @@
 
         /*!
             @struct DynamixelBoard
-            
+
             @author EagleoutIce
-            
+
             @brief [COPY&PASTE] This is the DynamixelBoard ghost struct :D
 
             [COPY&PASTE] You can use this class like this:
@@ -1727,7 +1686,7 @@
         protected:
             /**
                 @brief stores the pointers to the registerd AX12Servo
-            
+
                 @note in the docs, the Number will appear as 2, but it's the value of #EBOARD_SPI_SERVO_MAX
             */
             AX12Servo* connected[EBOARD_SPI_SERVO_MAX];
@@ -1750,21 +1709,24 @@
             }
         }
 
-        AX12Servo::AX12Servo(DynamixelBoard dBoard, optVAL_t servoID): id(servoID) {
-            #if EBOARD_DEBUG_MODE > 0x0
-                assert(servoID<EBOARD_SPI_SERVO_MAX);
-            #endif
-            this->actSpe=0x96;
-            dBoard.connected[servoID] = this;
+
+        void AX12Servo::storePosition(int pos, int speed){
+            if(this->id < EBOARD_SPI_SERVO_MAX) _conBoard->connected[this->id] = this;
+            this->storedPos=pos;this->storedSpe=speed;
+        }
+        AX12Servo::AX12Servo(DynamixelBoard &dBoard, optVAL_t servoID): _conBoard( &dBoard),id(servoID-1), actSpe(0x96) {
+            //#if EBOARD_DEBUG_MODE > 0x0
+            //    assert(servoID<EBOARD_SPI_SERVO_MAX);
+            //#endif
         }
         ///@endcond
 
         #if EBOARD_BLUETOOTH > 0x0
             /*!
                 @struct RB14Scan
-            
+
                 @author EagleoutIce
-            
+
                 @brief [COPY&PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D
 
                 @pre to use this class on UNO:
@@ -1804,7 +1766,7 @@
                 inline char channel(optVAL_t);
                 /**
                     @brief this will write a constant string to the output
-                
+
                     @note this is a new function :D
                 */
                 inline void write(const char* const  val);
@@ -1819,22 +1781,22 @@
 
         /**
             @page page2 The source code
-        
+
             @brief Welcome to the matrix (:
-        
+
             @includelineno /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h
         */
     #endif
 #if EBOARD_I2C > 0x0
         /**
             @brief Sends a buffer of bytes to a certain I²C-Device
-            
+
             @note Using I²C won't block the analog pins!
-            
+
             @param deviceID the target device
             @param buf the buffer to send
             @param buf_len size of buffer
-            
+
             @return 0 Transmission went well :D
             @return 1 ERROR: data too long for transmit buffer
             @return 2 ERROR: NACK transmitting address
@@ -1845,12 +1807,12 @@
 
         /**
             @brief Sends a byte to a certain I2C-Device
-        
+
             @note Using I2C won't block the analog pins!
-        
+
             @param deviceID the target device
             @param buf the buffer to send
-        
+
             @return 0 Transmission went well :D
             @return 1 ERROR: data too long for transmit buffer
             @return 2 ERROR: NACK transmitting address
@@ -1861,9 +1823,9 @@
 
         /**
             @brief Sends a byte to a certain I²C-Device
-        
+
             @note Using I²C won't block the analog pins!
-         
+
             @param ret an array of optVAL_t
             @param ret_len the length of the array
         */
@@ -1896,9 +1858,9 @@
 
         /**
             @brief Reads a special amount of bits from a certain I²C-Device
-        
+
             @note Using I²C won't block the analog pins!
-        
+
             @param deviceID the target device
             @param ret the buffer to send
             @param ret_len size of buffer
@@ -2011,11 +1973,11 @@
 	            {0x00,0x00,0x7F,0x00,0x00,0x00,0x00,0x00},
 	            {0x00,0x41,0x36,0x08,0x00,0x00,0x00,0x00},
 	            {0x00,0x02,0x01,0x01,0x02,0x01,0x00,0x00},
-	            {0x00,0x02,0x05,0x05,0x02,0x00,0x00,0x00} 
+	            {0x00,0x02,0x05,0x05,0x02,0x00,0x00,0x00}
             };
             /*
              *  @note if you don't mind the space this is the extended font set!
-             * 
+             *
                 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},	// 0x00
                 {0x7E,0x81,0x95,0xB1,0xB1,0x95,0x81,0x7E},	// 0x01
                 {0x7E,0xFF,0xEB,0xCF,0xCF,0xEB,0xFF,0x7E},	// 0x02
@@ -2271,11 +2233,11 @@
                 {0x00,0x11,0x15,0x15,0x1F,0x1F,0x0A,0x00},	// 0xFC
                 {0x00,0x19,0x1D,0x15,0x17,0x12,0x00,0x00},	// 0xFD
                 {0x00,0x00,0x3C,0x3C,0x3C,0x3C,0x00,0x00},	// 0xFE
-                {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00} 	// 0xFF 
+                {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00} 	// 0xFF
              */
 
             //Definition of OLED Constants
-            /// @macro_def [internal] value to set OLED into command mode 
+            /// @macro_def [internal] value to set OLED into command mode
             #define LCD_COMMAND_MODE                0x80
             /// @macro_def [internal] value to set OLED into data mode
             #define LCD_DATA_MODE                   0x40
@@ -2301,15 +2263,15 @@
 
             #ifndef LCD_WIDTH
                 /// @macro_def WIDTH of all displays
-                #define LCD_WIDTH 0x80
+                #define LCD_WIDTH 128
             #endif
             #ifndef LCD_HEIGHT
                 /// @macro_def HEIGHT of all Displays
-                #define LCD_HEIGHT 0x40
+                #define LCD_HEIGHT 64
             #endif
             /*!
                 @struct LCD
-            
+
                 @author EagleoutIce
 
                 @brief [I2C] [LCD] This is used to add support for OLED displays connected to the 'SoccerBoard'
@@ -2336,7 +2298,7 @@
                 #include <SPI.h>
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
                 SoccerBoard board;
-                LCD(board);
+                LCD lcd(board);
                 int main() {
                     board.sleep(2); // not needed (it's just funny :P)
                     lcd.clear();
@@ -2345,8 +2307,9 @@
                     lcd.print(3,0,42);
                 }
                 @endcode
-                
+
                 @note positions will only apply if both of them are smaller as the maximum declared with #LCD_HEIGHT and #LCD_WIDTH
+                @note init() will be called on the first display access! [@ref su7]
 
             */
             struct LCD {
@@ -2358,14 +2321,14 @@
                  */
                 LCD(SoccerBoard &soccerBoard, optVAL_t id=0x3C);
                 /**
-                    @brief changes the address of the LCD display talked to 
+                    @brief changes the address of the LCD display talked to
 
                     @param newID the target ID of the LCD
-            
+
                     @note this calls LCD::init() by default!
 
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2374,9 +2337,9 @@
                 inline bool changeID(optVAL_t newID = 0x3C);
                 /**
                     @brief clears the LCD
-                    
+
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2431,9 +2394,9 @@
                 inline void lightOff(void);
                 /**
                     @brief clears the screen
-                    
+
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2445,10 +2408,10 @@
                 /**
                     @brief initializes the Display called by:
                         - LCD::LCD()
-                        - LCD::changeID() 
+                        - LCD::changeID()
 
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2462,24 +2425,17 @@
                     @param posX the startPos abscissa
                     @param posY the startPos ordinate
                     @param hiX  the width of the bitmap
-                    @param hiY  the height of the bitmap  
-                 */    
-                inline void drawBitmap(const optVAL_t *bitmap, byte posX, byte posY, byte hiX, byte hiY);
+                    @param hiY  the height of the bitmap
+                 */
+                inline void drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY);
                 /**
                     @brief enable or disable the display
 
                     @param newMode the mode the Display should have now
                         - true: enabled
                         - false: disabled
-
-                    @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
-                        - buffer overflow
-                        - NACK on address
-                        - NACK on data
-                        - unknown error
                  */
-                inline bool changeMode(bool newMode = true);
+                inline void changeMode(bool newMode = true);
                 /**
                     @brief set the position of the cursor
 
@@ -2487,7 +2443,7 @@
                     @param posY the new position ordinate
 
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2500,7 +2456,7 @@
                     @param val the new brightness of display
 
                     @return true if the transmission was successful
-                    @return false if there was one of the following errors: 
+                    @return false if there was one of the following errors:
                         - buffer overflow
                         - NACK on address
                         - NACK on data
@@ -2514,85 +2470,87 @@
                         - true: white
                         - false: black
 
-                    @return false if there was one of the following errors: 
-                        - buffer overflow
-                        - NACK on address
-                        - NACK on data
-                        - unknown error
                  */
-                inline bool changeBackground(bool newBackground = false);
+
+                inline void changeBackground(bool newBackground = false);
+                ///@brief ID of the Display
+                optVAL_t ID;
                 private:
                 /**
                  * @brief the addressing mode (page/horizontal)
                  * @todo possbile Ads: scrollMode?; font? [size]; invert?
-                 * 
+                 *
                  */
                 ///@brief posX
                 byte pX;
                 ///@brief posY
                 byte pY;
-                ///@brief ID of the Display
-                optVAL_t ID;
-                
+                //@brief called_guard
+                bool _cI;
+
                 /**
                  * @brief this function will execute two cmd sends without starting and without ending the transmission
-                 * 
+                 *
                  * @param o the first param
                  * @param t the second param
                  */
                 inline void s2Cmd(optVAL_t o, optVAL_t t);
                 /**
                  * @brief this function will execute one cmd send without starting and without ending the transmission
-                 * 
+                 *
                  * @param o the param
                  */
                 inline void s1Cmd(optVAL_t o);
                 /**
                  * @brief this function will execute one dat send without starting and without ending the transmission
-                 * 
+                 *
                  * @param o the param
                  */
                 inline void s1Dat(optVAL_t o);
-                
+
             };
             ///@cond
-            LCD::LCD(SoccerBoard &soccerBoard, optVAL_t id) : ID(id) {
-                this->init();
+            LCD::LCD(SoccerBoard &soccerBoard, optVAL_t id) {
+                this->_cI = false;
+                this->ID = id;
+                //this->init();
             }
             inline bool LCD::changeID(optVAL_t newID) {
                 this->ID = newID;
                 return this->init();
             }
             inline bool LCD::clear(void) {
+              if(!this->_cI) this->init();
                 for(byte i = 0; i < 8; i++){
                     //maybe *8
                     setCursor(0,i);
-                    
-                    Wire.beginTransmission(this->ID);
+
                     for (byte j = 0; j < 128; j++) {
                         this->s1Dat(0);
                     }
-                    Wire.endTransmission();
                 }
                 return setCursor(0,0);
             }
             void LCD::print(optVAL_t line, optVAL_t col, const char *data) {
+                if(!this->_cI) this->init();
                 byte i = 0x0;
                 if(col < ((LCD_WIDTH-1)/8.0) && line < ((LCD_HEIGHT-1)/8.0)) {
-                    setCursor(col*8,line*8);
+                    setCursor(col,line);
                 }
-                while(data[i] && i < LCD_WIDTH){
+                while(data[i] && (pX*8) < LCD_WIDTH){
+                    //Serial.print(data[i]); Serial.print(" ");
+                    //Serial.print(i); Serial.print(" "); Serial.print(pX); Serial.print(" ");
+                    //Serial.println(this->pY);
                     if(data[i] == '\n' || this->pX >= LCD_WIDTH) {
-                        setCursor(0,(pY+8));
+                        setCursor(0,(pY+1));
                     } else if (this->pY >= LCD_HEIGHT){
                         setCursor(0,0);
                     }
-                    Wire.beginTransmission(this->ID);
-                    if(data[i] < 32 || data[i] > 127) continue;
-                    for (byte i = 0; i < 8; i++){
-                        this->s1Dat(pgm_read_byte(&basicFont[data[i]-32][i]));
+                    if(data[i] < 32 || data[i] > 127){ i++; continue;}
+                    for (byte j = 0; j < 8; j++){
+                        this->s1Dat(pgm_read_byte(&basicFont[data[i]-32][j]));
                     }
-                    Wire.endTransmission();
+                    i++;this->pX++;
                 }
             }
             void LCD::print(optVAL_t line, optVAL_t col, int data){
@@ -2614,84 +2572,85 @@
             inline bool LCD::init() {
                 #ifdef HIGHSPEED
                     TWBR = 0xC;
-                    Wire.beginTransmission(this->ID);
-                    this->s2Cmd(LCD_COMMAND_CHARGE_PUMP_SETTING,LCD_COMMAND_CHARGE_PUMP_ENABLE);
-                    Wire.endTransmission();
                 #endif
+                    this->_cI = true;
+                    this->s2Cmd(LCD_COMMAND_CHARGE_PUMP_SETTING,LCD_COMMAND_CHARGE_PUMP_ENABLE);
                     this->changeMode(false);
                     this->changeBackground(false);
-                    this->changeBrightness();
-                    Wire.beginTransmission(this->ID);
+                    this->changeBrightness(255);
                     this->s2Cmd(0x20,LCD_PAGE_ADDRESSING);
-                    Wire.endTransmission();
-                    this->clear();
-                    this->print("eBoard written by EagleoutIce");
-                    return this->changeMode(true);
+                    this->changeMode(true);
+
+                    //this->print("eBoard \n written by \n EagleoutIce");
+                    return this->clear();
             }
 
-            inline void LCD::drawBitmap(const optVAL_t *bitmap, byte posX, byte posY, byte hiX, byte hiY){
+            inline void LCD::drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY){
+                if(!this->_cI) this->init();
                 setCursor(posX,posY);
                 byte col = 0x0;
-                Wire.beginTransmission(this->ID);
                 for(int i = 0x0; i < (hiX * 8 * hiY); i++){
                     this->s1Dat(pgm_read_byte(&bitmap[i]));
                     if(++col == (hiX * 8)) {
-                        Wire.endTransmission();
                         col = 0x0;
                         setCursor(posX,++posY);
-                        Wire.beginTransmission(this->ID);
                     }
                 }
-                Wire.endTransmission();
             }
-            inline bool LCD::changeMode(bool newMode) {
-                Wire.beginTransmission(this->ID);
-                Wire.write(LCD_COMMAND_MODE);
-                if(newMode) Wire.write(LCD_COMMAND_DISPLAY_ON);
-                else Wire.write(LCD_COMMAND_DISPLAY_OFF);
-                return (Wire.endTransmission() == 0);
+            inline void LCD::changeMode(bool newMode) {
+                if(!this->_cI) this->init();
+                if(newMode) this->s1Cmd(LCD_COMMAND_DISPLAY_ON);
+                else this->s1Cmd(LCD_COMMAND_DISPLAY_OFF);
             }
             inline bool LCD::setCursor(byte posX, byte posY) {
+                if(!this->_cI) this->init();
+                this->s2Cmd((0x00 + (8 *posX & 0x0F)),(0x10 + ((8 * posX >> 4) & 0x0F))); //lower and higher address
                 Wire.beginTransmission(this->ID);
-                this->s2Cmd((0x00 + (posX & 0x0F)),(0x10 + ((posX >> 4) & 0x0F))); //lower and higher address
                 Wire.write(LCD_COMMAND_MODE); Wire.write(0xB0 + posY); //page address
                 this->pX = posX; this->pY = posY;
                 return (Wire.endTransmission() == 0);
             }
 
             inline bool LCD::changeBrightness(byte val) {
-                Wire.beginTransmission(this->ID);
+                if(!this->_cI) this->init();
                 this->s2Cmd(0x81,val); //brightness mode
+                Wire.beginTransmission(this->ID);
                 return (Wire.endTransmission() == 0);
             }
-            inline bool LCD::changeBackground(bool newBackground) {
-                Wire.beginTransmission(this->ID);
-                Wire.write(LCD_COMMAND_MODE);
-                if(newBackground) Wire.write(LCD_COMMAND_WHITE_BACKGROUND);
-                else Wire.write(LCD_COMMAND_BLACK_BACKGROUND);
-                return (Wire.endTransmission() == 0);
+            inline void LCD::changeBackground(bool newBackground) {
+                if(!this->_cI) this->init();
+                if(newBackground) this->s1Cmd(LCD_COMMAND_WHITE_BACKGROUND);
+                else this->s1Cmd(LCD_COMMAND_BLACK_BACKGROUND);
             }
 
             inline void LCD::s2Cmd(optVAL_t o, optVAL_t t){
+                if(!this->_cI) this->init();
                 this->s1Cmd(o); this->s1Cmd(t);
             }
 
-            inline void LCD::s1Cmd(optVAL_t o) {
-                Wire.write(LCD_COMMAND_MODE); Wire.write(o);
+            inline void LCD::s1Cmd(optVAL_t C) {
+                if(!this->_cI) this->init();
+                Wire.beginTransmission(this->ID);
+                Wire.write(LCD_COMMAND_MODE); Wire.write(C);
+                Wire.endTransmission();
             }
             inline void LCD::s1Dat(optVAL_t o){
+                if(!this->_cI) this->init();
+                Wire.beginTransmission(this->ID);
                 Wire.write(LCD_DATA_MODE); Wire.write(o);
+                Wire.endTransmission();
             }
+
             //@endcond
         #endif
     #endif
-    /** 
+    /**
      * @defgroup i2cEx [ 🐼 ] I2C
-     * 
-     */ 
+     *
+     */
 
     /**
-        @addtogroup i2cEx        
+        @addtogroup i2cEx
         @brief This tutorial shows you how to deal with the I²C extension!
 
         @note To use this:
@@ -2729,9 +2688,9 @@
         @note The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost.
     */
 
-    /** 
+    /**
      * @defgroup blueEx [ 🐼 ] BLUETOOTH
-     * 
+     *
      */
     /**
         @addtogroup blueEx
@@ -2768,12 +2727,12 @@
 
     /**
      * @defgroup shiftEx [ 🐼 ] SHIFT
-     * 
+     *
      */
     /**
         @addtogroup shiftEx
         @brief This tutorial shows you how to deal with the Shift extension!
-                        
+
         @note To use this:
         @code
         #define EBOARD_SHIFT_REGISTER 0x1
@@ -2782,7 +2741,7 @@
 
         It is possible to extend the amount of available pins via SN74HC595 Shift-Registers.
         Connect them like this:
-       
+
         @image html /home/eagleoutice/Dokumente/proj/_sia/t.png
         @image latex /home/eagleoutice/Dokumente/proj/_sia/t.png
 
@@ -2813,7 +2772,7 @@
     */
     /**
      * @defgroup lcdEx [ 🐼 ] OLED
-     * 
+     *
      */
     /**
         @addtogroup lcdEx
@@ -2836,12 +2795,17 @@
         GND     ( GND )    =>  GND
         @endverbatim
 
+        It is possible to print Text via LCD::print() and to draw Bitmaps with LCD::drawBitmap():
+
+        @image html /home/eagleoutice/Dokumente/proj/_sia/lcd_pr.jpg
+        @image latex /home/eagleoutice/Dokumente/proj/_sia/lcd_pr.jpg
+
         @note It is possible to connect multiple devices via I²C ! Just forward the SCL and SDA lines
     */
 
     /**
      * @defgroup portTu [ 🐼 ] UNO2MEGA
-     * 
+     *
      */
     /**
         @addtogroup portTu
@@ -2850,14 +2814,14 @@
         @pre Layout of UNO R3 and MEGA R3:
             @image html /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
             @image latex /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
-        
+
         @section sprt1 Software
 
-        If you haven't changed any Pin-configuration there is no need to change anything with the code! :D 
+        If you haven't changed any Pin-configuration there is no need to change anything with the code! :D
         \n If you use #EBOARD_BLUETOOTH (RB14Scan) this line is obsolete:
         @code
         #include <SoftwareSerial.h>
-        @endcode 
+        @endcode
 
         Consider this:
         - use D22-D53 [D49] before using the additional pins [D100...]
@@ -2871,22 +2835,91 @@
             }
             @endcode
             Please keep in mind that this affect the pins D3 and D2 aswell!
-        
+
         @section sprt2 Hardware
-            
+
         There are some things you have to consider due to the fact that the MEGA has more pins :P \n Most shields can be applied directly ;)
 
         - the pins used for shield communication aren't D11 (D10) to D13! they are D51 (D50) to D53!! you shouldn't use them :/
         - I²C communication isn't handled by A4 (SDA) and A5 (SCL)! It works via the communication pins 20 (SDA) and 21 (SCL)
         - the MEGA has 4 hardware-serial ports! (3 (2, one is used for the basic RB14Scan communication by Default :D) of them for custom use)
         - you are able to use the full range of 16 Analog In pins!
-        
+
     */
 
+#if EBOARD_COPY_AND_PASTE > 0x0
 
+        /// @brief [COPY&PASTE] Assures the existence of the "qfix-code-main-method"
+        extern int eVirtual_main();
+        /// @brief this is a guard
+
+        /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
+        void setup(void);
+
+        ///@cond
+        void setup(void) {
+            //setup of RX and TX should be handled manually - in everyCase ^^
+            setPin(PIN_MOTOR_DIR);
+            setPin(PIN_MOTOR_SPE);
+            #if EBOARD_DEBUG_MODE > 0x0
+                Serial.begin(EBOARD_DEBUG_SPEED);
+            #endif
+            //this will initialize the interrupt handling!
+            cli();
+            TCCR1A = 0; TCCR1B = 0; //clear registers;
+            OCR1A = EBOARD_PWM_SPE * 15624;
+            TCCR1B |= (1 << WGM12); TCCR1B |= (1 << CS10); TCCR1B |= (1 << CS12);
+            TIMSK1 |= (1 << OCIE1A);
+            sei();
+            #if EBOARD_BLUETOOTH > 0x0
+                ///@warning Some modules have 9600 as default, some have 38400
+                ///@todo ask for configure custom BAUD
+                #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
+                    Serial1.begin(38400);
+                #else
+                    _serial.begin(38400);
+                #endif
+                if(PIN_BLUETOOTH_STATE!=PIN_BLUETOOTH_RX) setPin(PIN_BLUETOOTH_STATE,INPUT);
+            #endif
+            #if EBOARD_I2C > 0x0
+                Wire.begin();
+            #endif
+            #if EBOARD_SHIFT_REGISTER > 0x0
+                pinMode(PIN_SHIFT_CLK,OUTPUT);
+                pinMode(PIN_SHIFT_DAT,OUTPUT);
+                pinMode(PIN_SHIFT_LAT,OUTPUT);
+                shiftAll(); //set all to 0
+            #endif
+            pinMode(9,OUTPUT);
+            #if EBOARD_USE_SPI > 0x0
+                _servoHandler.begin(); //Setup SPI
+            #endif
+
+            #if EBOARD_DEBUG_MODE > 0x0
+                Serial.print(eVirtual_main());
+                Serial.println(" -- Exit Code. \n Program has finished. Reset to start again");
+            #else
+                eVirtual_main();
+            #endif
+            delay(200);
+            cli(); //disable timers after running the program :D
+            writePWM(0);
+        }
+        ///@endcond
+        /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
+        void loop(void);
+        ///@cond
+        void loop(void){
+          //shall be empty
+          }
+        ///@endcond
+
+#endif
 
 #else
     #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process
 #endif
+#pragma GCC diagnostic pop
+
 
 #endif

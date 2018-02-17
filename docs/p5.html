@@ -192,7 +192,7 @@ Version 2.0c 🐈 - Facing Interfaces [~130m]</h2>
 <li>Cleaned Code</li>
 </ul>
 <h2><a class="anchor" id="su6"></a>
-Version 2.1d 🐺 - #Oversize</h2>
+Version 2.1d 🐺 - #Oversize [~60m]</h2>
 <p class="">Included many Optimizations and fixes</p>
 <p class=""><b>Added</b></p>
 <ul>
@@ -209,8 +209,21 @@ Version 2.1d 🐺 - #Oversize</h2>
 </ul>
 <p class=""><b>Fixes</b></p><ul>
 <li>Fixed bug in <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> (private access failure)</li>
-<li>Fixed bug in <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> (double clamp on <a class="el" href="structAX12Servo.html#a6a87ff6b4c1abce86258e50c039348c3" title="This saves the Servo Position. ">AX12Servo::storePosition()</a>)</li>
-<li>Fixed bug of clamp_overflow (no check for in_range and out_range in <a class="el" href="structAX12Servo.html#a7b242be4e26737cb9e3a4c6809a3cf29" title="This moves the Servo to the new position. ">AX12Servo::setPosition()</a>) </li>
+<li>Fixed bug in <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> (double clamp on <a class="el" href="structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. ">AX12Servo::storePosition()</a>)</li>
+<li>Fixed bug of clamp_overflow (no check for in_range and out_range in <a class="el" href="structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="This moves the Servo to the new position. ">AX12Servo::setPosition()</a>)</li>
+</ul>
+<h2><a class="anchor" id="su7"></a>
+Version 2.2b 🐏 - Optimize it</h2>
+<p class="">Fixed many bugs</p>
+<p class=""><b>Added</b></p>
+<ul>
+<li>images for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a></li>
+<li>dancing_dragon as funny example (created while debugging)</li>
+</ul>
+<p class=""><b>Fixes</b></p><ul>
+<li>Fixed blocking bug on Hardware-calls (pre init)</li>
+<li>Fixed <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> err send</li>
+<li>Fixed several bugs/optimized ranges to avoid undefined behaviour </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

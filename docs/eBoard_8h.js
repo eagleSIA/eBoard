@@ -98,6 +98,7 @@ var eBoard_8h =
     [ "writePin", "eBoard_8h.html#ad6d4c1b1e3b495ed81fb28fac04d2bd6", null ],
     [ "writePWM", "eBoard_8h.html#ad3f999233c04890710241b8b898d09cb", null ],
     [ "writeVal", "eBoard_8h.html#abf785ff4ead72e3118dfaa8270c04f0c", null ],
+    [ "_OpwmValue", "eBoard_8h.html#a7dc63fc5c3256d87e476e7b699f49d84", null ],
     [ "_pwmValue", "eBoard_8h.html#a7dbb2f6e99e0eda923f12e97aeaa1238", null ],
     [ "_servoHandler", "eBoard_8h.html#a176c8fd69620a612067a5a2f3adc7f21", null ],
     [ "basicFont", "eBoard_8h.html#a55181965197fb6a2375306ca62593643", null ],

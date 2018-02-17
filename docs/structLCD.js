@@ -1,12 +1,12 @@
 var structLCD =
 [
     [ "LCD", "structLCD.html#ad9f2d73441bde885fc34b567738c73fb", null ],
-    [ "changeBackground", "structLCD.html#a3e929ea3ff4b7e62a482ad28c10f091a", null ],
+    [ "changeBackground", "structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6", null ],
     [ "changeBrightness", "structLCD.html#a75cacb94de3b3ff71e9a4497b5cc4a81", null ],
     [ "changeID", "structLCD.html#aa5e25fef7649532af402df06f05b6d4c", null ],
-    [ "changeMode", "structLCD.html#a485213a4d8fd3430c09486d302030add", null ],
+    [ "changeMode", "structLCD.html#ad31ee94d401b7c28d6cc2f472e2eb8fd", null ],
     [ "clear", "structLCD.html#ad3120f397273bac2ad60e0291554b9e6", null ],
-    [ "drawBitmap", "structLCD.html#ab8571092d08ec9247e2f025ebc9d13dd", null ],
+    [ "drawBitmap", "structLCD.html#a0fd055c88888db0e52fea11f1df24d4a", null ],
     [ "init", "structLCD.html#a632d9c641930fe16c0b623b82136196e", null ],
     [ "lightOff", "structLCD.html#a3f437907a543226be7c527a2d304ad95", null ],
     [ "lightOn", "structLCD.html#aa4c1e7d41ca93af28769aaba704d5c1f", null ],
@@ -19,6 +19,7 @@ var structLCD =
     [ "s1Dat", "structLCD.html#ae5873763db265cd00da32664cce88873", null ],
     [ "s2Cmd", "structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229", null ],
     [ "setCursor", "structLCD.html#ad1a67d455563026a5064ef9cab86ae4d", null ],
+    [ "_cI", "structLCD.html#a7c34f439836d4df914c5eac265fc48a0", null ],
     [ "ID", "structLCD.html#a65dc1d312b581121a2f859e323c26337", null ],
     [ "pX", "structLCD.html#a0b9ca6a9475933ad8da45315fe74693f", null ],
     [ "pY", "structLCD.html#afb51248bd06d7ccd87ba5f4eac99ede2", null ]

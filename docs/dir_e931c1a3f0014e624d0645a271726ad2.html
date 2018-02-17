@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: [ 🐼 ] SHIFT</title>
+<title>eBoard: src/examples Directory Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,9 +56,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
-      <li class="current"><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="modules.html"><span>Tutorials</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,6 +77,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li class="current"><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -90,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('group__shiftEx.html','');});
+$(document).ready(function(){initNavTree('dir_e931c1a3f0014e624d0645a271726ad2.html','');});
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -110,36 +116,27 @@ $(document).ready(function(){initNavTree('group__shiftEx.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">[ 🐼 ] SHIFT</div>  </div>
+<div class="title">examples Directory Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This tutorial shows you how to deal with the Shift extension!  
-<a href="#details">More...</a></p>
-<p class="">This tutorial shows you how to deal with the Shift extension! </p>
-<dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div></div><!-- fragment --> </dd></dl>
-<h1><a class="anchor" id="pinExt"></a>
-Pin extensions</h1>
-<p class="">It is possible to extend the amount of available pins via SN74HC595 Shift-Registers. Connect them like this:</p>
-<div class="image">
-<img src="t.png" alt="t.png"/>
+<div class="dynheader">
+Directory dependency graph for examples:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="dir_e931c1a3f0014e624d0645a271726ad2_dep.svg" width="134" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
- <dl class="section note"><dt>Note</dt><dd>it is possible to extend the amount of shiftregisters. This version of eBoard supports up to 32 (64) additional pins. <br />
- But it is possible to connect even more!</dd></dl>
-<p>To assign this pins with the special values you can use the <a class="el" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="Set the state of a certain D-pin. ">SoccerBoard::power()</a> [<a class="el" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f" title="Set the state of a certain D-pin to HIGH. ">SoccerBoard::powerOn()</a>; <a class="el" href="structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd" title="Set the state of a certain D-pin to LOW. ">SoccerBoard::powerOff()</a>] Syntax with pinIDs &gt;99 [100 =&gt; 0 etc.] This is an example-program: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_SHIFT_REGISTER 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f">powerOn</a>(100);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p class="">This will set the Output value of Pin 100 (Q0 on the first SN74HC595) to HIGH.</p>
-<h1><a class="anchor" id="hs"></a>
-Hardware specific</h1>
-<ul>
-<li>It is possible to set a Data of a single Pin with <a class="el" href="eBoard_8h.html#ad6372ab439a73887b0800cc695599436" title="[SHIFT] Changes a single output Pin ">shiftSingle()</a>;</li>
-<li>It is also possible to shift the modified <a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a> with <a class="el" href="eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>;</li>
-</ul>
-<p class=""><a class="el" href="eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff" title="[SHIFT] Manipulate me to set Pins via bitSet operations ">store_bits</a> can be modified via bitSet()/bitClear() or long assignment (like = 1000); </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:dancing__dragon_8cpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dancing__dragon_8cpp.html">dancing_dragon.cpp</a> <a href="dancing__dragon_8cpp_source.html">[code]</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e931c1a3f0014e624d0645a271726ad2.html">examples</a></li>
     <li class="footer">[DEV-BUILD] EagleoutIce 15.2.2018</li>
   </ul>
 </div>

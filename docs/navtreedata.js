@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard 2.1d - shackle the Arduino!", "index.html", [
+    [ "eBoard 2.2b - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
       [ "Philosophy", "index.html#s4", [
@@ -51,7 +51,8 @@ var NAVTREE =
       ] ],
       [ "Version 2 - Scofield 🐩", "p5.html#ver2", [
         [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "p5.html#su5", null ],
-        [ "Version 2.1d 🐺 - #Oversize", "p5.html#su6", null ]
+        [ "Version 2.1d 🐺 - #Oversize [~60m]", "p5.html#su6", null ],
+        [ "Version 2.2b 🐏 - Optimize it", "p5.html#su7", null ]
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],
@@ -83,7 +84,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"structServoCds55.html#ac5452690bbb923045e15f58358b4ad36"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

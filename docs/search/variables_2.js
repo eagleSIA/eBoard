@@ -13,6 +13,6 @@ var searchData=
   ['bit_5ften',['bit_ten',['../dancing__dragon_8cpp.html#a60989946aa2618d5138c2da686f5e805',1,'dancing_dragon.cpp']]],
   ['bit_5ftre',['bit_tre',['../dancing__dragon_8cpp.html#a71f4d10cfa5d57fe65ae15957c84954f',1,'dancing_dragon.cpp']]],
   ['bit_5ftwo',['bit_two',['../dancing__dragon_8cpp.html#aa40ae24835d776b01402ac3c8aa0c87b',1,'dancing_dragon.cpp']]],
-  ['board',['board',['../dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b',1,'dancing_dragon.cpp']]],
+  ['board',['board',['../dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b',1,'board():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b',1,'board():&#160;lcd_debug.cpp']]],
   ['buf',['buf',['../dancing__dragon_8cpp.html#a05d97132d273dc8fc53d6472c3a59055',1,'dancing_dragon.cpp']]]
 ];

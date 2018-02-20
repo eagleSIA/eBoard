@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tmp',['tmp',['../structServoCds55.html#a5c3957a21525f5103fab634a82d78cd5',1,'ServoCds55']]]
+  ['rechts',['rechts',['../lcd__debug_8cpp.html#a3d29baf8e726009abe1493d3ec20677b',1,'lcd_debug.cpp']]]
 ];

@@ -14,7 +14,7 @@
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
 
- @warning This code comes with absolutely  warranty
+ @warning This code comes with absolutely <b>no</b> warranty
 
 
  @pre This Header file was created to port Codes running on the qfix SoccerBoard [DynamixelBoard etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield].
@@ -332,11 +332,13 @@
 
       - images for LCD
       - dancing_dragon as funny example (created while debugging)
+      - lcd_debug as debug example
 
     <b>Fixes</b>
       - Fixed blocking bug on Hardware-calls (pre init)
       - Fixed LCD err send
       - Fixed several bugs/optimized ranges to avoid undefined behaviour
+      - warranty misspell^^
 */
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD

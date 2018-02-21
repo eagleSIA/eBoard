@@ -1494,7 +1494,6 @@
         struct AX12Servo {
             /*!
                 @brief The constructor
-                @todo include same guard as in LCD
                 @warning This constructor shouldn't be called!
             */
             AX12Servo(void);
@@ -2487,7 +2486,7 @@
                 byte pX;
                 ///@brief posY
                 byte pY;
-                //@brief called_guard
+                ///@brief called_guard
                 bool _cI;
 
                 /**
@@ -2892,7 +2891,6 @@
                 pinMode(PIN_SHIFT_LAT,OUTPUT);
                 shiftAll(); //set all to 0
             #endif
-            pinMode(9,OUTPUT);
             #if EBOARD_USE_SPI > 0x0
                 _servoHandler.begin(); //Setup SPI
             #endif

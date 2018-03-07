@@ -23,5 +23,6 @@ var searchData=
   ['lightoff',['lightOff',['../structLCD.html#a3f437907a543226be7c527a2d304ad95',1,'LCD']]],
   ['lighton',['lightOn',['../structLCD.html#aa4c1e7d41ca93af28769aaba704d5c1f',1,'LCD']]],
   ['links',['links',['../lcd__debug_8cpp.html#a9303e4d643a04086829fe08bfa105941',1,'lcd_debug.cpp']]],
+  ['listen',['listen',['../classSoftwareSerial.html#ab0492d8af7df292d369dab4e721dd5db',1,'SoftwareSerial']]],
   ['loop',['loop',['../eBoard_8h.html#a0b33edabd7f1c4e4a0bf32c67269be2f',1,'eBoard.h']]]
 ];

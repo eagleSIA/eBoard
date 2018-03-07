@@ -5,7 +5,7 @@ var searchData=
   ['s2cmd',['s2Cmd',['../structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229',1,'LCD']]],
   ['sendi2c',['sendI2C',['../eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6',1,'sendI2C(optVAL_t deviceID, byte *buf, byte buf_len):&#160;eBoard.h'],['../eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203',1,'sendI2C(optVAL_t deviceID, byte buf):&#160;eBoard.h']]],
   ['sendwait',['sendWait',['../structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3',1,'ServoCds55']]],
-  ['servocds55',['ServoCds55',['../structServoCds55.html',1,'ServoCds55'],['../structServoCds55.html#a5c964af69605c00dfba79bd31e9045a2',1,'ServoCds55::ServoCds55()']]],
+  ['servocds55',['ServoCds55',['../structServoCds55.html#a5c964af69605c00dfba79bd31e9045a2',1,'ServoCds55']]],
   ['setbrightness',['setBrightness',['../structNeoPixel.html#a15d732945ae530d843910753ba9929f2',1,'NeoPixel']]],
   ['setcursor',['setCursor',['../structLCD.html#ad1a67d455563026a5064ef9cab86ae4d',1,'LCD']]],
   ['setid',['setID',['../structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a',1,'AX12Servo::setID()'],['../structServoCds55.html#a7912b0d3025efafc54ad237016e65067',1,'ServoCds55::SetID()']]],
@@ -28,12 +28,7 @@ var searchData=
   ['show',['show',['../structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216',1,'NeoPixel']]],
   ['sine8',['sine8',['../structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b',1,'NeoPixel']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
-  ['soccerboard',['SoccerBoard',['../structSoccerBoard.html',1,'SoccerBoard'],['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard::SoccerBoard()']]],
-  ['softwareserial',['SoftwareSerial',['../classSoftwareSerial.html',1,'SoftwareSerial'],['../classSoftwareSerial.html#aab36336db4a1ca5073071c07d910cb87',1,'SoftwareSerial::SoftwareSerial()']]],
-  ['statistics',['Statistics',['../stats.html',1,'']]],
-  ['stop',['STOP',['../eBoard_8h.html#ae72a810f4976962c2cafb810b17ae158',1,'eBoard.h']]],
-  ['store_5fbits',['store_bits',['../eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff',1,'eBoard.h']]],
-  ['storedpos',['storedPos',['../structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390',1,'AX12Servo']]],
-  ['storedspe',['storedSpe',['../structAX12Servo.html#acef69c05250763a11bfc976b2817805e',1,'AX12Servo']]],
+  ['soccerboard',['SoccerBoard',['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard']]],
+  ['softwareserial',['SoftwareSerial',['../classSoftwareSerial.html#aab36336db4a1ca5073071c07d910cb87',1,'SoftwareSerial']]],
   ['storeposition',['storePosition',['../structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94',1,'AX12Servo']]]
 ];

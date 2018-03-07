@@ -2,7 +2,9 @@ var searchData=
 [
   ['b',['B',['../structI2CInOut.html#ab37951384c695fe8145df9c551087c94',1,'I2CInOut']]],
   ['basicfont',['basicFont',['../eBoard_8h.html#a55181965197fb6a2375306ca62593643',1,'eBoard.h']]],
-  ['begin',['begin',['../structServoCds55.html#a3858bceac16a453ec83f99c646090406',1,'ServoCds55']]],
+  ['begin',['begin',['../classTwoWire.html#ada85a7a8663ec8af0a1248b659be2f18',1,'TwoWire::begin()'],['../classTwoWire.html#a96f2477bba1630c25b9e318ced8585ab',1,'TwoWire::begin(uint8_t address)'],['../classTwoWire.html#af8592d8df650701e088e22e564bc73c8',1,'TwoWire::begin(int address)'],['../classSoftwareSerial.html#af1b194359d70894b3a2f38236a68480e',1,'SoftwareSerial::begin()'],['../structServoCds55.html#a3858bceac16a453ec83f99c646090406',1,'ServoCds55::begin()'],['../structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f',1,'NeoPixel::begin()']]],
+  ['begintransmission',['beginTransmission',['../classTwoWire.html#a1876ffdb16fb185c14a75e1251cef5e4',1,'TwoWire::beginTransmission(uint8_t address)'],['../classTwoWire.html#a4435b647886cbd3edb91a5353809c339',1,'TwoWire::beginTransmission(int address)']]],
+  ['begun',['begun',['../structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b',1,'NeoPixel']]],
   ['bit_5fait',['bit_ait',['../dancing__dragon_8cpp.html#a19884c447b4c3953ac7a47db1b94ce90',1,'dancing_dragon.cpp']]],
   ['bit_5felv',['bit_elv',['../dancing__dragon_8cpp.html#ab42797d5c316e461d539b3e34cfa74c4',1,'dancing_dragon.cpp']]],
   ['bit_5ffiv',['bit_fiv',['../dancing__dragon_8cpp.html#a9edd16cf1b802b559614e7acf58059eb',1,'dancing_dragon.cpp']]],
@@ -15,7 +17,10 @@ var searchData=
   ['bit_5ftre',['bit_tre',['../dancing__dragon_8cpp.html#a71f4d10cfa5d57fe65ae15957c84954f',1,'dancing_dragon.cpp']]],
   ['bit_5ftwo',['bit_two',['../dancing__dragon_8cpp.html#aa40ae24835d776b01402ac3c8aa0c87b',1,'dancing_dragon.cpp']]],
   ['board',['board',['../dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b',1,'board():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b',1,'board():&#160;lcd_debug.cpp']]],
+  ['boffset',['bOffset',['../structNeoPixel.html#ab33b2e8d4a30bb3ed0c18d4263f37121',1,'NeoPixel']]],
+  ['brightness',['brightness',['../structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07',1,'NeoPixel']]],
   ['buf',['buf',['../dancing__dragon_8cpp.html#a05d97132d273dc8fc53d6472c3a59055',1,'dancing_dragon.cpp']]],
+  ['buffer_5flength',['BUFFER_LENGTH',['../eBoard_8h.html#af7b7dc9a200cb1404c280bd500fd1551',1,'eBoard.h']]],
   ['bug_20list',['Bug List',['../bug.html',1,'']]],
   ['button',['button',['../structSoccerBoard.html#a70c27c12fb6612fc229994b20256b50a',1,'SoccerBoard']]]
 ];

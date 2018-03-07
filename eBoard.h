@@ -7,9 +7,11 @@
  #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
+ #pragma pack(push)
+ #pragma pack(1) //only works on mega sad^^
 
 /**
- @mainpage eBoard 2.2b - shackle the Arduino!
+ @mainpage eBoard [wip]2.3h - shackle the Arduino!
 
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
@@ -20,14 +22,15 @@
  @pre This Header file was created to port Codes running on the qfix SoccerBoard [DynamixelBoard etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield].
  \n To use it you'll have to replace all qfix-related header-files [*.h] with the following:
  @code
- #include <SPI.h>
+ //#include <SPI.h>
  #include "/path/to/eBoard.h" //replace this :D
  @endcode
 
  If you wan't to use the I2C extensions you should have this two lines the beginning of your code:
  @code
  #define EBOARD_I2C 0x1
- #include <WIRE.h>
+
+ //#include <WIRE.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
  @endcode
 
  While in development you shouldn't disable any macro...
@@ -58,6 +61,9 @@
  - #EBOARD_CLAMP             : 0x0: disables clamp
  - #EBOARD_USE_RESET         : 0x0: disable software reset
  - #EBOARD_LCD               : 0x1: enable support for LCD display. Needs #EBOARD_I2C set to 0x1
+ - #EBOARD_NEO               : 0x1: enable support for Adafruit-NeoPixel-Devices
+ \n\n<b> HUGE UPDATE: </b>
+ - #EBOARD_GUESSPATH         : 0x0: disable automatic path_guess
 
  <b>Pins</b>
  - #PIN_BLUETOOTH_RX         : pinID(2|19) of RX-Pin   -- why? [@ref su3]
@@ -107,7 +113,7 @@
  @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
- @version 2.2b
+ @version 2.3h
  @date 7.2.2018
 
  @section m1 Motivation
@@ -140,12 +146,12 @@
 
     @note Development Build:
     @code
-    #include <Wire.h>
+    //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_I2C 0x1
     #define EBOARD_SHIFT_REGISTER 0x1
-    #include <SoftwareSerial.h>
+    //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_BLUETOOTH 0x1
-    #include <SPI.h>
+    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     //[VER 2.0c]
     #define REPT_TASK
     void rept_task (void) {}
@@ -161,9 +167,9 @@
     #define EBOARD_CHECK_PINS 0x0
     #define EBOARD_CHECK_PINS_PWM 0x0
     #define EBOARD_SHIFT_REGISTER 0x1
-    #include <SoftwareSerial.h>
+    //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_BLUETOOTH 0x1
-    #include <SPI.h>
+    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     //[VER 2.0c]
     #define EBOARD_LCD 0x1
     @endcode
@@ -190,10 +196,10 @@
 
     @note Used Code:
     @code
-    #include <Wire.h>
+    //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_I2C 0x1
     #define EBOARD_LCD 0x1
-    #include <SPI.h>
+    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
     SoccerBoard board;
     LCD lcd(board);
@@ -219,7 +225,7 @@
 /**
   @page p5 Changelog
   @brief A short overview about the developing process
-  @section ver1 Version 1 - Olivander 🐁
+  @section ver1 Version 1 - Ollivander 🐁
 
   @note this changelog is maintained by EagleoutIce
 
@@ -324,7 +330,7 @@
     - Fixed bug in AX12Servo (double clamp on AX12Servo::storePosition())
     - Fixed bug of clamp_overflow (no check for in_range and out_range in AX12Servo::setPosition())
 
-    @subsection su7 Version 2.2b 🐏 - Optimize it
+    @subsection su7 Version 2.2b 🐏 - Optimize it [52m]
 
     Fixed many bugs
 
@@ -339,6 +345,29 @@
       - Fixed LCD err send
       - Fixed several bugs/optimized ranges to avoid undefined behaviour
       - warranty misspell^^
+
+
+    @subsection su8 Version 2.3h 🐦 - Addition to the family
+
+    Fixed several wrong numbers [ref BoardVersions]
+    It is no obsolete to write includings like
+    @code
+    #include <WIRE.h>
+    @endcode
+    eBoard will search and or implement the needed functions itself (controlled with #EBOARD_GUESSPATH)
+
+    [PRE] Add suport for arduino light strip
+
+    <b>Added</b>
+      - support for the NANO
+      - Documentation for the implemented classes and functions (SoftwareSerial, Wire)
+      - flexibal pin_out and pin_in size based on arduino
+      - arduino adafruit lightstrip support (via NeoPixel) this is pre so names and routines are likely change!
+
+    <b>Fixes</b>
+
+    - SoccerBoard::analog() range check (swapped ranges)
+    - several over/under-flow errors fixed
 */
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD
@@ -364,7 +393,7 @@
          */
         #define EBOARD_BLUETOOTH 0x1
         /**
-         * @macro_def This constant won't be defined by default :D
+         * @macro_def This constant won't be defined by default :D \n This enables you to make use of the async features
          */
         #define REPT_TASK
         /**
@@ -375,6 +404,10 @@
          * @macro_def This is the Macro that will be defined automatically by the ARUDINO IDE if you compile this program for an ARDUINO UNO R3
          */
         #define __AVR_ATmega328P__
+        /**
+         * @macro_def This will appear as 0x1 in the docs but the real default value is 0x0
+         */
+        #define EBOARD_NEO 0x1
 
         /**
          * @macro_def This isn't defined by default. If you define it the LCD will be addressed with 400kHz. This will only work if every connected device supports 400kHz I²C!
@@ -384,6 +417,22 @@
         #define HIGHSPEED
     #endif
 
+    #ifndef EBOARD_GUESSPATH
+      /**
+       * @macro_def If this is set to 0x1 the library will guess the paths of included libraries based on your operating system
+       */
+      #define EBOARD_GUESSPATH 0x1
+    #endif
+
+    #if EBOARD_GUESSPATH > 0x0
+      #ifdef __linux__
+       #include "/usr/share/arduino/libraries/SPI/SPI.h"
+       #include "/usr/share/arduino/libraries/SPI/SPI.cpp"
+      #else
+       #include "C:\Program Files (x86)\Arduino\libraries\SPI\SPI.h"
+       #include "C:\Program Files (x86)\Arduino\libraries\SPI\SPI.cpp"
+      #endif
+    #endif
     #if defined(ARDUINO) //general platform-check [No tab]
 
     /**
@@ -412,6 +461,400 @@
 
     #include <avr/io.h>
     #include <avr/interrupt.h>
+
+    #if EBOARD_I2C > 0x0
+      #if EBOARD_GUESSPATH > 0x0
+        #ifdef __linux__
+         #include "/usr/share/arduino/libraries/Wire/utility/twi.h"
+         #include "/usr/share/arduino/libraries/Wire/utility/twi.c"
+        #else
+         #include "C:\Program Files (x86)\Arduino\Wire\utility\twi.h"
+         #include "C:\Program Files (x86)\Arduino\Wire\utility\twi.c"
+        #endif
+
+
+      #include <inttypes.h>
+      #include "Stream.h"
+
+      #define BUFFER_LENGTH 32
+      /*!
+            @class TwoWire
+
+            @authors Nicholas Zambetti for Arduino
+            @authors [mod] Todd Krein
+
+
+            @brief This is used to avoid path resolving issues and defines the common known Arduino Wire-Interface
+            \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
+
+
+            @copyright 2006 GNU Lesser General Public License 2.1 as published by the Free Software Foundation
+
+            @note this code was documented and modified by EagleoutIce in 2018 for custom use!
+
+        */
+        class TwoWire : public Stream {
+          private:
+            ///@brief this defines the rxBuffer used to enable delayed read
+            static uint8_t rxBuffer[];
+            ///@brief this defines the rxBuffer Index - current position in rxBuffer array
+            static uint8_t rxBufferIndex;
+            ///@brief this defines the length of rxBuffer
+            static uint8_t rxBufferLength;
+
+            ///@brief this defines the txAddress the transmitting Dta
+            static uint8_t txAddress;
+            ///@brief this defines the txBuffer used to enable delayed read
+            static uint8_t txBuffer[];
+            ///@brief this defines the txBuffer Index - current position in txBuffer array
+            static uint8_t txBufferIndex;
+            ///@brief this defines the length of txBuffer
+            static uint8_t txBufferLength;
+
+            ///@brief 'boolean' value. Set to 1 if transmitting => in master write mode
+            static uint8_t transmitting;
+            ///@brief twi slave [Tx]transmitting-event user def handler
+            static void (*user_onRequest)(void);
+            /**
+             * @brief twi slave [Rx]receive-event user def handler
+             * @param numBytes amount of received bytes stored in rxBuffer
+             */
+            static void (*user_onReceive)(int numBytes);
+            ///@brief twi slave [Tx]transmitting-event handler
+            static void onRequestService(void);
+            /**
+             * @brief twi slave [Rx]receive-event handler
+             * @param inBytes array of receive Bytes
+             * @param numBytes length of inBytes array
+             */
+            static void onReceiveService(uint8_t* inBytes, int numBytes);
+
+          public:
+            ///@brief The constructor of the TwoWire class
+            TwoWire();
+            ///@brief begin the TwoWire communcation without any data set
+            void begin();
+            /**
+             * @brief begin the TwoWire communication with a special address
+             * @param address the address the TwoWire Interface should use
+             */
+            void begin(uint8_t address);
+            /**
+             * @brief begin the TwoWire communication with a special address
+             * @param address the address the TwoWire Interface should use
+             * @note this will cast the address to an uint8_t type and call the same TwoWire::begin()
+             */
+            inline void begin(int address);
+            /**
+             * @brief this will start a new transmission to a specific address => master mode
+             * @param address the address to talk to
+             */
+            void beginTransmission(uint8_t address);
+            /**
+             * @brief this will start a new transmission to a specific address => master mode
+             * @param address the address to talk to
+             * @note this will cast the address to an uint8_t type and call the same TwoWire::beginTransmission()
+             */
+            inline void beginTransmission(int address);
+            /**
+             * @brief this will end the transmission and send the STOP-sequence
+             * @returns The following unsigned values:
+             *  - 0 in case of success
+             *  - 1 if data was too long for transmit buffer
+             *  - 2 if received a NACK on transmit of address
+             *  - 3 if received a NACK on transmit of data
+             *  - 4 if an 'other'/unknown error occured
+             * @note this will call TwoWire::endTransmission() with 'true' as param internally
+             */
+            inline uint8_t endTransmission(void);
+            /**
+             * @brief this will end the transmission and send the STOP-sequence dependent on sendStop
+             * @param sendStop set this to true (0x1) if STOP should be send. \n Some devices will behave oddly if you set this to false (0x0)!
+             * @returns The following unsigned values:
+             *  - 0 in case of success
+             *  - 1 if data was too long for transmit buffer
+             *  - 2 if received a NACK on transmit of address
+             *  - 3 if received a NACK on transmit of data
+             *  - 4 if an 'other'/unknown error occured
+             */
+            uint8_t endTransmission(uint8_t sendStop);
+            /**
+             * @brief this will read a specific <i> quantity </i> of bytes from a specific <i> address </i>
+             * @param address the address to read from
+             * @param quantity the amount if bytes to read
+             * @return the amount of read bytes
+             * @note this will call the 3*uint8_t (sendStop = true) variant of TwoWire::requestFrom() internally
+             */
+            inline uint8_t requestFrom(uint8_t address, uint8_t quantity);
+            /**
+             * @brief this will read a specific <i> quantity </i> of bytes from a specific <i> address </i>
+             * @param address the address to read from
+             * @param quantity the amount if bytes to read
+             * @param sendStop set this to true (0x1) if STOP should be send. \n Some devices will behave oddly if you set this to false (0x0)!
+             * @return the amount of read bytes
+             */
+            uint8_t requestFrom(uint8_t address , uint8_t quantity, uint8_t sendStop);
+            /**
+             * @brief this will read a specific <i> quantity </i> of bytes from a specific <i> address </i>
+             * @param address the address to read from
+             * @param quantity the amount if bytes to read
+             * @return the amount of read bytes
+             * @note this will call the 3*uint8_t (sendStop = true) variant of TwoWire::requestFrom() internally
+             */
+            inline uint8_t requestFrom(int address, int quantity);
+            /**
+             * @brief this will read a specific <i> quantity </i> of bytes from a specific <i> address </i>
+             * @param address the address to read from
+             * @param quantity the amount if bytes to read
+             * @param sendStop set this to true (0x1) if STOP should be send. \n Some devices will behave oddly if you set this to false (0x0)!
+             * @return the amount of read bytes
+             * @note this will call the 3*uint8_t (sendStop = true) variant of TwoWire::requestFrom() internally
+             */
+            inline uint8_t requestFrom(int address, int quantity, int sendStop);
+            /**
+             * @brief this will write a single unsigned 8-bit value to address
+             * @note this has to be called <b> after </b> TwoWire::beginTransmission() [or in slave tx event callback]
+             * @param data the data that should be send if in master-mode it will be stored in buffer!
+             * @returns
+             *  - 0 in case of an overflow
+             *  - 1 when everything worked fine ;)
+             */
+            virtual size_t write(uint8_t data);
+            /**
+             * @brief this will write an array of unsigned 8-bit values to address
+             * @note this has to be called <b> after </b> TwoWire::beginTransmission() [or in slave tx event callback]
+             * @param data the data array that should be send if in master-mode it will be stored in buffer!
+             * @param quantity the length of the array
+             * @returns the quantity sent
+             */
+            virtual size_t write(const uint8_t *data, size_t quantity);
+            /**
+             * @brief this will return the amount of rxBuffer left
+             * @returns (rxBufferLength-rxBufferIndex)
+             */
+            virtual int available(void);
+            /**
+             * @brief this will read a single byte from rxBuffer and increment the Index
+             * @note this has to be called <b> after </b> TwoWire::requestFrom() [or in slave rx event callback]
+             * @returns the read value (-1 if failed)
+             */
+            virtual int read(void);
+            /**
+             * @brief this will read a single byte from rxBuffer without increment the Index
+             * @note this has to be called <b> after </b> TwoWire::requestFrom() [or in slave rx event callback]
+             * @returns the read value (-1 if failed)
+             */
+            virtual int peek(void);
+            /// @brief as this isn't implemented in the offical Wire library, this does <i> nothing </i> xD
+        	  virtual void flush(void);
+            /**
+             * @brief this will set the user_onReceive method
+             * @param function the function to link
+             *
+             * For further uses see TwoWire::user_onReceive()
+             */
+            void onReceive( void (*function)(int) );
+            /**
+             * @brief this will set the user_onRequest method
+             * @param function the function to link
+             *
+             * For further uses see TwoWire::user_onRequest()
+             */
+            void onRequest( void (*function)(void) );
+
+            /* Removed due to: not needed
+              inline size_t write(unsigned long n) { return write((uint8_t)n); }
+              inline size_t write(long n) { return write((uint8_t)n); }
+              inline size_t write(unsigned int n) { return write((uint8_t)n); }
+              inline size_t write(int n) { return write((uint8_t)n); }
+            */
+            using Print::write;
+        };
+        extern "C" {
+          #include <stdlib.h>
+          #include <string.h>
+          #include <inttypes.h>
+          //#include "twi.h"
+        }
+
+        ///@cond
+        uint8_t TwoWire::rxBuffer[BUFFER_LENGTH];
+        uint8_t TwoWire::rxBufferIndex = 0;
+        uint8_t TwoWire::rxBufferLength = 0;
+
+        uint8_t TwoWire::txAddress = 0;
+        uint8_t TwoWire::txBuffer[BUFFER_LENGTH];
+        uint8_t TwoWire::txBufferIndex = 0;
+        uint8_t TwoWire::txBufferLength = 0;
+
+        uint8_t TwoWire::transmitting = 0;
+        void (*TwoWire::user_onRequest)(void);
+        void (*TwoWire::user_onReceive)(int);
+
+        TwoWire::TwoWire() {}
+
+        void TwoWire::begin(void) {
+          rxBufferIndex = 0;
+          rxBufferLength = 0;
+
+          txBufferIndex = 0;
+          txBufferLength = 0;
+
+          twi_init();
+        }
+
+        void TwoWire::begin(uint8_t address) {
+          twi_setAddress(address);
+          twi_attachSlaveTxEvent(onRequestService);
+          twi_attachSlaveRxEvent(onReceiveService);
+          begin();
+        }
+
+        void TwoWire::begin(int address) {
+          begin((uint8_t)address);
+        }
+
+        uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop) {
+          if(quantity > BUFFER_LENGTH){
+            quantity = BUFFER_LENGTH;
+          }
+          uint8_t read = twi_readFrom(address, rxBuffer, quantity, sendStop);
+          rxBufferIndex = 0;
+          rxBufferLength = read;
+
+          return read;
+        }
+
+        uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity) {
+          return requestFrom((uint8_t)address, (uint8_t)quantity, (uint8_t)true);
+        }
+
+        uint8_t TwoWire::requestFrom(int address, int quantity) {
+          return requestFrom((uint8_t)address, (uint8_t)quantity, (uint8_t)true);
+        }
+
+        uint8_t TwoWire::requestFrom(int address, int quantity, int sendStop) {
+          return requestFrom((uint8_t)address, (uint8_t)quantity, (uint8_t)sendStop);
+        }
+
+        void TwoWire::beginTransmission(uint8_t address) {
+          transmitting = 1;
+          txAddress = address;
+          txBufferIndex = 0;
+          txBufferLength = 0;
+        }
+
+        void TwoWire::beginTransmission(int address) {
+          beginTransmission((uint8_t)address);
+        }
+
+        uint8_t TwoWire::endTransmission(uint8_t sendStop) {
+          int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);
+          txBufferIndex = 0;
+          txBufferLength = 0;
+          transmitting = 0;
+          return ret;
+        }
+
+        uint8_t TwoWire::endTransmission(void){
+          return endTransmission(true);
+        }
+
+        size_t TwoWire::write(uint8_t data) {
+          if(transmitting) {
+            if(txBufferLength >= BUFFER_LENGTH) {
+              setWriteError();
+              return 0;
+            }
+            txBuffer[txBufferIndex] = data;
+            ++txBufferIndex;
+            txBufferLength = txBufferIndex;
+          }else{
+            twi_transmit(&data, 1);
+          }
+          return 1;
+        }
+
+        size_t TwoWire::write(const uint8_t *data, size_t quantity) {
+          if(transmitting){
+            for(size_t i = 0; i < quantity; ++i) {
+              write(data[i]);
+            }
+          }else{
+            twi_transmit(data, quantity);
+          }
+          return quantity;
+        }
+
+        int TwoWire::available(void) {
+          return rxBufferLength - rxBufferIndex;
+        }
+
+        int TwoWire::read(void) {
+          int value = -1;
+
+          if(rxBufferIndex < rxBufferLength) {
+            value = rxBuffer[rxBufferIndex];
+            ++rxBufferIndex;
+          }
+
+          return value;
+        }
+
+        int TwoWire::peek(void) {
+          int value = -1;
+
+          if(rxBufferIndex < rxBufferLength) {
+            value = rxBuffer[rxBufferIndex];
+          }
+
+          return value;
+        }
+
+        void TwoWire::flush(void) {
+          // XXX: to be implemented.
+        }
+
+        void TwoWire::onReceiveService(uint8_t* inBytes, int numBytes) {
+          if(!user_onReceive){
+            return;
+          }
+
+          if(rxBufferIndex < rxBufferLength) {
+            return;
+          }
+
+          for(uint8_t i = 0; i < numBytes; ++i) {
+            rxBuffer[i] = inBytes[i];
+          }
+          rxBufferIndex = 0;
+          rxBufferLength = numBytes;
+          user_onReceive(numBytes);
+        }
+
+        void TwoWire::onRequestService(void) {
+          if(!user_onRequest) {
+            return;
+          }
+
+          txBufferIndex = 0;
+          txBufferLength = 0;
+          user_onRequest();
+        }
+
+        void TwoWire::onReceive( void (*function)(int) ) {
+          user_onReceive = function;
+        }
+
+        void TwoWire::onRequest( void (*function)(void) ) {
+          user_onRequest = function;
+        }
+        ///@endcond
+
+      ///@brief this is the well-known Arduino Wire Interface, just a little bit 'modified' ;P
+      TwoWire Wire = TwoWire();
+      #endif
+    #endif
     #if (EBOARD_I2C > 0x0) && (EBOARD_LCD > 0x0)
         #include <avr/pgmspace.h>
     #endif
@@ -513,6 +956,16 @@
     #ifndef EBOARD_CLAMP
         #define EBOARD_CLAMP 0x1
     #endif
+
+
+    #ifndef EBOARD_NEO
+      /**
+       * @macro_def set this to 0x1 to enable bluetooth support
+       */
+      #define EBOARD_NEO 0x0
+    #endif
+
+
     /**
      * @macro_def set this to 0x0 to disable software reset
      */
@@ -590,6 +1043,7 @@
         #define PIN_SHIFT_LAT 0x8
     #endif
 
+
     //done by arduino
     //if this has an effect... something went wrong :D
     #ifndef HIGH
@@ -600,6 +1054,596 @@
     #endif
 
     #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
+      #if EBOARD_GUESSPATH > 0x0
+        //#ifdef __linux__
+        // #include "/usr/share/arduino/libraries/SoftwareSerial/SoftwareSerial.h"
+        //#else
+        //  #include "C:\Program Files (x86)\Arduino\libraries\SoftwareSerial\SoftwareSerial.h"
+        //#endif
+         //#include "/usr/share/arduino/libraries/SoftwareSerial/SoftwareSerial.cpp"
+
+         //again to resolve including errors we'll include the SoftwareSerial cpp file
+
+         #define _SS_MAX_RX_BUFF 64 // RX buffer size
+         #ifndef GCC_VERSION
+            #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+         #endif
+
+         /*!
+               @class SoftwareSerial
+
+               This class was known as NewSoftSerial and renamend to SoftwareSerial for consistent naming
+
+               @authors arduiniana (core)
+               @authors ladyada
+               @authors Mikel Hart
+               @authors Paul Stoffregen
+               @authors Garrett Mace
+               @authors Brett Hagman
+
+               @brief This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial interface only enabled on UNO and NANO (specific, ATmega328P based-plattforms)
+               \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
+
+
+               @copyright 2006 GNU Lesser General Public License 2.1 as published by the Free Software Foundation
+
+               @note this code was documented and modified by EagleoutIce in 2018 for custom use! [Kept _DEBUG functionality]
+
+          */
+         class SoftwareSerial : public Stream {
+         private:
+           ///@brief the id of the receive pin
+           uint8_t _receivePin;
+           ///@brief the pin mask to directly read from register (Rx)
+           uint8_t _receiveBitMask;
+           ///@brief the register the reveice pin is located on
+           volatile uint8_t *_receivePortRegister;
+           ///@brief the pin mask to address the tx pin
+           uint8_t _transmitBitMask;
+           ///@brief the register the reveice pin is located on
+           volatile uint8_t *_transmitPortRegister;
+
+           ///@brief the rx center delay
+           uint16_t _rx_delay_centering;
+           ///@brief the rx startbit delay
+           uint16_t _rx_delay_intrabit;
+           ///@brief the rx stopbit dely
+           uint16_t _rx_delay_stopbit;
+           ///@brief the (generic) tx delay
+           uint16_t _tx_delay;
+
+           ///@brief determining if an _buffer_overflow occured
+           uint16_t _buffer_overflow:1;
+           ///@brief determining if all pin reads etc whould be invered (e.g. no pullup on rx);
+           uint16_t _inverse_logic:1;
+           ///@brief the buffer for rxBuffer
+           static char _receive_buffer[_SS_MAX_RX_BUFF];
+           ///@brief size of rxBuffer
+           static volatile uint8_t _receive_buffer_tail;
+           ///@brief current location in rxBuffer
+           static volatile uint8_t _receive_buffer_head;
+           ///@brief the active SoftwareSerial object to operate on
+           static SoftwareSerial *active_object;
+
+           ///@brief private receive routine called each time interrupt handler gets triggered
+           void recv(void);
+           /**
+            * @brief simple routine to read the rxPin by registers
+            * @returns the (bool) value on current pin
+            */
+           inline uint8_t rx_pin_read(void);
+           /**
+            * @brief writes a bool value on the txPin by registers
+            * @param pin_state the state the pin should be assigned to
+            */
+           inline void tx_pin_write(uint8_t pin_state);
+           /**
+            * @brief sets a specific pin to be 'the chosen one' as a txPin
+            * @param transmitPin the Pin-Id of the pin to setup
+            */
+           void setTX(uint8_t transmitPin);
+           /**
+            * @brief sets a specific pin to be 'the chosen one' as a rxPin
+            * @param receivePin the Pin-Id of the pin to setup
+            */
+           void setRX(uint8_t receivePin);
+           /**
+            * @brief apply a specific delay to achieve higher precision
+            * @param delay the desired delay
+            */
+           static inline void tunedDelay(uint16_t delay);
+
+         public:
+           // public methods
+           /**
+            * @brief the constructor for the SoftwareSerial object
+            * @param receivePin the destined rx Pin
+            * @param transmitPin the destined tx Pin
+            * @param inverse_logic true if you wan't to have no pullups and inverted com logic
+            */
+           SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
+           /**
+            * @brief the destructor of the SoftwareSerial object
+            *
+            * This calls SoftwareSerial::end() internal and assures a sufficent termination
+            */
+           ~SoftwareSerial(void);
+           /**
+            * @brief the start function to setup delay_values etc.
+            * @param speed the communcation should work at \n possible values: \n
+            *  - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 300 (baud)
+            *  - &nbsp; &nbsp; &nbsp; &nbsp; 1200 (baud)
+            *  - &nbsp; &nbsp; &nbsp; &nbsp; 2400 (baud)
+            *  - &nbsp; &nbsp; &nbsp; &nbsp; 4800 (baud)
+            *  - &nbsp; &nbsp; &nbsp; &nbsp; 9600 (baud) [common]
+            *  - &nbsp; &nbsp; &nbsp; 14400 (baud)
+            *  - &nbsp; &nbsp; &nbsp; 19200 (baud)
+            *  - &nbsp; &nbsp; &nbsp; 28800 (baud)
+            *  - &nbsp; &nbsp; &nbsp; 38400 (baud)
+            *  - &nbsp; &nbsp; &nbsp; 57600 (baud)
+            *  - &nbsp; &nbsp; 115200 (baud)
+            */
+           void begin(long speed);
+           /**
+            * @brief sets the SoftwareSerial object to be the listening one gaining control over the buffers etc.
+            * @returns true if it replaces another object (can be no object)
+            */
+           bool listen(void);
+           /// @brief ends communcation on the rx pin
+           inline void end(void);
+           /**
+            * @brief checks if this object is the listening object
+            * @returns true if the object is the listening object
+            */
+           inline bool isListening(void);
+           /**
+            * @brief returns the current overflow flag and disables it
+            * @return the current overflow flag
+            */
+           inline bool overflow(void);
+           /**
+            * @brief reads the actual pointed rxBuffer element without dropping it
+            * @returns the read value (-1 if fails)
+            */
+           int peek(void);
+           /**
+            * @brief writes a specific value to the tx register
+            * @param byte the byte to write
+            * @returns 0 if there's an error with the delay
+            * @returns 1 if the writing was successful
+            */
+           virtual size_t write(uint8_t byte);
+           /**
+            * @brief reads the actual pointed rxBuffer top element
+            * @returns the read value (-1 if fails)
+            */
+           virtual int read(void);
+           /**
+            * @brief checks if there is data to read available
+            * @returns 0 if there's no Data available or the device isn't listening
+            */
+           virtual int available(void);
+           /**
+            * @brief resets the position in buffer and the buffer itself if the object is listening
+            */
+           virtual void flush(void);
+           //used to save codespace
+           using Print::write;
+           ///@brief used to handle interrupts on active listening object
+           static inline void handle_interrupt(void);
+         };
+
+         ///@cond
+
+         bool SoftwareSerial::isListening(void) {
+            return this == active_object;
+         }
+
+         bool SoftwareSerial::overflow(void) {
+            bool ret = _buffer_overflow;
+            _buffer_overflow = false;
+            return ret;
+         }
+         /* was a workaround for arduino 0012 but not needed
+          #undef int
+          #undef char
+          #undef long
+          #undef byte
+          #undef float
+          #undef abs
+          #undef round
+         */
+         #if EBOARD_DEBUG_MODE > 0x0
+          #define _DEBUG 0
+          #define _DEBUG_PIN1 11
+          #define _DEBUG_PIN2 13
+         #endif
+         typedef struct _DELAY_TABLE {
+           long baud;
+           unsigned short rx_delay_centering;
+           unsigned short rx_delay_intrabit;
+           unsigned short rx_delay_stopbit;
+           unsigned short tx_delay;
+         } DELAY_TABLE;
+
+         #if F_CPU == 16000000
+
+         static const DELAY_TABLE PROGMEM table[] = {
+           //  baud    rxcenter   rxintra    rxstop    tx
+           { 115200,   1,         17,        17,       12,    },
+           { 57600,    10,        37,        37,       33,    },
+           { 38400,    25,        57,        57,       54,    },
+           { 31250,    31,        70,        70,       68,    },
+           { 28800,    34,        77,        77,       74,    },
+           { 19200,    54,        117,       117,      114,   },
+           { 14400,    74,        156,       156,      153,   },
+           { 9600,     114,       236,       236,      233,   },
+           { 4800,     233,       474,       474,      471,   },
+           { 2400,     471,       950,       950,      947,   },
+           { 1200,     947,       1902,      1902,     1899,  },
+           { 600,      1902,      3804,      3804,     3800,  },
+           { 300,      3804,      7617,      7617,     7614,  },
+         };
+
+         const int XMIT_START_ADJUSTMENT = 5;
+
+         #elif F_CPU == 8000000
+
+         static const DELAY_TABLE table[] PROGMEM = {
+           //  baud    rxcenter    rxintra    rxstop  tx
+           { 115200,   1,          5,         5,      3,      },
+           { 57600,    1,          15,        15,     13,     },
+           { 38400,    2,          25,        26,     23,     },
+           { 31250,    7,          32,        33,     29,     },
+           { 28800,    11,         35,        35,     32,     },
+           { 19200,    20,         55,        55,     52,     },
+           { 14400,    30,         75,        75,     72,     },
+           { 9600,     50,         114,       114,    112,    },
+           { 4800,     110,        233,       233,    230,    },
+           { 2400,     229,        472,       472,    469,    },
+           { 1200,     467,        948,       948,    945,    },
+           { 600,      948,        1895,      1895,   1890,   },
+           { 300,      1895,       3805,      3805,   3802,   },
+         };
+
+         const int XMIT_START_ADJUSTMENT = 4;
+
+         #elif F_CPU == 20000000
+
+         static const DELAY_TABLE PROGMEM table[] = {
+           //  baud    rxcenter    rxintra    rxstop  tx
+           { 115200,   3,          21,        21,     18,     },
+           { 57600,    20,         43,        43,     41,     },
+           { 38400,    37,         73,        73,     70,     },
+           { 31250,    45,         89,        89,     88,     },
+           { 28800,    46,         98,        98,     95,     },
+           { 19200,    71,         148,       148,    145,    },
+           { 14400,    96,         197,       197,    194,    },
+           { 9600,     146,        297,       297,    294,    },
+           { 4800,     296,        595,       595,    592,    },
+           { 2400,     592,        1189,      1189,   1186,   },
+           { 1200,     1187,       2379,      2379,   2376,   },
+           { 600,      2379,       4759,      4759,   4755,   },
+           { 300,      4759,       9523,      9523,   9520,   },
+         };
+
+         const int XMIT_START_ADJUSTMENT = 6;
+
+         #else
+          #error This version of SoftwareSerial supports only 20, 16 and 8MHz processors
+         #endif
+
+         SoftwareSerial *SoftwareSerial::active_object = 0;
+         char SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF];
+         volatile uint8_t SoftwareSerial::_receive_buffer_tail = 0;
+         volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;
+         #if EBOARD_DEBUG_MODE > 0x0
+           inline void DebugPulse(uint8_t pin, uint8_t count) {
+           #if _DEBUG
+             volatile uint8_t *pport = portOutputRegister(digitalPinToPort(pin));
+
+             uint8_t val = *pport;
+             while (count--)
+             {
+               *pport = val | digitalPinToBitMask(pin);
+               *pport = val;
+             }
+           #endif
+           }
+         #endif
+         inline void SoftwareSerial::tunedDelay(uint16_t delay) {
+           uint8_t tmp=0;
+
+           asm volatile("sbiw    %0, 0x01 \n\t"
+             "ldi %1, 0xFF \n\t"
+             "cpi %A0, 0xFF \n\t"
+             "cpc %B0, %1 \n\t"
+             "brne .-10 \n\t"
+             : "+r" (delay), "+a" (tmp)
+             : "0" (delay)
+             );
+         }
+
+         bool SoftwareSerial::listen() {
+           if (active_object != this)
+           {
+             _buffer_overflow = false;
+             uint8_t oldSREG = SREG;
+             cli();
+             _receive_buffer_head = _receive_buffer_tail = 0;
+             active_object = this;
+             SREG = oldSREG;
+             return true;
+           }
+
+           return false;
+         }
+
+         void SoftwareSerial::recv() {
+
+           #if GCC_VERSION < 40302
+             asm volatile(
+               "push r18 \n\t"
+               "push r19 \n\t"
+               "push r20 \n\t"
+               "push r21 \n\t"
+               "push r22 \n\t"
+               "push r23 \n\t"
+               "push r26 \n\t"
+               "push r27 \n\t"
+               ::);
+           #endif
+
+           uint8_t d = 0;
+
+           if (_inverse_logic ? rx_pin_read() : !rx_pin_read()) {
+             // Wait approximately 1/2 of a bit width to "center" the sample
+             tunedDelay(_rx_delay_centering);
+             #if EBOARD_DEBUG_MODE > 0x0
+              DebugPulse(_DEBUG_PIN2, 1);
+             #endif
+             // Read each of the 8 bits
+             for (uint8_t i=0x1; i; i <<= 1)
+             {
+               tunedDelay(_rx_delay_intrabit);
+               #if EBOARD_DEBUG_MODE > 0x0
+                DebugPulse(_DEBUG_PIN2, 1);
+               #endif
+               uint8_t noti = ~i;
+               if (rx_pin_read())
+                 d |= i;
+               else
+                 d &= noti;
+             }
+
+             // skip the stop bit
+             tunedDelay(_rx_delay_stopbit);
+             #if EBOARD_DEBUG_MODE > 0x0
+              DebugPulse(_DEBUG_PIN2, 1);
+             #endif
+             if (_inverse_logic)
+               d = ~d;
+
+             if ((_receive_buffer_tail + 1) % _SS_MAX_RX_BUFF != _receive_buffer_head) {
+               _receive_buffer[_receive_buffer_tail] = d; // save new byte
+               _receive_buffer_tail = (_receive_buffer_tail + 1) % _SS_MAX_RX_BUFF;
+             }
+             else {
+               #if EBOARD_DEBUG_MODE > 0x0
+                #if _DEBUG // for scope: pulse pin as overflow indictator
+                  DebugPulse(_DEBUG_PIN1, 1);
+                #endif
+               #endif
+               _buffer_overflow = true;
+             }
+           }
+
+         #if GCC_VERSION < 40302
+           asm volatile(
+             "pop r27 \n\t"
+             "pop r26 \n\t"
+             "pop r23 \n\t"
+             "pop r22 \n\t"
+             "pop r21 \n\t"
+             "pop r20 \n\t"
+             "pop r19 \n\t"
+             "pop r18 \n\t"
+             ::);
+         #endif
+         }
+
+         void SoftwareSerial::tx_pin_write(uint8_t pin_state) {
+           if (pin_state == LOW)
+             *_transmitPortRegister &= ~_transmitBitMask;
+           else
+             *_transmitPortRegister |= _transmitBitMask;
+         }
+
+         uint8_t SoftwareSerial::rx_pin_read() {
+           return *_receivePortRegister & _receiveBitMask;
+         }
+
+         inline void SoftwareSerial::handle_interrupt() {
+           if (active_object) {
+             active_object->recv();
+           }
+         }
+
+         #if defined(PCINT0_vect)
+           ISR(PCINT0_vect) {
+             SoftwareSerial::handle_interrupt();
+           }
+         #endif
+
+         #if defined(PCINT1_vect)
+           ISR(PCINT1_vect) {
+             SoftwareSerial::handle_interrupt();
+           }
+         #endif
+
+         #if defined(PCINT2_vect)
+           ISR(PCINT2_vect) {
+             SoftwareSerial::handle_interrupt();
+           }
+         #endif
+
+         #if defined(PCINT3_vect)
+           ISR(PCINT3_vect) {
+             SoftwareSerial::handle_interrupt();
+           }
+         #endif
+
+         SoftwareSerial::SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic /* = false */) :
+           _rx_delay_centering(0),
+           _rx_delay_intrabit(0),
+           _rx_delay_stopbit(0),
+           _tx_delay(0),
+           _buffer_overflow(false),
+           _inverse_logic(inverse_logic) {
+           setTX(transmitPin);
+           setRX(receivePin);
+         }
+
+         SoftwareSerial::~SoftwareSerial() {
+           end();
+         }
+
+         void SoftwareSerial::setTX(uint8_t tx) {
+           pinMode(tx, OUTPUT);
+           digitalWrite(tx, HIGH);
+           _transmitBitMask = digitalPinToBitMask(tx);
+           uint8_t port = digitalPinToPort(tx);
+           _transmitPortRegister = portOutputRegister(port);
+         }
+
+         void SoftwareSerial::setRX(uint8_t rx) {
+           pinMode(rx, INPUT);
+           if (!_inverse_logic)
+             digitalWrite(rx, HIGH);
+           _receivePin = rx;
+           _receiveBitMask = digitalPinToBitMask(rx);
+           uint8_t port = digitalPinToPort(rx);
+           _receivePortRegister = portInputRegister(port);
+         }
+
+         void SoftwareSerial::begin(long speed) {
+           _rx_delay_centering = _rx_delay_intrabit = _rx_delay_stopbit = _tx_delay = 0;
+
+           for (unsigned i=0; i<sizeof(table)/sizeof(table[0]); ++i) {
+             long baud = pgm_read_dword(&table[i].baud);
+             if (baud == speed) {
+               _rx_delay_centering = pgm_read_word(&table[i].rx_delay_centering);
+               _rx_delay_intrabit = pgm_read_word(&table[i].rx_delay_intrabit);
+               _rx_delay_stopbit = pgm_read_word(&table[i].rx_delay_stopbit);
+               _tx_delay = pgm_read_word(&table[i].tx_delay);
+               break;
+             }
+           }
+
+           if (_rx_delay_stopbit) {
+             if (digitalPinToPCICR(_receivePin)) {
+               *digitalPinToPCICR(_receivePin) |= _BV(digitalPinToPCICRbit(_receivePin));
+               *digitalPinToPCMSK(_receivePin) |= _BV(digitalPinToPCMSKbit(_receivePin));
+             }
+             tunedDelay(_tx_delay);
+           }
+
+         #if _DEBUG
+           pinMode(_DEBUG_PIN1, OUTPUT);
+           pinMode(_DEBUG_PIN2, OUTPUT);
+         #endif
+
+           listen();
+         }
+
+         void SoftwareSerial::end() {
+           if (digitalPinToPCMSK(_receivePin))
+             *digitalPinToPCMSK(_receivePin) &= ~_BV(digitalPinToPCMSKbit(_receivePin));
+         }
+
+
+         int SoftwareSerial::read() {
+           if (!isListening())
+             return -1;
+
+           if (_receive_buffer_head == _receive_buffer_tail)
+             return -1;
+
+           uint8_t d = _receive_buffer[_receive_buffer_head]; // grab next byte
+           _receive_buffer_head = (_receive_buffer_head + 1) % _SS_MAX_RX_BUFF;
+           return d;
+         }
+
+         int SoftwareSerial::available() {
+           if (!isListening())
+             return 0;
+
+           return (_receive_buffer_tail + _SS_MAX_RX_BUFF - _receive_buffer_head) % _SS_MAX_RX_BUFF;
+         }
+
+         size_t SoftwareSerial::write(uint8_t b) {
+           if (_tx_delay == 0) {
+             setWriteError();
+             return 0;
+           }
+
+           uint8_t oldSREG = SREG;
+           cli();
+
+           tx_pin_write(_inverse_logic ? HIGH : LOW);
+           tunedDelay(_tx_delay + XMIT_START_ADJUSTMENT);
+
+           if (_inverse_logic) {
+             for (byte mask = 0x01; mask; mask <<= 1) {
+               if (b & mask)
+                 tx_pin_write(LOW);
+               else
+                 tx_pin_write(HIGH);
+
+               tunedDelay(_tx_delay);
+             }
+
+             tx_pin_write(LOW);
+           }
+           else {
+             for (byte mask = 0x01; mask; mask <<= 1) {
+               if (b & mask)
+                 tx_pin_write(HIGH);
+               else
+                 tx_pin_write(LOW);
+               tunedDelay(_tx_delay);
+             }
+
+             tx_pin_write(HIGH);
+           }
+
+           SREG = oldSREG;
+           tunedDelay(_tx_delay);
+
+           return 1;
+         }
+
+         void SoftwareSerial::flush() {
+           if (!isListening())
+             return;
+
+           uint8_t oldSREG = SREG;
+           cli();
+           _receive_buffer_head = _receive_buffer_tail = 0;
+           SREG = oldSREG;
+         }
+
+         int SoftwareSerial::peek() {
+           if (!isListening())
+             return -1;
+
+           if (_receive_buffer_head == _receive_buffer_tail)
+             return -1;
+
+           return _receive_buffer[_receive_buffer_head];
+         }
+        ///@endcond
+      #endif
         /**
          * @brief this is the recomenned-to-use _serial object for bluetooth communcation :D
          *
@@ -652,6 +1696,8 @@
                     Serial.print("   D10-13");
                     Serial.println(": Used for smart-servo-shield");
                 #endif
+            } else if (strcmp(__func,"readPin")==0){
+                Serial.println("You've tried to access an analogPin that isn't present on the board you're currently working on!");
             }
             Serial.flush();
             abort(); // halt after outputting information
@@ -696,13 +1742,23 @@
 
         #if EBOARD_CHECK_PINS > 0x0
             /*!
-                @note [COPY&PASTE] [CHECK_PINS] bool set of already declared OUTPUT pins
+                @note [COPY&PASTE] [CHECK_PINS] bool set of already declared OUTPUT pins [16 bits on UNO and NANO 64 on MEGA]
+
+                @note it is possible to read from portDE... but this isn't that much bigger -- maybe a todo
             */
-            unsigned pin_out = 0x0;
+            #if defined(__AVR_ATmega328P__) && not defined(__AVR_ATmega2560__)
+              uint16_t pin_out = 0x0;
+            #elif defined(__AVR_ATmega2560__)
+              uint64_t pin_out = 0x0;
+            #endif
             /*!
-                @note [COPY&PASTE] [CHECK_PINS] bool set of already declared INPUT pins
+                @note [COPY&PASTE] [CHECK_PINS] bool set of already declared INPUT pins [16 bits on UNO and NANO 64 on MEGA]
             */
-            unsigned pin_in  = 0x0;
+            #if defined(__AVR_ATmega328P__) && not defined(__AVR_ATmega2560__)
+              uint16_t pin_in = 0x0;
+            #elif defined(__AVR_ATmega2560__)
+              uint64_t pin_in = 0x0;
+            #endif
             /*!
                 @brief [COPY&PASTE] [CHECK_PINS] Check if a pin is set to a specific mode
                 @note this is no hardware test... this test is based on hard coded data
@@ -930,9 +1986,9 @@
         #if EBOARD_CHECK_PINS > 0x0
             if(dig) checkIdx(idx);
             #if defined (__AVR_ATmega2560__)
-                else if (idx<0||idx>0x5){ //use I2C? change => Wire
-            #else
                 else if (idx<0||idx>0xF){ //use I2C? change => Wire
+            #else
+                else if (idx<0||idx>0x7){ //use I2C? change => Wire
             #endif
             #if EBOARD_DEBUG_MODE > 0x0
               assert(false);
@@ -957,10 +2013,10 @@
             @author EagleoutIce
 
             @brief [SPI] This is used to communicate with the smart servo shield
-            \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
+            \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
 
             @warning [COPY&PASTE] use SoccerBoard, DynamixelBoard and I2CInOut !
-            @warning <b>Don't</b> use this!
+            @warning this code is for internal use only and shouldnt be used otherwise
 
             @copyright This code is based on the offical library [https://github.com/leffhub/ServoCds55 (undocumented :/)] cheers!
 
@@ -1150,6 +2206,7 @@
             delay(8);
         }
         ///@endcond
+
         ///@brief this is the "to_use" instance of ServoCds55
         ServoCds55 _servoHandler;
     #endif
@@ -1167,7 +2224,7 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            #include <SPI.h>
+            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             bool toggle = true;
             SoccerBoard board;
@@ -1405,9 +2462,9 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            #include <Wire.h>
+            //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #define EBOARD_I2C 0x1
-            #include <SPI.h>
+            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             //nothing in this brackets will have any effect :D
@@ -1477,7 +2534,7 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            #include <SPI.h>
+            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
@@ -1649,7 +2706,7 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            #include <SPI.h>
+            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
@@ -1732,7 +2789,7 @@
 
                 @pre to use this class on UNO:
                 @code
-                #include <SoftwareSerial.h>
+                //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_BLUETOOTH   0x1
                 @endcode
                 \n \n  If you don't reconfigure the TX and RX on MEGA:
@@ -1742,9 +2799,9 @@
 
                 [COPY&PASTE] [BLUETOOTH] You can use this class like this on UNO:
                 @code
-                #include <SoftwareSerial.h>
+                //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_BLUETOOTH   0x1
-                #include <SPI.h>
+                //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
                 RB14Scan remote;
@@ -2286,17 +3343,17 @@
 
                 @pre to use this class:
                 @code
-                #include <Wire.h>
+                //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D
                 #define EBOARD_LCD 0x1
                 @endcode
 
                 [I2C] [LCD] You can use this class like this:
                 @code
-                #include <Wire.h>
+                //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_I2C 0x1
                 #define EBOARD_LCD 0x1
-                #include <SPI.h>
+                //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
                 SoccerBoard board;
                 LCD lcd(board);
@@ -2644,19 +3701,2042 @@
 
             //@endcond
         #endif
+
+        #if EBOARD_NEO > 0x0
+        // Codesection based on official NeoPixel library
+        // RGB NeoPixel permutations; white and red offsets are always same
+        // Offset:         W          R          G          B
+        ///@macro_def Defines the amount of needed permutation when com. in RGB-Mode
+        #define EBOARD_NEO_RGB  ((0 << 6) | (0 << 4) | (1 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in RBG-Mode
+        #define EBOARD_NEO_RBG  ((0 << 6) | (0 << 4) | (2 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in GRB-Mode
+        #define EBOARD_NEO_GRB  ((1 << 6) | (1 << 4) | (0 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in GBR-Mode
+        #define EBOARD_NEO_GBR  ((2 << 6) | (2 << 4) | (0 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in BRG-Mode
+        #define EBOARD_NEO_BRG  ((1 << 6) | (1 << 4) | (2 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BGR-Mode
+        #define EBOARD_NEO_BGR  ((2 << 6) | (2 << 4) | (1 << 2) | (0))
+
+        // RGBW NeoPixel permutations; all 4 offsets are distinct
+        // Offset:         W          R          G          B
+        ///@macro_def Defines the amount of needed permutation when com. in WRGB-Mode
+        #define EBOARD_NEO_WRGB ((0 << 6) | (1 << 4) | (2 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in WRBG-Mode
+        #define EBOARD_NEO_WRBG ((0 << 6) | (1 << 4) | (3 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in WGRB-Mode
+        #define EBOARD_NEO_WGRB ((0 << 6) | (2 << 4) | (1 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in WGBR-Mode
+        #define EBOARD_NEO_WGBR ((0 << 6) | (3 << 4) | (1 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in WBRG-Mode
+        #define EBOARD_NEO_WBRG ((0 << 6) | (2 << 4) | (3 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in WBGR-Mode
+        #define EBOARD_NEO_WBGR ((0 << 6) | (3 << 4) | (2 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in RWGB-Mode
+        #define EBOARD_NEO_RWGB ((1 << 6) | (0 << 4) | (2 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in RWBG-Mode
+        #define EBOARD_NEO_RWBG ((1 << 6) | (0 << 4) | (3 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in RGWB-Mode
+        #define EBOARD_NEO_RGWB ((2 << 6) | (0 << 4) | (1 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in RGBW-Mode
+        #define EBOARD_NEO_RGBW ((3 << 6) | (0 << 4) | (1 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in RBWG-Mode
+        #define EBOARD_NEO_RBWG ((2 << 6) | (0 << 4) | (3 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in RBGW-Mode
+        #define EBOARD_NEO_RBGW ((3 << 6) | (0 << 4) | (2 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in GWRB-Mode
+        #define EBOARD_NEO_GWRB ((1 << 6) | (2 << 4) | (0 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in GWBR-Mode
+        #define EBOARD_NEO_GWBR ((1 << 6) | (3 << 4) | (0 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in GRWB-Mode
+        #define EBOARD_NEO_GRWB ((2 << 6) | (1 << 4) | (0 << 2) | (3))
+        ///@macro_def Defines the amount of needed permutation when com. in GRBW-Mode
+        #define EBOARD_NEO_GRBW ((3 << 6) | (1 << 4) | (0 << 2) | (2))
+        ///@macro_def Defines the amount of needed permutation when com. in GBWR-Mode
+        #define EBOARD_NEO_GBWR ((2 << 6) | (3 << 4) | (0 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in GBRW-Mode
+        #define EBOARD_NEO_GBRW ((3 << 6) | (2 << 4) | (0 << 2) | (1))
+        ///@macro_def Defines the amount of needed permutation when com. in BWRG-Mode
+        #define EBOARD_NEO_BWRG ((1 << 6) | (2 << 4) | (3 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BWGR-Mode
+        #define EBOARD_NEO_BWGR ((1 << 6) | (3 << 4) | (2 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BRWG-Mode
+        #define EBOARD_NEO_BRWG ((2 << 6) | (1 << 4) | (3 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BRGW-Mode
+        #define EBOARD_NEO_BRGW ((3 << 6) | (1 << 4) | (2 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BGWR-Mode
+        #define EBOARD_NEO_BGWR ((2 << 6) | (3 << 4) | (1 << 2) | (0))
+        ///@macro_def Defines the amount of needed permutation when com. in BGRW-Mode
+        #define EBOARD_NEO_BGRW ((3 << 6) | (2 << 4) | (1 << 2) | (0))
+
+
+        ///@macro_def Defines the value to enable 800Khz communication Mode
+        #define EBOARD_NEO_800KHZ 0x0000
+        ///@macro_def Defines the value to enable 400Khz communication Mode
+        #define EBOARD_NEO_400KHZ 0x0100
+
+        // uint16_t can be uint8_t in 800Khz mode ^^
+        struct NeoPixel{
+          /**
+            @todo update this! exchange portd check etc to oneline to make replica obsolete
+          */
+          NeoPixel(uint16_t n, uint8_t p=6, uint16_t t =  EBOARD_NEO_GRB + EBOARD_NEO_800KHZ);
+           ///@todo remove TOTAL OF NRF52 FLOWER ETC CONFIG 
+          NeoPixel(void);
+          ~NeoPixel(void);
+
+          void begin(void);
+          void show(void);
+          void setPin(uint8_t p);
+          void setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b);
+          void setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+          void setPixelColor(uint16_t n, uint32_t c);
+          void setBrightness(uint8_t val);
+          void clear(void);
+          void updateLength(uint16_t n);
+          void updateType(uint16_t t);
+          uint8_t *getPixels(void) const;
+          uint8_t getBrightness(void) const;
+          uint8_t sine8(uint8_t x) const;
+          uint8_t gamma8(uint8_t x) const;
+          inline int8_t getPin(void);
+          uint16_t numPixels(void) const;
+          static inline uint32_t Color(uint8_t r, uint8_t g, uint8_t b);
+          static inline uint32_t Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+          uint32_t getPixelColor(uint16_t n) const;
+          inline bool canShow(void);
+        protected:
+          bool is800kHz;
+          bool begun;
+          uint16_t numLEDs; //maybe shorten with PrepConst 'extendetLED'?
+          uint16_t numBytes;
+          int8_t pin;
+          uint8_t brightness;
+          uint8_t *pixels;
+          uint8_t rOffset;
+          uint8_t gOffset;
+          uint8_t bOffset;
+          uint8_t wOffset;
+          uint32_t endTime; //used for diff calc
+          #ifdef __AVR__ //not needed (rem?)
+            volatile uint8_t *port;// Output PORT register
+            uint8_t pinMask;       // Output PORT bitmask
+          #endif
+
+        };
+
+        ///@cond
+        #if defined(NRF52)
+          #include "nrf.h"
+          //#define NRF52_DISABLE_INT
+        #endif
+
+
+        NeoPixel::NeoPixel(uint16_t n, uint8_t p, uint16_t t) :
+          begun(false), brightness(0), pixels(NULL), endTime(0) {
+          updateType(t);
+          updateLength(n);
+          setPin(p);
+        }
+
+        inline bool NeoPixel::canShow(void) { return (micros() - endTime) >= 300L; }
+
+        NeoPixel::NeoPixel() :
+        #ifdef NEO_KHZ400
+          is800KHz(true),
+        #endif
+          begun(false), numLEDs(0), numBytes(0), pin(-1), brightness(0), pixels(NULL),
+          rOffset(1), gOffset(0), bOffset(2), wOffset(1), endTime(0)
+        {}
+
+        NeoPixel::~NeoPixel() {
+          if(pixels)   free(pixels);
+          if(pin >= 0) pinMode(pin, INPUT);
+        }
+
+        void NeoPixel::begin(void) {
+          if(pin >= 0) {
+            pinMode(pin, OUTPUT);
+            digitalWrite(pin, LOW);
+          }
+          begun = true;
+
+        }
+
+        void NeoPixel::updateLength(uint16_t n) {
+          if(pixels) free(pixels);
+          numBytes = n * ((wOffset == rOffset) ? 3 : 4);
+          if((pixels = (uint8_t *)malloc(numBytes))) {
+            memset(pixels, 0, numBytes);
+            numLEDs = n;
+          } else {
+            numLEDs = numBytes = 0;
+          }
+        }
+
+        void NeoPixel::updateType(uint16_t t) {
+          boolean oldThreeBytesPerPixel = (wOffset == rOffset); // false if RGBW
+
+          wOffset = (t >> 6) & 0b11;
+          rOffset = (t >> 4) & 0b11;
+          gOffset = (t >> 2) & 0b11;
+          bOffset =  t       & 0b11;
+        #ifdef NEO_KHZ400
+          is800KHz = (t < 256);      // 400 KHz flag is 1<<8
+        #endif
+
+          if(pixels) {
+            boolean newThreeBytesPerPixel = (wOffset == rOffset);
+            if(newThreeBytesPerPixel != oldThreeBytesPerPixel) updateLength(numLEDs);
+          }
+        }
+
+        #if defined(ESP8266)
+          // ESP8266 show() is external to enforce ICACHE_RAM_ATTR execution
+          extern "C" void ICACHE_RAM_ATTR espShow(
+            uint8_t pin, uint8_t *pixels, uint32_t numBytes, uint8_t type);
+        #elif defined(ESP32)
+          extern "C" void espShow(
+            uint8_t pin, uint8_t *pixels, uint32_t numBytes, uint8_t type);
+        #endif
+
+        void NeoPixel::show(void) {
+          if(!pixels) return;
+          while(!canShow()); //maybe timeout ?
+        #ifndef NRF52
+          noInterrupts(); // Need 100% focus on instruction timing
+        #endif
+
+        #ifdef __AVR__
+          volatile uint16_t
+            i   = numBytes;
+          volatile uint8_t
+           *ptr = pixels,
+            b   = *ptr++,
+            hi,
+            lo;
+
+        #if (F_CPU >= 7400000UL) && (F_CPU <= 9500000UL)
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+
+            volatile uint8_t n1, n2 = 0;
+
+        #if defined(PORTD)
+         #if defined(PORTB) || defined(PORTC) || defined(PORTF)
+            if(port == &PORTD) {
+         #endif
+
+              hi = PORTD |  pinMask;
+              lo = PORTD & ~pinMask;
+              n1 = lo;
+              if(b & 0x80) n1 = hi;
+
+              asm volatile(
+               "headD:"                   "\n\t" // Clk  Pseudocode
+                // Bit 7:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n2]   , %[lo]"    "\n\t" // 1    n2   = lo
+                "out  %[port] , %[n1]"    "\n\t" // 1    PORT = n1
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 6"        "\n\t" // 1-2  if(b & 0x40)
+                 "mov %[n2]   , %[hi]"    "\n\t" // 0-1   n2 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 6:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n1]   , %[lo]"    "\n\t" // 1    n1   = lo
+                "out  %[port] , %[n2]"    "\n\t" // 1    PORT = n2
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 5"        "\n\t" // 1-2  if(b & 0x20)
+                 "mov %[n1]   , %[hi]"    "\n\t" // 0-1   n1 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 5:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n2]   , %[lo]"    "\n\t" // 1    n2   = lo
+                "out  %[port] , %[n1]"    "\n\t" // 1    PORT = n1
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 4"        "\n\t" // 1-2  if(b & 0x10)
+                 "mov %[n2]   , %[hi]"    "\n\t" // 0-1   n2 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 4:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n1]   , %[lo]"    "\n\t" // 1    n1   = lo
+                "out  %[port] , %[n2]"    "\n\t" // 1    PORT = n2
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 3"        "\n\t" // 1-2  if(b & 0x08)
+                 "mov %[n1]   , %[hi]"    "\n\t" // 0-1   n1 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 3:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n2]   , %[lo]"    "\n\t" // 1    n2   = lo
+                "out  %[port] , %[n1]"    "\n\t" // 1    PORT = n1
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 2"        "\n\t" // 1-2  if(b & 0x04)
+                 "mov %[n2]   , %[hi]"    "\n\t" // 0-1   n2 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 2:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n1]   , %[lo]"    "\n\t" // 1    n1   = lo
+                "out  %[port] , %[n2]"    "\n\t" // 1    PORT = n2
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 1"        "\n\t" // 1-2  if(b & 0x02)
+                 "mov %[n1]   , %[hi]"    "\n\t" // 0-1   n1 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                // Bit 1:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n2]   , %[lo]"    "\n\t" // 1    n2   = lo
+                "out  %[port] , %[n1]"    "\n\t" // 1    PORT = n1
+                "rjmp .+0"                "\n\t" // 2    nop nop
+                "sbrc %[byte] , 0"        "\n\t" // 1-2  if(b & 0x01)
+                 "mov %[n2]   , %[hi]"    "\n\t" // 0-1   n2 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "sbiw %[count], 1"        "\n\t" // 2    i-- (don't act on Z flag yet)
+                // Bit 0:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi
+                "mov  %[n1]   , %[lo]"    "\n\t" // 1    n1   = lo
+                "out  %[port] , %[n2]"    "\n\t" // 1    PORT = n2
+                "ld   %[byte] , %a[ptr]+" "\n\t" // 2    b = *ptr++
+                "sbrc %[byte] , 7"        "\n\t" // 1-2  if(b & 0x80)
+                 "mov %[n1]   , %[hi]"    "\n\t" // 0-1   n1 = hi
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo
+                "brne headD"              "\n"   // 2    while(i) (Z flag set above)
+              : [byte]  "+r" (b),
+                [n1]    "+r" (n1),
+                [n2]    "+r" (n2),
+                [count] "+w" (i)
+              : [port]   "I" (_SFR_IO_ADDR(PORTD)),
+                [ptr]    "e" (ptr),
+                [hi]     "r" (hi),
+                [lo]     "r" (lo));
+
+         #if defined(PORTB) || defined(PORTC) || defined(PORTF)
+            } else
+         #endif
+        #endif
+        #if defined(PORTB)
+         #if defined(PORTD) || defined(PORTC) || defined(PORTF)
+            if(port == &PORTB) {
+         #endif // defined(PORTD/C/F)
+              hi = PORTB |  pinMask;
+              lo = PORTB & ~pinMask;
+              n1 = lo;
+              if(b & 0x80) n1 = hi;
+
+              asm volatile(
+               "headB:"                   "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 6"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 5"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 4"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 3"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 2"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 1"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 0"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "brne headB"              "\n"
+              : [byte] "+r" (b), [n1] "+r" (n1), [n2] "+r" (n2), [count] "+w" (i)
+              : [port] "I" (_SFR_IO_ADDR(PORTB)), [ptr] "e" (ptr), [hi] "r" (hi),
+                [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTC) || defined(PORTF)
+            }
+         #endif
+         #if defined(PORTC) || defined(PORTF)
+            else
+         #endif
+        #endif
+
+        #if defined(PORTC)
+         #if defined(PORTD) || defined(PORTB) || defined(PORTF)
+            if(port == &PORTC) {
+         #endif
+
+              hi = PORTC |  pinMask;
+              lo = PORTC & ~pinMask;
+              n1 = lo;
+              if(b & 0x80) n1 = hi;
+
+              asm volatile(
+               "headC:"                   "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 6"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 5"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 4"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 3"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 2"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 1"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 0"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "brne headC"              "\n"
+              : [byte] "+r" (b), [n1] "+r" (n1), [n2] "+r" (n2), [count] "+w" (i)
+              : [port] "I" (_SFR_IO_ADDR(PORTC)), [ptr] "e" (ptr), [hi] "r" (hi),
+                [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTB) || defined(PORTF)
+            }
+         #endif
+         #if defined(PORTF)
+            else
+         #endif
+        #endif
+
+        #if defined(PORTF)
+         #if defined(PORTD) || defined(PORTB) || defined(PORTC)
+            if(port == &PORTF) {
+         #endif // defined(PORTD/B/C)
+
+              hi = PORTF |  pinMask;
+              lo = PORTF & ~pinMask;
+              n1 = lo;
+              if(b & 0x80) n1 = hi;
+
+              asm volatile(
+               "headF:"                   "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 6"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 5"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 4"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 3"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 2"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 1"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n2]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n1]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "sbrc %[byte] , 0"        "\n\t"
+                 "mov %[n2]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "mov  %[n1]   , %[lo]"    "\n\t"
+                "out  %[port] , %[n2]"    "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[n1]   , %[hi]"    "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "brne headF"              "\n"
+              : [byte] "+r" (b), [n1] "+r" (n1), [n2] "+r" (n2), [count] "+w" (i)
+              : [port] "I" (_SFR_IO_ADDR(PORTF)), [ptr] "e" (ptr), [hi] "r" (hi),
+                [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTB) || defined(PORTC)
+            }
+         #endif // defined(PORTD/B/C)
+        #endif // defined(PORTF)
+
+        #ifdef NEO_KHZ400
+          } else {
+
+            volatile uint8_t next, bit;
+
+            hi   = *port |  pinMask;
+            lo   = *port & ~pinMask;
+            next = lo;
+            bit  = 8;
+
+            asm volatile(
+             "head20:"                  "\n\t" // Clk  Pseudocode    (T =  0)
+              "st   %a[port], %[hi]"    "\n\t" // 2    PORT = hi     (T =  2)
+              "sbrc %[byte] , 7"        "\n\t" // 1-2  if(b & 128)
+               "mov  %[next], %[hi]"    "\n\t" // 0-1   next = hi    (T =  4)
+              "st   %a[port], %[next]"  "\n\t" // 2    PORT = next   (T =  6)
+              "mov  %[next] , %[lo]"    "\n\t" // 1    next = lo     (T =  7)
+              "dec  %[bit]"             "\n\t" // 1    bit--         (T =  8)
+              "breq nextbyte20"         "\n\t" // 1-2  if(bit == 0)
+              "rol  %[byte]"            "\n\t" // 1    b <<= 1       (T = 10)
+              "st   %a[port], %[lo]"    "\n\t" // 2    PORT = lo     (T = 12)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 14)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 16)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 18)
+              "rjmp head20"             "\n\t" // 2    -> head20 (next bit out)
+             "nextbyte20:"              "\n\t" //                    (T = 10)
+              "st   %a[port], %[lo]"    "\n\t" // 2    PORT = lo     (T = 12)
+              "nop"                     "\n\t" // 1    nop           (T = 13)
+              "ldi  %[bit]  , 8"        "\n\t" // 1    bit = 8       (T = 14)
+              "ld   %[byte] , %a[ptr]+" "\n\t" // 2    b = *ptr++    (T = 16)
+              "sbiw %[count], 1"        "\n\t" // 2    i--           (T = 18)
+              "brne head20"             "\n"   // 2    if(i != 0) -> (next byte)
+              : [port]  "+e" (port),
+                [byte]  "+r" (b),
+                [bit]   "+r" (bit),
+                [next]  "+r" (next),
+                [count] "+w" (i)
+              : [hi]    "r" (hi),
+                [lo]    "r" (lo),
+                [ptr]   "e" (ptr));
+          }
+        #endif
+
+        #elif (F_CPU >= 11100000UL) && (F_CPU <= 14300000UL)
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+
+            volatile uint8_t next;
+
+            // PORTD OUTPUT ----------------------------------------------------
+
+        #if defined(PORTD)
+         #if defined(PORTB) || defined(PORTC) || defined(PORTF)
+            if(port == &PORTD) {
+         #endif
+
+              hi   = PORTD |  pinMask;
+              lo   = PORTD & ~pinMask;
+              next = lo;
+              if(b & 0x80) next = hi;
+              asm volatile(
+               "headD:"                   "\n\t" //        (T =  0)
+                "out   %[port], %[hi]"    "\n\t" //        (T =  1)
+                "rcall bitTimeD"          "\n\t" // Bit 7  (T = 15)
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 6
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 5
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 4
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 3
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 2
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeD"          "\n\t" // Bit 1
+                // Bit 0:
+                "out  %[port] , %[hi]"    "\n\t" // 1    PORT = hi    (T =  1)
+                "rjmp .+0"                "\n\t" // 2    nop nop      (T =  3)
+                "ld   %[byte] , %a[ptr]+" "\n\t" // 2    b = *ptr++   (T =  5)
+                "out  %[port] , %[next]"  "\n\t" // 1    PORT = next  (T =  6)
+                "mov  %[next] , %[lo]"    "\n\t" // 1    next = lo    (T =  7)
+                "sbrc %[byte] , 7"        "\n\t" // 1-2  if(b & 0x80) (T =  8)
+                 "mov %[next] , %[hi]"    "\n\t" // 0-1    next = hi  (T =  9)
+                "nop"                     "\n\t" // 1                 (T = 10)
+                "out  %[port] , %[lo]"    "\n\t" // 1    PORT = lo    (T = 11)
+                "sbiw %[count], 1"        "\n\t" // 2    i--          (T = 13)
+                "brne headD"              "\n\t" // 2    if(i != 0) -> (next byte)
+                 "rjmp doneD"             "\n\t"
+                "bitTimeD:"               "\n\t" //      nop nop nop     (T =  4)
+                 "out  %[port], %[next]"  "\n\t" // 1    PORT = next     (T =  5)
+                 "mov  %[next], %[lo]"    "\n\t" // 1    next = lo       (T =  6)
+                 "rol  %[byte]"           "\n\t" // 1    b <<= 1         (T =  7)
+                 "sbrc %[byte], 7"        "\n\t" // 1-2  if(b & 0x80)    (T =  8)
+                  "mov %[next], %[hi]"    "\n\t" // 0-1   next = hi      (T =  9)
+                 "nop"                    "\n\t" // 1                    (T = 10)
+                 "out  %[port], %[lo]"    "\n\t" // 1    PORT = lo       (T = 11)
+                 "ret"                    "\n\t" // 4    nop nop nop nop (T = 15)
+                 "doneD:"                 "\n"
+                : [byte]  "+r" (b),
+                  [next]  "+r" (next),
+                  [count] "+w" (i)
+                : [port]   "I" (_SFR_IO_ADDR(PORTD)),
+                  [ptr]    "e" (ptr),
+                  [hi]     "r" (hi),
+                  [lo]     "r" (lo));
+
+         #if defined(PORTB) || defined(PORTC) || defined(PORTF)
+            } else
+         #endif
+        #endif
+
+        #if defined(PORTB)
+         #if defined(PORTD) || defined(PORTC) || defined(PORTF)
+            if(port == &PORTB) {
+         #endif
+
+              hi   = PORTB |  pinMask;
+              lo   = PORTB & ~pinMask;
+              next = lo;
+              if(b & 0x80) next = hi;
+
+              asm volatile(
+               "headB:"                   "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeB"          "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "out  %[port] , %[next]"  "\n\t"
+                "mov  %[next] , %[lo]"    "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[next] , %[hi]"    "\n\t"
+                "nop"                     "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "brne headB"              "\n\t"
+                 "rjmp doneB"             "\n\t"
+                "bitTimeB:"               "\n\t"
+                 "out  %[port], %[next]"  "\n\t"
+                 "mov  %[next], %[lo]"    "\n\t"
+                 "rol  %[byte]"           "\n\t"
+                 "sbrc %[byte], 7"        "\n\t"
+                  "mov %[next], %[hi]"    "\n\t"
+                 "nop"                    "\n\t"
+                 "out  %[port], %[lo]"    "\n\t"
+                 "ret"                    "\n\t"
+                 "doneB:"                 "\n"
+                : [byte] "+r" (b), [next] "+r" (next), [count] "+w" (i)
+                : [port] "I" (_SFR_IO_ADDR(PORTB)), [ptr] "e" (ptr), [hi] "r" (hi),
+                  [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTC) || defined(PORTF)
+            }
+         #endif
+         #if defined(PORTC) || defined(PORTF)
+            else
+         #endif
+        #endif
+
+        #if defined(PORTC)
+         #if defined(PORTD) || defined(PORTB) || defined(PORTF)
+            if(port == &PORTC) {
+         #endif
+
+              hi   = PORTC |  pinMask;
+              lo   = PORTC & ~pinMask;
+              next = lo;
+              if(b & 0x80) next = hi;
+
+              asm volatile(
+               "headC:"                   "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "out  %[port] , %[next]"  "\n\t"
+                "mov  %[next] , %[lo]"    "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[next] , %[hi]"    "\n\t"
+                "nop"                     "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "brne headC"              "\n\t"
+                 "rjmp doneC"             "\n\t"
+                "bitTimeC:"               "\n\t"
+                 "out  %[port], %[next]"  "\n\t"
+                 "mov  %[next], %[lo]"    "\n\t"
+                 "rol  %[byte]"           "\n\t"
+                 "sbrc %[byte], 7"        "\n\t"
+                  "mov %[next], %[hi]"    "\n\t"
+                 "nop"                    "\n\t"
+                 "out  %[port], %[lo]"    "\n\t"
+                 "ret"                    "\n\t"
+                 "doneC:"                 "\n"
+                : [byte] "+r" (b), [next] "+r" (next), [count] "+w" (i)
+                : [port] "I" (_SFR_IO_ADDR(PORTC)), [ptr] "e" (ptr), [hi] "r" (hi),
+                  [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTB) || defined(PORTF)
+            }
+         #endif
+         #if defined(PORTF)
+            else
+         #endif
+        #endif
+
+        #if defined(PORTF)
+         #if defined(PORTD) || defined(PORTB) || defined(PORTC)
+            if(port == &PORTF) {
+         #endif
+
+              hi   = PORTF |  pinMask;
+              lo   = PORTF & ~pinMask;
+              next = lo;
+              if(b & 0x80) next = hi;
+
+              asm volatile(
+               "headF:"                   "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out   %[port], %[hi]"    "\n\t"
+                "rcall bitTimeC"          "\n\t"
+                "out  %[port] , %[hi]"    "\n\t"
+                "rjmp .+0"                "\n\t"
+                "ld   %[byte] , %a[ptr]+" "\n\t"
+                "out  %[port] , %[next]"  "\n\t"
+                "mov  %[next] , %[lo]"    "\n\t"
+                "sbrc %[byte] , 7"        "\n\t"
+                 "mov %[next] , %[hi]"    "\n\t"
+                "nop"                     "\n\t"
+                "out  %[port] , %[lo]"    "\n\t"
+                "sbiw %[count], 1"        "\n\t"
+                "brne headF"              "\n\t"
+                 "rjmp doneC"             "\n\t"
+                "bitTimeC:"               "\n\t"
+                 "out  %[port], %[next]"  "\n\t"
+                 "mov  %[next], %[lo]"    "\n\t"
+                 "rol  %[byte]"           "\n\t"
+                 "sbrc %[byte], 7"        "\n\t"
+                  "mov %[next], %[hi]"    "\n\t"
+                 "nop"                    "\n\t"
+                 "out  %[port], %[lo]"    "\n\t"
+                 "ret"                    "\n\t"
+                 "doneC:"                 "\n"
+                : [byte] "+r" (b), [next] "+r" (next), [count] "+w" (i)
+                : [port] "I" (_SFR_IO_ADDR(PORTF)), [ptr] "e" (ptr), [hi] "r" (hi),
+                  [lo] "r" (lo));
+
+         #if defined(PORTD) || defined(PORTB) || defined(PORTC)
+            }
+         #endif
+        #endif
+
+        #ifdef NEO_KHZ400
+          } else {
+            volatile uint8_t next, bit;
+
+            hi   = *port |  pinMask;
+            lo   = *port & ~pinMask;
+            next = lo;
+            bit  = 8;
+
+            asm volatile(
+             "head30:"                  "\n\t" // Clk  Pseudocode    (T =  0)
+              "st   %a[port], %[hi]"    "\n\t" // 2    PORT = hi     (T =  2)
+              "sbrc %[byte] , 7"        "\n\t" // 1-2  if(b & 128)
+               "mov  %[next], %[hi]"    "\n\t" // 0-1   next = hi    (T =  4)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T =  6)
+              "st   %a[port], %[next]"  "\n\t" // 2    PORT = next   (T =  8)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 10)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 12)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 14)
+              "nop"                     "\n\t" // 1    nop           (T = 15)
+              "st   %a[port], %[lo]"    "\n\t" // 2    PORT = lo     (T = 17)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 19)
+              "dec  %[bit]"             "\n\t" // 1    bit--         (T = 20)
+              "breq nextbyte30"         "\n\t" // 1-2  if(bit == 0)
+              "rol  %[byte]"            "\n\t" // 1    b <<= 1       (T = 22)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 24)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 26)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 28)
+              "rjmp head30"             "\n\t" // 2    -> head30 (next bit out)
+             "nextbyte30:"              "\n\t" //                    (T = 22)
+              "nop"                     "\n\t" // 1    nop           (T = 23)
+              "ldi  %[bit]  , 8"        "\n\t" // 1    bit = 8       (T = 24)
+              "ld   %[byte] , %a[ptr]+" "\n\t" // 2    b = *ptr++    (T = 26)
+              "sbiw %[count], 1"        "\n\t" // 2    i--           (T = 28)
+              "brne head30"             "\n"   // 1-2  if(i != 0) -> (next byte)
+              : [port]  "+e" (port),
+                [byte]  "+r" (b),
+                [bit]   "+r" (bit),
+                [next]  "+r" (next),
+                [count] "+w" (i)
+              : [hi]     "r" (hi),
+                [lo]     "r" (lo),
+                [ptr]    "e" (ptr));
+          }
+        #endif
+        #elif (F_CPU >= 15400000UL) && (F_CPU <= 19000000L)
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+
+            volatile uint8_t next, bit;
+
+            hi   = *port |  pinMask;
+            lo   = *port & ~pinMask;
+            next = lo;
+            bit  = 8;
+
+            asm volatile(
+             "head20:"                   "\n\t" // Clk  Pseudocode    (T =  0)
+              "st   %a[port],  %[hi]"    "\n\t" // 2    PORT = hi     (T =  2)
+              "sbrc %[byte],  7"         "\n\t" // 1-2  if(b & 128)
+               "mov  %[next], %[hi]"     "\n\t" // 0-1   next = hi    (T =  4)
+              "dec  %[bit]"              "\n\t" // 1    bit--         (T =  5)
+              "st   %a[port],  %[next]"  "\n\t" // 2    PORT = next   (T =  7)
+              "mov  %[next] ,  %[lo]"    "\n\t" // 1    next = lo     (T =  8)
+              "breq nextbyte20"          "\n\t" // 1-2  if(bit == 0) (from dec above)
+              "rol  %[byte]"             "\n\t" // 1    b <<= 1       (T = 10)
+              "rjmp .+0"                 "\n\t" // 2    nop nop       (T = 12)
+              "nop"                      "\n\t" // 1    nop           (T = 13)
+              "st   %a[port],  %[lo]"    "\n\t" // 2    PORT = lo     (T = 15)
+              "nop"                      "\n\t" // 1    nop           (T = 16)
+              "rjmp .+0"                 "\n\t" // 2    nop nop       (T = 18)
+              "rjmp head20"              "\n\t" // 2    -> head20 (next bit out)
+             "nextbyte20:"               "\n\t" //                    (T = 10)
+              "ldi  %[bit]  ,  8"        "\n\t" // 1    bit = 8       (T = 11)
+              "ld   %[byte] ,  %a[ptr]+" "\n\t" // 2    b = *ptr++    (T = 13)
+              "st   %a[port], %[lo]"     "\n\t" // 2    PORT = lo     (T = 15)
+              "nop"                      "\n\t" // 1    nop           (T = 16)
+              "sbiw %[count], 1"         "\n\t" // 2    i--           (T = 18)
+               "brne head20"             "\n"   // 2    if(i != 0) -> (next byte)
+              : [port]  "+e" (port),
+                [byte]  "+r" (b),
+                [bit]   "+r" (bit),
+                [next]  "+r" (next),
+                [count] "+w" (i)
+              : [ptr]    "e" (ptr),
+                [hi]     "r" (hi),
+                [lo]     "r" (lo));
+
+        #ifdef NEO_KHZ400
+          } else {
+
+            volatile uint8_t next, bit;
+
+            hi   = *port |  pinMask;
+            lo   = *port & ~pinMask;
+            next = lo;
+            bit  = 8;
+
+            asm volatile(
+             "head40:"                  "\n\t" // Clk  Pseudocode    (T =  0)
+              "st   %a[port], %[hi]"    "\n\t" // 2    PORT = hi     (T =  2)
+              "sbrc %[byte] , 7"        "\n\t" // 1-2  if(b & 128)
+               "mov  %[next] , %[hi]"   "\n\t" // 0-1   next = hi    (T =  4)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T =  6)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T =  8)
+              "st   %a[port], %[next]"  "\n\t" // 2    PORT = next   (T = 10)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 12)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 14)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 16)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 18)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 20)
+              "st   %a[port], %[lo]"    "\n\t" // 2    PORT = lo     (T = 22)
+              "nop"                     "\n\t" // 1    nop           (T = 23)
+              "mov  %[next] , %[lo]"    "\n\t" // 1    next = lo     (T = 24)
+              "dec  %[bit]"             "\n\t" // 1    bit--         (T = 25)
+              "breq nextbyte40"         "\n\t" // 1-2  if(bit == 0)
+              "rol  %[byte]"            "\n\t" // 1    b <<= 1       (T = 27)
+              "nop"                     "\n\t" // 1    nop           (T = 28)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 30)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 32)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 34)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 36)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 38)
+              "rjmp head40"             "\n\t" // 2    -> head40 (next bit out)
+             "nextbyte40:"              "\n\t" //                    (T = 27)
+              "ldi  %[bit]  , 8"        "\n\t" // 1    bit = 8       (T = 28)
+              "ld   %[byte] , %a[ptr]+" "\n\t" // 2    b = *ptr++    (T = 30)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 32)
+              "st   %a[port], %[lo]"    "\n\t" // 2    PORT = lo     (T = 34)
+              "rjmp .+0"                "\n\t" // 2    nop nop       (T = 36)
+              "sbiw %[count], 1"        "\n\t" // 2    i--           (T = 38)
+              "brne head40"             "\n"   // 1-2  if(i != 0) -> (next byte)
+              : [port]  "+e" (port),
+                [byte]  "+r" (b),
+                [bit]   "+r" (bit),
+                [next]  "+r" (next),
+                [count] "+w" (i)
+              : [ptr]    "e" (ptr),
+                [hi]     "r" (hi),
+                [lo]     "r" (lo));
+          }
+        #endif
+        #else
+         #error "CPU SPEED NOT SUPPORTED"
+        #endif
+        #elif defined(__arm__)
+
+
+        #if defined(TEENSYDUINO) && defined(KINETISK) // Teensy 3.0, 3.1, 3.2, 3.5, 3.6
+        #define CYCLES_800_T0H  (F_CPU / 4000000)
+        #define CYCLES_800_T1H  (F_CPU / 1250000)
+        #define CYCLES_800      (F_CPU /  800000)
+        #define CYCLES_400_T0H  (F_CPU / 2000000)
+        #define CYCLES_400_T1H  (F_CPU /  833333)
+        #define CYCLES_400      (F_CPU /  400000)
+
+          uint8_t          *p   = pixels,
+                           *end = p + numBytes, pix, mask;
+          volatile uint8_t *set = portSetRegister(pin),
+                           *clr = portClearRegister(pin);
+          uint32_t          cyc;
+
+          ARM_DEMCR    |= ARM_DEMCR_TRCENA;
+          ARM_DWT_CTRL |= ARM_DWT_CTRL_CYCCNTENA;
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+            cyc = ARM_DWT_CYCCNT + CYCLES_800;
+            while(p < end) {
+              pix = *p++;
+              for(mask = 0x80; mask; mask >>= 1) {
+                while(ARM_DWT_CYCCNT - cyc < CYCLES_800);
+                cyc  = ARM_DWT_CYCCNT;
+                *set = 1;
+                if(pix & mask) {
+                  while(ARM_DWT_CYCCNT - cyc < CYCLES_800_T1H);
+                } else {
+                  while(ARM_DWT_CYCCNT - cyc < CYCLES_800_T0H);
+                }
+                *clr = 1;
+              }
+            }
+            while(ARM_DWT_CYCCNT - cyc < CYCLES_800);
+        #ifdef NEO_KHZ400
+          } else {
+            cyc = ARM_DWT_CYCCNT + CYCLES_400;
+            while(p < end) {
+              pix = *p++;
+              for(mask = 0x80; mask; mask >>= 1) {
+                while(ARM_DWT_CYCCNT - cyc < CYCLES_400);
+                cyc  = ARM_DWT_CYCCNT;
+                *set = 1;
+                if(pix & mask) {
+                  while(ARM_DWT_CYCCNT - cyc < CYCLES_400_T1H);
+                } else {
+                  while(ARM_DWT_CYCCNT - cyc < CYCLES_400_T0H);
+                }
+                *clr = 1;
+              }
+            }
+            while(ARM_DWT_CYCCNT - cyc < CYCLES_400);
+          }
+        #endif
+
+        #elif defined(TEENSYDUINO) && defined(__MKL26Z64__) // Teensy-LC
+
+        #if F_CPU == 48000000
+          uint8_t          *p   = pixels,
+        		   pix, count, dly,
+                           bitmask = digitalPinToBitMask(pin);
+          volatile uint8_t *reg = portSetRegister(pin);
+          uint32_t         num = numBytes;
+          asm volatile(
+        	"L%=_begin:"				"\n\t"
+        	"ldrb	%[pix], [%[p], #0]"		"\n\t"
+        	"lsl	%[pix], #24"			"\n\t"
+        	"movs	%[count], #7"			"\n\t"
+        	"L%=_loop:"				"\n\t"
+        	"lsl	%[pix], #1"			"\n\t"
+        	"bcs	L%=_loop_one"			"\n\t"
+        	"L%=_loop_zero:"
+        	"strb	%[bitmask], [%[reg], #0]"	"\n\t"
+        	"movs	%[dly], #4"			"\n\t"
+        	"L%=_loop_delay_T0H:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_loop_delay_T0H"		"\n\t"
+        	"strb	%[bitmask], [%[reg], #4]"	"\n\t"
+        	"movs	%[dly], #13"			"\n\t"
+        	"L%=_loop_delay_T0L:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_loop_delay_T0L"		"\n\t"
+        	"b	L%=_next"			"\n\t"
+        	"L%=_loop_one:"
+        	"strb	%[bitmask], [%[reg], #0]"	"\n\t"
+        	"movs	%[dly], #13"			"\n\t"
+        	"L%=_loop_delay_T1H:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_loop_delay_T1H"		"\n\t"
+        	"strb	%[bitmask], [%[reg], #4]"	"\n\t"
+        	"movs	%[dly], #4"			"\n\t"
+        	"L%=_loop_delay_T1L:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_loop_delay_T1L"		"\n\t"
+        	"nop"					"\n\t"
+        	"L%=_next:"				"\n\t"
+        	"sub	%[count], #1"			"\n\t"
+        	"bne	L%=_loop"			"\n\t"
+        	"lsl	%[pix], #1"			"\n\t"
+        	"bcs	L%=_last_one"			"\n\t"
+        	"L%=_last_zero:"
+        	"strb	%[bitmask], [%[reg], #0]"	"\n\t"
+        	"movs	%[dly], #4"			"\n\t"
+        	"L%=_last_delay_T0H:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_last_delay_T0H"		"\n\t"
+        	"strb	%[bitmask], [%[reg], #4]"	"\n\t"
+        	"movs	%[dly], #10"			"\n\t"
+        	"L%=_last_delay_T0L:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_last_delay_T0L"		"\n\t"
+        	"b	L%=_repeat"			"\n\t"
+        	"L%=_last_one:"
+        	"strb	%[bitmask], [%[reg], #0]"	"\n\t"
+        	"movs	%[dly], #13"			"\n\t"
+        	"L%=_last_delay_T1H:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_last_delay_T1H"		"\n\t"
+        	"strb	%[bitmask], [%[reg], #4]"	"\n\t"
+        	"movs	%[dly], #1"			"\n\t"
+        	"L%=_last_delay_T1L:"			"\n\t"
+        	"sub	%[dly], #1"			"\n\t"
+        	"bne	L%=_last_delay_T1L"		"\n\t"
+        	"nop"					"\n\t"
+        	"L%=_repeat:"				"\n\t"
+        	"add	%[p], #1"			"\n\t"
+        	"sub	%[num], #1"			"\n\t"
+        	"bne	L%=_begin"			"\n\t"
+        	"L%=_done:"				"\n\t"
+        	: [p] "+r" (p),
+        	  [pix] "=&r" (pix),
+        	  [count] "=&r" (count),
+        	  [dly] "=&r" (dly),
+        	  [num] "+r" (num)
+        	: [bitmask] "r" (bitmask),
+        	  [reg] "r" (reg)
+          );
+        #else
+        #error "Sorry, only 48 MHz is supported, please set Tools > CPU Speed to 48 MHz"
+        #endif
+        #elif defined(NRF52)
+
+        #define MAGIC_T0H               6UL | (0x8000) // 0.375us
+        #define MAGIC_T1H              13UL | (0x8000) // 0.8125us
+
+        // WS2811 (400 khz) timing is 0.5 and 1.2
+        #define MAGIC_T0H_400KHz        8UL  | (0x8000) // 0.5us
+        #define MAGIC_T1H_400KHz        19UL | (0x8000) // 1.1875us
+
+        // For 400Khz, we double value of CTOPVAL
+        #define CTOPVAL                20UL            // 1.25us
+        #define CTOPVAL_400KHz         40UL            // 2.5us
+
+        #define CYCLES_800_T0H  18  // ~0.36 uS
+        #define CYCLES_800_T1H  41  // ~0.76 uS
+        #define CYCLES_800      71  // ~1.25 uS
+
+        #define CYCLES_400_T0H  26  // ~0.50 uS
+        #define CYCLES_400_T1H  70  // ~1.26 uS
+        #define CYCLES_400      156 // ~2.50 uS
+
+          uint32_t  pattern_size   = numBytes*8*sizeof(uint16_t)+2*sizeof(uint16_t);
+          uint16_t* pixels_pattern = NULL;
+
+          NRF_PWM_Type* pwm = NULL;
+
+          NRF_PWM_Type* PWM[3] = {NRF_PWM0, NRF_PWM1, NRF_PWM2};
+          for(int device = 0; device<3; device++) {
+            if( (PWM[device]->ENABLE == 0)                            &&
+                (PWM[device]->PSEL.OUT[0] & PWM_PSEL_OUT_CONNECT_Msk) &&
+                (PWM[device]->PSEL.OUT[1] & PWM_PSEL_OUT_CONNECT_Msk) &&
+                (PWM[device]->PSEL.OUT[2] & PWM_PSEL_OUT_CONNECT_Msk) &&
+                (PWM[device]->PSEL.OUT[3] & PWM_PSEL_OUT_CONNECT_Msk)
+            ) {
+              pwm = PWM[device];
+              break;
+            }
+          }
+
+          if ( pwm != NULL ) {
+            #ifdef ARDUINO_FEATHER52 // use thread-safe malloc
+              pixels_pattern = (uint16_t *) rtos_malloc(pattern_size);
+            #else
+              pixels_pattern = (uint16_t *) malloc(pattern_size);
+            #endif
+          }
+
+
+          if( (pixels_pattern != NULL) && (pwm != NULL) ) {
+            uint16_t pos = 0; // bit position
+
+            for(uint16_t n=0; n<numBytes; n++) {
+              uint8_t pix = pixels[n];
+
+              for(uint8_t mask=0x80, i=0; mask>0; mask >>= 1, i++) {
+                #ifdef NEO_KHZ400
+                if( !is800KHz ) {
+                  pixels_pattern[pos] = (pix & mask) ? MAGIC_T1H_400KHz : MAGIC_T0H_400KHz;
+                }else
+                #endif
+                {
+                  pixels_pattern[pos] = (pix & mask) ? MAGIC_T1H : MAGIC_T0H;
+                }
+
+                pos++;
+              }
+            }
+
+            pixels_pattern[++pos] = 0 | (0x8000); // Seq end
+            pixels_pattern[++pos] = 0 | (0x8000); // Seq end
+
+            pwm->MODE = (PWM_MODE_UPDOWN_Up << PWM_MODE_UPDOWN_Pos);
+
+            pwm->PRESCALER = (PWM_PRESCALER_PRESCALER_DIV_1 << PWM_PRESCALER_PRESCALER_Pos);
+
+        #ifdef NEO_KHZ400
+            if( !is800KHz ) {
+              pwm->COUNTERTOP = (CTOPVAL_400KHz << PWM_COUNTERTOP_COUNTERTOP_Pos);
+            }else
+        #endif
+            {
+              pwm->COUNTERTOP = (CTOPVAL << PWM_COUNTERTOP_COUNTERTOP_Pos);
+            }
+
+            pwm->LOOP = (PWM_LOOP_CNT_Disabled << PWM_LOOP_CNT_Pos);
+
+            pwm->DECODER = (PWM_DECODER_LOAD_Common << PWM_DECODER_LOAD_Pos) |
+                           (PWM_DECODER_MODE_RefreshCount << PWM_DECODER_MODE_Pos);
+
+            pwm->SEQ[0].PTR = (uint32_t)(pixels_pattern) << PWM_SEQ_PTR_PTR_Pos;
+
+            pwm->SEQ[0].CNT = (pattern_size/sizeof(uint16_t)) << PWM_SEQ_CNT_CNT_Pos;
+
+            pwm->SEQ[0].REFRESH  = 0;
+            pwm->SEQ[0].ENDDELAY = 0;
+
+
+            pwm->PSEL.OUT[0] = g_ADigitalPinMap[pin];
+
+            pwm->ENABLE = 1;
+
+            pwm->EVENTS_SEQEND[0]  = 0;
+            pwm->TASKS_SEQSTART[0] = 1;
+
+            while(!pwm->EVENTS_SEQEND[0])
+            {
+              #ifdef ARDUINO_FEATHER52
+              yield();
+              #endif
+            }
+
+            pwm->EVENTS_SEQEND[0] = 0;
+
+            pwm->ENABLE = 0;
+
+            pwm->PSEL.OUT[0] = 0xFFFFFFFFUL;
+
+            #ifdef ARDUINO_FEATHER52
+              rtos_free(pixels_pattern);
+            #else
+              free(pixels_pattern);
+            #endif
+          }
+          else{
+            #ifdef ARDUINO_FEATHER52
+              taskENTER_CRITICAL();
+            #elif defined(NRF52_DISABLE_INT)
+              __disable_irq();
+            #endif
+
+            uint32_t pinMask = 1UL << g_ADigitalPinMap[pin];
+
+            uint32_t CYCLES_X00     = CYCLES_800;
+            uint32_t CYCLES_X00_T1H = CYCLES_800_T1H;
+            uint32_t CYCLES_X00_T0H = CYCLES_800_T0H;
+
+        #ifdef NEO_KHZ400
+            if( !is800KHz )
+            {
+              CYCLES_X00     = CYCLES_400;
+              CYCLES_X00_T1H = CYCLES_400_T1H;
+              CYCLES_X00_T0H = CYCLES_400_T0H;
+            }
+        #endif
+
+            CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+            DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+
+            while(1) {
+              uint8_t *p = pixels;
+
+              uint32_t cycStart = DWT->CYCCNT;
+              uint32_t cyc = 0;
+
+              for(uint16_t n=0; n<numBytes; n++) {
+                uint8_t pix = *p++;
+
+                for(uint8_t mask = 0x80; mask; mask >>= 1) {
+                  while(DWT->CYCCNT - cyc < CYCLES_X00);
+                  cyc  = DWT->CYCCNT;
+
+                  NRF_GPIO->OUTSET |= pinMask;
+
+                  if(pix & mask) {
+                    while(DWT->CYCCNT - cyc < CYCLES_X00_T1H);
+                  } else {
+                    while(DWT->CYCCNT - cyc < CYCLES_X00_T0H);
+                  }
+
+                  NRF_GPIO->OUTCLR |= pinMask;
+                }
+              }
+              while(DWT->CYCCNT - cyc < CYCLES_X00);
+
+              if ( (DWT->CYCCNT - cycStart) < ( 8*numBytes*((CYCLES_X00*5)/4) ) ) {
+                break;
+              }
+
+              delayMicroseconds(300);
+            }
+
+            #ifdef ARDUINO_FEATHER52
+              taskEXIT_CRITICAL();
+            #elif defined(NRF52_DISABLE_INT)
+              __enable_irq();
+            #endif
+          }
+        ///@todo remove WHOLE PART xD
+        #elif defined (__SAMD21E17A__) || defined(__SAMD21G18A__)  || defined(__SAMD21E18A__) || defined(__SAMD21J18A__)
+
+          uint8_t  *ptr, *end, p, bitMask, portNum;
+          uint32_t  pinMask;
+
+          portNum =  g_APinDescription[pin].ulPort;
+          pinMask =  1ul << g_APinDescription[pin].ulPin;
+          ptr     =  pixels;
+          end     =  ptr + numBytes;
+          p       = *ptr++;
+          bitMask =  0x80;
+
+          volatile uint32_t *set = &(PORT->Group[portNum].OUTSET.reg),
+                            *clr = &(PORT->Group[portNum].OUTCLR.reg);
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+            for(;;) {
+              *set = pinMask;
+              asm("nop; nop; nop; nop; nop; nop; nop; nop;");
+              if(p & bitMask) {
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop;");
+                *clr = pinMask;
+              } else {
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop;");
+              }
+              if(bitMask >>= 1) {
+                asm("nop; nop; nop; nop; nop; nop; nop; nop; nop;");
+              } else {
+                if(ptr >= end) break;
+                p       = *ptr++;
+                bitMask = 0x80;
+              }
+            }
+        #ifdef NEO_KHZ400
+          } else {
+            for(;;) {
+              *set = pinMask;
+              asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; nop; nop;");
+              if(p & bitMask) {
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop;");
+                *clr = pinMask;
+              } else {
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop;");
+              }
+              asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                  "nop; nop; nop; nop; nop; nop; nop; nop;"
+                  "nop; nop; nop; nop; nop; nop; nop; nop;"
+                  "nop; nop; nop; nop; nop; nop; nop; nop;");
+              if(bitMask >>= 1) {
+                asm("nop; nop; nop; nop; nop; nop; nop;");
+              } else {
+                if(ptr >= end) break;
+                p       = *ptr++;
+                bitMask = 0x80;
+              }
+            }
+          }
+        #endif
+
+        #elif defined (__SAMD51__)
+
+          uint8_t  *ptr, *end, p, bitMask, portNum;
+          uint32_t  pinMask;
+
+          portNum =  g_APinDescription[pin].ulPort;
+          pinMask =  1ul << g_APinDescription[pin].ulPin;
+          ptr     =  pixels;
+          end     =  ptr + numBytes;
+          p       = *ptr++;
+          bitMask =  0x80;
+
+          volatile uint32_t *set = &(PORT->Group[portNum].OUTSET.reg),
+                            *clr = &(PORT->Group[portNum].OUTCLR.reg);
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+            for(;;) {
+              if(p & bitMask) {
+                *set = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;");
+                // Low 450ns
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop;");
+              } else { // ZERO
+                // High 400ns
+                *set = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop;");
+                // Low 850ns
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;");
+              }
+              if(bitMask >>= 1) {
+                // Move on to the next pixel
+                asm("nop;");
+              } else {
+                if(ptr >= end) break;
+                p       = *ptr++;
+                bitMask = 0x80;
+              }
+            }
+        #ifdef NEO_KHZ400
+          } else { // 400 KHz bitstream
+            // ToDo!
+          }
+        #endif
+
+        #elif defined (ARDUINO_STM32_FEATHER) // FEATHER WICED (120MHz)
+          uint8_t  *ptr, *end, p, bitMask;
+          uint32_t  pinMask;
+
+          pinMask =  BIT(PIN_MAP[pin].gpio_bit);
+          ptr     =  pixels;
+          end     =  ptr + numBytes;
+          p       = *ptr++;
+          bitMask =  0x80;
+
+          volatile uint16_t *set = &(PIN_MAP[pin].gpio_device->regs->BSRRL);
+          volatile uint16_t *clr = &(PIN_MAP[pin].gpio_device->regs->BSRRH);
+
+        #ifdef NEO_KHZ400
+          if(is800KHz) {
+        #endif
+            for(;;) {
+              if(p & bitMask) { // ONE
+                // High 800ns
+                *set = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop;");
+                // Low 450ns
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop;");
+              } else { // ZERO
+                // High 400ns
+                *set = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop;");
+                // Low 850ns
+                *clr = pinMask;
+                asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop; nop; nop; nop; nop;"
+                    "nop; nop; nop; nop;");
+              }
+              if(bitMask >>= 1) {
+                asm("nop;");
+              } else {
+                if(ptr >= end) break;
+                p       = *ptr++;
+                bitMask = 0x80;
+              }
+            }
+        #ifdef NEO_KHZ400
+          } else { // 400 KHz bitstream
+            // ToDo!
+          }
+        #endif
+
+        #elif defined (NRF51)
+          uint8_t          *p   = pixels,
+                            pix, count, mask;
+          int32_t         num = numBytes;
+          unsigned int bitmask = ( 1 << g_ADigitalPinMap[pin] );
+          volatile unsigned int *reg = (unsigned int *) (0x50000000UL + 0x508);
+
+          asm volatile(
+            // "cpsid i" ; disable irq
+
+            //    b .start
+            "b  L%=_start"                    "\n\t"
+            // .nextbit:               ;            C0
+            "L%=_nextbit:"                    "\n\t"          //;            C0
+            //    str r1, [r3, #0]    ; pin := hi  C2
+            "strb %[bitmask], [%[reg], #0]"   "\n\t"          //; pin := hi  C2
+            //    tst r6, r0          ;            C3
+            "tst %[mask], %[pix]"             "\n\t"//          ;            C3
+            //    bne .islate         ;            C4
+            "bne L%=_islate"                  "\n\t"          //;            C4
+            //    str r1, [r2, #0]    ; pin := lo  C6
+            "strb %[bitmask], [%[reg], #4]"   "\n\t"          //; pin := lo  C6
+            // .islate:
+            "L%=_islate:"                     "\n\t"
+            //    lsrs r6, r6, #1     ; r6 >>= 1   C7
+            "lsr %[mask], %[mask], #1"       "\n\t"          //; r6 >>= 1   C7
+            //    bne .justbit        ;            C8
+            "bne L%=_justbit"                 "\n\t"          //;            C8
+
+            //    ; not just a bit - need new byte
+            //    adds r4, #1         ; r4++       C9
+            "add %[p], #1"                   "\n\t"          //; r4++       C9
+            //    subs r5, #1         ; r5--       C10
+            "sub %[num], #1"                 "\n\t"          //; r5--       C10
+            //    bcc .stop           ; if (r5<0) goto .stop  C11
+            "bcc L%=_stop"                    "\n\t"          //; if (r5<0) goto .stop  C11
+            // .start:
+            "L%=_start:"
+            //    movs r6, #0x80      ; reset mask C12
+            "movs %[mask], #0x80"             "\n\t"          //; reset mask C12
+            //    nop                 ;            C13
+            "nop"                             "\n\t"          //;            C13
+
+            // .common:               ;             C13
+            "L%=_common:"                     "\n\t"          //;            C13
+            //    str r1, [r2, #0]   ; pin := lo   C15
+            "strb %[bitmask], [%[reg], #4]"   "\n\t"          //; pin := lo  C15
+            //    ; always re-load byte - it just fits with the cycles better this way
+            //    ldrb r0, [r4, #0]  ; r0 := *r4   C17
+            "ldrb  %[pix], [%[p], #0]"        "\n\t"          //; r0 := *r4   C17
+            //    b .nextbit         ;             C20
+            "b L%=_nextbit"                   "\n\t"          //;             C20
+
+            // .justbit: ; C10
+            "L%=_justbit:"                    "\n\t"          //; C10
+            //    ; no nops, branch taken is already 3 cycles
+            //    b .common ; C13
+            "b L%=_common"                    "\n\t"          //; C13
+
+            // .stop:
+            "L%=_stop:"                       "\n\t"
+            //    str r1, [r2, #0]   ; pin := lo
+            "strb %[bitmask], [%[reg], #4]"   "\n\t"          //; pin := lo
+            //    cpsie i            ; enable irq
+
+            : [p] "+r" (p),
+            [pix] "=&r" (pix),
+            [count] "=&r" (count),
+            [mask] "=&r" (mask),
+            [num] "+r" (num)
+            : [bitmask] "r" (bitmask),
+            [reg] "r" (reg)
+          );
+
+        #elif defined(__SAM3X8E__) // Arduino Due
+
+          #define SCALE      VARIANT_MCK / 2UL / 1000000UL
+          #define INST       (2UL * F_CPU / VARIANT_MCK)
+          #define TIME_800_0 ((int)(0.40 * SCALE + 0.5) - (5 * INST))
+          #define TIME_800_1 ((int)(0.80 * SCALE + 0.5) - (5 * INST))
+          #define PERIOD_800 ((int)(1.25 * SCALE + 0.5) - (5 * INST))
+          #define TIME_400_0 ((int)(0.50 * SCALE + 0.5) - (5 * INST))
+          #define TIME_400_1 ((int)(1.20 * SCALE + 0.5) - (5 * INST))
+          #define PERIOD_400 ((int)(2.50 * SCALE + 0.5) - (5 * INST))
+
+          int             pinMask, time0, time1, period, t;
+          Pio            *port;
+          volatile WoReg *portSet, *portClear, *timeValue, *timeReset;
+          uint8_t        *p, *end, pix, mask;
+
+          pmc_set_writeprotect(false);
+          pmc_enable_periph_clk((uint32_t)TC3_IRQn);
+          TC_Configure(TC1, 0,
+            TC_CMR_WAVE | TC_CMR_WAVSEL_UP | TC_CMR_TCCLKS_TIMER_CLOCK1);
+          TC_Start(TC1, 0);
+
+          pinMask   = g_APinDescription[pin].ulPin; // Don't 'optimize' these into
+          port      = g_APinDescription[pin].pPort; // declarations above.  Want to
+          portSet   = &(port->PIO_SODR);            // burn a few cycles after
+          portClear = &(port->PIO_CODR);            // starting timer to minimize
+          timeValue = &(TC1->TC_CHANNEL[0].TC_CV);  // the initial 'while'.
+          timeReset = &(TC1->TC_CHANNEL[0].TC_CCR);
+          p         =  pixels;
+          end       =  p + numBytes;
+          pix       = *p++;
+          mask      = 0x80;
+
+        #ifdef NEO_KHZ400 // 800 KHz check needed only if 400 KHz support enabled
+          if(is800KHz) {
+        #endif
+            time0  = TIME_800_0;
+            time1  = TIME_800_1;
+            period = PERIOD_800;
+        #ifdef NEO_KHZ400
+          } else { // 400 KHz bitstream
+            time0  = TIME_400_0;
+            time1  = TIME_400_1;
+            period = PERIOD_400;
+          }
+        #endif
+
+          for(t = time0;; t = time0) {
+            if(pix & mask) t = time1;
+            while(*timeValue < period);
+            *portSet   = pinMask;
+            *timeReset = TC_CCR_CLKEN | TC_CCR_SWTRG;
+            while(*timeValue < t);
+            *portClear = pinMask;
+            if(!(mask >>= 1)) {
+              if(p >= end) break;
+              pix = *p++;
+              mask = 0x80;
+            }
+          }
+          while(*timeValue < period);
+          TC_Stop(TC1, 0);
+
+        #endif
+        #elif defined(ESP8266) || defined(ESP32)
+
+          espShow(pin, pixels, numBytes, is800KHz);
+
+        #elif defined(__ARDUINO_ARC__)
+
+        // Arduino 101  -----------------------------------------------------------
+
+        #define NOPx7 { __builtin_arc_nop(); \
+          __builtin_arc_nop(); __builtin_arc_nop(); \
+          __builtin_arc_nop(); __builtin_arc_nop(); \
+          __builtin_arc_nop(); __builtin_arc_nop(); }
+
+          PinDescription *pindesc = &g_APinDescription[pin];
+          register uint32_t loop = 8 * numBytes; // one loop to handle all bytes and all bits
+          register uint8_t *p = pixels;
+          register uint32_t currByte = (uint32_t) (*p);
+          register uint32_t currBit = 0x80 & currByte;
+          register uint32_t bitCounter = 0;
+          register uint32_t first = 1;
+
+          if (pindesc->ulGPIOType == SS_GPIO) {
+            register uint32_t reg = pindesc->ulGPIOBase + SS_GPIO_SWPORTA_DR;
+            uint32_t reg_val = __builtin_arc_lr((volatile uint32_t)reg);
+            register uint32_t reg_bit_high = reg_val | (1 << pindesc->ulGPIOId);
+            register uint32_t reg_bit_low  = reg_val & ~(1 << pindesc->ulGPIOId);
+
+            loop += 1;
+            while(loop--) {
+              if(!first) {
+                currByte <<= 1;
+                bitCounter++;
+              }
+
+              // 1 is >550ns high and >450ns low; 0 is 200..500ns high and >450ns low
+              __builtin_arc_sr(first ? reg_bit_low : reg_bit_high, (volatile uint32_t)reg);
+              if(currBit) { // ~400ns HIGH (740ns overall)
+                NOPx7
+                NOPx7
+              }
+              // ~340ns HIGH
+              NOPx7
+             __builtin_arc_nop();
+
+              // 820ns LOW; per spec, max allowed low here is 5000ns */
+              __builtin_arc_sr(reg_bit_low, (volatile uint32_t)reg);
+              NOPx7
+              NOPx7
+
+              if(bitCounter >= 8) {
+                bitCounter = 0;
+                currByte = (uint32_t) (*++p);
+              }
+
+              currBit = 0x80 & currByte;
+              first = 0;
+            }
+          } else if(pindesc->ulGPIOType == SOC_GPIO) {
+            register uint32_t reg = pindesc->ulGPIOBase + SOC_GPIO_SWPORTA_DR;
+            uint32_t reg_val = MMIO_REG_VAL(reg);
+            register uint32_t reg_bit_high = reg_val | (1 << pindesc->ulGPIOId);
+            register uint32_t reg_bit_low  = reg_val & ~(1 << pindesc->ulGPIOId);
+
+            loop += 1; // include first, special iteration
+            while(loop--) {
+              if(!first) {
+                currByte <<= 1;
+                bitCounter++;
+              }
+              MMIO_REG_VAL(reg) = first ? reg_bit_low : reg_bit_high;
+              if(currBit) { // ~430ns HIGH (740ns overall)
+                NOPx7
+                NOPx7
+                __builtin_arc_nop();
+              }
+              // ~310ns HIGH
+              NOPx7
+
+              // 850ns LOW; per spec, max allowed low here is 5000ns */
+              MMIO_REG_VAL(reg) = reg_bit_low;
+              NOPx7
+              NOPx7
+
+              if(bitCounter >= 8) {
+                bitCounter = 0;
+                currByte = (uint32_t) (*++p);
+              }
+
+              currBit = 0x80 & currByte;
+              first = 0;
+            }
+          }
+
+        #else
+        #error Architecture not supported
+        #endif
+
+        #ifndef NRF52
+          interrupts();
+        #endif
+
+          endTime = micros();
+        }
+
+        void NeoPixel::setPin(uint8_t p) {
+          if(begun && (pin >= 0)) pinMode(pin, INPUT);
+            pin = p;
+            if(begun) {
+              pinMode(p, OUTPUT);
+              digitalWrite(p, LOW);
+            }
+        #ifdef __AVR__
+            port    = portOutputRegister(digitalPinToPort(p));
+            pinMask = digitalPinToBitMask(p);
+        #endif
+        }
+
+        void NeoPixel::setPixelColor(
+         uint16_t n, uint8_t r, uint8_t g, uint8_t b) {
+
+          if(n < numLEDs) {
+            if(brightness) { // See notes in setBrightness()
+              r = (r * brightness) >> 8;
+              g = (g * brightness) >> 8;
+              b = (b * brightness) >> 8;
+            }
+            uint8_t *p;
+            if(wOffset == rOffset) {
+              p = &pixels[n * 3];
+            } else {
+              p = &pixels[n * 4];
+              p[wOffset] = 0;
+            }
+            p[rOffset] = r;
+            p[gOffset] = g;
+            p[bOffset] = b;
+          }
+        }
+
+        void NeoPixel::setPixelColor(
+         uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w) {
+
+          if(n < numLEDs) {
+            if(brightness) {
+              r = (r * brightness) >> 8;
+              g = (g * brightness) >> 8;
+              b = (b * brightness) >> 8;
+              w = (w * brightness) >> 8;
+            }
+            uint8_t *p;
+            if(wOffset == rOffset) {
+              p = &pixels[n * 3];
+            } else {
+              p = &pixels[n * 4];
+              p[wOffset] = w;
+            }
+            p[rOffset] = r;
+            p[gOffset] = g;
+            p[bOffset] = b;
+          }
+        }
+
+        void NeoPixel::setPixelColor(uint16_t n, uint32_t c) {
+          if(n < numLEDs) {
+            uint8_t *p,
+              r = (uint8_t)(c >> 16),
+              g = (uint8_t)(c >>  8),
+              b = (uint8_t)c;
+            if(brightness) {
+              r = (r * brightness) >> 8;
+              g = (g * brightness) >> 8;
+              b = (b * brightness) >> 8;
+            }
+            if(wOffset == rOffset) {
+              p = &pixels[n * 3];
+            } else {
+              p = &pixels[n * 4];
+              uint8_t w = (uint8_t)(c >> 24);
+              p[wOffset] = brightness ? ((w * brightness) >> 8) : w;
+            }
+            p[rOffset] = r;
+            p[gOffset] = g;
+            p[bOffset] = b;
+          }
+        }
+
+        uint32_t NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b) {
+          return ((uint32_t)r << 16) | ((uint32_t)g <<  8) | b;
+        }
+
+        uint32_t NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w) {
+          return ((uint32_t)w << 24) | ((uint32_t)r << 16) | ((uint32_t)g <<  8) | b;
+        }
+
+        uint32_t NeoPixel::getPixelColor(uint16_t n) const {
+          if(n >= numLEDs) return 0;
+
+          uint8_t *p;
+
+          if(wOffset == rOffset) {
+            p = &pixels[n * 3];
+            if(brightness) {
+
+              return (((uint32_t)(p[rOffset] << 8) / brightness) << 16) |
+                     (((uint32_t)(p[gOffset] << 8) / brightness) <<  8) |
+                     ( (uint32_t)(p[bOffset] << 8) / brightness       );
+            } else {
+              return ((uint32_t)p[rOffset] << 16) |
+                     ((uint32_t)p[gOffset] <<  8) |
+                      (uint32_t)p[bOffset];
+            }
+          } else {
+            p = &pixels[n * 4];
+            if(brightness) {
+              return (((uint32_t)(p[wOffset] << 8) / brightness) << 24) |
+                     (((uint32_t)(p[rOffset] << 8) / brightness) << 16) |
+                     (((uint32_t)(p[gOffset] << 8) / brightness) <<  8) |
+                     ( (uint32_t)(p[bOffset] << 8) / brightness       );
+            } else {
+              return ((uint32_t)p[wOffset] << 24) |
+                     ((uint32_t)p[rOffset] << 16) |
+                     ((uint32_t)p[gOffset] <<  8) |
+                      (uint32_t)p[bOffset];
+            }
+          }
+        }
+
+
+        uint8_t *NeoPixel::getPixels(void) const {
+          return pixels;
+        }
+
+        uint16_t NeoPixel::numPixels(void) const {
+          return numLEDs;
+        }
+
+        void NeoPixel::setBrightness(uint8_t b) {
+
+          uint8_t newBrightness = b + 1;
+          if(newBrightness != brightness) {
+            uint8_t  c,
+                    *ptr           = pixels,
+                     oldBrightness = brightness - 1;
+            uint16_t scale;
+            if(oldBrightness == 0) scale = 0; // Avoid /0
+            else if(b == 255) scale = 65535 / oldBrightness;
+            else scale = (((uint16_t)newBrightness << 8) - 1) / oldBrightness;
+            for(uint16_t i=0; i<numBytes; i++) {
+              c      = *ptr;
+              *ptr++ = (c * scale) >> 8;
+            }
+            brightness = newBrightness;
+          }
+        }
+
+        uint8_t NeoPixel::getBrightness(void) const {
+          return brightness - 1;
+        }
+
+        void NeoPixel::clear() {
+          memset(pixels, 0, numBytes);
+        }
+
+        static const uint8_t PROGMEM _sineTable[256] = {
+          128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,
+          176,179,182,185,188,190,193,196,198,201,203,206,208,211,213,215,
+          218,220,222,224,226,228,230,232,234,235,237,238,240,241,243,244,
+          245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255,
+          255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,
+          245,244,243,241,240,238,237,235,234,232,230,228,226,224,222,220,
+          218,215,213,211,208,206,203,201,198,196,193,190,188,185,182,179,
+          176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,
+          128,124,121,118,115,112,109,106,103,100, 97, 93, 90, 88, 85, 82,
+           79, 76, 73, 70, 67, 65, 62, 59, 57, 54, 52, 49, 47, 44, 42, 40,
+           37, 35, 33, 31, 29, 27, 25, 23, 21, 20, 18, 17, 15, 14, 12, 11,
+           10,  9,  7,  6,  5,  5,  4,  3,  2,  2,  1,  1,  1,  0,  0,  0,
+            0,  0,  0,  0,  1,  1,  1,  2,  2,  3,  4,  5,  5,  6,  7,  9,
+           10, 11, 12, 14, 15, 17, 18, 20, 21, 23, 25, 27, 29, 31, 33, 35,
+           37, 40, 42, 44, 47, 49, 52, 54, 57, 59, 62, 65, 67, 70, 73, 76,
+           79, 82, 85, 88, 90, 93, 97,100,103,106,109,112,115,118,121,124};
+
+        static const uint8_t PROGMEM _gammaTable[256] = {
+            0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,
+            1,  1,  1,  1,  2,  2,  2,  2,  2,  2,  2,  2,  3,  3,  3,  3,
+            3,  3,  4,  4,  4,  4,  5,  5,  5,  5,  5,  6,  6,  6,  6,  7,
+            7,  7,  8,  8,  8,  9,  9,  9, 10, 10, 10, 11, 11, 11, 12, 12,
+           13, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20,
+           20, 21, 21, 22, 22, 23, 24, 24, 25, 25, 26, 27, 27, 28, 29, 29,
+           30, 31, 31, 32, 33, 34, 34, 35, 36, 37, 38, 38, 39, 40, 41, 42,
+           42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+           58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 75,
+           76, 77, 78, 80, 81, 82, 84, 85, 86, 88, 89, 90, 92, 93, 94, 96,
+           97, 99,100,102,103,105,106,108,109,111,112,114,115,117,119,120,
+          122,124,125,127,129,130,132,134,136,137,139,141,143,145,146,148,
+          150,152,154,156,158,160,162,164,166,168,170,172,174,176,178,180,
+          182,184,186,188,191,193,195,197,199,202,204,206,209,211,213,215,
+          218,220,223,225,227,230,232,235,237,240,242,245,247,250,252,255};
+
+        uint8_t NeoPixel::sine8(uint8_t x) const {
+          return pgm_read_byte(&_sineTable[x]); // 0-255 in, 0-255 out
+        }
+
+        uint8_t NeoPixel::gamma8(uint8_t x) const {
+          return pgm_read_byte(&_gammaTable[x]); // 0-255 in, 0-255 out
+        }
+
+        ///@endcond
+        #endif
     #endif
     /**
      * @defgroup i2cEx [ 🐼 ] I2C
      *
      */
 
-    /**
+    /*
         @addtogroup i2cEx
         @brief This tutorial shows you how to deal with the I²C extension!
 
         @note To use this:
         @code
-        #include <Wire.h>
+        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
         @endcode
         If you use the ARDUINO MEGA the I2C pins are not A4 (SDA) and A5 (SDL). They are seperate (20-SDA;21-SDL)!
@@ -2667,9 +5747,9 @@
         @section example Example
         An Example of how to scan for I2C addresses:
         @code
-        #include <Wire.h>
+        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
-        #include <SPI.h>
+        //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
         int main() {
@@ -2699,7 +5779,7 @@
 
         @note To use this on UNO:
         @code
-        #include <SoftwareSerial.h>
+        //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_BLUETOOTH 0x1
         @endcode
         \n  If you don't reconfigure the TX and RX on MEGA:
@@ -2752,7 +5832,7 @@
         This is an example-program:
         @code
         #define EBOARD_SHIFT_REGISTER 0x1
-        #include <SPI.h>
+        //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
         SoccerBoard board;
@@ -2782,7 +5862,7 @@
         @note This is related to @ref i2cEx
         @note To use this:
         @code
-        #include <Wire.h>
+        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
         #define EBOARD_LCD 0x1
         @endcode
@@ -2821,7 +5901,7 @@
         If you haven't changed any Pin-configuration there is no need to change anything with the code! :D
         \n If you use #EBOARD_BLUETOOTH (RB14Scan) this line is obsolete:
         @code
-        #include <SoftwareSerial.h>
+        //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         @endcode
 
         Consider this:
@@ -2903,7 +5983,7 @@
             #endif
             delay(200);
             cli(); //disable timers after running the program :D
-            writePWM(0);
+            writePWM(0);analogWrite(PIN_MOTOR_SPE,0);
         }
         ///@endcond
         /// @brief [COPY&PASTE] As we have an Arduino we need a setup function ;)
@@ -2920,6 +6000,6 @@
     #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process
 #endif
 #pragma GCC diagnostic pop
-
+#pragma pack(pop)
 
 #endif

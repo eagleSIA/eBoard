@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('p5.html','');});
 <div class="contents">
 <div class="textblock"><p class="">A short overview about the developing process</p>
 <h1><a class="anchor" id="ver1"></a>
-Version 1 - Olivander 🐁</h1>
+Version 1 - Ollivander 🐁</h1>
 <dl class="section note"><dt>Note</dt><dd>this changelog is maintained by EagleoutIce</dd></dl>
 <h2><a class="anchor" id="su1"></a>
 Version 1.0e 🐪 - I ate the alpha-cookie :D [~130m]</h2>
@@ -145,8 +145,8 @@ Version 1.2e 🐧 - On your command, master [~100m]</h2>
 <p class="">Added support for remote control</p>
 <p class=""><b>Changed</b></p>
 <ul>
-<li>Changed <a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> and <a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> to 2,3 for SoftwareSerial based on common problems</li>
-<li>Rewritten <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Don&#39;t use manually ...">ServoCds55</a></li>
+<li>Changed <a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> and <a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> to 2,3 for <a class="el" href="classSoftwareSerial.html" title="This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial inter...">SoftwareSerial</a> based on common problems</li>
+<li>Rewritten <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield   &#160;&#160;&#160;&#160;&#160;&#160;&#160; Don&#39;t use manually ...">ServoCds55</a></li>
 <li>Tried to make code more compact :D</li>
 <li>Optimized PWM support</li>
 </ul>
@@ -205,7 +205,7 @@ Version 2.1d 🐺 - #Oversize [~60m]</h2>
 <ul>
 <li>Cleaned Code (a lot ^^) [with 2.0]</li>
 <li>Some tutorial declarations</li>
-<li>Serial feature on MEGA R3 [No need for SoftwareSerial anymore :D]</li>
+<li>Serial feature on MEGA R3 [No need for <a class="el" href="classSoftwareSerial.html" title="This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial inter...">SoftwareSerial</a> anymore :D]</li>
 </ul>
 <p class=""><b>Fixes</b></p><ul>
 <li>Fixed bug in <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> (private access failure)</li>
@@ -213,7 +213,7 @@ Version 2.1d 🐺 - #Oversize [~60m]</h2>
 <li>Fixed bug of clamp_overflow (no check for in_range and out_range in <a class="el" href="structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="This moves the Servo to the new position. ">AX12Servo::setPosition()</a>)</li>
 </ul>
 <h2><a class="anchor" id="su7"></a>
-Version 2.2b 🐏 - Optimize it</h2>
+Version 2.2b 🐏 - Optimize it [52m]</h2>
 <p class="">Fixed many bugs</p>
 <p class=""><b>Added</b></p>
 <ul>
@@ -225,7 +225,22 @@ Version 2.2b 🐏 - Optimize it</h2>
 <li>Fixed blocking bug on Hardware-calls (pre init)</li>
 <li>Fixed <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> err send</li>
 <li>Fixed several bugs/optimized ranges to avoid undefined behaviour</li>
-<li>warranty misspell^^ </li>
+<li>warranty misspell^^</li>
+</ul>
+<h2><a class="anchor" id="su8"></a>
+Version 2.3h 🐦 - Addition to the family</h2>
+<p class="">Fixed several wrong numbers [ref BoardVersions] It is no obsolete to write includings like </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p> eBoard will search and or implement the needed functions itself (controlled with <a class="el" href="eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>)</p>
+<p class="">[PRE] Add suport for arduino light strip</p>
+<p class=""><b>Added</b></p><ul>
+<li>support for the NANO</li>
+<li>Documentation for the implemented classes and functions (<a class="el" href="classSoftwareSerial.html" title="This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial inter...">SoftwareSerial</a>, Wire)</li>
+<li>flexibal pin_out and pin_in size based on arduino</li>
+<li>arduino adafruit lightstrip support (via <a class="el" href="structNeoPixel.html">NeoPixel</a>) this is pre so names and routines are likely change!</li>
+</ul>
+<p class=""><b>Fixes</b></p>
+<ul>
+<li><a class="el" href="structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a" title="Reads an analog value from a pin. ">SoccerBoard::analog()</a> range check (swapped ranges)</li>
+<li>several over/under-flow errors fixed </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -234,7 +249,7 @@ Version 2.2b 🐏 - Optimize it</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 21.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 07.03.2018</li>
   </ul>
 </div>
 </body>

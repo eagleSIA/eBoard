@@ -117,11 +117,11 @@ $(document).ready(function(){initNavTree('group__blueEx.html','');});
 <p>This tutorial shows you how to deal with the Bluetooth extension!  
 <a href="#details">More...</a></p>
 <p class="">This tutorial shows you how to deal with the Bluetooth extension! </p>
-<dl class="section note"><dt>Note</dt><dd>To use this on UNO: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
+<dl class="section note"><dt>Note</dt><dd>To use this on UNO: <div class="fragment"><div class="line"><span class="comment">//#include &lt;SoftwareSerial.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
  If you don't reconfigure the TX and RX on MEGA: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
 </dd>
 <dd>
-<b>Why using SoftwareSerial on UNO?</b> <br />
+<b>Why using <a class="el" href="classSoftwareSerial.html" title="This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial inter...">SoftwareSerial</a> on UNO?</b> <br />
  The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. <br />
  Furthermore Debugging would create a lot of problems ^^</dd></dl>
 <h1><a class="anchor" id="blCon"></a>
@@ -144,7 +144,7 @@ RB14Scan</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 21.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 07.03.2018</li>
   </ul>
 </div>
 </body>

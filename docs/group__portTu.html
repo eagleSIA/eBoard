@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('group__portTu.html','');});
 <h1><a class="anchor" id="sprt1"></a>
 Software</h1>
 <p class="">If you haven't changed any Pin-configuration there is no need to change anything with the code! :D <br />
- If you use <a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> (<a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a>) this line is obsolete: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div></div><!-- fragment --><p class="">Consider this:</p><ul>
+ If you use <a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> (<a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a>) this line is obsolete: </p><div class="fragment"><div class="line"><span class="comment">//#include &lt;SoftwareSerial.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">Consider this:</p><ul>
 <li>use D22-D53 [D49] before using the additional pins [D100...]</li>
 <li>every Pin from D2 to D13 is capable of PWM! <br />
  it is possible to change the prescaler and therefore raise the PWM value for <a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a> to the recommended 31 kHz [this shouldn't be done on UNO!!!!] <br />
@@ -146,7 +146,7 @@ Hardware</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 21.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 07.03.2018</li>
   </ul>
 </div>
 </body>

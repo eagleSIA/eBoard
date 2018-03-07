@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: eBoard 2.2b - shackle the Arduino!</title>
+<title>eBoard: eBoard [wip]2.3h - shackle the Arduino!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">eBoard 2.2b - shackle the Arduino! </div>  </div>
+<div class="title">eBoard [wip]2.3h - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
@@ -118,8 +118,8 @@ $(document).ready(function(){initNavTree('index.html','');});
 This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
- To use it you'll have to replace all qfix-related header-files [*.h] with the following: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --></dd></dl>
-<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;WIRE.h&gt;</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
+ To use it you'll have to replace all qfix-related header-files [*.h] with the following: <div class="fragment"><div class="line"><span class="comment">//#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --></dd></dl>
+<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"></div><div class="line"><span class="comment">//#include &lt;WIRE.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">[ 🐲 ] Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
 <p><b>General</b></p>
@@ -139,6 +139,10 @@ Macros</h1>
 <li><a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a> : 0x0: disables clamp</li>
 <li><a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a> : 0x0: disable software reset</li>
 <li><a class="el" href="eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25">EBOARD_LCD</a> : 0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> set to 0x1</li>
+<li><a class="el" href="eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a> : 0x1: enable support for Adafruit-NeoPixel-Devices <br />
+<br />
+<b> HUGE UPDATE: </b></li>
+<li><a class="el" href="eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a> : 0x0: disable automatic path_guess</li>
 </ul>
 <p class=""><b>Pins</b></p><ul>
 <li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2|19) of RX-Pin &ndash; why? [<a class="el" href="p5.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]</li>
@@ -182,7 +186,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[DEV-BUILD] EagleoutIce 21.2.2018</li>
+    <li class="footer">[WIP-BUILD] EagleoutIce 07.03.2018</li>
   </ul>
 </div>
 </body>

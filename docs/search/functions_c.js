@@ -1,27 +1,5 @@
 var searchData=
 [
-  ['s1cmd',['s1Cmd',['../structLCD.html#ab65995b7a57e37d4dee243eb2a67229e',1,'LCD']]],
-  ['s1dat',['s1Dat',['../structLCD.html#ae5873763db265cd00da32664cce88873',1,'LCD']]],
-  ['s2cmd',['s2Cmd',['../structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229',1,'LCD']]],
-  ['sendi2c',['sendI2C',['../eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6',1,'sendI2C(optVAL_t deviceID, byte *buf, byte buf_len):&#160;eBoard.h'],['../eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203',1,'sendI2C(optVAL_t deviceID, byte buf):&#160;eBoard.h']]],
-  ['sendwait',['sendWait',['../structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3',1,'ServoCds55']]],
-  ['servocds55',['ServoCds55',['../structServoCds55.html#a5c964af69605c00dfba79bd31e9045a2',1,'ServoCds55']]],
-  ['setcursor',['setCursor',['../structLCD.html#ad1a67d455563026a5064ef9cab86ae4d',1,'LCD']]],
-  ['setid',['SetID',['../structServoCds55.html#a7912b0d3025efafc54ad237016e65067',1,'ServoCds55::SetID()'],['../structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a',1,'AX12Servo::setID()']]],
-  ['setmotormode',['SetMotormode',['../structServoCds55.html#ad3fc005fbbddc35b9676e286b0fbcc8a',1,'ServoCds55']]],
-  ['setpin',['setPin',['../eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4',1,'eBoard.h']]],
-  ['setposition',['setPosition',['../structAX12Servo.html#ae6005da90335d13c253a246edb247178',1,'AX12Servo']]],
-  ['setpositionmode',['setPositionMode',['../structAX12Servo.html#ad87d3cc9e6c4090591e80978a785c70b',1,'AX12Servo']]],
-  ['setposlimit',['setPosLimit',['../structServoCds55.html#a8d9267c50ce4c46815a22e22a4e5edc7',1,'ServoCds55']]],
-  ['setservolimit',['SetServoLimit',['../structServoCds55.html#aed56d4577b7c0b6535758b8b57bdd067',1,'ServoCds55']]],
-  ['setspeed',['setSpeed',['../structAX12Servo.html#a616d5d693fcd7a106228fbe46dc13887',1,'AX12Servo']]],
-  ['setspeedmode',['setSpeedMode',['../structAX12Servo.html#a0a529574cd452a8e8d87b8368e3bd2fa',1,'AX12Servo']]],
-  ['settorque',['setTorque',['../structAX12Servo.html#ae30eb5190a1c7c6c456fab20056fe6e2',1,'AX12Servo']]],
-  ['setup',['setup',['../eBoard_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'eBoard.h']]],
-  ['setvelocity',['setVelocity',['../structServoCds55.html#ac5452690bbb923045e15f58358b4ad36',1,'ServoCds55']]],
-  ['shiftall',['shiftAll',['../eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a',1,'eBoard.h']]],
-  ['shiftsingle',['shiftSingle',['../eBoard_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
-  ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
-  ['soccerboard',['SoccerBoard',['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard']]],
-  ['storeposition',['storePosition',['../structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94',1,'AX12Servo']]]
+  ['neopixel',['NeoPixel',['../structNeoPixel.html#aa2c4c5a68ddab0787375e5b1e451e2ee',1,'NeoPixel::NeoPixel(uint16_t n, uint8_t p=6, uint16_t t=((1&lt;&lt; 6)|(1&lt;&lt; 4)|(0&lt;&lt; 2)|(2))+0x0000)'],['../structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369',1,'NeoPixel::NeoPixel(void)']]],
+  ['numpixels',['numPixels',['../structNeoPixel.html#a1dbfef1bd6701c3047d1484d2cab4426',1,'NeoPixel']]]
 ];

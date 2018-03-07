@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['digital_5fin',['DIGITAL_IN',['../eBoard_8h.html#a3127d4438f2120da4e5e5d35a67c5260',1,'eBoard.h']]],
-  ['digital_5fin_5finv',['DIGITAL_IN_INV',['../eBoard_8h.html#aedc6c7b8511d3db854b1a0e663ff691f',1,'eBoard.h']]],
-  ['digital_5fin_5fpullup',['DIGITAL_IN_PULLUP',['../eBoard_8h.html#a424cfd0a79d49d04d0bc7e795ddd8477',1,'eBoard.h']]],
-  ['digital_5fin_5fpullup_5finv',['DIGITAL_IN_PULLUP_INV',['../eBoard_8h.html#a75985751246cd2415d1d2e48649f08a8',1,'eBoard.h']]],
-  ['digital_5fout',['DIGITAL_OUT',['../eBoard_8h.html#a61d48bd5dbb3762b89411e607b5000fc',1,'eBoard.h']]],
-  ['digital_5fout_5fhigh',['DIGITAL_OUT_HIGH',['../eBoard_8h.html#ab69273d2dcf698165f9d3f2d48b482dd',1,'eBoard.h']]],
-  ['digital_5fout_5finv',['DIGITAL_OUT_INV',['../eBoard_8h.html#a10a1e48e0bb8bd07382e9bf0523749a8',1,'eBoard.h']]],
-  ['digital_5fout_5flow',['DIGITAL_OUT_LOW',['../eBoard_8h.html#a21a3b596f6b282ac7dfa467c8234b4de',1,'eBoard.h']]]
+  ['counter_5f16_5fbit',['COUNTER_16_BIT',['../eBoard_8h.html#a71f438f540615074ddea2a3a4d38ae95',1,'eBoard.h']]],
+  ['counter_5f8_5fbit',['COUNTER_8_BIT',['../eBoard_8h.html#aa40e841cf249e38817048624fa190405',1,'eBoard.h']]],
+  ['counter_5fb_5fdir',['COUNTER_B_DIR',['../eBoard_8h.html#abc532617ac3a0fb6a93b170f15ced7d1',1,'eBoard.h']]],
+  ['counter_5fb_5fdir_5fpullup',['COUNTER_B_DIR_PULLUP',['../eBoard_8h.html#a497c96f17830e7ef4ba5e235b17057e3',1,'eBoard.h']]],
+  ['counter_5fmean_5f16_5fbit',['COUNTER_MEAN_16_BIT',['../eBoard_8h.html#ae12e2a74c3dbca7950bc7d55b0b3dcfc',1,'eBoard.h']]],
+  ['counter_5fmean_5f8_5fbit',['COUNTER_MEAN_8_BIT',['../eBoard_8h.html#a93c1089bdf85a8de3ea13ca1c6b06e13',1,'eBoard.h']]],
+  ['counter_5frise_5f16_5fbit',['COUNTER_RISE_16_BIT',['../eBoard_8h.html#aa0f205876e941e329e26cd52961ab07f',1,'eBoard.h']]],
+  ['counter_5frise_5f8_5fbit',['COUNTER_RISE_8_BIT',['../eBoard_8h.html#a1c6856832cc9aad00c5d406925f81d1c',1,'eBoard.h']]]
 ];

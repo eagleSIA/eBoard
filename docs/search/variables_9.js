@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['stop',['STOP',['../eBoard_8h.html#ae72a810f4976962c2cafb810b17ae158',1,'eBoard.h']]],
-  ['store_5fbits',['store_bits',['../eBoard_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff',1,'eBoard.h']]],
-  ['storedpos',['storedPos',['../structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390',1,'AX12Servo']]],
-  ['storedspe',['storedSpe',['../structAX12Servo.html#acef69c05250763a11bfc976b2817805e',1,'AX12Servo']]]
+  ['numbytes',['numBytes',['../structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92',1,'NeoPixel']]],
+  ['numleds',['numLEDs',['../structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9',1,'NeoPixel']]]
 ];

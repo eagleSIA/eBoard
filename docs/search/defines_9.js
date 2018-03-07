@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['pin_5fbluetooth_5frx',['PIN_BLUETOOTH_RX',['../eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3',1,'eBoard.h']]],
-  ['pin_5fbluetooth_5fstate',['PIN_BLUETOOTH_STATE',['../eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52',1,'eBoard.h']]],
-  ['pin_5fbluetooth_5ftx',['PIN_BLUETOOTH_TX',['../eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c',1,'eBoard.h']]],
-  ['pin_5fmax',['PIN_MAX',['../eBoard_8h.html#ac3367328f5f973c1b1570c9badd5e466',1,'eBoard.h']]],
-  ['pin_5fmotor_5fdir',['PIN_MOTOR_DIR',['../eBoard_8h.html#a834f33b1c264b485a083e8800fa38b36',1,'eBoard.h']]],
-  ['pin_5fmotor_5fspe',['PIN_MOTOR_SPE',['../eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153',1,'eBoard.h']]],
-  ['pin_5fshift_5fclk',['PIN_SHIFT_CLK',['../eBoard_8h.html#a22c712be288c2b94e2e864cbbe9d3d91',1,'eBoard.h']]],
-  ['pin_5fshift_5fdat',['PIN_SHIFT_DAT',['../eBoard_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2',1,'eBoard.h']]],
-  ['pin_5fshift_5flat',['PIN_SHIFT_LAT',['../eBoard_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52',1,'eBoard.h']]],
-  ['pwm_5ffast',['PWM_FAST',['../eBoard_8h.html#a6765502d4374ae2b9e6c28191312771b',1,'eBoard.h']]],
-  ['pwm_5fslow',['PWM_SLOW',['../eBoard_8h.html#a6e20dff41fbcc35133f54db161cca0f9',1,'eBoard.h']]]
+  ['lcd_5fcommand_5fblack_5fbackground',['LCD_COMMAND_BLACK_BACKGROUND',['../eBoard_8h.html#afb495f6ae8fe8a972aaf549d96eb3c99',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fcharge_5fpump_5fenable',['LCD_COMMAND_CHARGE_PUMP_ENABLE',['../eBoard_8h.html#aebd072f80983a9a0dab9e04faadd803e',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fcharge_5fpump_5fsetting',['LCD_COMMAND_CHARGE_PUMP_SETTING',['../eBoard_8h.html#a6adc597299885636d3583a0c8ab7c386',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fdisplay_5foff',['LCD_COMMAND_DISPLAY_OFF',['../eBoard_8h.html#ad5cc81614bed12ef1b51087321a9e44e',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fdisplay_5fon',['LCD_COMMAND_DISPLAY_ON',['../eBoard_8h.html#a70f15060752ba72be9ddf9c172674ff6',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fmode',['LCD_COMMAND_MODE',['../eBoard_8h.html#ada319cc5d948244d5f8e6888d7b151db',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fset_5fbrightness',['LCD_COMMAND_SET_BRIGHTNESS',['../eBoard_8h.html#a56b04c62ad9a36d81a7efa6494ffc04e',1,'eBoard.h']]],
+  ['lcd_5fcommand_5fwhite_5fbackground',['LCD_COMMAND_WHITE_BACKGROUND',['../eBoard_8h.html#a580876bb281462b8412846607fd20127',1,'eBoard.h']]],
+  ['lcd_5fdata_5fmode',['LCD_DATA_MODE',['../eBoard_8h.html#a25b04f7e99a50abd832cd14ce1d52483',1,'eBoard.h']]],
+  ['lcd_5fheight',['LCD_HEIGHT',['../eBoard_8h.html#a53a8b2a971de4b88047192655a48b651',1,'eBoard.h']]],
+  ['lcd_5fhorizontal_5faddressing',['LCD_HORIZONTAL_ADDRESSING',['../eBoard_8h.html#a5da1ed7b9d0f14880b964d796fc147e6',1,'eBoard.h']]],
+  ['lcd_5fpage_5faddressing',['LCD_PAGE_ADDRESSING',['../eBoard_8h.html#a0b4c7cc8855677140ced017a3fecdaea',1,'eBoard.h']]],
+  ['lcd_5fwidth',['LCD_WIDTH',['../eBoard_8h.html#a19693eac3018d3e7800fde141921b812',1,'eBoard.h']]]
 ];

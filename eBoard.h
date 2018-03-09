@@ -429,8 +429,8 @@
        #include "/usr/share/arduino/libraries/SPI/SPI.h"
        #include "/usr/share/arduino/libraries/SPI/SPI.cpp"
       #else
-       #include "C:\Program Files (x86)\Arduino\libraries\SPI\SPI.h"
-       #include "C:\Program Files (x86)\Arduino\libraries\SPI\SPI.cpp"
+       #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.h"
+       #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.cpp"
       #endif
     #endif
     #if defined(ARDUINO) //general platform-check [No tab]
@@ -468,8 +468,8 @@
          #include "/usr/share/arduino/libraries/Wire/utility/twi.h"
          #include "/usr/share/arduino/libraries/Wire/utility/twi.c"
         #else
-         #include "C:\Program Files (x86)\Arduino\Wire\utility\twi.h"
-         #include "C:\Program Files (x86)\Arduino\Wire\utility\twi.c"
+         #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.h"
+         #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.c"
         #endif
 
 

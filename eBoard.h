@@ -9,7 +9,7 @@
  #pragma GCC diagnostic ignored "-Wextra"
  #pragma pack(push)
  #pragma pack(1) //only works on mega sad^^
-
+// this is a test comment
 /**
  @mainpage eBoard [wip]2.3h - shackle the Arduino!
 
@@ -3782,7 +3782,7 @@
             @todo update this! exchange portd check etc to oneline to make replica obsolete
           */
           NeoPixel(uint16_t n, uint8_t p=6, uint16_t t =  EBOARD_NEO_GRB + EBOARD_NEO_800KHZ);
-           ///@todo remove TOTAL OF NRF52 FLOWER ETC CONFIG 
+           ///@todo remove TOTAL OF NRF52 FLOWER ETC CONFIG
           NeoPixel(void);
           ~NeoPixel(void);
 

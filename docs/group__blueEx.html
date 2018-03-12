@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   <div id="projectname"><font color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -57,6 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
       <li class="current"><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -121,7 +122,7 @@ $(document).ready(function(){initNavTree('group__blueEx.html','');});
  If you don't reconfigure the TX and RX on MEGA: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
 </dd>
 <dd>
-<b>Why using <a class="el" href="classSoftwareSerial.html" title="This is used to avoid path resolving issues and defines the common known Arduino SoftwareSerial inter...">SoftwareSerial</a> on UNO?</b> <br />
+<b>Why using SoftwareSerial on UNO?</b> <br />
  The 0 and 1 pins on the Arduino are the same used for communicate with your PC hence, ond every Upload the HC-05 would has to be unplugged. <br />
  Furthermore Debugging would create a lot of problems ^^</dd></dl>
 <h1><a class="anchor" id="blCon"></a>
@@ -134,9 +135,9 @@ How to use Bluetooth-Communication:</h1>
 <h2><a class="anchor" id="suBL1"></a>
 RB14Scan</h2>
 <p class="">You are able to:</p><ul>
-<li>Get received values via <a class="el" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258" title="will return the next char received by the module. A 64 byte Serial buffer is included! ...">RB14Scan::channel()</a></li>
-<li>Get connection status via <a class="el" href="structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce" title="this will check for connection status [will return true if pin not connected] ">RB14Scan::raw()</a></li>
-<li>Send values via <a class="el" href="structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc" title="this will write a constant string to the output ">RB14Scan::write()</a> </li>
+<li>Get received values via RB14Scan::channel()</li>
+<li>Get connection status via RB14Scan::raw()</li>
+<li>Send values via RB14Scan::write() </li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

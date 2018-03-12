@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: eBoard [wip]2.3h - shackle the Arduino!</title>
+<title>eBoard: eBoard 3.0c - shackle the Arduino!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   <div id="projectname"><font color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -57,6 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
       <li><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -110,7 +111,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">eBoard [wip]2.3h - shackle the Arduino! </div>  </div>
+<div class="title">eBoard 3.0c - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
@@ -119,9 +120,10 @@ This code was written for the Arduino UNO R3 used with the Smart Servo Shield an
 <dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <div class="fragment"><div class="line"><span class="comment">//#include &lt;SPI.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div></div><!-- fragment --></dd></dl>
-<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"></div><div class="line"><span class="comment">//#include &lt;WIRE.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><h1><a class="anchor" id="s1"></a>
+<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"></div><div class="line"><span class="comment">//#include &lt;WIRE.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>write tutorial and brief introduction page</dd></dl>
+<h1><a class="anchor" id="s1"></a>
 Macros</h1>
-<p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">[ 🐲 ] Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
+<p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
 <p><b>General</b></p>
 <ul>
 <li>[IGNORE_SIZE] : DEF: the size of this program will grow but the used variable-space will shrink...</li>

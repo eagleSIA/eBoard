@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['end',['end',['../classSoftwareSerial.html#a5bc382d616d435c01856c1253b0ee91a',1,'SoftwareSerial']]],
-  ['endtransmission',['endTransmission',['../classTwoWire.html#af80f9a7b85a3a81a035ca94c95bcdc1d',1,'TwoWire::endTransmission(void)'],['../classTwoWire.html#a1df033d27387d41ca301e59552325bd7',1,'TwoWire::endTransmission(uint8_t sendStop)']]],
+  ['end',['end',['../structeagle__impl_1_1SPIClass.html#aafcd3688d7564bdd178a250cbe07d650',1,'eagle_impl::SPIClass::end()'],['../classeagle__impl_1_1SoftwareSerial.html#a1b2011b111bf68a1b885e999eef99418',1,'eagle_impl::SoftwareSerial::end()']]],
+  ['endtransmission',['endTransmission',['../classeagle__impl_1_1TwoWire.html#a55b2fb318a6b7666623a585f9f2be838',1,'eagle_impl::TwoWire::endTransmission(void)'],['../classeagle__impl_1_1TwoWire.html#ad8be918b5d4efbd524c0dba16ff5f9d2',1,'eagle_impl::TwoWire::endTransmission(uint8_t sendStop)']]],
   ['evirtual_5fmain',['eVirtual_main',['../eBoard_8h.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eVirtual_main():&#160;dancing_dragon.cpp'],['../dancing__dragon_8cpp.html#a8060903c79de8471925c79907ac171a9',1,'eVirtual_main(void):&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eVirtual_main():&#160;lcd_debug.cpp']]]
 ];

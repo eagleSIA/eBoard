@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   <div id="projectname"><font color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -57,6 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
       <li><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -225,7 +226,7 @@ Private Attributes</h2></td></tr>
 <dd>
 <a class="el" href="structLCD.html#a632d9c641930fe16c0b623b82136196e" title="initializes the Display called by: ">init()</a> will be called on the first display access! [<a class="el" href="p5.html#su7">Version 2.2b 🐏 - Optimize it [52m]</a>] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03373">3373</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03879">3879</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad9f2d73441bde885fc34b567738c73fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9f2d73441bde885fc34b567738c73fb">&#9670;&nbsp;</a></span>LCD()</h2>
@@ -257,10 +258,11 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">soccerBoard</td><td>the connected <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> object </td></tr>
-    <tr><td class="paramname">id</td><td>the ID of the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Can be identified via <a class="el" href="eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641" title="Sends a byte to a certain I²C-Device. ">pingI2C()</a> </td></tr>
+    <tr><td class="paramname">id</td><td>the ID of the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Can be identified via <a class="el" href="eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641" title="Sends a byte to a certain I²C-Device. ">pingI2C()</a></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>if <a class="el" href="eBoard_8h.html#a46d205b09924db53e18bc4761d009096">EBOARD_NANO</a> is set to 0x1 this will only take one argument [the id] </dd></dl>
 
 </div>
 </div>
@@ -1055,7 +1057,7 @@ false if there was one of the following errors:<ul>
 
 <p>called_guard </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03547">3547</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04059">4059</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1073,7 +1075,7 @@ false if there was one of the following errors:<ul>
 
 <p>ID of the Display. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03535">3535</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04047">4047</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1098,10 +1100,10 @@ false if there was one of the following errors:<ul>
 </div><div class="memdoc">
 
 <p>the addressing mode (page/horizontal) </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
 <p>posX </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03543">3543</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04055">4055</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1129,7 @@ false if there was one of the following errors:<ul>
 
 <p>posY </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03545">3545</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04057">4057</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>

@@ -2,6 +2,7 @@ var searchData=
 [
   ['dancing_5fdragon_2ecpp',['dancing_dragon.cpp',['../dancing__dragon_8cpp.html',1,'']]],
   ['dboard',['dBoard',['../lcd__debug_8cpp.html#a8e336af380f6e241e7f8756b558cf6dd',1,'lcd_debug.cpp']]],
+  ['detachinterrupt',['detachInterrupt',['../structeagle__impl_1_1SPIClass.html#acac9145a01f4a34581e5f21b70381896',1,'eagle_impl::SPIClass']]],
   ['digital',['digital',['../structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5',1,'SoccerBoard']]],
   ['digital_5fin',['DIGITAL_IN',['../eBoard_8h.html#a3127d4438f2120da4e5e5d35a67c5260',1,'eBoard.h']]],
   ['digital_5fin_5finv',['DIGITAL_IN_INV',['../eBoard_8h.html#aedc6c7b8511d3db854b1a0e663ff691f',1,'eBoard.h']]],

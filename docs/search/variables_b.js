@@ -2,7 +2,7 @@ var searchData=
 [
   ['rechts',['rechts',['../lcd__debug_8cpp.html#a3d29baf8e726009abe1493d3ec20677b',1,'lcd_debug.cpp']]],
   ['roffset',['rOffset',['../structNeoPixel.html#ad23dddc19ad0ddd7586b26ff087deb87',1,'NeoPixel']]],
-  ['rxbuffer',['rxBuffer',['../classTwoWire.html#a5bfcc4b74a9aba62dc79e99bfadde85d',1,'TwoWire']]],
-  ['rxbufferindex',['rxBufferIndex',['../classTwoWire.html#ab5ca5594a3cb26e81a649a56ea5a65b9',1,'TwoWire']]],
-  ['rxbufferlength',['rxBufferLength',['../classTwoWire.html#a291bae1628b603ea81815518b403340b',1,'TwoWire']]]
+  ['rxbuffer',['rxBuffer',['../classeagle__impl_1_1TwoWire.html#a72d0209ce64421e42bd87f7ec45ed51f',1,'eagle_impl::TwoWire']]],
+  ['rxbufferindex',['rxBufferIndex',['../classeagle__impl_1_1TwoWire.html#a44361a7a9fefbc27e737142d60219c29',1,'eagle_impl::TwoWire']]],
+  ['rxbufferlength',['rxBufferLength',['../classeagle__impl_1_1TwoWire.html#a9fd36e2cffb6f9c6cc547f8b3b09a45b',1,'eagle_impl::TwoWire']]]
 ];

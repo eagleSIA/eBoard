@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['statistics',['Statistics',['../stats.html',1,'']]]
+  ['macros_20and_20constants',['Macros and Constants',['../macro.html',1,'']]]
 ];

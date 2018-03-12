@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tuneddelay',['tunedDelay',['../classSoftwareSerial.html#a77c9f26802b3a508aada3126c4ff2946',1,'SoftwareSerial']]],
-  ['twowire',['TwoWire',['../classTwoWire.html#a4c7daf378c06e5e72762e1bd3d5937b6',1,'TwoWire']]],
-  ['tx_5fpin_5fwrite',['tx_pin_write',['../classSoftwareSerial.html#a4fcb85cb384df8030835af3e8cafae71',1,'SoftwareSerial']]]
+  ['transfer',['transfer',['../structeagle__impl_1_1SPIClass.html#add4542baedbded4756ba6568a699ae77',1,'eagle_impl::SPIClass']]],
+  ['tuneddelay',['tunedDelay',['../classeagle__impl_1_1SoftwareSerial.html#a2dc32e482c1f009cdab78fc40b3af15c',1,'eagle_impl::SoftwareSerial']]],
+  ['twowire',['TwoWire',['../classeagle__impl_1_1TwoWire.html#ac69c3ab7219001d11f41b05067ae2933',1,'eagle_impl::TwoWire']]],
+  ['tx_5fpin_5fwrite',['tx_pin_write',['../classeagle__impl_1_1SoftwareSerial.html#a498a6d7c1ac20042a816897a297dc3b0',1,'eagle_impl::SoftwareSerial']]]
 ];

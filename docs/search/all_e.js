@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['peek',['peek',['../classTwoWire.html#ac347efa8f804b718763fdbaae53c406d',1,'TwoWire::peek()'],['../classSoftwareSerial.html#a330f9da007584d91908da3b4f394f50e',1,'SoftwareSerial::peek()']]],
+  ['peek',['peek',['../classeagle__impl_1_1TwoWire.html#a796f1dd91b05b366f2f2fe510ff5ef58',1,'eagle_impl::TwoWire::peek()'],['../classeagle__impl_1_1SoftwareSerial.html#ad7af080229f892aa915a5595f94a3e99',1,'eagle_impl::SoftwareSerial::peek()']]],
   ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel']]],
   ['pin_5fbluetooth_5frx',['PIN_BLUETOOTH_RX',['../eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3',1,'eBoard.h']]],
   ['pin_5fbluetooth_5fstate',['PIN_BLUETOOTH_STATE',['../eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52',1,'eBoard.h']]],
@@ -14,7 +14,9 @@ var searchData=
   ['pin_5fshift_5fdat',['PIN_SHIFT_DAT',['../eBoard_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2',1,'eBoard.h']]],
   ['pin_5fshift_5flat',['PIN_SHIFT_LAT',['../eBoard_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52',1,'eBoard.h']]],
   ['pingi2c',['pingI2C',['../eBoard_8h.html#a1441d9460afebb6bfe9b7b21fcc08641',1,'eBoard.h']]],
+  ['pinmask',['pinMask',['../structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce',1,'NeoPixel']]],
   ['pixels',['pixels',['../structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362',1,'NeoPixel']]],
+  ['port',['port',['../structNeoPixel.html#a46cfa142dda28f412803b45347af5153',1,'NeoPixel']]],
   ['power',['power',['../structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06',1,'SoccerBoard']]],
   ['poweroff',['powerOff',['../structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd',1,'SoccerBoard']]],
   ['poweron',['powerOn',['../structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f',1,'SoccerBoard']]],

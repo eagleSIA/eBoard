@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['eagle_5fimpl',['eagle_impl',['../namespaceeagle__impl.html',1,'']]],
   ['eboard_2eh',['eBoard.h',['../eBoard_8h.html',1,'']]],
   ['eboard_5fbluetooth',['EBOARD_BLUETOOTH',['../eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2',1,'eBoard.h']]],
   ['eboard_5fcheck_5fpins',['EBOARD_CHECK_PINS',['../eBoard_8h.html#a832845f47786296c94e24d6c27821503',1,'eBoard.h']]],
@@ -11,6 +12,7 @@ var searchData=
   ['eboard_5fguesspath',['EBOARD_GUESSPATH',['../eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e',1,'eBoard.h']]],
   ['eboard_5fi2c',['EBOARD_I2C',['../eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;lcd_debug.cpp']]],
   ['eboard_5flcd',['EBOARD_LCD',['../eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;lcd_debug.cpp']]],
+  ['eboard_5fnano',['EBOARD_NANO',['../eBoard_8h.html#a46d205b09924db53e18bc4761d009096',1,'eBoard.h']]],
   ['eboard_5fneo',['EBOARD_NEO',['../eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'eBoard.h']]],
   ['eboard_5fneo_5f400khz',['EBOARD_NEO_400KHZ',['../eBoard_8h.html#aec86d951b6a2f8eb4e02ec3868ec555f',1,'eBoard.h']]],
   ['eboard_5fneo_5f800khz',['EBOARD_NEO_800KHZ',['../eBoard_8h.html#ac9c7d462fc2167034d7cf9841eadba6a',1,'eBoard.h']]],
@@ -50,9 +52,9 @@ var searchData=
   ['eboard_5fuse_5freset',['EBOARD_USE_RESET',['../eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a',1,'eBoard.h']]],
   ['eboard_5fuse_5fspi',['EBOARD_USE_SPI',['../eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713',1,'eBoard.h']]],
   ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'eBoard.h']]],
-  ['end',['end',['../classSoftwareSerial.html#a5bc382d616d435c01856c1253b0ee91a',1,'SoftwareSerial']]],
+  ['end',['end',['../structeagle__impl_1_1SPIClass.html#aafcd3688d7564bdd178a250cbe07d650',1,'eagle_impl::SPIClass::end()'],['../classeagle__impl_1_1SoftwareSerial.html#a1b2011b111bf68a1b885e999eef99418',1,'eagle_impl::SoftwareSerial::end()']]],
   ['endtime',['endTime',['../structNeoPixel.html#a144b933f6c30dde60707f40ca93eca60',1,'NeoPixel']]],
-  ['endtransmission',['endTransmission',['../classTwoWire.html#af80f9a7b85a3a81a035ca94c95bcdc1d',1,'TwoWire::endTransmission(void)'],['../classTwoWire.html#a1df033d27387d41ca301e59552325bd7',1,'TwoWire::endTransmission(uint8_t sendStop)']]],
+  ['endtransmission',['endTransmission',['../classeagle__impl_1_1TwoWire.html#a55b2fb318a6b7666623a585f9f2be838',1,'eagle_impl::TwoWire::endTransmission(void)'],['../classeagle__impl_1_1TwoWire.html#ad8be918b5d4efbd524c0dba16ff5f9d2',1,'eagle_impl::TwoWire::endTransmission(uint8_t sendStop)']]],
   ['evirtual_5fmain',['eVirtual_main',['../eBoard_8h.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eVirtual_main():&#160;dancing_dragon.cpp'],['../dancing__dragon_8cpp.html#a8060903c79de8471925c79907ac171a9',1,'eVirtual_main(void):&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eVirtual_main():&#160;lcd_debug.cpp']]],
-  ['eboard_20_5bwip_5d2_2e3h_20_2d_20shackle_20the_20arduino_21',['eBoard [wip]2.3h - shackle the Arduino!',['../index.html',1,'']]]
+  ['eboard_203_2e0c_20_2d_20shackle_20the_20arduino_21',['eBoard 3.0c - shackle the Arduino!',['../index.html',1,'']]]
 ];

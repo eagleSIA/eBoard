@@ -1,6 +1,6 @@
 var structNeoPixel =
 [
-    [ "NeoPixel", "structNeoPixel.html#aa2c4c5a68ddab0787375e5b1e451e2ee", null ],
+    [ "NeoPixel", "structNeoPixel.html#a5a3771bffd610ce7c099851c421039cf", null ],
     [ "NeoPixel", "structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369", null ],
     [ "~NeoPixel", "structNeoPixel.html#a8b9ca44c23d6f3d043b32c3bb0e515e5", null ],
     [ "begin", "structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f", null ],
@@ -32,7 +32,9 @@ var structNeoPixel =
     [ "numBytes", "structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92", null ],
     [ "numLEDs", "structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9", null ],
     [ "pin", "structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a", null ],
+    [ "pinMask", "structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce", null ],
     [ "pixels", "structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362", null ],
+    [ "port", "structNeoPixel.html#a46cfa142dda28f412803b45347af5153", null ],
     [ "rOffset", "structNeoPixel.html#ad23dddc19ad0ddd7586b26ff087deb87", null ],
     [ "wOffset", "structNeoPixel.html#ac52c603ce04ba6643d543a28c759c23d", null ]
 ];

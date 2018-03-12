@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   <div id="projectname"><font color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -57,6 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
       <li><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -127,93 +128,141 @@ $(document).ready(function(){initNavTree('structNeoPixel.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>[NEO] this allows you to access Adafruit LED-stripes  
+ <a href="structNeoPixel.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="eBoard_8h_source.html">eBoard.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2c4c5a68ddab0787375e5b1e451e2ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aa2c4c5a68ddab0787375e5b1e451e2ee">NeoPixel</a> (uint16_t n, uint8_t p=6, uint16_t t=((1&lt;&lt; 6)|(1&lt;&lt; 4)|(0&lt;&lt; 2)|(2))+0x0000)</td></tr>
-<tr class="separator:aa2c4c5a68ddab0787375e5b1e451e2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a3771bffd610ce7c099851c421039cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a5a3771bffd610ce7c099851c421039cf">NeoPixel</a> (uint16_t n, uint8_t p=6, uint16_t t=((0&lt;&lt; 6)|(0&lt;&lt; 4)|(1&lt;&lt; 2)|(2))+0x0000)</td></tr>
+<tr class="memdesc:a5a3771bffd610ce7c099851c421039cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the default constructor that should be used whenever the amount of leds etc... connected is known at compile time (most cases)  <a href="#a5a3771bffd610ce7c099851c421039cf">More...</a><br /></td></tr>
+<tr class="separator:a5a3771bffd610ce7c099851c421039cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a> (void)</td></tr>
+<tr class="memdesc:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="mdescLeft">&#160;</td><td class="mdescRight">the empty constructor  <a href="#a03381a47c33f21e2e7e10f7d1bfbb369">More...</a><br /></td></tr>
 <tr class="separator:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b9ca44c23d6f3d043b32c3bb0e515e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a8b9ca44c23d6f3d043b32c3bb0e515e5">~NeoPixel</a> (void)</td></tr>
+<tr class="memdesc:a8b9ca44c23d6f3d043b32c3bb0e515e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">the destructor [calling free on pixel and freeing input pin]  <a href="#a8b9ca44c23d6f3d043b32c3bb0e515e5">More...</a><br /></td></tr>
 <tr class="separator:a8b9ca44c23d6f3d043b32c3bb0e515e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad31eb7e7b738586ea0361a470591226f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f">begin</a> (void)</td></tr>
+<tr class="memdesc:ad31eb7e7b738586ea0361a470591226f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this has to be called to start the communcation (you should call <a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d" title="sets pin for communication ">NeoPixel::setPin()</a> before)  <a href="#ad31eb7e7b738586ea0361a470591226f">More...</a><br /></td></tr>
 <tr class="separator:ad31eb7e7b738586ea0361a470591226f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73a8e7c435b16a785430b5f3734e3216"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a> (void)</td></tr>
+<tr class="memdesc:a73a8e7c435b16a785430b5f3734e3216"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will reveal the setPixels [via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> etc...]  <a href="#a73a8e7c435b16a785430b5f3734e3216">More...</a><br /></td></tr>
 <tr class="separator:a73a8e7c435b16a785430b5f3734e3216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96dfdd54b20616ae8b2eeb944042d27d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d">setPin</a> (uint8_t p)</td></tr>
+<tr class="memdesc:a96dfdd54b20616ae8b2eeb944042d27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets pin for communication  <a href="#a96dfdd54b20616ae8b2eeb944042d27d">More...</a><br /></td></tr>
 <tr class="separator:a96dfdd54b20616ae8b2eeb944042d27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c6105546cfb9ccca5b31a1c26450d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a> (uint16_t n, uint8_t r, uint8_t g, uint8_t b)</td></tr>
+<tr class="memdesc:a3c6105546cfb9ccca5b31a1c26450d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the rgb color of a specific pixel  <a href="#a3c6105546cfb9ccca5b31a1c26450d1d">More...</a><br /></td></tr>
 <tr class="separator:a3c6105546cfb9ccca5b31a1c26450d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95a534f17417d038f8b8f86a4b8637df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a95a534f17417d038f8b8f86a4b8637df">setPixelColor</a> (uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w)</td></tr>
+<tr class="memdesc:a95a534f17417d038f8b8f86a4b8637df"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the rgbw color of a specific pixel  <a href="#a95a534f17417d038f8b8f86a4b8637df">More...</a><br /></td></tr>
 <tr class="separator:a95a534f17417d038f8b8f86a4b8637df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a311d6f56416a2315803e68479110e4d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a311d6f56416a2315803e68479110e4d6">setPixelColor</a> (uint16_t n, uint32_t c)</td></tr>
+<tr class="memdesc:a311d6f56416a2315803e68479110e4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the rgbw color of a specific pixel  <a href="#a311d6f56416a2315803e68479110e4d6">More...</a><br /></td></tr>
 <tr class="separator:a311d6f56416a2315803e68479110e4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15d732945ae530d843910753ba9929f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a15d732945ae530d843910753ba9929f2">setBrightness</a> (uint8_t val)</td></tr>
+<tr class="memdesc:a15d732945ae530d843910753ba9929f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the brightness for all further acceses via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a>  the brightness-value  <a href="#a15d732945ae530d843910753ba9929f2">More...</a><br /></td></tr>
 <tr class="separator:a15d732945ae530d843910753ba9929f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9168956fe081052f22c7af4ec82c2055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a9168956fe081052f22c7af4ec82c2055">clear</a> (void)</td></tr>
+<tr class="memdesc:a9168956fe081052f22c7af4ec82c2055"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will reset all set pixels [won't call <a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] ">NeoPixel::show()</a>]  <a href="#a9168956fe081052f22c7af4ec82c2055">More...</a><br /></td></tr>
 <tr class="separator:a9168956fe081052f22c7af4ec82c2055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab82789d52b6dcd8d78e7492731dc20b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ab82789d52b6dcd8d78e7492731dc20b2">updateLength</a> (uint16_t n)</td></tr>
+<tr class="memdesc:ab82789d52b6dcd8d78e7492731dc20b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">this changes the length of the connected LED stripe  <a href="#ab82789d52b6dcd8d78e7492731dc20b2">More...</a><br /></td></tr>
 <tr class="separator:ab82789d52b6dcd8d78e7492731dc20b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eef199e4d0d7fb7bf27cec07fcf9c47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47">updateType</a> (uint16_t t)</td></tr>
+<tr class="memdesc:a3eef199e4d0d7fb7bf27cec07fcf9c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">this changes the type of communication between arduino and LED stripe  <a href="#a3eef199e4d0d7fb7bf27cec07fcf9c47">More...</a><br /></td></tr>
 <tr class="separator:a3eef199e4d0d7fb7bf27cec07fcf9c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b2590430239c088ca45f74155c26058"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a0b2590430239c088ca45f74155c26058">getPixels</a> (void) const</td></tr>
+<tr class="memdesc:a0b2590430239c088ca45f74155c26058"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will give you access to the pixels  <a href="#a0b2590430239c088ca45f74155c26058">More...</a><br /></td></tr>
 <tr class="separator:a0b2590430239c088ca45f74155c26058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72151f49019d5b44ef34c2023e9e43bd"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a72151f49019d5b44ef34c2023e9e43bd">getBrightness</a> (void) const</td></tr>
+<tr class="memdesc:a72151f49019d5b44ef34c2023e9e43bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the current set brightness  <a href="#a72151f49019d5b44ef34c2023e9e43bd">More...</a><br /></td></tr>
 <tr class="separator:a72151f49019d5b44ef34c2023e9e43bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d8182500908c9f5a965d634702f6f3b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b">sine8</a> (uint8_t x) const</td></tr>
+<tr class="memdesc:a9d8182500908c9f5a965d634702f6f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">acces to the sine-8-bit table ;D  <a href="#a9d8182500908c9f5a965d634702f6f3b">More...</a><br /></td></tr>
 <tr class="separator:a9d8182500908c9f5a965d634702f6f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a893e5c64a87c0931bc29fd7df16cdcc1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a893e5c64a87c0931bc29fd7df16cdcc1">gamma8</a> (uint8_t x) const</td></tr>
+<tr class="memdesc:a893e5c64a87c0931bc29fd7df16cdcc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">acces to the gamma-correction-8-bit table ;D  <a href="#a893e5c64a87c0931bc29fd7df16cdcc1">More...</a><br /></td></tr>
 <tr class="separator:a893e5c64a87c0931bc29fd7df16cdcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727940c53255151376dea65d5d4ee364"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a727940c53255151376dea65d5d4ee364">getPin</a> (void)</td></tr>
+<tr class="memdesc:a727940c53255151376dea65d5d4ee364"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will return the set data pin  <a href="#a727940c53255151376dea65d5d4ee364">More...</a><br /></td></tr>
 <tr class="separator:a727940c53255151376dea65d5d4ee364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dbfef1bd6701c3047d1484d2cab4426"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a1dbfef1bd6701c3047d1484d2cab4426">numPixels</a> (void) const</td></tr>
+<tr class="memdesc:a1dbfef1bd6701c3047d1484d2cab4426"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the size of the LED stripe  <a href="#a1dbfef1bd6701c3047d1484d2cab4426">More...</a><br /></td></tr>
 <tr class="separator:a1dbfef1bd6701c3047d1484d2cab4426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7a63b8d5af4a653b3c8b390e7673714"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#af7a63b8d5af4a653b3c8b390e7673714">getPixelColor</a> (uint16_t n) const</td></tr>
+<tr class="memdesc:af7a63b8d5af4a653b3c8b390e7673714"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the color of a specific pixel  <a href="#af7a63b8d5af4a653b3c8b390e7673714">More...</a><br /></td></tr>
 <tr class="separator:af7a63b8d5af4a653b3c8b390e7673714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae0bc578baf4fc49fc4c3024c53368a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7">canShow</a> (void)</td></tr>
+<tr class="memdesc:aae0bc578baf4fc49fc4c3024c53368a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will determine if the next show is available [last show finished]  <a href="#aae0bc578baf4fc49fc4c3024c53368a7">More...</a><br /></td></tr>
 <tr class="separator:aae0bc578baf4fc49fc4c3024c53368a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a14aaaf801a74b5a608c4e94ae5293a3b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">Color</a> (uint8_t r, uint8_t g, uint8_t b)</td></tr>
+<tr class="memdesc:a14aaaf801a74b5a608c4e94ae5293a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a color value that can be used with <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a>  <a href="#a14aaaf801a74b5a608c4e94ae5293a3b">More...</a><br /></td></tr>
 <tr class="separator:a14aaaf801a74b5a608c4e94ae5293a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4a45baf1d8d06b1640a5798fde9ee4"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#abb4a45baf1d8d06b1640a5798fde9ee4">Color</a> (uint8_t r, uint8_t g, uint8_t b, uint8_t w)</td></tr>
+<tr class="memdesc:abb4a45baf1d8d06b1640a5798fde9ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a color value that can be used with <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a>  <a href="#abb4a45baf1d8d06b1640a5798fde9ee4">More...</a><br /></td></tr>
 <tr class="separator:abb4a45baf1d8d06b1640a5798fde9ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ab6ec91223a6504136f1e7ed822a9b4d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ab6ec91223a6504136f1e7ed822a9b4d4">is800kHz</a></td></tr>
+<tr class="memdesc:ab6ec91223a6504136f1e7ed822a9b4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">determines the speed the communcation is working on  <a href="#ab6ec91223a6504136f1e7ed822a9b4d4">More...</a><br /></td></tr>
 <tr class="separator:ab6ec91223a6504136f1e7ed822a9b4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69cfffa78b2a47c34d4737556f4d085b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b">begun</a></td></tr>
+<tr class="memdesc:a69cfffa78b2a47c34d4737556f4d085b"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if <a class="el" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f" title="this has to be called to start the communcation (you should call NeoPixel::setPin() before) ...">NeoPixel::begin</a> has been called  <a href="#a69cfffa78b2a47c34d4737556f4d085b">More...</a><br /></td></tr>
 <tr class="separator:a69cfffa78b2a47c34d4737556f4d085b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebac537c1d4be50f0c49a2c9f297ead9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9">numLEDs</a></td></tr>
+<tr class="memdesc:aebac537c1d4be50f0c49a2c9f297ead9"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the amount of LEDs  <a href="#aebac537c1d4be50f0c49a2c9f297ead9">More...</a><br /></td></tr>
 <tr class="separator:aebac537c1d4be50f0c49a2c9f297ead9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e645e3b4e66318cbfb63f20abb17a92"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92">numBytes</a></td></tr>
+<tr class="memdesc:a1e645e3b4e66318cbfb63f20abb17a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the byte size [pixels] used internally  <a href="#a1e645e3b4e66318cbfb63f20abb17a92">More...</a><br /></td></tr>
 <tr class="separator:a1e645e3b4e66318cbfb63f20abb17a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb3079e514116ba5f19d44cfc71a495a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a">pin</a></td></tr>
+<tr class="memdesc:aeb3079e514116ba5f19d44cfc71a495a"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the pin -1 if the pin wasn't set  <a href="#aeb3079e514116ba5f19d44cfc71a495a">More...</a><br /></td></tr>
 <tr class="separator:aeb3079e514116ba5f19d44cfc71a495a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65215292b7153b25952ce674ccb6fe07"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07">brightness</a></td></tr>
+<tr class="memdesc:a65215292b7153b25952ce674ccb6fe07"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the brightness  <a href="#a65215292b7153b25952ce674ccb6fe07">More...</a><br /></td></tr>
 <tr class="separator:a65215292b7153b25952ce674ccb6fe07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4bfaf77bdde887b0bfdaef98c562362"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362">pixels</a></td></tr>
+<tr class="memdesc:aa4bfaf77bdde887b0bfdaef98c562362"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the pixels  <a href="#aa4bfaf77bdde887b0bfdaef98c562362">More...</a><br /></td></tr>
 <tr class="separator:aa4bfaf77bdde887b0bfdaef98c562362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad23dddc19ad0ddd7586b26ff087deb87"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ad23dddc19ad0ddd7586b26ff087deb87">rOffset</a></td></tr>
+<tr class="memdesc:ad23dddc19ad0ddd7586b26ff087deb87"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the red color offset  <a href="#ad23dddc19ad0ddd7586b26ff087deb87">More...</a><br /></td></tr>
 <tr class="separator:ad23dddc19ad0ddd7586b26ff087deb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9f7e290a959b39781ade5a66999a18d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aa9f7e290a959b39781ade5a66999a18d">gOffset</a></td></tr>
+<tr class="memdesc:aa9f7e290a959b39781ade5a66999a18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the green color offset  <a href="#aa9f7e290a959b39781ade5a66999a18d">More...</a><br /></td></tr>
 <tr class="separator:aa9f7e290a959b39781ade5a66999a18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab33b2e8d4a30bb3ed0c18d4263f37121"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ab33b2e8d4a30bb3ed0c18d4263f37121">bOffset</a></td></tr>
+<tr class="memdesc:ab33b2e8d4a30bb3ed0c18d4263f37121"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the blue color offset  <a href="#ab33b2e8d4a30bb3ed0c18d4263f37121">More...</a><br /></td></tr>
 <tr class="separator:ab33b2e8d4a30bb3ed0c18d4263f37121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52c603ce04ba6643d543a28c759c23d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#ac52c603ce04ba6643d543a28c759c23d">wOffset</a></td></tr>
+<tr class="memdesc:ac52c603ce04ba6643d543a28c759c23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the white color offset  <a href="#ac52c603ce04ba6643d543a28c759c23d">More...</a><br /></td></tr>
 <tr class="separator:ac52c603ce04ba6643d543a28c759c23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144b933f6c30dde60707f40ca93eca60"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a144b933f6c30dde60707f40ca93eca60">endTime</a></td></tr>
+<tr class="memdesc:a144b933f6c30dde60707f40ca93eca60"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the last call time of show for <a class="el" href="structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7" title="this will determine if the next show is available [last show finished] ">NeoPixel::canShow()</a>  <a href="#a144b933f6c30dde60707f40ca93eca60">More...</a><br /></td></tr>
 <tr class="separator:a144b933f6c30dde60707f40ca93eca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46cfa142dda28f412803b45347af5153"><td class="memItemLeft" align="right" valign="top">volatile uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a46cfa142dda28f412803b45347af5153">port</a></td></tr>
+<tr class="memdesc:a46cfa142dda28f412803b45347af5153"><td class="mdescLeft">&#160;</td><td class="mdescRight">the used port register  <a href="#a46cfa142dda28f412803b45347af5153">More...</a><br /></td></tr>
+<tr class="separator:a46cfa142dda28f412803b45347af5153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5dd2efa609426057457cbcb84962ce"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce">pinMask</a></td></tr>
+<tr class="memdesc:a5d5dd2efa609426057457cbcb84962ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">the used pinMask  <a href="#a5d5dd2efa609426057457cbcb84962ce">More...</a><br /></td></tr>
+<tr class="separator:a5d5dd2efa609426057457cbcb84962ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03780">3780</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<div class="textblock"><p class="">[NEO] this allows you to access Adafruit LED-stripes </p>
+<dl class="section author"><dt>Author</dt><dd>Adafruit</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>this code was documented and modified by EagleoutIce in 2018 for custom use!</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div></div><!-- fragment --></dd></dl>
+<p>[NEO] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eBoard_8h.html">/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h</a>&quot;</span></div><div class="line"><a class="code" href="structNeoPixel.html">NeoPixel</a> nPixel = <a class="code" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a>(5);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(3,<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>(0,255,0));</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line">}</div></div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04327">4327</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa2c4c5a68ddab0787375e5b1e451e2ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c4c5a68ddab0787375e5b1e451e2ee">&#9670;&nbsp;</a></span>NeoPixel() <span class="overload">[1/2]</span></h2>
+<a id="a5a3771bffd610ce7c099851c421039cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3771bffd610ce7c099851c421039cf">&#9670;&nbsp;</a></span>NeoPixel() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +283,7 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>t</em> = <code>((1&lt;&lt;&#160;6)|(1&lt;&lt;&#160;4)|(0&lt;&lt;&#160;2)|(2))+0x0000</code>&#160;</td>
+          <td class="paramname"><em>t</em> = <code>((0&lt;&lt;&#160;6)|(0&lt;&lt;&#160;4)|(1&lt;&lt;&#160;2)|(2))+0x0000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,7 +292,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>update this! exchange portd check etc to oneline to make replica obsolete </dd></dl>
+
+<p>this is the default constructor that should be used whenever the amount of leds etc... connected is known at compile time (most cases) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the amount of LEDs connected to the pin </td></tr>
+    <tr><td class="paramname">p</td><td>the (data) pin connected to the arduino </td></tr>
+    <tr><td class="paramname">t</td><td>the type of com the <a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a> should be talked to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -262,7 +320,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>the empty constructor </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>remove TOTAL OF NRF52 FLOWER ETC CONFIG </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>this has to be called manually then:<ul>
+<li><a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a></li>
+<li><a class="el" href="structNeoPixel.html#ab82789d52b6dcd8d78e7492731dc20b2" title="this changes the length of the connected LED stripe ">NeoPixel::updateLength()</a></li>
+<li><a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d" title="sets pin for communication ">NeoPixel::setPin()</a> </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -282,6 +348,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>the destructor [calling free on pixel and freeing input pin] </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -300,6 +368,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this has to be called to start the communcation (you should call <a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d" title="sets pin for communication ">NeoPixel::setPin()</a> before) </p>
 
 </div>
 </div>
@@ -327,6 +397,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>this will determine if the next show is available [last show finished] </p>
+<dl class="section return"><dt>Returns</dt><dd>true if it is possible </dd></dl>
+
 </div>
 </div>
 <a id="a9168956fe081052f22c7af4ec82c2055"></a>
@@ -344,6 +417,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this will reset all set pixels [won't call <a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] ">NeoPixel::show()</a>] </p>
 
 </div>
 </div>
@@ -386,6 +461,16 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>returns a color value that can be used with <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the red color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">g</td><td>the green color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">b</td><td>the blue color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -435,6 +520,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>returns a color value that can be used with <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the red color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">g</td><td>the green color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">b</td><td>the blue color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">w</td><td>the 'white' color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a893e5c64a87c0931bc29fd7df16cdcc1"></a>
@@ -453,6 +549,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>acces to the gamma-correction-8-bit table ;D </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the correction index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the corresponding gamma correction </dd></dl>
+
 </div>
 </div>
 <a id="a72151f49019d5b44ef34c2023e9e43bd"></a>
@@ -460,6 +565,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint8_t NeoPixel::getBrightness </td>
@@ -469,7 +577,15 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>returns the current set brightness </p>
+<dl class="section return"><dt>Returns</dt><dd>the brightness set via <a class="el" href="structNeoPixel.html#a15d732945ae530d843910753ba9929f2" title="changes the brightness for all further acceses via NeoPixel::setPixelColor()  the brightness-value ...">NeoPixel::setBrightness()</a> </dd></dl>
 
 </div>
 </div>
@@ -497,6 +613,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>this will return the set data pin </p>
+<dl class="section return"><dt>Returns</dt><dd>the dataPin set via <a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d" title="sets pin for communication ">NeoPixel::setPin()</a> </dd></dl>
+
 </div>
 </div>
 <a id="af7a63b8d5af4a653b3c8b390e7673714"></a>
@@ -515,6 +634,9 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>returns the color of a specific pixel </p>
+<dl class="section return"><dt>Returns</dt><dd>the color value </dd></dl>
+
 </div>
 </div>
 <a id="a0b2590430239c088ca45f74155c26058"></a>
@@ -522,6 +644,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint8_t* NeoPixel::getPixels </td>
@@ -531,7 +656,15 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>this will give you access to the pixels </p>
+<dl class="section return"><dt>Returns</dt><dd>the pixels 'set' </dd></dl>
 
 </div>
 </div>
@@ -540,6 +673,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint16_t NeoPixel::numPixels </td>
@@ -549,7 +685,15 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>returns the size of the LED stripe </p>
+<dl class="section return"><dt>Returns</dt><dd>the size set via <a class="el" href="structNeoPixel.html#ab82789d52b6dcd8d78e7492731dc20b2" title="this changes the length of the connected LED stripe ">NeoPixel::updateLength()</a> </dd></dl>
 
 </div>
 </div>
@@ -569,6 +713,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>changes the brightness for all further acceses via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a>  the brightness-value </p>
+
 </div>
 </div>
 <a id="a96dfdd54b20616ae8b2eeb944042d27d"></a>
@@ -586,6 +732,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>sets pin for communication </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the (data) pin connected to the arduino </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -626,6 +780,17 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>sets the rgb color of a specific pixel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the index of the pixel (starting at 0) </td></tr>
+    <tr><td class="paramname">r</td><td>the red color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">g</td><td>the green color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">b</td><td>the blue color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -673,6 +838,18 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>sets the rgbw color of a specific pixel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the index of the pixel (starting at 0) </td></tr>
+    <tr><td class="paramname">r</td><td>the red color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">g</td><td>the green color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">b</td><td>the blue color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+    <tr><td class="paramname">w</td><td>the 'white' color [can be different dependent on <a class="el" href="structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47" title="this changes the type of communication between arduino and LED stripe ">NeoPixel::updateType()</a>] </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a311d6f56416a2315803e68479110e4d6"></a>
@@ -701,6 +878,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>sets the rgbw color of a specific pixel </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the index of the pixel (starting at 0) </td></tr>
+    <tr><td class="paramname">c</td><td>the <a class="el" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b" title="returns a color value that can be used with NeoPixel::setPixelColor() ">NeoPixel::Color()</a> you want </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a73a8e7c435b16a785430b5f3734e3216"></a>
@@ -718,6 +904,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this will reveal the setPixels [via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> etc...] </p>
 
 </div>
 </div>
@@ -737,6 +925,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>acces to the sine-8-bit table ;D </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the x-value in sin(x) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the corresponding y-value </dd></dl>
+
 </div>
 </div>
 <a id="ab82789d52b6dcd8d78e7492731dc20b2"></a>
@@ -755,6 +952,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>this changes the length of the connected LED stripe </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>the new length </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3eef199e4d0d7fb7bf27cec07fcf9c47"></a>
@@ -772,6 +977,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this changes the type of communication between arduino and LED stripe </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>the new type [constant starting with EBOARD_NEO] </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -796,7 +1009,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03811">3811</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>true if <a class="el" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f" title="this has to be called to start the communcation (you should call NeoPixel::setPin() before) ...">NeoPixel::begin</a> has been called </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04463">4463</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -820,7 +1035,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03819">3819</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the blue color offset </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04482">4482</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -844,7 +1061,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03815">3815</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the brightness </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04474">4474</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -868,7 +1087,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03821">3821</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the last call time of show for <a class="el" href="structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7" title="this will determine if the next show is available [last show finished] ">NeoPixel::canShow()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04486">4486</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -892,7 +1113,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03818">3818</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the green color offset </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04480">4480</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -916,7 +1139,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03810">3810</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>determines the speed the communcation is working on </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04461">4461</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -940,7 +1165,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03813">3813</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the byte size [pixels] used internally </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04467">4467</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -964,7 +1191,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03812">3812</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the amount of LEDs </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04465">4465</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -988,7 +1217,35 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03814">3814</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the pin -1 if the pin wasn't set </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04472">4472</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a5d5dd2efa609426057457cbcb84962ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5dd2efa609426057457cbcb84962ce">&#9670;&nbsp;</a></span>pinMask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t NeoPixel::pinMask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the used pinMask </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04491">4491</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1269,35 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03816">3816</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the pixels </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04476">4476</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a46cfa142dda28f412803b45347af5153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46cfa142dda28f412803b45347af5153">&#9670;&nbsp;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t* NeoPixel::port</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the used port register </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04489">4489</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1036,7 +1321,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03817">3817</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the red color offset </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04478">4478</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1060,7 +1347,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03820">3820</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>stores the white color offset </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04484">4484</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>

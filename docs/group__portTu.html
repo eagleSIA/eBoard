@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#e868e8">eBoard 🐩</font>
+   <div id="projectname"><font color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -57,6 +57,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Pages</span></a></li>
       <li class="current"><a href="modules.html"><span>Tutorials</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -124,7 +125,7 @@ $(document).ready(function(){initNavTree('group__portTu.html','');});
 <h1><a class="anchor" id="sprt1"></a>
 Software</h1>
 <p class="">If you haven't changed any Pin-configuration there is no need to change anything with the code! :D <br />
- If you use <a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> (<a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a>) this line is obsolete: </p><div class="fragment"><div class="line"><span class="comment">//#include &lt;SoftwareSerial.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">Consider this:</p><ul>
+ If you use <a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> (RB14Scan) this line is obsolete: </p><div class="fragment"><div class="line"><span class="comment">//#include &lt;SoftwareSerial.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div></div><!-- fragment --><p class="">Consider this:</p><ul>
 <li>use D22-D53 [D49] before using the additional pins [D100...]</li>
 <li>every Pin from D2 to D13 is capable of PWM! <br />
  it is possible to change the prescaler and therefore raise the PWM value for <a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a> to the recommended 31 kHz [this shouldn't be done on UNO!!!!] <br />
@@ -137,7 +138,7 @@ Hardware</h1>
 <ul>
 <li>the pins used for shield communication aren't D11 (D10) to D13! they are D51 (D50) to D53!! you shouldn't use them :/</li>
 <li>I²C communication isn't handled by A4 (SDA) and A5 (SCL)! It works via the communication pins 20 (SDA) and 21 (SCL)</li>
-<li>the MEGA has 4 hardware-serial ports! (3 (2, one is used for the basic <a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a> communication by Default :D) of them for custom use)</li>
+<li>the MEGA has 4 hardware-serial ports! (3 (2, one is used for the basic RB14Scan communication by Default :D) of them for custom use)</li>
 <li>you are able to use the full range of 16 Analog In pins! </li>
 </ul>
 </div><!-- contents -->

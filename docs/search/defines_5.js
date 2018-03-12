@@ -10,6 +10,7 @@ var searchData=
   ['eboard_5fguesspath',['EBOARD_GUESSPATH',['../eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e',1,'eBoard.h']]],
   ['eboard_5fi2c',['EBOARD_I2C',['../eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;lcd_debug.cpp']]],
   ['eboard_5flcd',['EBOARD_LCD',['../eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;lcd_debug.cpp']]],
+  ['eboard_5fnano',['EBOARD_NANO',['../eBoard_8h.html#a46d205b09924db53e18bc4761d009096',1,'eBoard.h']]],
   ['eboard_5fneo',['EBOARD_NEO',['../eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'eBoard.h']]],
   ['eboard_5fneo_5f400khz',['EBOARD_NEO_400KHZ',['../eBoard_8h.html#aec86d951b6a2f8eb4e02ec3868ec555f',1,'eBoard.h']]],
   ['eboard_5fneo_5f800khz',['EBOARD_NEO_800KHZ',['../eBoard_8h.html#ac9c7d462fc2167034d7cf9841eadba6a',1,'eBoard.h']]],

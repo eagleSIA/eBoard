@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard [wip]2.3h - shackle the Arduino!", "index.html", [
+    [ "eBoard 3.0c - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
       [ "Philosophy", "index.html#s4", [
@@ -53,20 +53,26 @@ var NAVTREE =
         [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "p5.html#su5", null ],
         [ "Version 2.1d 🐺 - #Oversize [~60m]", "p5.html#su6", null ],
         [ "Version 2.2b 🐏 - Optimize it [52m]", "p5.html#su7", null ],
-        [ "Version 2.3h 🐦 - Addition to the family", "p5.html#su8", null ]
+        [ "Version 2.3h 🐦 - Addition to the family [120m]", "p5.html#su8", null ]
+      ] ],
+      [ "Version 3 - Morpheus 🐉", "p5.html#ver3", [
+        [ "Version 3.0c 🐝 - Final touch", "p5.html#su10", null ]
       ] ]
     ] ],
     [ "The source code", "page2.html", null ],
+    [ "Macros and Constants", "macro.html", null ],
     [ "Todo List", "todo.html", null ],
-    [ "[ 🐲 ] Macros and Constants", "macro.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Tutorials", "modules.html", "modules" ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -87,7 +93,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"index.html#s2"
+"files.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

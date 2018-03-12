@@ -9,7 +9,7 @@ var structSoccerBoard =
     [ "ledOff", "structSoccerBoard.html#af358ec89f0eab4a87b00959dc54f3e16", null ],
     [ "ledOn", "structSoccerBoard.html#abaefeaaf5c0ea659dce35903284ee577", null ],
     [ "ledsOff", "structSoccerBoard.html#a80d7f7690654433e3253f6924eb1164d", null ],
-    [ "motor", "structSoccerBoard.html#a128de977c54154dac63430820ae69601", null ],
+    [ "motor", "structSoccerBoard.html#a5039fee586408ce515f300d8db073818", null ],
     [ "motorsOff", "structSoccerBoard.html#a663162cfb4e213610cc7145de442662a", null ],
     [ "msleep", "structSoccerBoard.html#a52bcbb2cc7e2d56ee0b0deff26a45b49", null ],
     [ "power", "structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06", null ],

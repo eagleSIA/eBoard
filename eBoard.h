@@ -77,8 +77,7 @@
  - #PIN_BLUETOOTH_STATE      : If == RX-Pin: not set. Else: Pin of HC-05 connection-state
 
  @section s2 Smart Servo Shield
- @image html /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
- @image latex /home/eagleoutice/Dokumente/proj/_sia/sss.jpeg
+ @image html sss.jpeg
  This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/
  @note to use the motors properly you <i>have</i> to connect the Board with a ~12V power supply!
 
@@ -128,9 +127,7 @@
 
 
 
-  @image html /home/eagleoutice/Dokumente/proj/_sia/pp.jpeg
-  @image latex /home/eagleoutice/Dokumente/proj/_sia/pp.jpeg
-
+  @image html pp.jpeg
 
 */
 /**
@@ -3348,7 +3345,7 @@
 
             @brief Welcome to the matrix (:
 
-            @includelineno /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h
+            @includelineno /eagleoutice/projects/github/eBoard/eBoard.h
         */
     #endif
 #if EBOARD_I2C > 0x0
@@ -4382,7 +4379,7 @@
           void setPixelColor(uint16_t n, uint32_t c);
           /**
            * @brief changes the brightness for all further acceses via NeoPixel::setPixelColor()
-           * @val the brightness-value
+           * @param val the brightness-value
            */
           void setBrightness(uint8_t val);
           /**
@@ -6460,8 +6457,7 @@
 
         @warning it is important to identify the layout of the HC-05 it is different from the one showed below the wiring may not apply [KEY is probably represented by a button]!
 
-        @image html /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
-        @image latex /home/eagleoutice/Dokumente/proj/_sia/bt.jpg
+        @image html bt.jpg
 
         You can replace the 1kΩ- with a 1.1kΩ-Resistor
 
@@ -6490,8 +6486,7 @@
         It is possible to extend the amount of available pins via SN74HC595 Shift-Registers.
         Connect them like this:
 
-        @image html /home/eagleoutice/Dokumente/proj/_sia/t.png
-        @image latex /home/eagleoutice/Dokumente/proj/_sia/t.png
+        @image html t.png
 
         @note it is possible to extend the amount of shiftregisters. This version of eBoard supports up to 32 (64) additional pins. \n But it is possible to connect even more!
 
@@ -6545,8 +6540,7 @@
 
         It is possible to print Text via LCD::print() and to draw Bitmaps with LCD::drawBitmap():
 
-        @image html /home/eagleoutice/Dokumente/proj/_sia/lcd_pr.jpg
-        @image latex /home/eagleoutice/Dokumente/proj/_sia/lcd_pr.jpg
+        @image html lcd_pr.jpg
 
         @note It is possible to connect multiple devices via I²C ! Just forward the SCL and SDA lines
     */
@@ -6560,8 +6554,7 @@
         @brief This tutorial shows you how to 'port' code and setup from the Arduino UNO R3 to the Arduino MEGA R3
 
         @pre Layout of UNO R3 and MEGA R3:
-            @image html /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
-            @image latex /home/eagleoutice/Dokumente/proj/_sia/Layouts.svg
+            @image html Layouts.svg
 
         @section sprt1 Software
 

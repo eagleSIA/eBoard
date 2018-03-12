@@ -817,7 +817,7 @@ div.directory {
 }
 
 .arrow {
-    color: #C0D890;
+    color: #A3B481;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -1056,7 +1056,7 @@ table.fieldtable {
         background-image:none;
         background-repeat:no-repeat;
         background-position:right;
-        color:#90C048;
+        color:#668140;
         font-size: 8pt;
 }
 

@@ -758,7 +758,7 @@ SoccerBoard board;
 LCD lcd(board);
 /**
 
-  @image html /home/eagleoutice/Dokumente/proj/_sia/aniD.gif
+  @image html aniD.gif
 
   @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 

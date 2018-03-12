@@ -9,9 +9,9 @@
  #pragma GCC diagnostic ignored "-Wextra"
  #pragma pack(push)
  #pragma pack(1) //only works on mega sad^^
-// this is a test comment
+
 /**
- @mainpage eBoard [wip]2.3h - shackle the Arduino!
+ @mainpage eBoard 3.0c - shackle the Arduino!
 
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
@@ -39,6 +39,7 @@
  #define EBOARD_DEBUG_MODE 0x0
  @endcode
 
+ @todo write tutorial and brief introduction page
 
  @section s1 Macros
  There are multiple macros you can manipulate the behaviour of this header [full list is here: @ref macro]:
@@ -347,7 +348,7 @@
       - warranty misspell^^
 
 
-    @subsection su8 Version 2.3h 🐦 - Addition to the family
+    @subsection su8 Version 2.3h 🐦 - Addition to the family [120m]
 
     Fixed several wrong numbers [ref BoardVersions]
     It is no obsolete to write includings like
@@ -356,18 +357,31 @@
     @endcode
     eBoard will search and or implement the needed functions itself (controlled with #EBOARD_GUESSPATH)
 
-    [PRE] Add suport for arduino light strip
-
     <b>Added</b>
       - support for the NANO
       - Documentation for the implemented classes and functions (SoftwareSerial, Wire)
       - flexibal pin_out and pin_in size based on arduino
-      - arduino adafruit lightstrip support (via NeoPixel) this is pre so names and routines are likely change!
+      - arduino adafruit lightstrip support (via NeoPixel)
 
     <b>Fixes</b>
 
     - SoccerBoard::analog() range check (swapped ranges)
     - several over/under-flow errors fixed
+
+    @section ver3 Version 3 - Morpheus 🐉
+
+    @subsection su10 Version 3.0c 🐝 - Final touch
+
+    Written many docs and fixed many features
+
+      <b>Added</b>
+
+      - Documentation for all implemented features
+
+      <b>Fixes</b>
+
+      - Path problems => all libs are hardcoded into this doc
+
 */
 //i am a guard... leave me alone :D
 #ifndef EBOARD_HEADER_GUARD
@@ -415,8 +429,17 @@
          * @warning Don't do if you don't know!
          */
         #define HIGHSPEED
+        /// @brief ignore me ;)
+        #define __AVR__
     #endif
 
+    #include <avr/pgmspace.h>
+    /**
+     * @namespace eagle_impl
+     * @brief this namespace contains all the <b>Don't use manually</b> classes ;)
+     */
+    namespace eagle_impl {}
+    using namespace eagle_impl;
     #ifndef EBOARD_GUESSPATH
       /**
        * @macro_def If this is set to 0x1 the library will guess the paths of included libraries based on your operating system
@@ -424,15 +447,6 @@
       #define EBOARD_GUESSPATH 0x1
     #endif
 
-    #if EBOARD_GUESSPATH > 0x0
-      #ifdef __linux__
-       #include "/usr/share/arduino/libraries/SPI/SPI.h"
-       #include "/usr/share/arduino/libraries/SPI/SPI.cpp"
-      #else
-       #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.h"
-       #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.cpp"
-      #endif
-    #endif
     #if defined(ARDUINO) //general platform-check [No tab]
 
     /**
@@ -462,21 +476,362 @@
     #include <avr/io.h>
     #include <avr/interrupt.h>
 
-    #if EBOARD_I2C > 0x0
-      #if EBOARD_GUESSPATH > 0x0
-        #ifdef __linux__
-         #include "/usr/share/arduino/libraries/Wire/utility/twi.h"
-         #include "/usr/share/arduino/libraries/Wire/utility/twi.c"
-        #else
-         #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.h"
-         #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.c"
-        #endif
+    #if EBOARD_I2C > 0x0 && EBOARD_GUESSPATH > 0x0
+      ///@cond
+      #define twi_h
+
+    #include <inttypes.h>
+
+    //#define ATMEGA8
+
+    #ifndef TWI_FREQ
+    #define TWI_FREQ 100000L
+    #endif
+
+    #ifndef TWI_BUFFER_LENGTH
+    #define TWI_BUFFER_LENGTH 32
+    #endif
+
+    #define TWI_READY 0
+    #define TWI_MRX   1
+    #define TWI_MTX   2
+    #define TWI_SRX   3
+    #define TWI_STX   4
+
+    void twi_init(void);
+    void twi_setAddress(uint8_t);
+    uint8_t twi_readFrom(uint8_t, uint8_t*, uint8_t, uint8_t);
+    uint8_t twi_writeTo(uint8_t, uint8_t*, uint8_t, uint8_t, uint8_t);
+    uint8_t twi_transmit(const uint8_t*, uint8_t);
+    void twi_attachSlaveRxEvent( void (*)(uint8_t*, int) );
+    void twi_attachSlaveTxEvent( void (*)(void) );
+    void twi_reply(uint8_t);
+    void twi_stop(void);
+    void twi_releaseBus(void);
+
+    #include <math.h>
+    #include <stdlib.h>
+    #include <inttypes.h>
+    #include <avr/io.h>
+    #include <avr/interrupt.h>
+    #include <compat/twi.h>
+
+    #ifndef cbi
+    #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+    #endif
+
+    #ifndef sbi
+    #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+    #endif
+
+    #include "pins_arduino.h"
+
+    static volatile uint8_t twi_state;
+    static volatile uint8_t twi_slarw;
+    static volatile uint8_t twi_sendStop;
+    static volatile uint8_t twi_inRepStart;
+
+    static void (*twi_onSlaveTransmit)(void);
+    static void (*twi_onSlaveReceive)(uint8_t*, int);
+
+    static uint8_t twi_masterBuffer[TWI_BUFFER_LENGTH];
+    static volatile uint8_t twi_masterBufferIndex;
+    static volatile uint8_t twi_masterBufferLength;
+
+    static uint8_t twi_txBuffer[TWI_BUFFER_LENGTH];
+    static volatile uint8_t twi_txBufferIndex;
+    static volatile uint8_t twi_txBufferLength;
+
+    static uint8_t twi_rxBuffer[TWI_BUFFER_LENGTH];
+    static volatile uint8_t twi_rxBufferIndex;
+
+    static volatile uint8_t twi_error;
+
+      void twi_init(void) {
+        twi_state = TWI_READY;
+        twi_sendStop = true;
+        twi_inRepStart = false;
+
+        digitalWrite(SDA, 1);
+        digitalWrite(SCL, 1);
+
+        cbi(TWSR, TWPS0);
+        cbi(TWSR, TWPS1);
+        TWBR = ((F_CPU / TWI_FREQ) - 16) / 2;
+
+        TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA);
+      }
+
+      void twi_setAddress(uint8_t address) {
+        TWAR = address << 1;
+      }
+
+      uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sendStop) {
+        uint8_t i;
+
+        if(TWI_BUFFER_LENGTH < length){
+          return 0;
+        }
+
+        while(TWI_READY != twi_state){
+          continue;
+        }
+        twi_state = TWI_MRX;
+        twi_sendStop = sendStop;
+
+        twi_error = 0xFF;
+
+        twi_masterBufferIndex = 0;
+        twi_masterBufferLength = length-1;
+        twi_slarw = TW_READ;
+        twi_slarw |= address << 1;
+
+        if (true == twi_inRepStart) {
+          twi_inRepStart = false;
+          TWDR = twi_slarw;
+          TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);	// enable INTs, but not START
+        }
+        else
+          TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTA);
+
+        while(TWI_MRX == twi_state){
+          continue;
+        }
+
+        if (twi_masterBufferIndex < length)
+          length = twi_masterBufferIndex;
+
+        for(i = 0; i < length; ++i){
+          data[i] = twi_masterBuffer[i];
+        }
+
+        return length;
+      }
+
+      uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait, uint8_t sendStop)
+      {
+        uint8_t i;
+
+        if(TWI_BUFFER_LENGTH < length){
+          return 1;
+        }
+
+        while(TWI_READY != twi_state){
+          continue;
+        }
+        twi_state = TWI_MTX;
+        twi_sendStop = sendStop;
+        twi_error = 0xFF;
+
+        twi_masterBufferIndex = 0;
+        twi_masterBufferLength = length;
+
+        for(i = 0; i < length; ++i){
+          twi_masterBuffer[i] = data[i];
+        }
+
+        twi_slarw = TW_WRITE;
+        twi_slarw |= address << 1;
+
+        if (true == twi_inRepStart) {
+          twi_inRepStart = false;
+          TWDR = twi_slarw;
+          TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);	// enable INTs, but not START
+        }
+        else
+          TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE) | _BV(TWSTA);	// enable INTs
+
+        while(wait && (TWI_MTX == twi_state)){
+          continue;
+        }
+
+        if (twi_error == 0xFF)
+          return 0;
+        else if (twi_error == TW_MT_SLA_NACK)
+          return 2;
+        else if (twi_error == TW_MT_DATA_NACK)
+          return 3;
+        else
+          return 4;
+      }
+
+      uint8_t twi_transmit(const uint8_t* data, uint8_t length) {
+        uint8_t i;
+
+        if(TWI_BUFFER_LENGTH < length){
+          return 1;
+        }
+
+        if(TWI_STX != twi_state){
+          return 2;
+        }
+
+        twi_txBufferLength = length;
+        for(i = 0; i < length; ++i){
+          twi_txBuffer[i] = data[i];
+        }
+
+        return 0;
+      }
+
+      void twi_attachSlaveRxEvent( void (*function)(uint8_t*, int) ) {
+        twi_onSlaveReceive = function;
+      }
+
+      void twi_attachSlaveTxEvent( void (*function)(void) ) {
+        twi_onSlaveTransmit = function;
+      }
+
+      void twi_reply(uint8_t ack) {
+        if(ack){
+          TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWINT) | _BV(TWEA);
+        }else{
+      	  TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWINT);
+        }
+      }
 
 
+      void twi_stop(void) {
+        TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTO);
+
+        while(TWCR & _BV(TWSTO)){
+          continue;
+        }
+
+        twi_state = TWI_READY;
+      }
+
+      void twi_releaseBus(void){
+        TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT);
+        twi_state = TWI_READY;
+      }
+
+      ISR(TWI_vect) {
+        switch(TW_STATUS){
+          case TW_START:
+          case TW_REP_START:
+            TWDR = twi_slarw;
+            twi_reply(1);
+            break;
+
+          case TW_MT_SLA_ACK:
+          case TW_MT_DATA_ACK:
+            if(twi_masterBufferIndex < twi_masterBufferLength){
+              TWDR = twi_masterBuffer[twi_masterBufferIndex++];
+              twi_reply(1);
+            }else{
+      	if (twi_sendStop)
+                twi_stop();
+      	else {
+      	  twi_inRepStart = true;
+      	  TWCR = _BV(TWINT) | _BV(TWSTA)| _BV(TWEN) ;
+      	  twi_state = TWI_READY;
+      	}
+            }
+            break;
+          case TW_MT_SLA_NACK:
+            twi_error = TW_MT_SLA_NACK;
+            twi_stop();
+            break;
+          case TW_MT_DATA_NACK:
+            twi_error = TW_MT_DATA_NACK;
+            twi_stop();
+            break;
+          case TW_MT_ARB_LOST:
+            twi_error = TW_MT_ARB_LOST;
+            twi_releaseBus();
+            break;
+
+          case TW_MR_DATA_ACK:
+            twi_masterBuffer[twi_masterBufferIndex++] = TWDR;
+          case TW_MR_SLA_ACK:
+            if(twi_masterBufferIndex < twi_masterBufferLength){
+              twi_reply(1);
+            }else{
+              twi_reply(0);
+            }
+            break;
+          case TW_MR_DATA_NACK:
+            twi_masterBuffer[twi_masterBufferIndex++] = TWDR;
+      	if (twi_sendStop)
+                twi_stop();
+      	else {
+      	  twi_inRepStart = true;
+      	  TWCR = _BV(TWINT) | _BV(TWSTA)| _BV(TWEN) ;
+      	  twi_state = TWI_READY;
+      	}
+      	break;
+          case TW_MR_SLA_NACK:
+            twi_stop();
+            break;
+          case TW_SR_SLA_ACK:
+          case TW_SR_GCALL_ACK:
+          case TW_SR_ARB_LOST_SLA_ACK:
+          case TW_SR_ARB_LOST_GCALL_ACK:
+            twi_state = TWI_SRX;
+            twi_rxBufferIndex = 0;
+            twi_reply(1);
+            break;
+          case TW_SR_DATA_ACK:
+          case TW_SR_GCALL_DATA_ACK:
+            if(twi_rxBufferIndex < TWI_BUFFER_LENGTH){
+              twi_rxBuffer[twi_rxBufferIndex++] = TWDR;
+              twi_reply(1);
+            }else{
+              twi_reply(0);
+            }
+            break;
+          case TW_SR_STOP:
+            if(twi_rxBufferIndex < TWI_BUFFER_LENGTH){
+              twi_rxBuffer[twi_rxBufferIndex] = '\0';
+            }
+            twi_stop();
+            twi_onSlaveReceive(twi_rxBuffer, twi_rxBufferIndex);
+            twi_rxBufferIndex = 0;
+            twi_releaseBus();
+            break;
+          case TW_SR_DATA_NACK:
+          case TW_SR_GCALL_DATA_NACK:
+            twi_reply(0);
+            break;
+          case TW_ST_SLA_ACK:
+          case TW_ST_ARB_LOST_SLA_ACK:
+            twi_state = TWI_STX;
+            twi_txBufferIndex = 0;
+            twi_txBufferLength = 0;
+            twi_onSlaveTransmit();
+            if(0 == twi_txBufferLength){
+              twi_txBufferLength = 1;
+              twi_txBuffer[0] = 0x00;
+            }
+          case TW_ST_DATA_ACK:
+            TWDR = twi_txBuffer[twi_txBufferIndex++];
+            if(twi_txBufferIndex < twi_txBufferLength){
+              twi_reply(1);
+            }else{
+              twi_reply(0);
+            }
+            break;
+          case TW_ST_DATA_NACK:
+          case TW_ST_LAST_DATA:
+            twi_reply(1);
+            twi_state = TWI_READY;
+            break;
+
+          case TW_NO_INFO:
+            break;
+          case TW_BUS_ERROR:
+            twi_error = TW_BUS_ERROR;
+            twi_stop();
+            break;
+        }
+      }
+      ///@endcond
       #include <inttypes.h>
       #include "Stream.h"
 
       #define BUFFER_LENGTH 32
+      namespace eagle_impl {
       /*!
             @class TwoWire
 
@@ -670,6 +1025,7 @@
             */
             using Print::write;
         };
+        }
         extern "C" {
           #include <stdlib.h>
           #include <string.h>
@@ -849,11 +1205,145 @@
         void TwoWire::onRequest( void (*function)(void) ) {
           user_onRequest = function;
         }
+
         ///@endcond
 
       ///@brief this is the well-known Arduino Wire Interface, just a little bit 'modified' ;P
       TwoWire Wire = TwoWire();
+
       #endif
+      /**
+       * @macro_def this has to be enabled to use the shield
+       */
+      #ifndef EBOARD_USE_SPI
+          #define EBOARD_USE_SPI 0x1
+      #endif
+    #if EBOARD_USE_SPI > 0x0
+      /// @macro_def the header macro to assure that there is a SPIClass available
+      #define _SPI_H_INCLUDED
+
+      #include <stdio.h>
+      /// @macro_def this will set the clock devider to 4
+      #define SPI_CLOCK_DIV4 0x00
+      /// @macro_def this will set the clock devider to 16
+      #define SPI_CLOCK_DIV16 0x01
+      /// @macro_def this will set the clock devider to 64
+      #define SPI_CLOCK_DIV64 0x02
+      /// @macro_def this will set the clock devider to 128
+      #define SPI_CLOCK_DIV128 0x03
+      /// @macro_def this will set the clock devider to 2
+      #define SPI_CLOCK_DIV2 0x04
+      /// @macro_def this will set the clock devider to 8
+      #define SPI_CLOCK_DIV8 0x05
+      /// @macro_def this will set the clock devider to 32
+      #define SPI_CLOCK_DIV32 0x06
+
+      /// @macro_def this will set the mode to 0
+      #define SPI_MODE0 0x00
+      /// @macro_def this will set the mode to 1
+      #define SPI_MODE1 0x04
+      /// @macro_def this will set the mode to 2
+      #define SPI_MODE2 0x08
+      /// @macro_def this will set the mode to 3
+      #define SPI_MODE3 0x0C
+
+      /// @macro_def the mode mask to apply correct mode
+      #define SPI_MODE_MASK 0x0C
+      /// @macro_def the clock mask to apply the correct devider
+      #define SPI_CLOCK_MASK 0x03
+      /// @macro_def the scaled clock mask to apply the correct devider
+      #define SPI_2XCLOCK_MASK 0x01
+      namespace eagle_impl {
+      /*!
+          @struct eagle_impl::SPIClass
+
+          @author Christian Maglie
+
+          @copyright 2006 GNU Lesser General Public License 2.1 as published by the Free Software Foundation
+
+          @brief [SPI] This is used to avoid path resolving issues and defines the common known Arduino SPI interface
+          \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
+
+          @note for meanings of dividers and modes etc... look here: https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+          @note this code was documented and modified by EagleoutIce in 2018 for custom use!
+      */
+        struct SPIClass {
+          /**
+           * @brief this will send a single bite via the SPI connection
+           * @param _data the byte to send
+           * @return the received byte
+           */
+          inline static byte transfer(byte _data);
+          /**
+           * @brief enables the interrupt feature
+           */
+          inline static void attachInterrupt(void);
+          /**
+           * @brief disables the interrupt feature
+           */
+          inline static void detachInterrupt(void); // Default
+          /**
+           * @brief this will setup everything for SPI connection
+           */
+          static void begin(void); // Default
+          /**
+           * @brief this will end the SPI connection
+           */
+          inline static void end(void);
+          /**
+           * @brief this will set the BitOrder
+           * @param bitOrder LSBFIRST or MSBFIRST
+           */
+          inline static void setBitOrder(uint8_t bitOrder);
+          /**
+           * @brief this will set the Data transfer mode
+           * @param mode the mode -- shouldn't be changed
+           */
+          inline static void setDataMode(uint8_t mode);
+          /**
+           * @brief this will change the clock devider the
+           * @param rate the rate the connection is running on -- shouldn't be changed
+           */
+          inline static void setClockDivider(uint8_t rate);
+        };
+      }
+      ///@cond
+      byte SPIClass::transfer(byte _data) {
+        SPDR = _data;
+        while (!(SPSR & _BV(SPIF)));
+        return SPDR;
+      }
+
+      void SPIClass::attachInterrupt() { SPCR |=  _BV(SPIE);}
+
+      void SPIClass::detachInterrupt() { SPCR &= ~_BV(SPIE);}
+
+      void SPIClass::begin() {
+        digitalWrite(SS, HIGH);
+        pinMode(SS, OUTPUT); //doesn't block common use as_ OUTPUT!
+        SPCR |= _BV(MSTR);
+        SPCR |= _BV(SPE);
+        pinMode(SCK, OUTPUT);
+        pinMode(MOSI, OUTPUT);
+      }
+
+      void SPIClass::end() {SPCR &= ~_BV(SPE);}
+
+      void SPIClass::setBitOrder(uint8_t bitOrder) {
+        if(bitOrder == LSBFIRST) SPCR |= _BV(DORD);
+        else SPCR &= ~(_BV(DORD));
+      }
+
+      void SPIClass::setDataMode(uint8_t mode) { SPCR = (SPCR & ~SPI_MODE_MASK) | mode; }
+
+      void SPIClass::setClockDivider(uint8_t rate) {
+        SPCR = (SPCR & ~SPI_CLOCK_MASK) | (rate & SPI_CLOCK_MASK);
+        SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((rate >> 2) & SPI_2XCLOCK_MASK);
+      }
+      ///@endcond
+
+      SPIClass SPI;
+
     #endif
     #if (EBOARD_I2C > 0x0) && (EBOARD_LCD > 0x0)
         #include <avr/pgmspace.h>
@@ -883,6 +1373,12 @@
     #endif
 
     /**
+     * @macro_def this will disable soccerBoard class DynamixelBoard etc!
+     */
+    #ifndef EBOARD_NANO
+      #define EBOARD_NANO 0x0
+    #endif
+    /**
      * @macro_def this is a copy and paste guard to check if the pins used are still in Bound... it was designed for digital pins and shouldnt be disabled
      */
     #ifndef EBOARD_CHECK_PINS
@@ -902,12 +1398,7 @@
     #ifndef EBOARD_CHECK_PINS_PWM
         #define EBOARD_CHECK_PINS_PWM 0x1
     #endif
-    /**
-     * @macro_def this has to be enabled to use the shield
-     */
-    #ifndef EBOARD_USE_SPI
-        #define EBOARD_USE_SPI 0x1
-    #endif
+
     /**
      * @macro_def this sets the speed of the Serial connection.... you probably don't need to change this
      */
@@ -989,7 +1480,7 @@
     #endif
 
     /**
-     * @macro_def this is the RX-Pin reserved for bluetooth communictaion
+     * @macro_def this is the RX-Pin reserved for bluetooth communication
      */
     #ifndef PIN_BLUETOOTH_RX
         #if defined(__AVR_ATmega2560__)
@@ -1000,7 +1491,7 @@
     #endif
 
     /**
-     * @macro_def this is the TX-Pin reserved for bluetooth communictaion
+     * @macro_def this is the TX-Pin reserved for bluetooth communication
      */
     #ifndef PIN_BLUETOOTH_TX
         #if defined(__AVR_ATmega2560__)
@@ -1068,7 +1559,7 @@
          #ifndef GCC_VERSION
             #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
          #endif
-
+         namespace eagle_impl {
          /*!
                @class SoftwareSerial
 
@@ -1232,7 +1723,7 @@
            ///@brief used to handle interrupts on active listening object
            static inline void handle_interrupt(void);
          };
-
+       }
          ///@cond
 
          bool SoftwareSerial::isListening(void) {
@@ -1670,7 +2161,7 @@
                  >>idx>0x1 && idx < 0xA
              This happens if an out of bounds exception
              has occured. Following pins shouldn't be used:
-             D2&D3 : Used for Bluetooth communictaion
+             D2&D3 : Used for Bluetooth communication
              D4&D5 : Used for main motor control
              D10-13: Used for smart-servo-shield
          @endverbatim
@@ -1688,7 +2179,7 @@
                 Serial.println("   has occured. Following pins shouldn't be used:");
                 Serial.print("   D");Serial.print(PIN_BLUETOOTH_RX);Serial.print("&");
                 Serial.print("D");Serial.print(PIN_BLUETOOTH_TX);
-                Serial.println(" : Used for Bluetooth communictaion");
+                Serial.println(" : Used for Bluetooth communication");
                 Serial.print("   D");Serial.print(PIN_MOTOR_DIR);Serial.print("&");
                 Serial.print("D");Serial.print(PIN_MOTOR_SPE);
                 Serial.println(" : Used for main motor control");
@@ -2006,7 +2497,8 @@
     }
     ///@endcond
 
-    #if EBOARD_USE_SPI > 0x0
+    #if EBOARD_USE_SPI > 0x0 && (EBOARD_NANO == 0x0)
+      namespace eagle_impl {
         /*!
             @struct ServoCds55
 
@@ -2116,7 +2608,8 @@
             */
             void Reset(optVAL_t ID);
             /**
-                @brief sends data. This is used internally and shouldnt be used!
+                @brief sends data.
+                @note This is used internally and shouldnt be used!
 
                 @param what the byte to send
 
@@ -2135,6 +2628,7 @@
             // @brief prevents arduino from endless recallocating memory
             byte tmp;
         };
+        }
         ///@cond
         ServoCds55::ServoCds55 (optVAL_t CS):cs(CS) {
             this->velocity_temp = 0x96;
@@ -2211,8 +2705,7 @@
         ServoCds55 _servoHandler;
     #endif
 
-    #if EBOARD_COPY_AND_PASTE > 0x0
-
+    #if EBOARD_COPY_AND_PASTE > 0x0 && EBOARD_NANO == 0
         /*!
             @struct SoccerBoard
 
@@ -2290,11 +2783,20 @@
                 inline void /*bool*/ button(int);
                 /// @brief 🔧 I prevent errors!
                 inline void waitForButton(int);
-                /// @brief 🔧 I prevent errors!
-                inline void motor(int,int8_t); //if shield_type known: change to address servos?
-                /// @brief 🔧 I prevent errors!
-                inline void motorsOff(void);       //probably NOT => DynamixelBoard
             #endif
+            /**
+             * @brief As requested this is the ultimate shortcut ;)
+             * @param id set to
+             *    - 0 it will access the main Motor (accessed with I2CInOut otherwise)
+             *    - 1 it will try to access the Servo with the lower ID
+             *    - 2 it will try to access the Servo with the higher ID
+             * @param val the value you wan't to send
+             *    - if id = 0  : val has to be from -255 to 255. Dir will be decided by >0|<0
+             *    - if id = 1|2: val has to be from 0 to 1023
+             */
+            inline void motor(uint8_t id,int16_t val);
+            /// @brief As requested this is the shortcut to disable the main motor
+            inline void motorsOff(void);
             //ARDUINO UNO PINOUT
             //D0,D1   => Bluetooth connection
             //D4,D5   => MotorControl (D5: 980Hz)
@@ -2381,9 +2883,13 @@
         #if EBOARD_USE_UTILITY > 0x0
             void SoccerBoard::button(int) {}
             void SoccerBoard::waitForButton(int) {}
-            void SoccerBoard::motor(int,int8_t) {}
-            void SoccerBoard::motorsOff(void) {}
         #endif
+
+        void SoccerBoard::motor(uint8_t id,int16_t val) {
+          if(id==0&&(val>-256 && val < 256)) {setPin(PIN_MOTOR_DIR,val<0); writePWM(abs(val));}
+          else if(id>0&&id<3&&(val>-0 && val < 1024)) {_servoHandler.write((id-1),(val *600/1023 - 300));}
+        }
+        void SoccerBoard::motorsOff(void) {writePWM(0);}
 
         void SoccerBoard::reset(void) {
             #if EBOARD_USE_RESET > 0x0
@@ -2523,7 +3029,6 @@
         ///@cond
         struct DynamixelBoard;
         ///@endcond
-
 
         /*!
             @struct AX12Servo
@@ -2778,8 +3283,9 @@
             //#endif
         }
         ///@endcond
-
+        #endif
         #if EBOARD_BLUETOOTH > 0x0
+          namespace eagle_impl {
             /*!
                 @struct RB14Scan
 
@@ -2829,13 +3335,13 @@
                 */
                 inline void write(const char* const  val);
             };
+            }
             ///@cond
             inline RB14Scan::RB14Scan(void) {}
             inline int RB14Scan::raw(optVAL_t) {return isConnected();}
             inline char RB14Scan::channel(optVAL_t) {return ((isConnected())?(readVal()):(-1));}
             inline void RB14Scan::write(const char* const val) {writeVal(val);}
             ///@endcond
-        #endif
 
         /**
             @page page2 The source code
@@ -3371,13 +3877,19 @@
 
             */
             struct LCD {
+                #if EBOARD_NANO == 0
                 /*!
                     @brief The constructor
 
                     @param soccerBoard the connected SoccerBoard object
                     @param id          the ID of the LCD display. Can be identified via pingI2C()
+
+                    @note if #EBOARD_NANO is set to 0x1 this will only take one argument [the id]
                  */
                 LCD(SoccerBoard &soccerBoard, optVAL_t id=0x3C);
+                #else
+                LCD(optVAL_t id=0x3C);
+                #endif
                 /**
                     @brief changes the address of the LCD display talked to
 
@@ -3568,11 +4080,19 @@
 
             };
             ///@cond
+            #if EBOARD_NANO == 0x0
             LCD::LCD(SoccerBoard &soccerBoard, optVAL_t id) {
                 this->_cI = false;
                 this->ID = id;
                 //this->init();
             }
+            #else
+            LCD::LCD( optVAL_t id) {
+                this->_cI = false;
+                this->ID = id;
+                //this->init();
+            }
+            #endif
             inline bool LCD::changeID(optVAL_t newID) {
                 this->ID = newID;
                 return this->init();
@@ -3777,50 +4297,197 @@
         #define EBOARD_NEO_400KHZ 0x0100
 
         // uint16_t can be uint8_t in 800Khz mode ^^
+        /*!
+            @struct NeoPixel
+
+            @author Adafruit
+
+            @brief [NEO] this allows you to access Adafruit LED-stripes
+
+            @note this code was documented and modified by EagleoutIce in 2018 for custom use!
+
+            @pre to use this class:
+            @code
+            #define EBOARD_NEO 0x1
+            @endcode
+
+            [NEO] You can use this class like this:
+            @code
+            #define EBOARD_NEO 0x1
+            #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            NeoPixel nPixel = NeoPixel(5);
+            int main() {
+                nPixel.setPixelColor(3,NeoPixel::Color(0,255,0));
+                nPixel.show();
+            }
+            @endcode
+
+
+        */
         struct NeoPixel{
           /**
-            @todo update this! exchange portd check etc to oneline to make replica obsolete
-          */
-          NeoPixel(uint16_t n, uint8_t p=6, uint16_t t =  EBOARD_NEO_GRB + EBOARD_NEO_800KHZ);
+           * @brief this is the default constructor that should be used whenever the amount of leds etc... connected is known at compile time (most cases)
+           *
+           * @param n the amount of LEDs connected to the pin
+           * @param p the (data) pin connected to the arduino
+           * @param t the type of com the NeoPixel should be talked to
+           */
+          NeoPixel(uint16_t n, uint8_t p = 6, uint16_t t =  EBOARD_NEO_RGB + EBOARD_NEO_800KHZ);
            ///@todo remove TOTAL OF NRF52 FLOWER ETC CONFIG
+          /**
+           * @brief the empty constructor
+           * @note this has to be called manually then:
+           *  - NeoPixel::updateType()
+           *  - NeoPixel::updateLength()
+           *  - NeoPixel::setPin()
+           */
           NeoPixel(void);
+          /// @brief the destructor [calling free on pixel and freeing input pin]
           ~NeoPixel(void);
-
+          /**
+           * @brief this has to be called to start the communcation (you should call NeoPixel::setPin() before)
+           */
           void begin(void);
+          /**
+           * @brief this will reveal the setPixels [via NeoPixel::setPixelColor() etc...]
+           */
           void show(void);
+          /**
+           * @brief sets pin for communication
+           * @param p the (data) pin connected to the arduino
+           */
           void setPin(uint8_t p);
+          /**
+           * @brief sets the rgb color of a specific pixel
+           * @param n the index of the pixel (starting at 0)
+           * @param r the red color [can be different dependent on NeoPixel::updateType()]
+           * @param g the green color [can be different dependent on NeoPixel::updateType()]
+           * @param b the blue color [can be different dependent on NeoPixel::updateType()]
+           */
           void setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b);
+          /**
+           * @brief sets the rgbw color of a specific pixel
+           * @param n the index of the pixel (starting at 0)
+           * @param r the red color [can be different dependent on NeoPixel::updateType()]
+           * @param g the green color [can be different dependent on NeoPixel::updateType()]
+           * @param b the blue color [can be different dependent on NeoPixel::updateType()]
+           * @param w the 'white' color [can be different dependent on NeoPixel::updateType()]
+           */
           void setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+          /**
+           * @brief sets the rgbw color of a specific pixel
+           * @param n the index of the pixel (starting at 0)
+           * @param c the NeoPixel::Color() you want
+           */
           void setPixelColor(uint16_t n, uint32_t c);
+          /**
+           * @brief changes the brightness for all further acceses via NeoPixel::setPixelColor()
+           * @val the brightness-value
+           */
           void setBrightness(uint8_t val);
+          /**
+           * @brief this will reset all set pixels [won't call NeoPixel::show()]
+           */
           void clear(void);
+          /**
+           * @brief this changes the length of the connected LED stripe
+           * @param n the new length
+           */
           void updateLength(uint16_t n);
+          /**
+           * @brief this changes the type of communication between arduino and LED stripe
+           * @param t the new type [constant starting with EBOARD_NEO]
+           */
           void updateType(uint16_t t);
-          uint8_t *getPixels(void) const;
-          uint8_t getBrightness(void) const;
+          /**
+           * @brief this will give you access to the pixels
+           * @returns the pixels 'set'
+           */
+          inline uint8_t *getPixels(void) const;
+          /**
+           * @brief returns the current set brightness
+           * @returns the brightness set via NeoPixel::setBrightness()
+           */
+          inline uint8_t getBrightness(void) const;
+          /**
+           * @brief acces to the sine-8-bit table ;D
+           * @param x the x-value in sin(x)
+           * @returns the corresponding y-value
+           */
           uint8_t sine8(uint8_t x) const;
+          /**
+           * @brief acces to the gamma-correction-8-bit table ;D
+           * @param x the correction index
+           * @returns the corresponding gamma correction
+           */
           uint8_t gamma8(uint8_t x) const;
+          /**
+           * @brief this will return the set data pin
+           * @returns the dataPin set via NeoPixel::setPin()
+           */
           inline int8_t getPin(void);
-          uint16_t numPixels(void) const;
+          /**
+           * @brief returns the size of the LED stripe
+           * @returns the size set via NeoPixel::updateLength()
+           */
+          inline uint16_t numPixels(void) const;
+          /**
+           * @brief returns a color value that can be used with NeoPixel::setPixelColor()
+           * @param r the red color [can be different dependent on NeoPixel::updateType()]
+           * @param g the green color [can be different dependent on NeoPixel::updateType()]
+           * @param b the blue color [can be different dependent on NeoPixel::updateType()]
+           */
           static inline uint32_t Color(uint8_t r, uint8_t g, uint8_t b);
+          /**
+           * @brief returns a color value that can be used with NeoPixel::setPixelColor()
+           * @param r the red color [can be different dependent on NeoPixel::updateType()]
+           * @param g the green color [can be different dependent on NeoPixel::updateType()]
+           * @param b the blue color [can be different dependent on NeoPixel::updateType()]
+           * @param w the 'white' color [can be different dependent on NeoPixel::updateType()]
+           */
           static inline uint32_t Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+          /**
+           * @brief returns the color of a specific pixel
+           * @returns the color value
+           */
           uint32_t getPixelColor(uint16_t n) const;
+          /**
+           * @brief this will determine if the next show is available [last show finished]
+           * @returns true if it is possible
+           */
           inline bool canShow(void);
         protected:
+          /// @brief determines the speed the communcation is working on
           bool is800kHz;
+          /// @brief true if NeoPixel::begin has been called
           bool begun;
+          /// @brief stores the amount of LEDs
           uint16_t numLEDs; //maybe shorten with PrepConst 'extendetLED'?
+          /// @brief stores the byte size [pixels] used internally
           uint16_t numBytes;
+          /**
+           * @brief stores the pin
+           *  -1 if the pin wasn't set
+           */
           int8_t pin;
+          /// @brief stores the brightness
           uint8_t brightness;
+          /// @brief stores the pixels
           uint8_t *pixels;
+          /// @brief stores the red color offset
           uint8_t rOffset;
+          /// @brief stores the green color offset
           uint8_t gOffset;
+          /// @brief stores the blue color offset
           uint8_t bOffset;
+          /// @brief stores the white color offset
           uint8_t wOffset;
+          /// @brief stores the last call time of show for NeoPixel::canShow()
           uint32_t endTime; //used for diff calc
           #ifdef __AVR__ //not needed (rem?)
+            /// @brief the used port register
             volatile uint8_t *port;// Output PORT register
+            /// @brief the used pinMask
             uint8_t pinMask;       // Output PORT bitmask
           #endif
 
@@ -5730,7 +6397,7 @@
      *
      */
 
-    /*
+    /**
         @addtogroup i2cEx
         @brief This tutorial shows you how to deal with the I²C extension!
 
@@ -5971,7 +6638,7 @@
                 pinMode(PIN_SHIFT_LAT,OUTPUT);
                 shiftAll(); //set all to 0
             #endif
-            #if EBOARD_USE_SPI > 0x0
+            #if EBOARD_USE_SPI > 0x0 && (EBOARD_NANO == 0)
                 _servoHandler.begin(); //Setup SPI
             #endif
 
@@ -5981,6 +6648,7 @@
             #else
                 eVirtual_main();
             #endif
+            if (STOP) {} //prevent unused error
             delay(200);
             cli(); //disable timers after running the program :D
             writePWM(0);analogWrite(PIN_MOTOR_SPE,0);

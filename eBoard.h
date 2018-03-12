@@ -375,6 +375,10 @@
 
       - Documentation for all implemented features
 
+      <b>Changed</b>
+
+        - floatint point support for #EBOARD_PWM_SPE
+
       <b>Fixes</b>
 
       - Path problems => all libs are hardcoded into this doc

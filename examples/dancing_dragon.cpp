@@ -763,7 +763,7 @@ LCD lcd(board);
 
   @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 
-  Compiled Size for ARUDINO UNO:  17,664 bytes => 3.0: 16,390 bytes
+  Compiled Size for ARUDINO UNO:  17,664 bytes => 3.0: 16,390 bytes \n
   Compiled Size for ARUDINO MEGA: 19,240 bytes => 3.0: 17,096 bytes
 */
 int main(void)

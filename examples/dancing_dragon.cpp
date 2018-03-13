@@ -9,7 +9,7 @@
 ///@brief for smooth animations (:
 /// It would be possible to disable so many things like #EBOARD_DEBUG_MODE but this is an example!
 #define HIGHSPEED
-#include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+#include "/eagleoutice/projects/github/eBoard/docs/eBoard.h"
 
 /// @brief first frame of the animation
 PROGMEM const unsigned char bit_one [] = {
@@ -763,8 +763,8 @@ LCD lcd(board);
 
   @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 
-  Compiled Size for ARUDINO UNO:  17,664 bytes
-  Compiled Size for ARUDINO MEGA: 19,240 bytes
+  Compiled Size for ARUDINO UNO:  17,664 bytes => 3.0: 16,390 bytes
+  Compiled Size for ARUDINO MEGA: 19,240 bytes => 3.0: 17,096 bytes
 */
 int main(void)
 {

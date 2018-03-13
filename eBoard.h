@@ -377,8 +377,9 @@
 
       <b>Changed</b>
 
-        - floatint point support for #EBOARD_PWM_SPE
-
+        - floating point support for #EBOARD_PWM_SPE
+        - cleaned code
+        
       <b>Fixes</b>
 
       - Path problems => all libs are hardcoded into this doc

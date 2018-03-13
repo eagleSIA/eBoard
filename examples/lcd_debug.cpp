@@ -5,7 +5,7 @@
 #define EBOARD_I2C 0x1
 ///@brief we want to use the LCD
 #define EBOARD_LCD 0x1
-#include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+#include "/eagleoutice/projects/github/eBoard/eBoard.h"
 /// @brief the board object
 SoccerBoard board;
 /// @brief the lcd object
@@ -21,8 +21,8 @@ AX12Servo rechts(dBoard,2);
 /**
   @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 
-  Compiled Size for ARUDINO UNO:   8,526 bytes
-  Compiled Size for ARUDINO MEGA: 10,058 bytes
+  Compiled Size for ARUDINO UNO:   8,526 bytes => 3.0: 7,278 bytes
+  Compiled Size for ARUDINO MEGA: 10,058 bytes => 3.0: 8,242 bytes
 */
 int main()
 {

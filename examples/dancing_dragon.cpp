@@ -1,10 +1,11 @@
 ///@file dancing_dragon.cpp
-#include <Wire.h>
+///@brief a dancing dragon :D
+
+
 ///@brief we need the I2C functionality
 #define EBOARD_I2C 0x1
 ///@brief we want to use the LCD
 #define EBOARD_LCD 0x1
-#include <SPI.h>
 ///@brief for smooth animations (:
 /// It would be possible to disable so many things like #EBOARD_DEBUG_MODE but this is an example!
 #define HIGHSPEED

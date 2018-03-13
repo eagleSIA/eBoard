@@ -1,12 +1,10 @@
 ///@file lcd_debug.cpp
+///@brief a lcd debug example
 
-
-#include <Wire.h>
 ///@brief we need the I2C functionality
 #define EBOARD_I2C 0x1
 ///@brief we want to use the LCD
 #define EBOARD_LCD 0x1
-#include <SPI.h>
 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 /// @brief the board object
 SoccerBoard board;

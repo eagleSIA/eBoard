@@ -8,7 +8,7 @@ var eBoard_8h =
     [ "I2CInOut", "structI2CInOut.html", "structI2CInOut" ],
     [ "AX12Servo", "structAX12Servo.html", "structAX12Servo" ],
     [ "DynamixelBoard", "structDynamixelBoard.html", "structDynamixelBoard" ],
-    [ "RB14Scan", "structeagle__impl_1_1RB14Scan.html", "structeagle__impl_1_1RB14Scan" ],
+    [ "RB14Scan", "structRB14Scan.html", "structRB14Scan" ],
     [ "LCD", "structLCD.html", "structLCD" ],
     [ "NeoPixel", "structNeoPixel.html", "structNeoPixel" ],
     [ "__ASSERT_USE_STDERR", "eBoard_8h.html#a412557130ca57a31095a506f4535b5fe", null ],

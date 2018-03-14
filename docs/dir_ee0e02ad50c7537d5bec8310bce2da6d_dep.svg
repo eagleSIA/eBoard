@@ -29,7 +29,7 @@
 <!-- dir_a649ef2b32734643e9d4dccdf0fdf041 -->
 <g id="node2" class="node"><title>dir_a649ef2b32734643e9d4dccdf0fdf041</title>
 <g id="a_node2"><a xlink:href="dir_a649ef2b32734643e9d4dccdf0fdf041.html" target="_top" xlink:title="examples">
-<polygon fill="white" stroke="black" points="83.5,-60 24.5,-60 24.5,-24 83.5,-24 83.5,-60"/>
+<polygon fill="white" stroke="red" points="83.5,-60 24.5,-60 24.5,-24 83.5,-24 83.5,-60"/>
 <text text-anchor="middle" x="54" y="-39.5" font-family="Helvetica,sans-Serif" font-size="10.00">examples</text>
 </a>
 </g>

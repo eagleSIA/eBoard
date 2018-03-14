@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('group__blueEx.html','');});
 <p>This tutorial shows you how to deal with the Bluetooth extension!  
 <a href="#details">More...</a></p>
 <p class="">This tutorial shows you how to deal with the Bluetooth extension! </p>
-<dl class="section note"><dt>Note</dt><dd>To use this on UNO: <div class="fragment"><div class="line"><span class="comment">//#include &lt;SoftwareSerial.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
+<dl class="section note"><dt>Note</dt><dd>To use this on UNO: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
  If you don't reconfigure the TX and RX on MEGA: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --> <br />
 </dd>
 <dd>
@@ -135,9 +135,9 @@ How to use Bluetooth-Communication:</h1>
 <h2><a class="anchor" id="suBL1"></a>
 RB14Scan</h2>
 <p class="">You are able to:</p><ul>
-<li>Get received values via RB14Scan::channel()</li>
-<li>Get connection status via RB14Scan::raw()</li>
-<li>Send values via RB14Scan::write() </li>
+<li>Get received values via <a class="el" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258" title="will return the next char received by the module. A 64 byte Serial buffer is included! ...">RB14Scan::channel()</a></li>
+<li>Get connection status via <a class="el" href="structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce" title="this will check for connection status [will return true if pin not connected] ">RB14Scan::raw()</a></li>
+<li>Send values via <a class="el" href="structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc" title="this will write a constant string to the output ">RB14Scan::write()</a> </li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

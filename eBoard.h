@@ -20,17 +20,18 @@
 
 
  @pre This Header file was created to port Codes running on the qfix SoccerBoard [DynamixelBoard etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield].
- \n To use it you'll have to replace all qfix-related header-files [*.h] with the following:
- @code
- //#include <SPI.h>
- #include "/path/to/eBoard.h" //replace this :D
- @endcode
+     \n To use it you'll have to replace all qfix-related header-files [*.h] with the following:
+     \n It is possible to add this header as library aswell: ArduinoIDE>Sketch>Include Library>Add .ZIP Library...
+     @code
+     //manual
+     #include "/path/to/eBoard.h" //replace this :D
+     //added as library
+     #include <eBoard.h>
+     @endcode
 
  If you wan't to use the I2C extensions you should have this two lines the beginning of your code:
  @code
  #define EBOARD_I2C 0x1
-
- //#include <WIRE.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
  @endcode
 
  While in development you shouldn't disable any macro...
@@ -64,7 +65,7 @@
  - #EBOARD_LCD               : 0x1: enable support for LCD display. Needs #EBOARD_I2C set to 0x1
  - #EBOARD_NEO               : 0x1: enable support for Adafruit-NeoPixel-Devices
  \n\n<b> HUGE UPDATE: </b>
- - #EBOARD_GUESSPATH         : 0x0: disable automatic path_guess
+ - #EBOARD_GUESSPATH         : 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]
 
  <b>Pins</b>
  - #PIN_BLUETOOTH_RX         : pinID(2|19) of RX-Pin   -- why? [@ref su3]
@@ -102,6 +103,7 @@
 
  @section s3 Tutorials
 
+ - @ref genExpl
  - @ref i2cEx
  - @ref shiftEx
  - @ref blueEx
@@ -109,7 +111,11 @@
  - @ref portTu
 */
 /**
- @page page1 About
+ * @defgroup genExpl [ 🐼 ] GENERAL INTRODUCTION
+ *
+ */
+/**
+ @page about_page About
  @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
@@ -118,7 +124,7 @@
 
  @section m1 Motivation
  This header was created to port SoccerBoard-Code to the Arduino UNO R3 [or MEGA R3]\n
- It was written in a funny amount of time (@ref p5) and documented by Doxygen 1.8.15. \n
+ It was written in a funny amount of time (@ref changelog_page) and documented by Doxygen 1.8.15. \n
 
 
  @section m2 General Information
@@ -144,12 +150,9 @@
 
     @note Development Build:
     @code
-    //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_I2C 0x1
     #define EBOARD_SHIFT_REGISTER 0x1
-    //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_BLUETOOTH 0x1
-    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     //[VER 2.0c]
     #define REPT_TASK
     void rept_task (void) {}
@@ -165,9 +168,7 @@
     #define EBOARD_CHECK_PINS 0x0
     #define EBOARD_CHECK_PINS_PWM 0x0
     #define EBOARD_SHIFT_REGISTER 0x1
-    //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_BLUETOOTH 0x1
-    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     //[VER 2.0c]
     #define EBOARD_LCD 0x1
     @endcode
@@ -194,10 +195,8 @@
 
     @note Used Code:
     @code
-    //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #define EBOARD_I2C 0x1
     #define EBOARD_LCD 0x1
-    //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
     #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
     SoccerBoard board;
     LCD lcd(board);
@@ -221,7 +220,7 @@
 
 */
 /**
-  @page p5 Changelog
+  @page changelog_page Changelog
   @brief A short overview about the developing process
   @section ver1 Version 1 - Ollivander 🐁
 
@@ -353,6 +352,7 @@
     #include <WIRE.h>
     @endcode
     eBoard will search and or implement the needed functions itself (controlled with #EBOARD_GUESSPATH)
+    \n this behaviour was implemented to shrink programsize and keep functionalities like Wire available to the user
 
     <b>Added</b>
       - support for the NANO
@@ -374,6 +374,7 @@
       <b>Added</b>
 
       - Documentation for all implemented features
+      - This code is now a vaild ArduinoIDE library
 
       <b>Changed</b>
 
@@ -383,6 +384,7 @@
       <b>Fixes</b>
 
       - Path problems => all libs are hardcoded into this doc
+      - Removed RB14Scan from eagle_impl
 
 */
 //i am a guard... leave me alone :D
@@ -1548,13 +1550,6 @@
 
     #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
       #if EBOARD_GUESSPATH > 0x0
-        //#ifdef __linux__
-        // #include "/usr/share/arduino/libraries/SoftwareSerial/SoftwareSerial.h"
-        //#else
-        //  #include "C:\Program Files (x86)\Arduino\libraries\SoftwareSerial\SoftwareSerial.h"
-        //#endif
-         //#include "/usr/share/arduino/libraries/SoftwareSerial/SoftwareSerial.cpp"
-
          //again to resolve including errors we'll include the SoftwareSerial cpp file
 
          #define _SS_MAX_RX_BUFF 64 // RX buffer size
@@ -1607,7 +1602,7 @@
 
            ///@brief determining if an _buffer_overflow occured
            uint16_t _buffer_overflow:1;
-           ///@brief determining if all pin reads etc whould be invered (e.g. no pullup on rx);
+           ///@brief determining if all pin reads etc whould be inverted (e.g. no pullup on rx);
            uint16_t _inverse_logic:1;
            ///@brief the buffer for rxBuffer
            static char _receive_buffer[_SS_MAX_RX_BUFF];
@@ -2436,7 +2431,7 @@
         @brief write a boolean state to an output pin
 
         @note this will automatically call setPin if COPY&PASTE
-        @note if SHIFT_REGISTER is enabled all you can assign the outputs 0-based from 100
+        @note if SHIFT_REGISTER is enabled you can assign the additional outputs 0-based from 100
 
         @param idx  the index of the pin to use
         @param val  the state the pin should have
@@ -2719,7 +2714,6 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             bool toggle = true;
             SoccerBoard board;
@@ -2970,9 +2964,7 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #define EBOARD_I2C 0x1
-            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             //nothing in this brackets will have any effect :D
@@ -3041,7 +3033,6 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
@@ -3213,7 +3204,6 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
@@ -3287,7 +3277,6 @@
         ///@endcond
         #endif
         #if EBOARD_BLUETOOTH > 0x0
-          namespace eagle_impl {
             /*!
                 @struct RB14Scan
 
@@ -3297,7 +3286,6 @@
 
                 @pre to use this class on UNO:
                 @code
-                //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_BLUETOOTH   0x1
                 @endcode
                 \n \n  If you don't reconfigure the TX and RX on MEGA:
@@ -3307,9 +3295,7 @@
 
                 [COPY&PASTE] [BLUETOOTH] You can use this class like this on UNO:
                 @code
-                //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_BLUETOOTH   0x1
-                //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
                 RB14Scan remote;
@@ -3337,7 +3323,7 @@
                 */
                 inline void write(const char* const  val);
             };
-            }
+
             ///@cond
             inline RB14Scan::RB14Scan(void) {}
             inline int RB14Scan::raw(optVAL_t) {return isConnected();}
@@ -3346,7 +3332,7 @@
             ///@endcond
 
         /**
-            @page page2 The source code
+            @page source_page The source code
 
             @brief Welcome to the matrix (:
 
@@ -3851,17 +3837,14 @@
 
                 @pre to use this class:
                 @code
-                //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D
                 #define EBOARD_LCD 0x1
                 @endcode
 
                 [I2C] [LCD] You can use this class like this:
                 @code
-                //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #define EBOARD_I2C 0x1
                 #define EBOARD_LCD 0x1
-                //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
                 SoccerBoard board;
                 LCD lcd(board);
@@ -4335,7 +4318,6 @@
            * @param t the type of com the NeoPixel should be talked to
            */
           NeoPixel(uint16_t n, uint8_t p = 6, uint16_t t =  EBOARD_NEO_RGB + EBOARD_NEO_800KHZ);
-           ///@todo remove TOTAL OF NRF52 FLOWER ETC CONFIG
           /**
            * @brief the empty constructor
            * @note this has to be called manually then:
@@ -4508,9 +4490,7 @@
         inline bool NeoPixel::canShow(void) { return (micros() - endTime) >= 300L; }
 
         NeoPixel::NeoPixel() :
-        #ifdef NEO_KHZ400
           is800KHz(true),
-        #endif
           begun(false), numLEDs(0), numBytes(0), pin(-1), brightness(0), pixels(NULL),
           rOffset(1), gOffset(0), bOffset(2), wOffset(1), endTime(0)
         {}
@@ -4547,9 +4527,7 @@
           rOffset = (t >> 4) & 0b11;
           gOffset = (t >> 2) & 0b11;
           bOffset =  t       & 0b11;
-        #ifdef NEO_KHZ400
           is800KHz = (t < 256);      // 400 KHz flag is 1<<8
-        #endif
 
           if(pixels) {
             boolean newThreeBytesPerPixel = (wOffset == rOffset);
@@ -4582,10 +4560,7 @@
 
         #if (F_CPU >= 7400000UL) && (F_CPU <= 9500000UL)
 
-        #ifdef NEO_KHZ400
           if(is800KHz) {
-        #endif
-
             volatile uint8_t n1, n2 = 0;
 
         #if defined(PORTD)
@@ -4944,8 +4919,6 @@
             }
          #endif // defined(PORTD/B/C)
         #endif // defined(PORTF)
-
-        #ifdef NEO_KHZ400
           } else {
 
             volatile uint8_t next, bit;
@@ -4986,14 +4959,8 @@
                 [lo]    "r" (lo),
                 [ptr]   "e" (ptr));
           }
-        #endif
-
         #elif (F_CPU >= 11100000UL) && (F_CPU <= 14300000UL)
-
-        #ifdef NEO_KHZ400
           if(is800KHz) {
-        #endif
-
             volatile uint8_t next;
 
             // PORTD OUTPUT ----------------------------------------------------
@@ -5235,8 +5202,6 @@
             }
          #endif
         #endif
-
-        #ifdef NEO_KHZ400
           } else {
             volatile uint8_t next, bit;
 
@@ -5280,13 +5245,8 @@
                 [lo]     "r" (lo),
                 [ptr]    "e" (ptr));
           }
-        #endif
         #elif (F_CPU >= 15400000UL) && (F_CPU <= 19000000L)
-
-        #ifdef NEO_KHZ400
           if(is800KHz) {
-        #endif
-
             volatile uint8_t next, bit;
 
             hi   = *port |  pinMask;
@@ -5325,8 +5285,6 @@
               : [ptr]    "e" (ptr),
                 [hi]     "r" (hi),
                 [lo]     "r" (lo));
-
-        #ifdef NEO_KHZ400
           } else {
 
             volatile uint8_t next, bit;
@@ -5379,7 +5337,6 @@
                 [hi]     "r" (hi),
                 [lo]     "r" (lo));
           }
-        #endif
         #else
          #error "CPU SPEED NOT SUPPORTED"
         #endif
@@ -5403,9 +5360,7 @@
           ARM_DEMCR    |= ARM_DEMCR_TRCENA;
           ARM_DWT_CTRL |= ARM_DWT_CTRL_CYCCNTENA;
 
-        #ifdef NEO_KHZ400
           if(is800KHz) {
-        #endif
             cyc = ARM_DWT_CYCCNT + CYCLES_800;
             while(p < end) {
               pix = *p++;
@@ -5422,7 +5377,6 @@
               }
             }
             while(ARM_DWT_CYCCNT - cyc < CYCLES_800);
-        #ifdef NEO_KHZ400
           } else {
             cyc = ARM_DWT_CYCCNT + CYCLES_400;
             while(p < end) {
@@ -5441,8 +5395,6 @@
             }
             while(ARM_DWT_CYCCNT - cyc < CYCLES_400);
           }
-        #endif
-
         #else
           #error "Sorry, only 48 MHz is supported, please set Tools > CPU Speed to 48 MHz"
         #endif
@@ -5767,7 +5719,6 @@
 
         @note To use this:
         @code
-        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
         @endcode
         If you use the ARDUINO MEGA the I2C pins are not A4 (SDA) and A5 (SDL). They are seperate (20-SDA;21-SDL)!
@@ -5778,9 +5729,7 @@
         @section example Example
         An Example of how to scan for I2C addresses:
         @code
-        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
-        //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
         int main() {
@@ -5810,7 +5759,6 @@
 
         @note To use this on UNO:
         @code
-        //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_BLUETOOTH 0x1
         @endcode
         \n  If you don't reconfigure the TX and RX on MEGA:
@@ -5861,7 +5809,6 @@
         This is an example-program:
         @code
         #define EBOARD_SHIFT_REGISTER 0x1
-        //#include <SPI.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
 
         SoccerBoard board;
@@ -5891,7 +5838,6 @@
         @note This is related to @ref i2cEx
         @note To use this:
         @code
-        //#include <Wire.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
         #define EBOARD_I2C 0x1
         #define EBOARD_LCD 0x1
         @endcode
@@ -5913,6 +5859,48 @@
     */
 
     /**
+        @addtogroup genExpl
+        @brief This tutorial is a brief introduction on how to use this headerfile
+
+        @section gen General
+
+        @subsection genH1 Hardware
+
+        This header is compatible with:
+            - Arduino UNO
+            - Arduino NANO (with ATmega328P)
+            - Arduino MEGA (with ATmega2560)
+
+        Several functionalities like AX12Servo need special hardware:
+        - AX12Servo and DynamixelBoard work with the Smart Servo Shield
+        - RB14Scan works with the HC-05 Bluetooth module
+        - LCD works with the OLED 128x64 Display
+        - I2CInOut works with any PWM driven motor (ctrl)
+        - NeoPixel works with the Adafruit LED-stripes \n
+
+          @image html hardware.png
+
+        @subsection genH2 Software
+
+        This headerfile was created to enable the port of qfixSoccerBoard code to the Arduino platform.
+        Therefore there are a few changes when coding for the arduino:
+          - there is no setup() and loop() inside your ino file! \n
+            you have to use int main() which is called inside of the arduino 'setup'
+          - you don't have to do include Wire SPI and SoftwareSerial(Uno) manually! \n
+            They are coded into the header
+
+        This is an example code (doing nothing but compile :D)
+        @code
+        #include "/eagleoutice/projects/github/eBoard/docs/eBoard.h"
+        SoccerBoard board;
+        int main() {
+          //cool stuff in here ;D
+          return 0;
+        }
+        @endcode
+    */
+
+    /**
      * @defgroup portTu [ 🐼 ] UNO2MEGA
      *
      */
@@ -5926,10 +5914,6 @@
         @section sprt1 Software
 
         If you haven't changed any Pin-configuration there is no need to change anything with the code! :D
-        \n If you use #EBOARD_BLUETOOTH (RB14Scan) this line is obsolete:
-        @code
-        //#include <SoftwareSerial.h> //With EBOARD_GUESSPATH this is NOT needed anymore :D
-        @endcode
 
         Consider this:
         - use D22-D53 [D49] before using the additional pins [D100...]

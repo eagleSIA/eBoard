@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('group__lcdEx.html','');});
 <p class="">This tutorial shows you how to deal with the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> extension! </p>
 <dl class="section note"><dt>Note</dt><dd>This is related to <a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a> </dd>
 <dd>
-To use this: <div class="fragment"><div class="line"><span class="comment">//#include &lt;Wire.h&gt; //With EBOARD_GUESSPATH this is NOT needed anymore :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
+To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
 <p>The OLED 128x64 Monochrome Display is connected via I²C (operating: 5V): </p><pre class="fragment">Arduino UNO|MEGA       OLED
 SDA     (A4|20)    =&gt;  SDA
 SCL     (A5|21)    =&gt;  SCL

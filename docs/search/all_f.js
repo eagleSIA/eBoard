@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['raw',['raw',['../structeagle__impl_1_1RB14Scan.html#a96c29a3fc768a0853dc9ef40bffe82d2',1,'eagle_impl::RB14Scan']]],
-  ['rb14scan',['RB14Scan',['../structeagle__impl_1_1RB14Scan.html',1,'eagle_impl::RB14Scan'],['../structeagle__impl_1_1RB14Scan.html#add3bf051612336ebff0ad65248ff3b8d',1,'eagle_impl::RB14Scan::RB14Scan()']]],
+  ['raw',['raw',['../structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce',1,'RB14Scan']]],
+  ['rb14scan',['RB14Scan',['../structRB14Scan.html',1,'RB14Scan'],['../structRB14Scan.html#a0d14437180746170471cf0ec5ea6c547',1,'RB14Scan::RB14Scan()']]],
   ['read',['read',['../classeagle__impl_1_1TwoWire.html#a8feedf67230722a4da565b7bb771ba4d',1,'eagle_impl::TwoWire::read()'],['../classeagle__impl_1_1SoftwareSerial.html#a127407d6d2e03e5d85a2126c678b6347',1,'eagle_impl::SoftwareSerial::read()'],['../structI2CInOut.html#a5446f02a6b5cb6a2e47dc3af03d4a692',1,'I2CInOut::read()']]],
   ['readi2c',['readI2C',['../eBoard_8h.html#a9410e48b56af483fa869e4b9375f094c',1,'eBoard.h']]],
   ['readpin',['readPin',['../eBoard_8h.html#aca4f96af7c6736bf2b61c88d731af741',1,'eBoard.h']]],

@@ -6,5 +6,6 @@ var annotated_dup =
     [ "I2CInOut", "structI2CInOut.html", "structI2CInOut" ],
     [ "LCD", "structLCD.html", "structLCD" ],
     [ "NeoPixel", "structNeoPixel.html", "structNeoPixel" ],
+    [ "RB14Scan", "structRB14Scan.html", "structRB14Scan" ],
     [ "SoccerBoard", "structSoccerBoard.html", "structSoccerBoard" ]
 ];

@@ -32,9 +32,9 @@ var NAVTREE =
       ] ],
       [ "Tutorials", "index.html#s3", null ]
     ] ],
-    [ "About", "page1.html", [
-      [ "Motivation", "page1.html#m1", null ],
-      [ "General Information", "page1.html#m2", null ]
+    [ "About", "about_page.html", [
+      [ "Motivation", "about_page.html#m1", null ],
+      [ "General Information", "about_page.html#m2", null ]
     ] ],
     [ "Statistics", "stats.html", [
       [ "1 Occupied Space", "stats.html#ss1", [
@@ -42,24 +42,24 @@ var NAVTREE =
         [ "1.2 Output to an OLED-Display", "stats.html#ssu2", null ]
       ] ]
     ] ],
-    [ "Changelog", "p5.html", [
-      [ "Version 1 - Ollivander 🐁", "p5.html#ver1", [
-        [ "Version 1.0e 🐪 - I ate the alpha-cookie :D [~130m]", "p5.html#su1", null ],
-        [ "Version 1.1b 🐓 - Hello Slave [~70m]", "p5.html#su2", null ],
-        [ "Version 1.2e 🐧 - On your command, master [~100m]", "p5.html#su3", null ],
-        [ "Version 1.3g 🐊 - Make this safe! [~30m]", "p5.html#su4", null ]
+    [ "Changelog", "changelog_page.html", [
+      [ "Version 1 - Ollivander 🐁", "changelog_page.html#ver1", [
+        [ "Version 1.0e 🐪 - I ate the alpha-cookie :D [~130m]", "changelog_page.html#su1", null ],
+        [ "Version 1.1b 🐓 - Hello Slave [~70m]", "changelog_page.html#su2", null ],
+        [ "Version 1.2e 🐧 - On your command, master [~100m]", "changelog_page.html#su3", null ],
+        [ "Version 1.3g 🐊 - Make this safe! [~30m]", "changelog_page.html#su4", null ]
       ] ],
-      [ "Version 2 - Scofield 🐩", "p5.html#ver2", [
-        [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "p5.html#su5", null ],
-        [ "Version 2.1d 🐺 - #Oversize [~60m]", "p5.html#su6", null ],
-        [ "Version 2.2b 🐏 - Optimize it [52m]", "p5.html#su7", null ],
-        [ "Version 2.3h 🐦 - Addition to the family [120m]", "p5.html#su8", null ]
+      [ "Version 2 - Scofield 🐩", "changelog_page.html#ver2", [
+        [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "changelog_page.html#su5", null ],
+        [ "Version 2.1d 🐺 - #Oversize [~60m]", "changelog_page.html#su6", null ],
+        [ "Version 2.2b 🐏 - Optimize it [52m]", "changelog_page.html#su7", null ],
+        [ "Version 2.3h 🐦 - Addition to the family [120m]", "changelog_page.html#su8", null ]
       ] ],
-      [ "Version 3 - Morpheus 🐉", "p5.html#ver3", [
-        [ "Version 3.0c 🐝 - Final touch", "p5.html#su10", null ]
+      [ "Version 3 - Morpheus 🐉", "changelog_page.html#ver3", [
+        [ "Version 3.0c 🐝 - Final touch", "changelog_page.html#su10", null ]
       ] ]
     ] ],
-    [ "The source code", "page2.html", null ],
+    [ "The source code", "source_page.html", null ],
     [ "Macros and Constants", "macro.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
@@ -92,8 +92,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"eBoard_8h_source.html"
+"about_page.html",
+"eBoard_8h.html#ae3f472fe453a9ca5165e4d550b459700"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

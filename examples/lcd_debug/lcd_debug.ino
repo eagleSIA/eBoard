@@ -21,8 +21,8 @@ AX12Servo rechts(dBoard,2);
 /**
   @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 
-  Compiled Size for ARUDINO UNO:   8,526 bytes => 3.0: 7,278 bytes \n
-  Compiled Size for ARUDINO MEGA: 10,058 bytes => 3.0: 8,242 bytes
+  Compiled Size for ARUDINO UNO:   8,526 bytes => 3.0: 6,734 bytes \n
+  Compiled Size for ARUDINO MEGA: 10,058 bytes => 3.0: 8,170 bytes
 */
 int main()
 {

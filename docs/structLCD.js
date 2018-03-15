@@ -15,7 +15,7 @@ var structLCD =
     [ "print", "structLCD.html#ab1b68d883d80dc7b8810e602b7032767", null ],
     [ "print", "structLCD.html#a12938798b071cb53b83e26970c33fb0a", null ],
     [ "reset", "structLCD.html#a7912ad9a12d649cdec2dd53ae893a8ce", null ],
-    [ "s1Cmd", "structLCD.html#ab65995b7a57e37d4dee243eb2a67229e", null ],
+    [ "s1Cmd", "structLCD.html#a739998fad0591a092255676c8c8d532f", null ],
     [ "s1Dat", "structLCD.html#ae5873763db265cd00da32664cce88873", null ],
     [ "s2Cmd", "structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229", null ],
     [ "setCursor", "structLCD.html#ad1a67d455563026a5064ef9cab86ae4d", null ],

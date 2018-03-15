@@ -23,18 +23,15 @@ var structNeoPixel =
     [ "sine8", "structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b", null ],
     [ "updateLength", "structNeoPixel.html#ab82789d52b6dcd8d78e7492731dc20b2", null ],
     [ "updateType", "structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47", null ],
+    [ "aOffset", "structNeoPixel.html#a3107e85218e123e300d8ee99886b6200", null ],
     [ "begun", "structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b", null ],
-    [ "bOffset", "structNeoPixel.html#ab33b2e8d4a30bb3ed0c18d4263f37121", null ],
     [ "brightness", "structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07", null ],
     [ "endTime", "structNeoPixel.html#a144b933f6c30dde60707f40ca93eca60", null ],
-    [ "gOffset", "structNeoPixel.html#aa9f7e290a959b39781ade5a66999a18d", null ],
-    [ "is800kHz", "structNeoPixel.html#ab6ec91223a6504136f1e7ed822a9b4d4", null ],
+    [ "is800KHz", "structNeoPixel.html#aa08964ef9a4ad9c03a56e44c9f88fae8", null ],
     [ "numBytes", "structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92", null ],
     [ "numLEDs", "structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9", null ],
     [ "pin", "structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a", null ],
     [ "pinMask", "structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce", null ],
     [ "pixels", "structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362", null ],
-    [ "port", "structNeoPixel.html#a46cfa142dda28f412803b45347af5153", null ],
-    [ "rOffset", "structNeoPixel.html#ad23dddc19ad0ddd7586b26ff087deb87", null ],
-    [ "wOffset", "structNeoPixel.html#ac52c603ce04ba6643d543a28c759c23d", null ]
+    [ "port", "structNeoPixel.html#a46cfa142dda28f412803b45347af5153", null ]
 ];

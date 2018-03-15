@@ -6,6 +6,5 @@ var searchData=
   ['getpin',['getPin',['../structNeoPixel.html#a727940c53255151376dea65d5d4ee364',1,'NeoPixel']]],
   ['getpixelcolor',['getPixelColor',['../structNeoPixel.html#af7a63b8d5af4a653b3c8b390e7673714',1,'NeoPixel']]],
   ['getpixels',['getPixels',['../structNeoPixel.html#a0b2590430239c088ca45f74155c26058',1,'NeoPixel']]],
-  ['getposition',['getPosition',['../structAX12Servo.html#a8027cdd101d213b8f7d2c1988fd87fcb',1,'AX12Servo']]],
-  ['goffset',['gOffset',['../structNeoPixel.html#aa9f7e290a959b39781ade5a66999a18d',1,'NeoPixel']]]
+  ['getposition',['getPosition',['../structAX12Servo.html#a8027cdd101d213b8f7d2c1988fd87fcb',1,'AX12Servo']]]
 ];

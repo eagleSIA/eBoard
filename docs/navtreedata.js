@@ -39,7 +39,8 @@ var NAVTREE =
     [ "Statistics", "stats.html", [
       [ "1 Occupied Space", "stats.html#ss1", [
         [ "1.1 Empty program", "stats.html#ssu1", null ],
-        [ "1.2 Output to an OLED-Display", "stats.html#ssu2", null ]
+        [ "1.2 The NANO", "stats.html#ssu2", null ],
+        [ "1.3 Output to an OLED-Display", "stats.html#ssu3", null ]
       ] ]
     ] ],
     [ "Changelog", "changelog_page.html", [
@@ -56,7 +57,7 @@ var NAVTREE =
         [ "Version 2.3h 🐦 - Addition to the family [120m]", "changelog_page.html#su8", null ]
       ] ],
       [ "Version 3 - Morpheus 🐉", "changelog_page.html#ver3", [
-        [ "Version 3.0c 🐝 - Final touch", "changelog_page.html#su10", null ]
+        [ "Version 3.0c 🐝 - Special Touch", "changelog_page.html#su10", null ]
       ] ]
     ] ],
     [ "The source code", "source_page.html", null ],
@@ -93,7 +94,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eBoard_8h.html#ae3f472fe453a9ca5165e4d550b459700"
+"eBoard_8h.html#ae40dbea74458f8f2aa56f163b4f9a592"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['s1cmd',['s1Cmd',['../structLCD.html#ab65995b7a57e37d4dee243eb2a67229e',1,'LCD']]],
+  ['s1cmd',['s1Cmd',['../structLCD.html#a739998fad0591a092255676c8c8d532f',1,'LCD']]],
   ['s1dat',['s1Dat',['../structLCD.html#ae5873763db265cd00da32664cce88873',1,'LCD']]],
   ['s2cmd',['s2Cmd',['../structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229',1,'LCD']]],
+  ['sendend',['sendEnd',['../structeagle__impl_1_1ServoCds55.html#a822480dd8158e98b3fc0ae6510a79e45',1,'eagle_impl::ServoCds55']]],
   ['sendi2c',['sendI2C',['../eBoard_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6',1,'sendI2C(optVAL_t deviceID, byte *buf, byte buf_len):&#160;eBoard.h'],['../eBoard_8h.html#ab43ab8c6fc457f361d203915d1352203',1,'sendI2C(optVAL_t deviceID, byte buf):&#160;eBoard.h']]],
   ['sendwait',['sendWait',['../structeagle__impl_1_1ServoCds55.html#a2cd7b98bc546eb5180387c66b977e34e',1,'eagle_impl::ServoCds55']]],
   ['servocds55',['ServoCds55',['../structeagle__impl_1_1ServoCds55.html#a2dd88a1ec102570cf1639db753796032',1,'eagle_impl::ServoCds55']]],

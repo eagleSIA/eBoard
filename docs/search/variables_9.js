@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['numbytes',['numBytes',['../structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92',1,'NeoPixel']]],
-  ['numleds',['numLEDs',['../structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9',1,'NeoPixel']]]
+  ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel']]],
+  ['pin_5fin',['pin_in',['../eBoard_8h.html#aa46dacd1127770f77e93c7c036ad0c03',1,'eBoard.h']]],
+  ['pin_5fout',['pin_out',['../eBoard_8h.html#ab6849f631838473916372c37eb6929ca',1,'eBoard.h']]],
+  ['pinmask',['pinMask',['../structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce',1,'NeoPixel']]],
+  ['pixels',['pixels',['../structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362',1,'NeoPixel']]],
+  ['port',['port',['../structNeoPixel.html#a46cfa142dda28f412803b45347af5153',1,'NeoPixel']]],
+  ['px',['pX',['../structLCD.html#a0b9ca6a9475933ad8da45315fe74693f',1,'LCD']]],
+  ['py',['pY',['../structLCD.html#afb51248bd06d7ccd87ba5f4eac99ede2',1,'LCD']]]
 ];

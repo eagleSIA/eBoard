@@ -197,9 +197,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a796f1dd91b05b366f2f2fe510ff5ef58"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeagle__impl_1_1TwoWire.html#a796f1dd91b05b366f2f2fe510ff5ef58">peek</a> (void)</td></tr>
 <tr class="memdesc:a796f1dd91b05b366f2f2fe510ff5ef58"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will read a single byte from rxBuffer without increment the Index  <a href="#a796f1dd91b05b366f2f2fe510ff5ef58">More...</a><br /></td></tr>
 <tr class="separator:a796f1dd91b05b366f2f2fe510ff5ef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3b29cda1bd6bd15b168cc16d75735e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeagle__impl_1_1TwoWire.html#af3b29cda1bd6bd15b168cc16d75735e0">flush</a> (void)</td></tr>
-<tr class="memdesc:af3b29cda1bd6bd15b168cc16d75735e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">as this isn't implemented in the offical Wire library, this does <em> nothing </em> xD  <a href="#af3b29cda1bd6bd15b168cc16d75735e0">More...</a><br /></td></tr>
-<tr class="separator:af3b29cda1bd6bd15b168cc16d75735e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4654fa888a6021eb612e8dfbee72378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeagle__impl_1_1TwoWire.html#af4654fa888a6021eb612e8dfbee72378">onReceive</a> (void(*function)(int))</td></tr>
 <tr class="memdesc:af4654fa888a6021eb612e8dfbee72378"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will set the user_onReceive method  <a href="#af4654fa888a6021eb612e8dfbee72378">More...</a><br /></td></tr>
 <tr class="separator:af4654fa888a6021eb612e8dfbee72378"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,7 +255,7 @@ Static Private Attributes</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>2006 GNU Lesser General Public License 2.1 as published by the Free Software Foundation</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>this code was documented and modified by EagleoutIce in 2018 for custom use! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00806">806</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00829">829</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac69c3ab7219001d11f41b05067ae2933"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac69c3ab7219001d11f41b05067ae2933">&#9670;&nbsp;</a></span>TwoWire()</h2>
@@ -519,34 +516,6 @@ Static Private Attributes</h2></td></tr>
 <li>4 if an 'other'/unknown error occured </li>
 </ul>
 </dd></dl>
-
-</div>
-</div>
-<a id="af3b29cda1bd6bd15b168cc16d75735e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3b29cda1bd6bd15b168cc16d75735e0">&#9670;&nbsp;</a></span>flush()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void eagle_impl::TwoWire::flush </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>as this isn't implemented in the offical Wire library, this does <em> nothing </em> xD </p>
 
 </div>
 </div>
@@ -1042,7 +1011,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the rxBuffer used to enable delayed read </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00809">809</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00832">832</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +1037,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the rxBuffer Index - current position in rxBuffer array </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00811">811</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00834">834</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1063,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the length of rxBuffer </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00813">813</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00836">836</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1120,7 +1089,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>'boolean' value. Set to 1 if transmitting =&gt; in master write mode </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00825">825</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00848">848</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1115,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the txAddress the transmitting Dta </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00816">816</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00839">839</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1141,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the txBuffer used to enable delayed read </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00818">818</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00841">841</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1198,7 +1167,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the txBuffer Index - current position in txBuffer array </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00820">820</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00843">843</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1193,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>this defines the length of txBuffer </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00822">822</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00845">845</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1256,7 +1225,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00832">832</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00855">855</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1282,7 +1251,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>twi slave [Tx]transmitting-event user def handler </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00827">827</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l00850">850</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1296,7 +1265,7 @@ Static Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceeagle__impl.html">eagle_impl</a></li><li class="navelem"><a class="el" href="classeagle__impl_1_1TwoWire.html">TwoWire</a></li>
-    <li class="footer">[WIP-BUILD] EagleoutIce 13.03.2018</li>
+    <li class="footer">EagleoutIce 15.03.2018</li>
   </ul>
 </div>
 </body>

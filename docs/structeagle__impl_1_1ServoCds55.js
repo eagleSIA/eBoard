@@ -4,6 +4,7 @@ var structeagle__impl_1_1ServoCds55 =
     [ "begin", "structeagle__impl_1_1ServoCds55.html#a2f63fbcdcc63e078397575803b9d3f23", null ],
     [ "Reset", "structeagle__impl_1_1ServoCds55.html#aa59356680e903c1c60264d59d438339b", null ],
     [ "rotate", "structeagle__impl_1_1ServoCds55.html#a62af3b735cf33d32347b788e96561115", null ],
+    [ "sendEnd", "structeagle__impl_1_1ServoCds55.html#a822480dd8158e98b3fc0ae6510a79e45", null ],
     [ "sendWait", "structeagle__impl_1_1ServoCds55.html#a2cd7b98bc546eb5180387c66b977e34e", null ],
     [ "SetID", "structeagle__impl_1_1ServoCds55.html#aaf3f3dfc8b0dcffe89a0b3a1c293d127", null ],
     [ "SetMotormode", "structeagle__impl_1_1ServoCds55.html#afe838a281e8066fb1969b40d51ceb1a8", null ],

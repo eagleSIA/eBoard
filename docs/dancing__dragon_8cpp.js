@@ -3,7 +3,7 @@ var dancing__dragon_8cpp =
     [ "EBOARD_I2C", "dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1", null ],
     [ "EBOARD_LCD", "dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25", null ],
     [ "HIGHSPEED", "dancing__dragon_8cpp.html#ab0a1f7733eaf1448e5b3bd9f4771da81", null ],
-    [ "main", "dancing__dragon_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
+    [ "eVirtual_main", "dancing__dragon_8cpp.html#a8060903c79de8471925c79907ac171a9", null ],
     [ "bit_ait", "dancing__dragon_8cpp.html#a19884c447b4c3953ac7a47db1b94ce90", null ],
     [ "bit_elv", "dancing__dragon_8cpp.html#ab42797d5c316e461d539b3e34cfa74c4", null ],
     [ "bit_fiv", "dancing__dragon_8cpp.html#a9edd16cf1b802b559614e7acf58059eb", null ],

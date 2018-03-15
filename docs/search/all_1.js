@@ -11,6 +11,7 @@ var searchData=
   ['analog_5fin_5f8_5fbit',['ANALOG_IN_8_BIT',['../eBoard_8h.html#a3f28788d6e90ca08a2806e620ec67df7',1,'eBoard.h']]],
   ['analog_5fin_5fmean_5f10_5fbit',['ANALOG_IN_MEAN_10_BIT',['../eBoard_8h.html#ab16468df147ccd2712b763eb52d49ec9',1,'eBoard.h']]],
   ['analog_5fin_5fmean_5f8_5fbit',['ANALOG_IN_MEAN_8_BIT',['../eBoard_8h.html#a631eacf49daeb44608198e0798c295a2',1,'eBoard.h']]],
+  ['aoffset',['aOffset',['../structNeoPixel.html#a3107e85218e123e300d8ee99886b6200',1,'NeoPixel']]],
   ['arduino',['ARDUINO',['../eBoard_8h.html#a5deccebbf24e21ddc073c8774179f1b3',1,'eBoard.h']]],
   ['attachinterrupt',['attachInterrupt',['../structeagle__impl_1_1SPIClass.html#a447a5c2ceeee1b4ce509939ef2a415e2',1,'eagle_impl::SPIClass']]],
   ['available',['available',['../classeagle__impl_1_1TwoWire.html#ac69d8bd9023f118df70c804578ec9b37',1,'eagle_impl::TwoWire::available()'],['../classeagle__impl_1_1SoftwareSerial.html#a5ff86dda07e4babf4ba511a6b70a85cf',1,'eagle_impl::SoftwareSerial::available()']]],

@@ -9,7 +9,6 @@ var classeagle__impl_1_1TwoWire =
     [ "beginTransmission", "classeagle__impl_1_1TwoWire.html#a64e9d09d1b5bb400245bd5fafce374a9", null ],
     [ "endTransmission", "classeagle__impl_1_1TwoWire.html#a55b2fb318a6b7666623a585f9f2be838", null ],
     [ "endTransmission", "classeagle__impl_1_1TwoWire.html#ad8be918b5d4efbd524c0dba16ff5f9d2", null ],
-    [ "flush", "classeagle__impl_1_1TwoWire.html#af3b29cda1bd6bd15b168cc16d75735e0", null ],
     [ "onReceive", "classeagle__impl_1_1TwoWire.html#af4654fa888a6021eb612e8dfbee72378", null ],
     [ "onReceiveService", "classeagle__impl_1_1TwoWire.html#ad21dd2358dbd2408751f6b8804e2b020", null ],
     [ "onRequest", "classeagle__impl_1_1TwoWire.html#ab213afdf7c774c347376e5965e9a459a", null ],

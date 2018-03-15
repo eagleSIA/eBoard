@@ -13,6 +13,8 @@
 /**
  @mainpage eBoard 3.0c - shackle the Arduino!
 
+ <b> YOU SHOULD READ @ref genExpl THIS IS A WIP PAGE ;) </b>
+
  @note It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc
  @note This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard
 
@@ -119,7 +121,7 @@
  @brief Something about the Author :D - me ;P
  @author Florian Sihler - EagleoutIce
  @copyright EagleoutIce 2018
- @version 2.3h
+ @version 3.0c
  @date 7.2.2018
 
  @section m1 Motivation
@@ -191,7 +193,27 @@
     [Dev]: 'Binäre Sketchgröße: 7.530 Bytes (von einem Maximum von 32.256 Bytes)' \n
     [Rel]: 'Binäre Sketchgröße: 3.770 Bytes (von einem Maximum von 32.256 Bytes)' \n
 
-    @subsection ssu2 1.2 Output to an OLED-Display
+    <b> [Version: 3.0c] </b> \n
+    [Dev]: 'Binäre Sketchgröße: 5.768 Bytes (von einem Maximum von 32.256 Bytes)' \n
+    [Rel]: 'Binäre Sketchgröße: 3.524 Bytes (von einem Maximum von 32.256 Bytes)' \n
+
+    @subsection ssu2 1.2 The NANO
+
+    As we need different libraries on the nano lets look on the sizes:
+      @code
+      #define EBOARD_I2C 0x1
+      #define EBOARD_LCD 0x1
+      #define EBOARD_NEO 0x1
+      #define EBOARD_NANO 0x1
+      #define REPT_TASK
+      void rept_task (void) {}
+      #include "/eagleoutice/projects/github/eBoard/eBoard.h"
+      int main() {return 0;}
+      @endcode
+    <b> [Version: 3.0c] </b> \n
+    [SAM]: 'Binäre Sketchgröße: 3.700 Bytes (von einem Maximum von 32.256 Bytes)' \n
+
+    @subsection ssu3 1.3 Output to an OLED-Display
 
     @note Used Code:
     @code
@@ -217,7 +239,8 @@
     Following results: \n
     <b> [Version: 2.0c] </b> \n
     [SAM]: 'Binäre Sketchgröße: 7.716 Bytes (von einem Maximum von 32.256 Bytes)' \n
-
+    <b> [Version: 3.0c] </b> \n
+    [SAM]: 'Binäre Sketchgröße: 5.900 Bytes (von einem Maximum von 32.256 Bytes)' \n
 */
 /**
   @page changelog_page Changelog
@@ -367,7 +390,7 @@
 
     @section ver3 Version 3 - Morpheus 🐉
 
-    @subsection su10 Version 3.0c 🐝 - Final touch
+    @subsection su10 Version 3.0c 🐝 - Special Touch
 
     Written many docs and fixed many features
 
@@ -381,6 +404,9 @@
 
         - floating point support for #EBOARD_PWM_SPE
         - cleaned code
+        - removed Serial.print(integer_type) to save progmem
+        - reduced program finished message to save a few bytes of code in EBOARD_DEBUG_MODE [not impl in statistics]
+        - Grouped NEO offsets
 
       <b>Fixes</b>
 
@@ -485,8 +511,6 @@
       ///@cond
       #define twi_h
 
-    #include <inttypes.h>
-
     //#define ATMEGA8
 
     #ifndef TWI_FREQ
@@ -503,10 +527,8 @@
     #define TWI_SRX   3
     #define TWI_STX   4
 
-    #include <math.h>
-    #include <stdlib.h>
-    #include <inttypes.h>
-    #include <avr/io.h>
+    //#include <inttypes.h>
+    //#include <avr/io.h>
     #include <avr/interrupt.h>
     #include <compat/twi.h>
 
@@ -782,6 +804,7 @@
         }
       }
       ///@endcond
+
       #include <inttypes.h>
       #include "Stream.h"
 
@@ -955,8 +978,6 @@
              * @returns the read value (-1 if failed)
              */
             virtual int peek(void);
-            /// @brief as this isn't implemented in the offical Wire library, this does <i> nothing </i> xD
-        	  virtual void flush(void);
             /**
              * @brief this will set the user_onReceive method
              * @param function the function to link
@@ -1102,7 +1123,7 @@
         }
 
         int TwoWire::read(void) {
-          int value = -1;
+          int8_t value = -1;
 
           if(rxBufferIndex < rxBufferLength) {
             value = rxBuffer[rxBufferIndex];
@@ -1120,10 +1141,6 @@
           }
 
           return value;
-        }
-
-        void TwoWire::flush(void) {
-          // XXX: to be implemented.
         }
 
         void TwoWire::onReceiveService(uint8_t* inBytes, int numBytes) {
@@ -1144,9 +1161,7 @@
         }
 
         void TwoWire::onRequestService(void) {
-          if(!user_onRequest) {
-            return;
-          }
+          if(!user_onRequest) return;
 
           txBufferIndex = 0;
           txBufferLength = 0;
@@ -1327,6 +1342,9 @@
         #define EBOARD_DEBUG_MODE 0x1
     #endif
 
+
+
+
     /**
      * @macro_def this will disable soccerBoard class DynamixelBoard etc!
      */
@@ -1360,6 +1378,9 @@
     #ifndef EBOARD_DEBUG_SPEED
         #define EBOARD_DEBUG_SPEED 9600
     #endif
+
+
+
     /**
      * @macro_def this sets the amount of connected servos to the shield
      */
@@ -2105,7 +2126,7 @@
          @param __sexp the expression
          @note Example output when using a not-allowed pin:
          @verbatim
-         Error with: checkIdx in /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h @222
+         Error with: checkIdx in /home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h
                  >>idx>0x1 && idx < 0xA
              This happens if an out of bounds exception
              has occured. Following pins shouldn't be used:
@@ -2119,13 +2140,12 @@
         void __assert (const char *__func, const char *__file, optVAL_t __lineno, const char *__sexp){
             Serial.print("Error with: "); Serial.print(__func);
             Serial.print(" in "); Serial.print(__file);
-            Serial.print(" @"); Serial.println(__lineno, DEC);
             Serial.print("         >>");
             Serial.println(__sexp);
             if(strcmp(__func,"checkIdx")==0){
                 Serial.println("   This happens if an out of bounds exception");
                 Serial.println("   has occured. Following pins shouldn't be used:");
-                Serial.print("   D");Serial.print(PIN_BLUETOOTH_RX);Serial.print("&");
+                Serial.print("   D" + PIN_BLUETOOTH_RX);Serial.print("&");
                 Serial.print("D");Serial.print(PIN_BLUETOOTH_TX);
                 Serial.println(" : Used for Bluetooth communication");
                 Serial.print("   D");Serial.print(PIN_MOTOR_DIR);Serial.print("&");
@@ -2564,7 +2584,8 @@
                 @returns feedback of SPI.transfer();
             */
             byte sendWait(const byte what);
-
+            ///@brief this sends the end sequence needed for motor control
+            void sendEnd(void);
             /// @brief stores the posLimit value send with write()
             int upperLimit_temp;
 
@@ -2605,11 +2626,17 @@
 
         void ServoCds55::rotate(optVAL_t ID,optVAL_t velocity){}
 
+        void ServoCds55::sendEnd(void){
+          SPI.transfer ('\t'); delayMicroseconds (20);
+          SPI.transfer ('\r'); delayMicroseconds (20);
+          SPI.transfer ('\n'); delayMicroseconds (20);
+        }
+
         void ServoCds55::WritePos(optVAL_t ID,optVAL_t Pos){
             digitalWrite(this->cs, LOW);
             sendWait('p');          sendWait(ID);                                sendWait((Pos>>0x8 & 0xff));
             sendWait((Pos & 0xff)); sendWait((this->velocity_temp>>0x8 & 0xff)); sendWait((this->velocity_temp & 0xff));
-            sendWait('\t');         sendWait('\r');                              sendWait('\n');
+            sendEnd();
             digitalWrite(this->cs, HIGH);
             delay(8);
         }
@@ -2617,8 +2644,7 @@
         void ServoCds55::SetServoLimit(optVAL_t ID,optVAL_t upperLimit_tempT){
             digitalWrite(this->cs, LOW);
             sendWait('s');                       sendWait(ID);   sendWait((upperLimit_tempT>>0x8 & 0xff));
-            sendWait((upperLimit_tempT & 0xff)); sendWait('\t'); sendWait('\r');
-            sendWait('\n');
+            sendWait((upperLimit_tempT & 0xff)); sendEnd();
             digitalWrite(this->cs, HIGH);
             delay(8);
         }
@@ -2626,8 +2652,7 @@
         void ServoCds55::SetMotormode(optVAL_t ID, optVAL_t velocity){
             digitalWrite(this->cs, LOW);
             sendWait('m');               sendWait(ID);   sendWait((velocity>>0x8 & 0xff));
-            sendWait((velocity & 0xff)); sendWait('\t'); sendWait('\r');
-            sendWait('\n');
+            sendWait((velocity & 0xff)); sendEnd();
             digitalWrite(this->cs, HIGH);
             delay(8);
         }
@@ -2635,15 +2660,14 @@
         void ServoCds55::SetID(optVAL_t ID, optVAL_t newID){
             digitalWrite(this->cs, LOW);
             sendWait('i');  sendWait(ID);   sendWait(newID);
-            sendWait('\t'); sendWait('\r'); sendWait('\n');
+            sendEnd();
             digitalWrite(this->cs, HIGH);
             delay(8);
         }
 
         void ServoCds55::Reset(optVAL_t ID){
             digitalWrite(this->cs, LOW);
-            sendWait('r');  sendWait(ID); sendWait('\t');
-            sendWait('\r'); sendWait('\n');
+            sendWait('r');  sendWait(ID); sendEnd();
             digitalWrite(this->cs, HIGH);
             delay(8);
         }
@@ -4005,8 +4029,15 @@
                  * @brief this function will execute one cmd send without starting and without ending the transmission
                  *
                  * @param o the param
+                 *
+                 @return true if the transmission was successful
+                 @return false if there was one of the following errors:
+                     - buffer overflow
+                     - NACK on address
+                     - NACK on data
+                     - unknown error
                  */
-                inline void s1Cmd(optVAL_t o);
+                inline bool s1Cmd(optVAL_t o);
                 /**
                  * @brief this function will execute one dat send without starting and without ending the transmission
                  *
@@ -4039,9 +4070,8 @@
                     //maybe *8
                     setCursor(0,i);
 
-                    for (byte j = 0; j < 128; j++) {
+                    for (byte j = 0; j < 128; j++)
                         this->s1Dat(0);
-                    }
                 }
                 return setCursor(0,0);
             }
@@ -4119,10 +4149,8 @@
             inline bool LCD::setCursor(byte posX, byte posY) {
                 if(!this->_cI) this->init();
                 this->s2Cmd((0x00 + (8 *posX & 0x0F)),(0x10 + ((8 * posX >> 4) & 0x0F))); //lower and higher address
-                Wire.beginTransmission(this->ID);
-                Wire.write(LCD_COMMAND_MODE); Wire.write(0xB0 + posY); //page address
                 this->pX = posX; this->pY = posY;
-                return (Wire.endTransmission() == 0);
+                return this->s1Cmd(0xB0 + posY);
             }
 
             inline bool LCD::changeBrightness(byte val) {
@@ -4142,11 +4170,11 @@
                 this->s1Cmd(o); this->s1Cmd(t);
             }
 
-            inline void LCD::s1Cmd(optVAL_t C) {
+            inline bool LCD::s1Cmd(optVAL_t C) {
                 if(!this->_cI) this->init();
                 Wire.beginTransmission(this->ID);
                 Wire.write(LCD_COMMAND_MODE); Wire.write(C);
-                Wire.endTransmission();
+                return (Wire.endTransmission()==0);
             }
             inline void LCD::s1Dat(optVAL_t o){
                 if(!this->_cI) this->init();
@@ -4393,7 +4421,7 @@
           inline bool canShow(void);
         protected:
           /// @brief determines the speed the communcation is working on
-          bool is800kHz;
+          bool is800KHz;
           /// @brief true if NeoPixel::begin has been called
           bool begun;
           /// @brief stores the amount of LEDs
@@ -4409,14 +4437,8 @@
           uint8_t brightness;
           /// @brief stores the pixels
           uint8_t *pixels;
-          /// @brief stores the red color offset
-          uint8_t rOffset;
-          /// @brief stores the green color offset
-          uint8_t gOffset;
-          /// @brief stores the blue color offset
-          uint8_t bOffset;
-          /// @brief stores the white color offset
-          uint8_t wOffset;
+          /// @brief stores the offsets in rgbw format
+          uint8_t aOffset[4];
           /// @brief stores the last call time of show for NeoPixel::canShow()
           uint32_t endTime; //used for diff calc
           #ifdef __AVR__ //not needed (rem?)
@@ -4443,8 +4465,8 @@
         NeoPixel::NeoPixel() :
           is800KHz(true),
           begun(false), numLEDs(0), numBytes(0), pin(-1), brightness(0), pixels(NULL),
-          rOffset(1), gOffset(0), bOffset(2), wOffset(1), endTime(0)
-        {}
+          endTime(0)
+        {aOffset = {1,0,2,1};}
 
         NeoPixel::~NeoPixel() {
           if(pixels)   free(pixels);
@@ -4462,7 +4484,7 @@
 
         void NeoPixel::updateLength(uint16_t n) {
           if(pixels) free(pixels);
-          numBytes = n * ((wOffset == rOffset) ? 3 : 4);
+          numBytes = n * ((aOffset[3] == aOffset[0]) ? 3 : 4);
           if((pixels = (uint8_t *)malloc(numBytes))) {
             memset(pixels, 0, numBytes);
             numLEDs = n;
@@ -4472,16 +4494,16 @@
         }
 
         void NeoPixel::updateType(uint16_t t) {
-          boolean oldThreeBytesPerPixel = (wOffset == rOffset); // false if RGBW
+          boolean oldThreeBytesPerPixel = (aOffset[3] == aOffset[0]); // false if RGBW
 
-          wOffset = (t >> 6) & 0b11;
-          rOffset = (t >> 4) & 0b11;
-          gOffset = (t >> 2) & 0b11;
-          bOffset =  t       & 0b11;
+          aOffset[3] = (t >> 6) & 0b11;
+          aOffset[0] = (t >> 4) & 0b11;
+          aOffset[1] = (t >> 2) & 0b11;
+          aOffset[2] =  t       & 0b11;
           is800KHz = (t < 256);      // 400 KHz flag is 1<<8
 
           if(pixels) {
-            boolean newThreeBytesPerPixel = (wOffset == rOffset);
+            boolean newThreeBytesPerPixel = (aOffset[3] == aOffset[0]);
             if(newThreeBytesPerPixel != oldThreeBytesPerPixel) updateLength(numLEDs);
           }
         }
@@ -5476,15 +5498,15 @@
               b = (b * brightness) >> 8;
             }
             uint8_t *p;
-            if(wOffset == rOffset) {
+            if(aOffset[3] == aOffset[0]) {
               p = &pixels[n * 3];
             } else {
               p = &pixels[n * 4];
-              p[wOffset] = 0;
+              p[aOffset[3]] = 0;
             }
-            p[rOffset] = r;
-            p[gOffset] = g;
-            p[bOffset] = b;
+            p[aOffset[0]] = r;
+            p[aOffset[1]] = g;
+            p[aOffset[2]] = b;
           }
         }
 
@@ -5499,15 +5521,15 @@
               w = (w * brightness) >> 8;
             }
             uint8_t *p;
-            if(wOffset == rOffset) {
+            if(aOffset[3] == aOffset[0]) {
               p = &pixels[n * 3];
             } else {
               p = &pixels[n * 4];
-              p[wOffset] = w;
+              p[aOffset[3]] = w;
             }
-            p[rOffset] = r;
-            p[gOffset] = g;
-            p[bOffset] = b;
+            p[aOffset[0]] = r;
+            p[aOffset[1]] = g;
+            p[aOffset[2]] = b;
           }
         }
 
@@ -5522,16 +5544,16 @@
               g = (g * brightness) >> 8;
               b = (b * brightness) >> 8;
             }
-            if(wOffset == rOffset) {
+            if(aOffset[3] == aOffset[0]) {
               p = &pixels[n * 3];
             } else {
               p = &pixels[n * 4];
               uint8_t w = (uint8_t)(c >> 24);
-              p[wOffset] = brightness ? ((w * brightness) >> 8) : w;
+              p[aOffset[3]] = brightness ? ((w * brightness) >> 8) : w;
             }
-            p[rOffset] = r;
-            p[gOffset] = g;
-            p[bOffset] = b;
+            p[aOffset[0]] = r;
+            p[aOffset[1]] = g;
+            p[aOffset[2]] = b;
           }
         }
 
@@ -5548,30 +5570,30 @@
 
           uint8_t *p;
 
-          if(wOffset == rOffset) {
+          if(aOffset[3] == aOffset[0]) {
             p = &pixels[n * 3];
             if(brightness) {
 
-              return (((uint32_t)(p[rOffset] << 8) / brightness) << 16) |
-                     (((uint32_t)(p[gOffset] << 8) / brightness) <<  8) |
-                     ( (uint32_t)(p[bOffset] << 8) / brightness       );
+              return (((uint32_t)(p[aOffset[0]] << 8) / brightness) << 16) |
+                     (((uint32_t)(p[aOffset[1]] << 8) / brightness) <<  8) |
+                     ( (uint32_t)(p[aOffset[2]] << 8) / brightness       );
             } else {
-              return ((uint32_t)p[rOffset] << 16) |
-                     ((uint32_t)p[gOffset] <<  8) |
-                      (uint32_t)p[bOffset];
+              return ((uint32_t)p[aOffset[0]] << 16) |
+                     ((uint32_t)p[aOffset[1]] <<  8) |
+                      (uint32_t)p[aOffset[2]];
             }
           } else {
             p = &pixels[n * 4];
             if(brightness) {
-              return (((uint32_t)(p[wOffset] << 8) / brightness) << 24) |
-                     (((uint32_t)(p[rOffset] << 8) / brightness) << 16) |
-                     (((uint32_t)(p[gOffset] << 8) / brightness) <<  8) |
-                     ( (uint32_t)(p[bOffset] << 8) / brightness       );
+              return (((uint32_t)(p[aOffset[3]] << 8) / brightness) << 24) |
+                     (((uint32_t)(p[aOffset[0]] << 8) / brightness) << 16) |
+                     (((uint32_t)(p[aOffset[1]] << 8) / brightness) <<  8) |
+                     ( (uint32_t)(p[aOffset[2]] << 8) / brightness       );
             } else {
-              return ((uint32_t)p[wOffset] << 24) |
-                     ((uint32_t)p[rOffset] << 16) |
-                     ((uint32_t)p[gOffset] <<  8) |
-                      (uint32_t)p[bOffset];
+              return ((uint32_t)p[aOffset[3]] << 24) |
+                     ((uint32_t)p[aOffset[0]] << 16) |
+                     ((uint32_t)p[aOffset[1]] <<  8) |
+                      (uint32_t)p[aOffset[2]];
             }
           }
         }
@@ -5849,6 +5871,8 @@
           return 0;
         }
         @endcode
+
+        <b> more to come ;) </b>
     */
 
     /**
@@ -5938,8 +5962,8 @@
             #endif
 
             #if EBOARD_DEBUG_MODE > 0x0
-                Serial.print(eVirtual_main());
-                Serial.println(" -- Exit Code. \n Program has finished. Reset to start again");
+                Serial.print((char) eVirtual_main());
+                Serial.println("fin");
             #else
                 eVirtual_main();
             #endif

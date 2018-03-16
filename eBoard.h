@@ -159,6 +159,8 @@
     #define REPT_TASK
     void rept_task (void) {}
     #define EBOARD_LCD 0x1
+    //[VER 3.0c]
+    #define EBOARD_NEO 0x1
     @endcode
 
     @note Release Build:
@@ -173,6 +175,8 @@
     #define EBOARD_BLUETOOTH 0x1
     //[VER 2.0c]
     #define EBOARD_LCD 0x1
+    //[VER 3.0c]
+    #define EBOARD_NEO 0x1
     @endcode
 
 
@@ -194,7 +198,7 @@
     [Rel]: 'Binäre Sketchgröße: 3.770 Bytes (von einem Maximum von 32.256 Bytes)' \n
 
     <b> [Version: 3.0c] </b> \n
-    [Dev]: 'Binäre Sketchgröße: 5.768 Bytes (von einem Maximum von 32.256 Bytes)' \n
+    [Dev]: 'Binäre Sketchgröße: 5.730 Bytes (von einem Maximum von 32.256 Bytes)' \n
     [Rel]: 'Binäre Sketchgröße: 3.524 Bytes (von einem Maximum von 32.256 Bytes)' \n
 
     @subsection ssu2 1.2 The NANO
@@ -394,24 +398,25 @@
 
     Written many docs and fixed many features
 
-      <b>Added</b>
+    <b>Added</b>
 
-      - Documentation for all implemented features
-      - This code is now a vaild ArduinoIDE library
-        \n &nbsp; => <b> including Syntax highlighting </b>
+    - Documentation for all implemented features
+    - This code is now a vaild ArduinoIDE library
+      \n &nbsp; => <b> including Syntax highlighting </b>
 
-      <b>Changed</b>
+    <b>Changed</b>
 
-        - floating point support for #EBOARD_PWM_SPE
-        - cleaned code
-        - removed Serial.print(integer_type) to save progmem
-        - reduced program finished message to save a few bytes of code in EBOARD_DEBUG_MODE [not impl in statistics]
-        - Grouped NEO offsets
+      - floating point support for #EBOARD_PWM_SPE
+      - cleaned code
+      - removed Serial.print(integer_type) to save progmem
+      - reduced program finished message to save a few bytes of code in EBOARD_DEBUG_MODE [not impl in statistics]
+      - Grouped NEO offsets
 
-      <b>Fixes</b>
+    <b>Fixes</b>
 
-      - Path problems => all libs are hardcoded into this doc
-      - Removed RB14Scan from eagle_impl
+    - Path problems => all libs are hardcoded into this doc
+    - Removed RB14Scan from eagle_impl
+    - Neo offset init_list error
 
 */
 //i am a guard... leave me alone :D
@@ -4466,7 +4471,7 @@
           is800KHz(true),
           begun(false), numLEDs(0), numBytes(0), pin(-1), brightness(0), pixels(NULL),
           endTime(0)
-        {aOffset = {1,0,2,1};}
+        {aOffset[0]=1;aOffset[1]=0;aOffset[2]=2;aOffset[3]=1;}
 
         NeoPixel::~NeoPixel() {
           if(pixels)   free(pixels);

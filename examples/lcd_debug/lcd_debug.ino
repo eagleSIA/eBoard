@@ -1,29 +1,13 @@
-///@file lcd_debug.cpp
-///@brief a lcd debug example
-
-///@brief we need the I2C functionality
 #define EBOARD_I2C 0x1
-///@brief we want to use the LCD
 #define EBOARD_LCD 0x1
-#include "/eagleoutice/projects/github/eBoard/eBoard.h"
-/// @brief the board object
+#include <eBoard.h>
 SoccerBoard board;
-/// @brief the lcd object
 LCD lcd(board);
-/// @brief the dBoard object
 DynamixelBoard dBoard(board);
-/// @brief left servo
-/// @note untested!
-AX12Servo links(dBoard,1);
-/// @brief right servo
-/// @note untested
-AX12Servo rechts(dBoard,2);
-/**
-  @note you can copy paste this code into your ARDUINO IDE - keep in mind to change the path!
 
-  Compiled Size for ARUDINO UNO:   8,526 bytes => 3.0: 6,734 bytes \n
-  Compiled Size for ARUDINO MEGA: 10,058 bytes => 3.0: 8,170 bytes
-*/
+AX12Servo links(dBoard,1);
+AX12Servo rechts(dBoard,2);
+
 int main()
 {
     links.storePosition(40);

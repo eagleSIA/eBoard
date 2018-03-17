@@ -9,7 +9,7 @@
 ///@brief for smooth animations (:
 /// It would be possible to disable so many things like #EBOARD_DEBUG_MODE but this is an example!
 #define HIGHSPEED
-#include "/eagleoutice/projects/github/eBoard/eBoard.h"
+#include <eBoard.h>
 
 /// @brief first frame of the animation
 PROGMEM const unsigned char bit_one [] = {

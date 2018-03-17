@@ -27,8 +27,8 @@
      @code
      //manual
      #include "/path/to/eBoard.h" //replace this :D
-     //added as library
-     #include <eBoard.h>
+     //added as library '#include <eBoard.h>'
+
      @endcode
 
  If you wan't to use the I2C extensions you should have this two lines the beginning of your code:
@@ -196,7 +196,7 @@
     <b> [Version: 2.0c] </b> \n
     [Dev]: 'Binäre Sketchgröße: 7.530 Bytes (von einem Maximum von 32.256 Bytes)' \n
     [Rel]: 'Binäre Sketchgröße: 3.770 Bytes (von einem Maximum von 32.256 Bytes)' \n
-
+    \n
     <b> [Version: 3.0c] </b> \n
     [Dev]: 'Binäre Sketchgröße: 5.730 Bytes (von einem Maximum von 32.256 Bytes)' \n
     [Rel]: 'Binäre Sketchgröße: 3.524 Bytes (von einem Maximum von 32.256 Bytes)' \n
@@ -212,6 +212,7 @@
       #define REPT_TASK
       void rept_task (void) {}
       #include "/eagleoutice/projects/github/eBoard/eBoard.h"
+      //added as library '#include <eBoard.h>'
       int main() {return 0;}
       @endcode
     <b> [Version: 3.0c] </b> \n
@@ -224,6 +225,7 @@
     #define EBOARD_I2C 0x1
     #define EBOARD_LCD 0x1
     #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+    //added as library '#include <eBoard.h>'
     SoccerBoard board;
     LCD lcd(board);
 
@@ -417,6 +419,7 @@
     - Path problems => all libs are hardcoded into this doc
     - Removed RB14Scan from eagle_impl
     - Neo offset init_list error
+    - Fixed missing begin call in NeoPixel example
 
 */
 //i am a guard... leave me alone :D
@@ -2695,6 +2698,7 @@
             [COPY&PASTE] You can use this class like this:
             @code
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            //added as library '#include <eBoard.h>'
             bool toggle = true;
             SoccerBoard board;
 
@@ -2946,6 +2950,7 @@
             @code
             #define EBOARD_I2C 0x1
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            //added as library '#include <eBoard.h>'
             SoccerBoard board;
             //nothing in this brackets will have any effect :D
             I2CInOut io1(board,127,ANALOG_IN_10_BIT,COUNTER_RISE_8_BIT, FREQ_HIGH);
@@ -3014,6 +3019,7 @@
             [COPY&PASTE] You can use this class like this:
             @code
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            //added as library '#include <eBoard.h>'
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
             AX12Servo Links(servoBoard,1);
@@ -3185,6 +3191,7 @@
             [COPY&PASTE] You can use this class like this:
             @code
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            //added as library '#include <eBoard.h>'
             SoccerBoard board;
             DynamixelBoard servoBoard(board);
             AX12Servo Links(servoBoard,1);
@@ -3277,6 +3284,7 @@
                 @code
                 #define EBOARD_BLUETOOTH   0x1
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+                //added as library '#include <eBoard.h>'
 
                 RB14Scan remote;
 
@@ -3826,6 +3834,7 @@
                 #define EBOARD_I2C 0x1
                 #define EBOARD_LCD 0x1
                 #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+                //added as library '#include <eBoard.h>'
                 SoccerBoard board;
                 LCD lcd(board);
                 int main() {
@@ -4190,7 +4199,7 @@
 
             //@endcond
         #endif
-
+        #endif
         #if EBOARD_NEO > 0x0
         // Codesection based on official NeoPixel library
         // RGB NeoPixel permutations; white and red offsets are always same
@@ -4284,12 +4293,20 @@
             @code
             #define EBOARD_NEO 0x1
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+            //added as library '#include <eBoard.h>'
+
             NeoPixel nPixel = NeoPixel(5);
             int main() {
+                nPixel.begin();
                 nPixel.setPixelColor(3,NeoPixel::Color(0,255,0));
                 nPixel.show();
             }
             @endcode
+
+            <b> Keep in mind: </b> \n
+            The NeoPixel uses a one-wire interface and is therefore very timing sensitive! \n
+            You can't expect any interrupt or buffer working properly! \n
+            So you should always have a listening line that will be disabled whenever NeoPixel::show() is called
 
 
         */
@@ -4301,7 +4318,7 @@
            * @param p the (data) pin connected to the arduino
            * @param t the type of com the NeoPixel should be talked to
            */
-          NeoPixel(uint16_t n, uint8_t p = 6, uint16_t t =  EBOARD_NEO_RGB + EBOARD_NEO_800KHZ);
+          NeoPixel(uint16_t n, uint8_t p = 6, uint16_t t =  EBOARD_NEO_GRB + EBOARD_NEO_800KHZ);
           /**
            * @brief the empty constructor
            * @note this has to be called manually then:
@@ -4350,7 +4367,10 @@
           void setPixelColor(uint16_t n, uint32_t c);
           /**
            * @brief changes the brightness for all further acceses via NeoPixel::setPixelColor()
+           *
            * @param val the brightness-value
+           *
+           * @note call this only once xD as this will affect timing
            */
           void setBrightness(uint8_t val);
           /**
@@ -5473,9 +5493,7 @@
         #error Architecture not supported
         #endif
 
-        #ifndef NRF52
           interrupts();
-        #endif
 
           endTime = micros();
         }
@@ -5685,7 +5703,6 @@
 
         ///@endcond
         #endif
-    #endif
     /**
      * @defgroup i2cEx [ 🐼 ] I2C
      *
@@ -5709,6 +5726,7 @@
         @code
         #define EBOARD_I2C 0x1
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+        //added as library '#include <eBoard.h>'
 
         int main() {
             optVAL_t test[3] = {0,0,0};
@@ -5788,6 +5806,7 @@
         @code
         #define EBOARD_SHIFT_REGISTER 0x1
         #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
+        //added as library '#include <eBoard.h>'
 
         SoccerBoard board;
         int main() {
@@ -5867,9 +5886,10 @@
           - you don't have to do include Wire SPI and SoftwareSerial(Uno) manually! \n
             They are coded into the header
 
-        This is an example code (doing nothing but compile :D)
+        This is an example code (doing nothing but compile :D) -- if you added this as a library
         @code
-        #include "/eagleoutice/projects/github/eBoard/docs/eBoard.h"
+        #include <eBoard.h>
+
         SoccerBoard board;
         int main() {
           //cool stuff in here ;D
@@ -5877,7 +5897,36 @@
         }
         @endcode
 
-        <b> more to come ;) </b>
+        @section genBas Somthing about macros
+
+        The Header eBoard.h contains all the classes, features etc. \n
+        As you need just some of those features you're able to control them with macros. \n
+        A macro is defined like this:
+        @code
+        #define <NAME> [<VALUE>]
+        @endcode
+        They have to be defined before the include line of this header to have any effect!
+
+        E.g. to disable the Debug Mode (which will save around 1kb of progmem) you'll have to write:
+        @code
+        #define EBOARD_DEBUG_MODE 0x0
+        @endcode
+        A list of all Macros can be found at @ref macro ;)\n
+        The most code snippet in here will include them aswell =)
+
+        Furthermore you can use this macros to change some behaviour like the execution speed of rept_task: \n
+        @code
+        #define EBOARD_PWM_SPE 0.2
+        #define REPT_TASK
+        void rept_task(void) {
+          // stuff
+        }
+        @endcode
+        This will have the effect that REPT_TASK gets called 5 times a second as long as interrupts are enabled!
+
+        @section genCla Something about classes
+
+        <b> coming soon </b>
     */
 
     /**

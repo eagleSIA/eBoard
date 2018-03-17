@@ -1,0 +1,8 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f" title="this has to be called to start the communcation (you should call NeoPixel::setPin() before) ..." alt="" coords="128,5,243,32"/>
+<area shape="rect" id="node3" href="$structNeoPixel.html#a15d732945ae530d843910753ba9929f2" title="changes the brightness for all further acceses via NeoPixel::setPixelColor() " alt="" coords="104,56,267,83"/>
+<area shape="rect" id="node4" href="$neo__animation_8cpp.html#af16b42fccab1fb1eaf3658e792035c42" title="this will perform a single shift operation! " alt="" coords="154,107,217,133"/>
+<area shape="rect" id="node5" href="$structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel " alt="" coords="315,56,476,83"/>
+<area shape="rect" id="node6" href="$structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b" title="returns a color value that can be used with NeoPixel::setPixelColor() " alt="" coords="338,107,453,133"/>
+<area shape="rect" id="node7" href="$structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] " alt="" coords="338,157,453,184"/>
+</map>

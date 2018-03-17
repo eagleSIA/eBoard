@@ -135,9 +135,9 @@ $(document).ready(function(){initNavTree('structNeoPixel.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5a3771bffd610ce7c099851c421039cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a5a3771bffd610ce7c099851c421039cf">NeoPixel</a> (uint16_t n, uint8_t p=6, uint16_t t=((0&lt;&lt; 6)|(0&lt;&lt; 4)|(1&lt;&lt; 2)|(2))+0x0000)</td></tr>
-<tr class="memdesc:a5a3771bffd610ce7c099851c421039cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the default constructor that should be used whenever the amount of leds etc... connected is known at compile time (most cases)  <a href="#a5a3771bffd610ce7c099851c421039cf">More...</a><br /></td></tr>
-<tr class="separator:a5a3771bffd610ce7c099851c421039cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c4c5a68ddab0787375e5b1e451e2ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#aa2c4c5a68ddab0787375e5b1e451e2ee">NeoPixel</a> (uint16_t n, uint8_t p=6, uint16_t t=((1&lt;&lt; 6)|(1&lt;&lt; 4)|(0&lt;&lt; 2)|(2))+0x0000)</td></tr>
+<tr class="memdesc:aa2c4c5a68ddab0787375e5b1e451e2ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the default constructor that should be used whenever the amount of leds etc... connected is known at compile time (most cases)  <a href="#aa2c4c5a68ddab0787375e5b1e451e2ee">More...</a><br /></td></tr>
+<tr class="separator:aa2c4c5a68ddab0787375e5b1e451e2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a> (void)</td></tr>
 <tr class="memdesc:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="mdescLeft">&#160;</td><td class="mdescRight">the empty constructor  <a href="#a03381a47c33f21e2e7e10f7d1bfbb369">More...</a><br /></td></tr>
 <tr class="separator:a03381a47c33f21e2e7e10f7d1bfbb369"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,11 +249,15 @@ Protected Attributes</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Adafruit</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>this code was documented and modified by EagleoutIce in 2018 for custom use!</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div></div><!-- fragment --></dd></dl>
-<p>[NEO] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><a class="code" href="structNeoPixel.html">NeoPixel</a> nPixel = <a class="code" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a>(5);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(3,<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>(0,255,0));</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04296">4296</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>[NEO] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"></div><div class="line"><a class="code" href="structNeoPixel.html">NeoPixel</a> nPixel = <a class="code" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a>(5);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f">begin</a>();</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(3,<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>(0,255,0));</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line">}</div></div><!-- fragment --><p class=""><b> Keep in mind: </b> <br />
+The <a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a> uses a one-wire interface and is therefore very timing sensitive! <br />
+You can't expect any interrupt or buffer working properly! <br />
+So you should always have a listening line that will be disabled whenever <a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] ">NeoPixel::show()</a> is called </p>
+
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04313">4313</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5a3771bffd610ce7c099851c421039cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a3771bffd610ce7c099851c421039cf">&#9670;&nbsp;</a></span>NeoPixel() <span class="overload">[1/2]</span></h2>
+<a id="aa2c4c5a68ddab0787375e5b1e451e2ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c4c5a68ddab0787375e5b1e451e2ee">&#9670;&nbsp;</a></span>NeoPixel() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,7 +278,7 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>t</em> = <code>((0&lt;&lt;&#160;6)|(0&lt;&lt;&#160;4)|(1&lt;&lt;&#160;2)|(2))+0x0000</code>&#160;</td>
+          <td class="paramname"><em>t</em> = <code>((1&lt;&lt;&#160;6)|(1&lt;&lt;&#160;4)|(0&lt;&lt;&#160;2)|(2))+0x0000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -360,6 +364,13 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>this has to be called to start the communcation (you should call <a class="el" href="structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d" title="sets pin for communication ">NeoPixel::setPin()</a> before) </p>
+
+<p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00042">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structNeoPixel_ad31eb7e7b738586ea0361a470591226f_icgraph.svg" width="224" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -461,6 +472,13 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00024">shiftPx()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structNeoPixel_a14aaaf801a74b5a608c4e94ae5293a3b_icgraph.svg" width="335" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -706,10 +724,18 @@ Protected Attributes</h2></td></tr>
 <p>changes the brightness for all further acceses via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">val</td><td>the brightness-value </td></tr>
+    <tr><td class="paramname">val</td><td>the brightness-value</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>call this only once xD as this will affect timing </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00042">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structNeoPixel_a15d732945ae530d843910753ba9929f2_icgraph.svg" width="272" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -787,6 +813,13 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00024">shiftPx()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structNeoPixel_a3c6105546cfb9ccca5b31a1c26450d1d_icgraph.svg" width="382" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -903,6 +936,13 @@ Protected Attributes</h2></td></tr>
 
 <p>this will reveal the setPixels [via <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel ">NeoPixel::setPixelColor()</a> etc...] </p>
 
+<p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00024">shiftPx()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structNeoPixel_a73a8e7c435b16a785430b5f3734e3216_icgraph.svg" width="335" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a9d8182500908c9f5a965d634702f6f3b"></a>
@@ -1007,7 +1047,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the offsets in rgbw format </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04446">4446</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04466">4466</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1073,7 @@ Protected Attributes</h2></td></tr>
 
 <p>true if <a class="el" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f" title="this has to be called to start the communcation (you should call NeoPixel::setPin() before) ...">NeoPixel::begin</a> has been called </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04431">4431</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04451">4451</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1099,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the brightness </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04442">4442</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04462">4462</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1125,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the last call time of show for <a class="el" href="structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7" title="this will determine if the next show is available [last show finished] ">NeoPixel::canShow()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04448">4448</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04468">4468</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1111,7 +1151,7 @@ Protected Attributes</h2></td></tr>
 
 <p>determines the speed the communcation is working on </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04429">4429</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04449">4449</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1137,7 +1177,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the byte size [pixels] used internally </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04435">4435</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04455">4455</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1203,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the amount of LEDs </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04433">4433</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04453">4453</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1229,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the pin -1 if the pin wasn't set </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04440">4440</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04460">4460</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1215,7 +1255,7 @@ Protected Attributes</h2></td></tr>
 
 <p>the used pinMask </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04453">4453</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04473">4473</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1241,7 +1281,7 @@ Protected Attributes</h2></td></tr>
 
 <p>stores the pixels </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04444">4444</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04464">4464</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1307,7 @@ Protected Attributes</h2></td></tr>
 
 <p>the used port register </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04451">4451</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l04471">4471</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>

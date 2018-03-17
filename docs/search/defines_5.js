@@ -1,17 +1,17 @@
 var searchData=
 [
   ['eboard_5fbluetooth',['EBOARD_BLUETOOTH',['../eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2',1,'eBoard.h']]],
-  ['eboard_5fcheck_5fpins',['EBOARD_CHECK_PINS',['../eBoard_8h.html#a832845f47786296c94e24d6c27821503',1,'eBoard.h']]],
-  ['eboard_5fcheck_5fpins_5fpwm',['EBOARD_CHECK_PINS_PWM',['../eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'eBoard.h']]],
+  ['eboard_5fcheck_5fpins',['EBOARD_CHECK_PINS',['../eBoard_8h.html#a832845f47786296c94e24d6c27821503',1,'EBOARD_CHECK_PINS():&#160;eBoard.h'],['../neo__animation_8cpp.html#a832845f47786296c94e24d6c27821503',1,'EBOARD_CHECK_PINS():&#160;neo_animation.cpp']]],
+  ['eboard_5fcheck_5fpins_5fpwm',['EBOARD_CHECK_PINS_PWM',['../eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'EBOARD_CHECK_PINS_PWM():&#160;eBoard.h'],['../neo__animation_8cpp.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'EBOARD_CHECK_PINS_PWM():&#160;neo_animation.cpp']]],
   ['eboard_5fclamp',['EBOARD_CLAMP',['../eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749',1,'eBoard.h']]],
   ['eboard_5fcopy_5fand_5fpaste',['EBOARD_COPY_AND_PASTE',['../eBoard_8h.html#aa3b98de0551fc7154d125da50865d539',1,'eBoard.h']]],
-  ['eboard_5fdebug_5fmode',['EBOARD_DEBUG_MODE',['../eBoard_8h.html#a9576a738d44de713d21e71123b5ee344',1,'eBoard.h']]],
+  ['eboard_5fdebug_5fmode',['EBOARD_DEBUG_MODE',['../eBoard_8h.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;eBoard.h'],['../neo__animation_8cpp.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;neo_animation.cpp']]],
   ['eboard_5fdebug_5fspeed',['EBOARD_DEBUG_SPEED',['../eBoard_8h.html#ab40166b3dbfe220aef870dccc9fd5386',1,'eBoard.h']]],
   ['eboard_5fguesspath',['EBOARD_GUESSPATH',['../eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e',1,'eBoard.h']]],
   ['eboard_5fi2c',['EBOARD_I2C',['../eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;lcd_debug.cpp']]],
   ['eboard_5flcd',['EBOARD_LCD',['../eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;lcd_debug.cpp']]],
-  ['eboard_5fnano',['EBOARD_NANO',['../eBoard_8h.html#a46d205b09924db53e18bc4761d009096',1,'eBoard.h']]],
-  ['eboard_5fneo',['EBOARD_NEO',['../eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'eBoard.h']]],
+  ['eboard_5fnano',['EBOARD_NANO',['../eBoard_8h.html#a46d205b09924db53e18bc4761d009096',1,'EBOARD_NANO():&#160;eBoard.h'],['../neo__animation_8cpp.html#a46d205b09924db53e18bc4761d009096',1,'EBOARD_NANO():&#160;neo_animation.cpp']]],
+  ['eboard_5fneo',['EBOARD_NEO',['../eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'EBOARD_NEO():&#160;eBoard.h'],['../neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'EBOARD_NEO():&#160;neo_animation.cpp']]],
   ['eboard_5fneo_5f400khz',['EBOARD_NEO_400KHZ',['../eBoard_8h.html#aec86d951b6a2f8eb4e02ec3868ec555f',1,'eBoard.h']]],
   ['eboard_5fneo_5f800khz',['EBOARD_NEO_800KHZ',['../eBoard_8h.html#ac9c7d462fc2167034d7cf9841eadba6a',1,'eBoard.h']]],
   ['eboard_5fneo_5fbgr',['EBOARD_NEO_BGR',['../eBoard_8h.html#a750ba48f08be68afbc5eeea442b3f4b1',1,'eBoard.h']]],
@@ -49,5 +49,5 @@ var searchData=
   ['eboard_5fspi_5fservo_5fmax',['EBOARD_SPI_SERVO_MAX',['../eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43',1,'eBoard.h']]],
   ['eboard_5fuse_5freset',['EBOARD_USE_RESET',['../eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a',1,'eBoard.h']]],
   ['eboard_5fuse_5fspi',['EBOARD_USE_SPI',['../eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713',1,'eBoard.h']]],
-  ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'eBoard.h']]]
+  ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;eBoard.h'],['../neo__animation_8cpp.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;neo_animation.cpp']]]
 ];

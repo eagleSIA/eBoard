@@ -5,7 +5,7 @@
 #define EBOARD_I2C 0x1
 ///@brief we want to use the LCD
 #define EBOARD_LCD 0x1
-#include "/eagleoutice/projects/github/eBoard/eBoard.h"
+#include <eBoard.h>
 /// @brief the board object
 SoccerBoard board;
 /// @brief the lcd object

@@ -28,6 +28,7 @@ var searchData=
   ['setup',['setup',['../eBoard_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'eBoard.h']]],
   ['setvelocity',['setVelocity',['../structeagle__impl_1_1ServoCds55.html#ad7e247dd07b66ad694abb3e7a102063b',1,'eagle_impl::ServoCds55']]],
   ['shiftall',['shiftAll',['../eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a',1,'eBoard.h']]],
+  ['shiftpx',['shiftPx',['../neo__animation_8cpp.html#af16b42fccab1fb1eaf3658e792035c42',1,'neo_animation.cpp']]],
   ['shiftsingle',['shiftSingle',['../eBoard_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
   ['show',['show',['../structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216',1,'NeoPixel']]],
   ['sine8',['sine8',['../structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b',1,'NeoPixel']]],

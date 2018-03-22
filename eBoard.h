@@ -2948,7 +2948,6 @@
 
             [COPY&PASTE] You can use this class like this:
             @code
-            #define EBOARD_I2C 0x1
             #include "/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h"
             //added as library '#include <eBoard.h>'
             SoccerBoard board;
@@ -5926,7 +5925,54 @@
 
         @section genCla Something about classes
 
-        <b> coming soon </b>
+        Without any special macro defined there are four classes available:
+        \n All of them can be disabled via
+        @code
+        #define EBOARD_NANO 0x1
+        @endcode
+
+          - SoccerBoard    : To control the basic IO-PINS
+          - I2CInOut       : To control the main motor
+          - AX12Servo      : To control the steering servos connected with the Smart Servo Shield
+            @note if you wan't to use this servos you should wait a little bit as the SSS needs time to set up
+
+          - DynamixelBoard : To simulate the qfixDynamixelBoard
+
+        Overall there are 3 additional classes:
+          - LCD            : To control OLED displays (128x64)
+            @note enabled with:
+              @code
+              #define EBOARD_I2C 0x1
+              #define EBOARD_LCD 0x1
+              @endcode
+
+          - NeoPixel       : To control Adafruit LED stripes
+            @note enabled with:
+              @code
+              #define EBOARD_NEO 0x1
+              @endcode
+
+          - RB14Scan       : To control the HC-05 Bluetooth modul
+            @note enabled with:
+              @code
+              #define EBOARD_BLUETOOTH 0x1
+              @endcode
+
+       The usage of this classes will be explained in the following sections...
+
+       @section genUsEx How to use:
+
+       @subsection genUsExSoc SoccerBoard
+
+        This is the main class and grants access to the digital IO pins etc.
+        The basic usage is shown in this code:
+        @code
+         //WIP
+        @endcode
+
+        More to come ;D
+
+
     */
 
     /**

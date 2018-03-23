@@ -2646,7 +2646,7 @@
             sendWait((Pos & 0xff)); sendWait((this->velocity_temp>>0x8 & 0xff)); sendWait((this->velocity_temp & 0xff));
             sendEnd();
             digitalWrite(this->cs, HIGH);
-            delay(8);
+            delay(10);
         }
 
         void ServoCds55::SetServoLimit(optVAL_t ID,optVAL_t upperLimit_tempT){
@@ -2654,7 +2654,7 @@
             sendWait('s');                       sendWait(ID);   sendWait((upperLimit_tempT>>0x8 & 0xff));
             sendWait((upperLimit_tempT & 0xff)); sendEnd();
             digitalWrite(this->cs, HIGH);
-            delay(8);
+            delay(10);
         }
 
         void ServoCds55::SetMotormode(optVAL_t ID, optVAL_t velocity){
@@ -2662,7 +2662,7 @@
             sendWait('m');               sendWait(ID);   sendWait((velocity>>0x8 & 0xff));
             sendWait((velocity & 0xff)); sendEnd();
             digitalWrite(this->cs, HIGH);
-            delay(8);
+            delay(10);
         }
 
         void ServoCds55::SetID(optVAL_t ID, optVAL_t newID){
@@ -2670,14 +2670,14 @@
             sendWait('i');  sendWait(ID);   sendWait(newID);
             sendEnd();
             digitalWrite(this->cs, HIGH);
-            delay(8);
+            delay(10);
         }
 
         void ServoCds55::Reset(optVAL_t ID){
             digitalWrite(this->cs, LOW);
             sendWait('r');  sendWait(ID); sendEnd();
             digitalWrite(this->cs, HIGH);
-            delay(8);
+            delay(10);
         }
         ///@endcond
 

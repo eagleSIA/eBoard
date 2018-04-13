@@ -20,7 +20,6 @@
 
  @warning This code comes with absolutely <b>no</b> warranty
 
-
  @pre This Header file was created to port Codes running on the qfix SoccerBoard [DynamixelBoard etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield].
      \n To use it you'll have to replace all qfix-related header-files [*.h] with the following:
      \n It is possible to add this header as library aswell: ArduinoIDE>Sketch>Include Library>Add .ZIP Library...
@@ -50,34 +49,39 @@
 
  <b>General</b>
 
- - [IGNORE_SIZE]             : DEF: the size of this program will grow but the used variable-space will shrink...
- - #EBOARD_DEBUG_MODE        : 0x0: disable [DEBUG_MODE]
- - #EBOARD_DEBUG_SPEED       : if [DEBUG_MODE]: set Speed (9600...)
- - #EBOARD_CHECK_PINS        : 0x0: disable range-check for normal READ and WRITE
- - #EBOARD_CHECK_PINS_PWM    : 0x0: disable range-check for PWM-WRITE
- - #EBOARD_USE_SPI           : 0x0: disables internal SPI-handling
- - #EBOARD_USE_UTILITY       : 0x0: removes useless code-parts
- - #EBOARD_SPI_SERVO_MAX     : Sets the amount of the visible, connected AX-12
- - #EBOARD_I2C               : 0x1: enables I2C tools
- - #EBOARD_SHIFT_REGISTER    : 0x1: enables SHIFT_REGISTER
- - #EBOARD_BLUETOOTH         : 0x1: enables Bluetooth support
- - #EBOARD_PWM_SPE           : Sets the duty cycle for @ref su111
- - #EBOARD_CLAMP             : 0x0: disables clamp
- - #EBOARD_USE_RESET         : 0x0: disable software reset
- - #EBOARD_LCD               : 0x1: enable support for LCD display. Needs #EBOARD_I2C set to 0x1
- - #EBOARD_NEO               : 0x1: enable support for Adafruit-NeoPixel-Devices
- \n\n<b> HUGE UPDATE: </b>
- - #EBOARD_GUESSPATH         : 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]
+  @note This Table is in pre state
+
+  Identifier                 | Requirement                      |         Meaning
+  -------------------------- | -------------------------------- | ----------------
+  [IGNORE_SIZE]              | Define via 'define'              | the size of this program will grow but the used variable-space will shrink...
+  #EBOARD_DEBUG_MODE         | [DEBUGMODE] {int } Default: 9600 | Sets the Serial debug speed for DEBUG
+  #EBOARD_CHECK_PINS         | {bool} Default: 0x1              | 0x0: disables range-check for normal READ and WRITE.
+  #EBOARD_CHECK_PINS_PWM     | {bool} Default: 0x1              | 0x0: disables range-check for PWM-WRITE
+  #EBOARD_USE_SPI            | {bool} Default: 0x1              | 0x0: disables internal SPI-handling
+  #EBOARD_USE_UTILITY        | {bool} Default: 0x1              | removes useless code-parts [will vary on used board]
+  #EBOARD_SPI_SERVO_MAX      | {int } Default:   2              | Sets the amount of the visible, connected AX12Servo objects
+  #EBOARD_I2C                | {bool} Default: 0x0              | 0x1: enables I2C tools
+  #EBOARD_SHIFT_REGISTER     | {bool} Default: 0x0              | 0x1: enables SHIFT_REGISTER
+  #EBOARD_BLUETOOTH          | {bool} Default: 0x0              | 0x1: enables Bluetooth support
+  #EBOARD_PWM_SPE            | {int } Default:   1              | Sets the duty cycle for @ref su111
+  #EBOARD_CLAMP              | {bool} Default: 0x1              | 0x0: disables clamp
+  #EBOARD_USE_RESET          | {bool} Default: 0x1              | 0x0: disable software reset
+  #EBOARD_LCD                | [I2C] {bool} Default: 0x0        | 0x1: enable support for LCD display. Needs #EBOARD_I2C set to 0x1
+  #EBOARD_NEO                | {bool} Default: 0x0              | 0x1: enable support for Adafruit-NeoPixel-Devices
+  <b>#EBOARD_GUESSPATH       | {bool} Default: 0x1              | 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>
 
  <b>Pins</b>
- - #PIN_BLUETOOTH_RX         : pinID(2|19) of RX-Pin   -- why? [@ref su3]
- - #PIN_BLUETOOTH_TX         : pinID(3|18) of TX-Pin   -- why? [@ref su3]
- - #PIN_MOTOR_DIR            : pinID(4) for MotorControl [DIR]
- - #PIN_MOTOR_SPE            : pinID(5) for MotorControl [SPE]
- - #PIN_SHIFT_CLK            : pinID(6) of shift-Clock
- - #PIN_SHIFT_DAT            : pinID(7) of shift-Data
- - #PIN_SHIFT_LAT            : pinID(8) of shift-Latch
- - #PIN_BLUETOOTH_STATE      : If == RX-Pin: not set. Else: Pin of HC-05 connection-state
+
+  Identifier                 | Default ID [UNO/NANO \\ MEGA]    | Addiotional Information
+  -------------------------- | -------------------------------- | -----------------------
+  #PIN_BLUETOOTH_RX          | pinID(2\\19)                     | RX-Pin -- why? [@ref su3]
+  #PIN_BLUETOOTH_TX          | pinID(3\\18)                     | TX-Pin -- why? [@ref su3]
+  #PIN_MOTOR_DIR             | pinID(4)                         | MotorControl [DIR]
+  #PIN_MOTOR_SPE             | pinID(5)                         | MotorControl [SPE]
+  #PIN_SHIFT_CLK             | pinID(6)                         | shift-Clock
+  #PIN_SHIFT_DAT             | pinID(7)                         | shift-Data
+  #PIN_SHIFT_LAT             | pinID(8)                         | shift-Latch
+  #PIN_BLUETOOTH_STATE       | pinID(2\\19) (if==RX-Pin: unset) | if != RX-Pin: Pin of HC-05 connection-state
 
  @section s2 Smart Servo Shield
  @image html sss.jpeg
@@ -2474,210 +2478,121 @@
     ///@endcond
 
     #if EBOARD_USE_SPI > 0x0 && (EBOARD_NANO == 0x0)
-      namespace eagle_impl {
-        /*!
-            @struct ServoCds55
 
-            @author EagleoutIce
-
-            @brief [SPI] This is used to communicate with the smart servo shield
-            \n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Don't use manually</b>
-
-            @warning [COPY&PASTE] use SoccerBoard, DynamixelBoard and I2CInOut !
-            @warning this code is for internal use only and shouldnt be used otherwise
-
-            @copyright This code is based on the offical library [https://github.com/leffhub/ServoCds55 (undocumented :/)] cheers!
-
-            [COPY&PASTE] [SPI] You can use this class like this:
-            @code
-            _servoHandler.write(0,150); //will move servo id 0 to pos 150 [standard limit is 300]
-            @endcode
-            [SPI] You can use this class like this:
-            @code
-            //in setup:
-            _servoHandler.begin();
-
-            //... in code:
-            _servoHandler.write(0,150); //will move servo id 0 to pos 150 [standard limit is 300]
-            @endcode
-        */
-        struct ServoCds55 {
-            /*!
-                @brief The constructor
-
-                @note There should be only the already created _servoHandler.
-                @note This class isn't static!
-
-             */
-            #if defined(__AVR_ATmega2560__)
-                ServoCds55(optVAL_t CS=53);
-            #else
-                ServoCds55(optVAL_t CS=10);
-            #endif
-            /// @brief begin the communication and setup SPI
-            void begin();
-            /**
-                @brief Moves a Servo to a certain position
-
-                @param ID the target ID of the Servo
-                @param Pos the target position of the Servo
-
-                @note don't use this function... use write() instead
-            */
-            void WritePos(optVAL_t ID,optVAL_t Pos);
-            /**
-                @brief Moves a Servo to a certain position
-
-                @param ID the target ID of the Servo
-                @param Pos the target position of the Servo
-            */
-            inline void write(optVAL_t ID,optVAL_t Pos);
-            /**
-                @brief Sets the default speed of servos
-
-                @param velocity the new speed value...
-            */
-            void setVelocity(optVAL_t velocity);
-            /**
-                @brief Sets the position limits for the servos
-
-                @param posLimit the new positionLimit
-
-                @attention the values are neither clamped nor masked!
-            */
-            void setPosLimit(optVAL_t posLimit);
-            /**
-                @brief makes nothing
-            */
-            void rotate(optVAL_t,optVAL_t);
-            /**
-                @brief (probably) set the posLimit for only one servo (will be overwritten by write() => writePos())
-
-                @param ID the target ID of the Servo
-                @param upperLimit (probably) the upperLimit for a specific servo
-
-                @warning could do something different... lack of documentation
-            */
-            void SetServoLimit(optVAL_t ID,optVAL_t upperLimit);
-            /**
-                @brief (probably) set the velocity of only one Servo
-
-                @param ID the target ID of the Servo
-                @param velocity (probably) the speed for a specific servo
-
-                @warning could do something different... lack of documentation
-            */
-            void SetMotormode(optVAL_t ID, optVAL_t velocity);
-            /**
-                @brief change the ID of a special Servo
-
-                @param ID the target ID of the Servo
-                @param newID the newID of the Servo
-
-                @warning using this may result in a total failure of the program... pls no what you're doing!
-            */
-            void SetID(optVAL_t ID, optVAL_t newID);
-            /**
-                @brief resets a servo
-
-                @param ID the target ID of the Servo
-            */
-            void Reset(optVAL_t ID);
-            /**
-                @brief sends data.
-                @note This is used internally and shouldnt be used!
-
-                @param what the byte to send
-
-                @returns feedback of SPI.transfer();
-            */
-            byte sendWait(const byte what);
-            ///@brief this sends the end sequence needed for motor control
-            void sendEnd(void);
-            /// @brief stores the posLimit value send with write()
-            int upperLimit_temp;
-
-        private:
-            /// @brief stores the velocity value send with writePos()
-            optVAL_t velocity_temp;
-            /// @brief stores the ControlPin id
-            optVAL_t cs;
-            // @brief prevents arduino from endless recallocating memory
-            byte tmp;
-        };
-        }
+        ///@note delayed comment
+        ///@todo comment | check if set velocity in AX12Servo cause bugs
         ///@cond
-        ServoCds55::ServoCds55 (optVAL_t CS):cs(CS) {
-            this->velocity_temp = 0x96;
-            this->upperLimit_temp = 0x12C; //keep default range of +-300
-        }
+        struct ServoCds55 {
+            public:
+              #if defined(__AVR_ATmega2560__)
+                ServoCds55(int CS=53);
+              #else
+                ServoCds55(int CS=10);
+              #endif
+            	void begin();
+              void WritePos(int ID,int Pos);
+              void write(int ID,int Pos);
+              inline void setVelocity(int velocity);
+              inline void setPoslimit(int posLimit);
+              void rotate(int ID,int velocity);
+              void SetServoLimit(int ID,int upperLimit);
+              void SetMotormode(int ID, int velocity);
+              void SetID(int ID, int newID);
+              void Reset(int ID);
+              byte sendWait (const byte what);
+
+              int velocity_temp;
+              int upperLimit_temp;
+              int cs;
+            };
+            ServoCds55::ServoCds55 (int CS):cs(CS) {
+              velocity_temp = 150;
+              upperLimit_temp = 300;
+            }
 
         void ServoCds55::begin() {
-            pinMode(this->cs,OUTPUT);
-            digitalWrite(this->cs,HIGH);
-            SPI.begin ();
-            SPI.setClockDivider(SPI_CLOCK_DIV8);
+          pinMode(cs,OUTPUT);
+          digitalWrite(cs,HIGH);
+          SPI.begin ();
+          SPI.setClockDivider(SPI_CLOCK_DIV8);
         }
 
-        byte ServoCds55::sendWait(const byte what) {
-            this->tmp = SPI.transfer (what);
-            delayMicroseconds (20);
-            return this->tmp;
+        byte ServoCds55::sendWait (const byte what) {
+          byte a = SPI.transfer (what);
+          delayMicroseconds (20);
+          return a;
         }
 
-        inline void ServoCds55::setVelocity(optVAL_t velocity){this->velocity_temp = velocity;}
-        inline void ServoCds55::setPosLimit(optVAL_t posLimit){this->upperLimit_temp =  posLimit;}
-
-          inline void ServoCds55::write(optVAL_t ID,optVAL_t Pos){
-            WritePos(ID,Pos);
+        void ServoCds55::setVelocity(int velocity){   //set servo velocity
+          velocity_temp = velocity;
         }
 
-        void ServoCds55::rotate(optVAL_t ID,optVAL_t velocity){}
-
-        void ServoCds55::sendEnd(void){
-          SPI.transfer ('\t'); delayMicroseconds (20);
-          SPI.transfer ('\r'); delayMicroseconds (20);
-          SPI.transfer ('\n'); delayMicroseconds (20);
+        void ServoCds55::setPoslimit(int posLimit){  // set servo pos limit
+          upperLimit_temp =  posLimit;
         }
 
-        void ServoCds55::WritePos(optVAL_t ID,optVAL_t Pos){
-            digitalWrite(this->cs, LOW);
-            sendWait('p');          sendWait(ID);                                sendWait((Pos>>0x8 & 0xff));
-            sendWait((Pos & 0xff)); sendWait((this->velocity_temp>>0x8 & 0xff)); sendWait((this->velocity_temp & 0xff));
-            sendEnd();
-            digitalWrite(this->cs, HIGH);
-            delay(10);
+        void ServoCds55::write(int ID,int Pos){     //  Servo Mode
+          SetServoLimit(ID,upperLimit_temp);
+          WritePos(ID,Pos);// default velocity:150
         }
 
-        void ServoCds55::SetServoLimit(optVAL_t ID,optVAL_t upperLimit_tempT){
-            digitalWrite(this->cs, LOW);
-            sendWait('s');                       sendWait(ID);   sendWait((upperLimit_tempT>>0x8 & 0xff));
-            sendWait((upperLimit_tempT & 0xff)); sendEnd();
-            digitalWrite(this->cs, HIGH);
-            delay(10);
+        void ServoCds55::rotate(int ID,int velocity){ // Motor Mode
+          SetServoLimit(ID,0);
+          delay(100);
+          SetMotormode(ID,velocity);
         }
 
-        void ServoCds55::SetMotormode(optVAL_t ID, optVAL_t velocity){
-            digitalWrite(this->cs, LOW);
-            sendWait('m');               sendWait(ID);   sendWait((velocity>>0x8 & 0xff));
-            sendWait((velocity & 0xff)); sendEnd();
-            digitalWrite(this->cs, HIGH);
-            delay(10);
+        void ServoCds55::WritePos(int ID,int Pos){
+          int PosB = (Pos>>8 & 0xff);//low
+          int PosS = (Pos & 0xff);//high
+          int velocityB = (velocity_temp>>8 & 0xff);
+          int velocityS = (velocity_temp & 0xff);
+          digitalWrite(cs, LOW);
+          sendWait ('p'); sendWait (ID);
+          sendWait (PosB); sendWait (PosS);
+          sendWait (velocityB); sendWait (velocityS);
+          sendWait ('\t'); sendWait ('\r'); sendWait ('\n');
+          digitalWrite(cs, HIGH);
+          delay(10);
         }
 
-        void ServoCds55::SetID(optVAL_t ID, optVAL_t newID){
-            digitalWrite(this->cs, LOW);
-            sendWait('i');  sendWait(ID);   sendWait(newID);
-            sendEnd();
-            digitalWrite(this->cs, HIGH);
-            delay(10);
+        void ServoCds55::SetServoLimit(int ID,int  upperLimit_temp){
+          int upperLimitB = (upperLimit_temp>>8 & 0xff);
+          int upperLimitS =  (upperLimit_temp & 0xff);
+          digitalWrite(cs, LOW);
+          sendWait ('s'); sendWait (ID);
+          sendWait (upperLimitB); sendWait (upperLimitS);
+          sendWait ('\t'); sendWait ('\r'); sendWait ('\n');
+          digitalWrite(cs, HIGH);
+          delay(10);
         }
 
-        void ServoCds55::Reset(optVAL_t ID){
-            digitalWrite(this->cs, LOW);
-            sendWait('r');  sendWait(ID); sendEnd();
-            digitalWrite(this->cs, HIGH);
-            delay(10);
+        void ServoCds55::SetMotormode(int ID, int velocity){
+          int velocityB = (velocity>>8 & 0xff);
+          int velocityS = (velocity & 0xff);
+          digitalWrite(cs, LOW);
+          sendWait ('m'); sendWait (ID);
+          sendWait (velocityB); sendWait (velocityS);
+          sendWait ('\t'); sendWait ('\r'); sendWait ('\n');
+          digitalWrite(cs, HIGH);
+          delay(10);
+        }
+
+        void ServoCds55::SetID(int ID, int newID){
+          digitalWrite(cs, LOW);
+          sendWait ('i'); sendWait (ID);
+          sendWait (newID);
+          sendWait ('\t'); sendWait ('\r'); sendWait ('\n');
+          digitalWrite(cs, HIGH);
+          delay(10);
+        }
+
+        void ServoCds55::Reset(int ID){
+          digitalWrite(cs, LOW);
+          sendWait ('r'); sendWait (ID);
+          sendWait ('\t'); sendWait ('\r'); sendWait ('\n');
+          digitalWrite(cs, HIGH);
+          delay(10);
         }
         ///@endcond
 

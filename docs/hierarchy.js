@@ -6,7 +6,6 @@ var hierarchy =
     [ "LCD", "structLCD.html", null ],
     [ "NeoPixel", "structNeoPixel.html", null ],
     [ "RB14Scan", "structRB14Scan.html", null ],
-    [ "eagle_impl::ServoCds55", "structeagle__impl_1_1ServoCds55.html", null ],
     [ "SoccerBoard", "structSoccerBoard.html", null ],
     [ "eagle_impl::SPIClass", "structeagle__impl_1_1SPIClass.html", null ],
     [ "Stream", null, [

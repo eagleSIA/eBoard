@@ -127,37 +127,64 @@ This code was written for the Arduino UNO R3 used with the Smart Servo Shield an
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
 <p><b>General</b></p>
-<ul>
-<li>[IGNORE_SIZE] : DEF: the size of this program will grow but the used variable-space will shrink...</li>
-<li><a class="el" href="eBoard_8h.html#a9576a738d44de713d21e71123b5ee344">EBOARD_DEBUG_MODE</a> : 0x0: disable [DEBUG_MODE]</li>
-<li><a class="el" href="eBoard_8h.html#ab40166b3dbfe220aef870dccc9fd5386">EBOARD_DEBUG_SPEED</a> : if [DEBUG_MODE]: set Speed (9600...)</li>
-<li><a class="el" href="eBoard_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a> : 0x0: disable range-check for normal READ and WRITE</li>
-<li><a class="el" href="eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119">EBOARD_CHECK_PINS_PWM</a> : 0x0: disable range-check for PWM-WRITE</li>
-<li><a class="el" href="eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713">EBOARD_USE_SPI</a> : 0x0: disables internal SPI-handling</li>
-<li><a class="el" href="eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968">EBOARD_USE_UTILITY</a> : 0x0: removes useless code-parts</li>
-<li><a class="el" href="eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a> : Sets the amount of the visible, connected AX-12</li>
-<li><a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> : 0x1: enables I2C tools</li>
-<li><a class="el" href="eBoard_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a> : 0x1: enables SHIFT_REGISTER</li>
-<li><a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a> : 0x1: enables Bluetooth support</li>
-<li><a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> : Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a></li>
-<li><a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a> : 0x0: disables clamp</li>
-<li><a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a> : 0x0: disable software reset</li>
-<li><a class="el" href="eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25">EBOARD_LCD</a> : 0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> set to 0x1</li>
-<li><a class="el" href="eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a> : 0x1: enable support for Adafruit-NeoPixel-Devices <br />
-<br />
-<b> HUGE UPDATE: </b></li>
-<li><a class="el" href="eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a> : 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</li>
-</ul>
-<p class=""><b>Pins</b></p><ul>
-<li><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> : pinID(2|19) of RX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]</li>
-<li><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> : pinID(3|18) of TX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]</li>
-<li><a class="el" href="eBoard_8h.html#a834f33b1c264b485a083e8800fa38b36">PIN_MOTOR_DIR</a> : pinID(4) for MotorControl [DIR]</li>
-<li><a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a> : pinID(5) for MotorControl [SPE]</li>
-<li><a class="el" href="eBoard_8h.html#a22c712be288c2b94e2e864cbbe9d3d91">PIN_SHIFT_CLK</a> : pinID(6) of shift-Clock</li>
-<li><a class="el" href="eBoard_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2">PIN_SHIFT_DAT</a> : pinID(7) of shift-Data</li>
-<li><a class="el" href="eBoard_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52">PIN_SHIFT_LAT</a> : pinID(8) of shift-Latch</li>
-<li><a class="el" href="eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLUETOOTH_STATE</a> : If == RX-Pin: not set. Else: Pin of HC-05 connection-state</li>
-</ul>
+<dl class="section note"><dt>Note</dt><dd>This Table is in pre state</dd></dl>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Identifier  </th><th class="markdownTableHeadNone">Requirement  </th><th class="markdownTableHeadNone">Meaning   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">[IGNORE_SIZE]  </td><td class="markdownTableBodyNone">Define via 'define'  </td><td class="markdownTableBodyNone">the size of this program will grow but the used variable-space will shrink...   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a9576a738d44de713d21e71123b5ee344">EBOARD_DEBUG_MODE</a>  </td><td class="markdownTableBodyNone">[DEBUGMODE] {int } Default: 9600  </td><td class="markdownTableBodyNone">Sets the Serial debug speed for DEBUG   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables range-check for normal READ and WRITE.   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119">EBOARD_CHECK_PINS_PWM</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables range-check for PWM-WRITE   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a63b32b42597ed968630c5c82cc3fa713">EBOARD_USE_SPI</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables internal SPI-handling   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a488e51d67078d86a1d703e397d9ce968">EBOARD_USE_UTILITY</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">removes useless code-parts [will vary on used board]   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a>  </td><td class="markdownTableBodyNone">{int } Default: 2  </td><td class="markdownTableBodyNone">Sets the amount of the visible, connected <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> objects   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables I2C tools   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables SHIFT_REGISTER   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables Bluetooth support   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a>  </td><td class="markdownTableBodyNone">{int } Default: 1  </td><td class="markdownTableBodyNone">Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables clamp   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disable software reset   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25">EBOARD_LCD</a>  </td><td class="markdownTableBodyNone">[I2C] {bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="eBoard_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1">EBOARD_I2C</a> set to 0x1   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-NeoPixel-Devices   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b><a class="el" href="eBoard_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
+</table>
+<p class=""><b>Pins</b></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Identifier  </th><th class="markdownTableHeadNone">Default ID [UNO/NANO \ MEGA]  </th><th class="markdownTableHeadNone">Addiotional Information   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a>  </td><td class="markdownTableBodyNone">pinID(2\19)  </td><td class="markdownTableBodyNone">RX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a>  </td><td class="markdownTableBodyNone">pinID(3\18)  </td><td class="markdownTableBodyNone">TX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a834f33b1c264b485a083e8800fa38b36">PIN_MOTOR_DIR</a>  </td><td class="markdownTableBodyNone">pinID(4)  </td><td class="markdownTableBodyNone">MotorControl [DIR]   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#af4f878d7984048cee006fabd1fb6d153">PIN_MOTOR_SPE</a>  </td><td class="markdownTableBodyNone">pinID(5)  </td><td class="markdownTableBodyNone">MotorControl [SPE]   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a22c712be288c2b94e2e864cbbe9d3d91">PIN_SHIFT_CLK</a>  </td><td class="markdownTableBodyNone">pinID(6)  </td><td class="markdownTableBodyNone">shift-Clock   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2">PIN_SHIFT_DAT</a>  </td><td class="markdownTableBodyNone">pinID(7)  </td><td class="markdownTableBodyNone">shift-Data   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52">PIN_SHIFT_LAT</a>  </td><td class="markdownTableBodyNone">pinID(8)  </td><td class="markdownTableBodyNone">shift-Latch   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLUETOOTH_STATE</a>  </td><td class="markdownTableBodyNone">pinID(2\19) (if==RX-Pin: unset)  </td><td class="markdownTableBodyNone">if != RX-Pin: Pin of HC-05 connection-state   </td></tr>
+</table>
 <h1><a class="anchor" id="s2"></a>
 Smart Servo Shield</h1>
 <div class="image">
@@ -191,7 +218,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">EagleoutIce 22.03.2018</li>
+    <li class="footer">[FIX BUILD] EagleoutIce 13.04.2018</li>
   </ul>
 </div>
 </body>

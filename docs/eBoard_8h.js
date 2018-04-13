@@ -3,7 +3,6 @@ var eBoard_8h =
     [ "TwoWire", "classeagle__impl_1_1TwoWire.html", "classeagle__impl_1_1TwoWire" ],
     [ "SPIClass", "structeagle__impl_1_1SPIClass.html", "structeagle__impl_1_1SPIClass" ],
     [ "SoftwareSerial", "classeagle__impl_1_1SoftwareSerial.html", "classeagle__impl_1_1SoftwareSerial" ],
-    [ "ServoCds55", "structeagle__impl_1_1ServoCds55.html", "structeagle__impl_1_1ServoCds55" ],
     [ "SoccerBoard", "structSoccerBoard.html", "structSoccerBoard" ],
     [ "I2CInOut", "structI2CInOut.html", "structI2CInOut" ],
     [ "AX12Servo", "structAX12Servo.html", "structAX12Servo" ],

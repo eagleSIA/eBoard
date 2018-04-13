@@ -1711,7 +1711,7 @@ table.markdownTable tr {
 }
 
 th.markdownTableHeadLeft, th.markdownTableHeadRight, th.markdownTableHeadCenter, th.markdownTableHeadNone {
-	background-color: #374F7F;
+	background-color: #90C048;
 	color: #FFFFFF;
 	font-size: 110%;
 	padding-bottom: 4px;

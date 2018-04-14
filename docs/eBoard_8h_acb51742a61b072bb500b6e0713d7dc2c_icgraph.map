@@ -1,0 +1,8 @@
+<map id="_serial" name="_serial">
+<area shape="rect" id="node2" href="$eBoard__comment_8h.html#a77e51ddd601b32f343b7addc1f602d07" title="[BLUETOOTH] checks if theres a lack of Data! " alt="" coords="113,5,223,32"/>
+<area shape="rect" id="node3" href="$eBoard__comment_8h.html#a013ff57a97587f0064777a3a28f9a2dd" title="[BLUETOOTH] reads a single value from bluetooth if available! " alt="" coords="135,56,201,83"/>
+<area shape="rect" id="node5" href="$eBoard__comment_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="this is a guard " alt="" coords="141,107,195,133"/>
+<area shape="rect" id="node6" href="$eBoard__comment_8h.html#abf785ff4ead72e3118dfaa8270c04f0c" title="[BLUETOOTH] writes Data to bluetooth " alt="" coords="133,157,203,184"/>
+<area shape="rect" id="node4" href="$structRB14Scan.html#a35ff55470a07767513fb0c619ed78258" title="RB14Scan::channel" alt="" coords="271,56,409,83"/>
+<area shape="rect" id="node7" href="$structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc" title="RB14Scan::write" alt="" coords="279,157,401,184"/>
+</map>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['gamma8',['gamma8',['../structNeoPixel.html#a893e5c64a87c0931bc29fd7df16cdcc1',1,'NeoPixel']]],
-  ['gcc_5fversion',['GCC_VERSION',['../eBoard_8h.html#adbba0f726fc66d7100916c683b7568ae',1,'eBoard.h']]],
+  ['gcc_5fversion',['GCC_VERSION',['../eBoard__comment_8h.html#adbba0f726fc66d7100916c683b7568ae',1,'eBoard_comment.h']]],
   ['getbrightness',['getBrightness',['../structNeoPixel.html#a72151f49019d5b44ef34c2023e9e43bd',1,'NeoPixel']]],
   ['getpin',['getPin',['../structNeoPixel.html#a727940c53255151376dea65d5d4ee364',1,'NeoPixel']]],
   ['getpixelcolor',['getPixelColor',['../structNeoPixel.html#af7a63b8d5af4a653b3c8b390e7673714',1,'NeoPixel']]],

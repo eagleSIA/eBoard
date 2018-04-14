@@ -1,0 +1,17 @@
+<map id="setPin" name="setPin">
+<area shape="rect" id="node2" href="$structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="SoccerBoard::motor" alt="" coords="112,5,251,32"/>
+<area shape="rect" id="node3" href="$eBoard__comment_8h.html#aca4f96af7c6736bf2b61c88d731af741" title="read a digital state from an INPUTpin " alt="" coords="148,56,215,83"/>
+<area shape="rect" id="node6" href="$eBoard__comment_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="this is a guard " alt="" coords="154,107,209,133"/>
+<area shape="rect" id="node7" href="$structI2CInOut.html#ac475882f9f5cf8634f74084b416e9b39" title="I2CInOut::write" alt="" coords="126,157,237,184"/>
+<area shape="rect" id="node8" href="$eBoard__comment_8h.html#ad6d4c1b1e3b495ed81fb28fac04d2bd6" title="write a boolean state to an output pin " alt="" coords="147,208,216,235"/>
+<area shape="rect" id="node4" href="$structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a" title="SoccerBoard::analog" alt="" coords="305,5,447,32"/>
+<area shape="rect" id="node5" href="$structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5" title="SoccerBoard::digital" alt="" coords="307,56,445,83"/>
+<area shape="rect" id="node9" href="$structSoccerBoard.html#a01ff8231432776da9e5e5e1c05257606" title="SoccerBoard::led" alt="" coords="315,107,437,133"/>
+<area shape="rect" id="node10" href="$structSoccerBoard.html#abaefeaaf5c0ea659dce35903284ee577" title="SoccerBoard::ledOn" alt="" coords="307,157,445,184"/>
+<area shape="rect" id="node11" href="$structSoccerBoard.html#af358ec89f0eab4a87b00959dc54f3e16" title="SoccerBoard::ledOff" alt="" coords="306,208,446,235"/>
+<area shape="rect" id="node12" href="$structSoccerBoard.html#a80d7f7690654433e3253f6924eb1164d" title="SoccerBoard::ledsOff" alt="" coords="303,259,449,285"/>
+<area shape="rect" id="node13" href="$structSoccerBoard.html#a978649a6b3089e6215da01b0f87ee3f1" title="SoccerBoard::ledMeter" alt="" coords="299,309,453,336"/>
+<area shape="rect" id="node14" href="$structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="SoccerBoard::power" alt="" coords="306,360,446,387"/>
+<area shape="rect" id="node15" href="$structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f" title="SoccerBoard::powerOn" alt="" coords="502,335,659,361"/>
+<area shape="rect" id="node16" href="$structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd" title="SoccerBoard::powerOff" alt="" coords="501,385,660,412"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="eagle_impl::TwoWire::begin" name="eagle_impl::TwoWire::begin">
+<area shape="rect" id="node2" href="$classeagle__impl_1_1TwoWire.html#ada85a7a8663ec8af0a1248b659be2f18" title="eagle_impl::TwoWire\l::begin" alt="" coords="209,5,353,47"/>
+<area shape="rect" id="node4" href="$classeagle__impl_1_1TwoWire.html#ae5113ecfdedecbf54ac93b0f17f5011e" title="eagle_impl::TwoWire\l::onReceiveService" alt="" coords="209,71,353,112"/>
+<area shape="rect" id="node5" href="$classeagle__impl_1_1TwoWire.html#a56e5b17e8a2c0e9d4017febe083da391" title="eagle_impl::TwoWire\l::onRequestService" alt="" coords="209,136,353,177"/>
+<area shape="rect" id="node6" href="$eBoard_8h.html#a4dc5c27bf3b71b127e8579c8272c761b" title="twi_attachSlaveRxEvent" alt="" coords="197,202,364,229"/>
+<area shape="rect" id="node7" href="$eBoard_8h.html#a6c7a32f215bc048da3c94c8841d8ae3b" title="twi_attachSlaveTxEvent" alt="" coords="199,253,363,279"/>
+<area shape="rect" id="node8" href="$eBoard_8h.html#aaa9f356c6666f1f28db92703c4499d97" title="twi_setAddress" alt="" coords="225,303,337,330"/>
+<area shape="rect" id="node3" href="$eBoard_8h.html#a16f0e6b2fa5a26eadbf4086ab6d54467" title="twi_init" alt="" coords="412,13,475,39"/>
+</map>

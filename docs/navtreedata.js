@@ -61,8 +61,8 @@ var NAVTREE =
       ] ]
     ] ],
     [ "The source code", "source_page.html", null ],
-    [ "Macros and Constants", "macro.html", null ],
     [ "Todo List", "todo.html", null ],
+    [ "Macros and Constants", "macro.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Tutorials", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
@@ -81,7 +81,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -94,7 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eBoard_8h.html#ae3f472fe453a9ca5165e4d550b459700"
+"eBoard__comment_8h.html#ac9890468152ff702c497a65cbd89117f",
+"structeagle__impl_1_1SPIClass.html#a47ba72d87bea0720bbb3566124a44008"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,8 @@
+<map id="RB14Scan::channel" name="RB14Scan::channel">
+<area shape="rect" id="node2" href="$eBoard_8h.html#a490de796838813d1148e3d684f9c88a0" title="[BLUETOOTH] this will check if the HC&#45;05 is paired " alt="" coords="192,13,287,40"/>
+<area shape="rect" id="node3" href="$eBoard_8h.html#a013ff57a97587f0064777a3a28f9a2dd" title="[BLUETOOTH] reads a single value from bluetooth if available! " alt="" coords="206,64,273,91"/>
+<area shape="rect" id="node4" href="$eBoard_8h.html#acb51742a61b072bb500b6e0713d7dc2c" title="_serial" alt="" coords="393,5,453,32"/>
+<area shape="rect" id="node5" href="$classeagle__impl_1_1SoftwareSerial.html#a6a0c4bbe1cf6866ec54b98c6efdc4deb" title="eagle_impl::SoftwareSerial\l::available" alt="" coords="335,57,512,98"/>
+<area shape="rect" id="node7" href="$classeagle__impl_1_1SoftwareSerial.html#ac80b242424a292382f2ac3ea9d84ba43" title="eagle_impl::SoftwareSerial\l::read" alt="" coords="335,122,512,163"/>
+<area shape="rect" id="node6" href="$classeagle__impl_1_1SoftwareSerial.html#a024231154a7cdf059ae7adae882297c5" title="eagle_impl::SoftwareSerial\l::isListening" alt="" coords="560,90,737,131"/>
+</map>

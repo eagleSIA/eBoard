@@ -1,0 +1,4 @@
+<map id="eagle_impl::TwoWire::read" name="eagle_impl::TwoWire::read">
+<area shape="rect" id="node2" href="$eBoard__comment_8h.html#a9410e48b56af483fa869e4b9375f094c" title="Reads a special amount of bits from a certain I²C&#45;Device. " alt="" coords="235,5,303,32"/>
+<area shape="rect" id="node3" href="$classeagle__impl_1_1TwoWire.html#a034ada986ff24585bf741d31d320470c" title="this will read a specific &#160;quantity &#160;of bytes from a specific &#160;address &#160;" alt="" coords="197,57,341,98"/>
+</map>

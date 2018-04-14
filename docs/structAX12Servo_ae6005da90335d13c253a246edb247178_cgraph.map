@@ -1,0 +1,8 @@
+<map id="AX12Servo::setPosition" name="AX12Servo::setPosition">
+<area shape="rect" id="node2" href="$structServoCds55.html#a6540f6d9023ec5e2541e76d647a2b0e2" title="ServoCds55::setVelocity" alt="" coords="215,5,381,32"/>
+<area shape="rect" id="node3" href="$structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="ServoCds55::write" alt="" coords="233,56,363,83"/>
+<area shape="rect" id="node4" href="$structServoCds55.html#a5d77d36691d8a0fab7cf841a4feef530" title="ServoCds55::SetServoLimit" alt="" coords="429,31,613,57"/>
+<area shape="rect" id="node7" href="$structServoCds55.html#a78620c3a9f22c9a37449ba01c5bd08f3" title="ServoCds55::WritePos" alt="" coords="443,81,599,108"/>
+<area shape="rect" id="node5" href="$structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3" title="ServoCds55::sendWait" alt="" coords="661,56,819,83"/>
+<area shape="rect" id="node6" href="$structeagle__impl_1_1SPIClass.html#a821dccd5dda20ccd9093fc35cce74ae5" title="eagle_impl::SPIClass\l::transfer" alt="" coords="867,49,1015,90"/>
+</map>

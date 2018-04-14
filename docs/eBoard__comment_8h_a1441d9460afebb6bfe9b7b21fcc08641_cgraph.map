@@ -1,0 +1,4 @@
+<map id="pingI2C" name="pingI2C">
+<area shape="rect" id="node2" href="$classeagle__impl_1_1TwoWire.html#a1876ffdb16fb185c14a75e1251cef5e4" title="eagle_impl::TwoWire\l::beginTransmission" alt="" coords="120,5,264,47"/>
+<area shape="rect" id="node3" href="$classeagle__impl_1_1TwoWire.html#af80f9a7b85a3a81a035ca94c95bcdc1d" title="eagle_impl::TwoWire\l::endTransmission" alt="" coords="120,71,264,112"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="readI2C" name="readI2C">
+<area shape="rect" id="node2" href="$classeagle__impl_1_1TwoWire.html#aee57bc52bee06508e231c5fc6bc35ada" title="eagle_impl::TwoWire\l::available" alt="" coords="121,5,265,47"/>
+<area shape="rect" id="node3" href="$classeagle__impl_1_1TwoWire.html#aa361b83500d00dfb93bb25b6473b33e9" title="eagle_impl::TwoWire\l::read" alt="" coords="121,71,265,112"/>
+</map>

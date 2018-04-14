@@ -1,0 +1,8 @@
+<map id="SoccerBoard::ledsOff" name="SoccerBoard::ledsOff">
+<area shape="rect" id="node2" href="$eBoard_8h.html#ad6d4c1b1e3b495ed81fb28fac04d2bd6" title="write a boolean state to an output pin " alt="" coords="200,48,269,75"/>
+<area shape="rect" id="node3" href="$eBoard_8h.html#a757015d50a6c57414603841f728b670b" title="[DEBUG_MODE] used to check if a pin index is in bounds " alt="" coords="448,23,523,50"/>
+<area shape="rect" id="node4" href="$eBoard_8h.html#a06400a6dce24e4eda610644893c1bbd7" title="[COPY&amp;PASTE] [CHECK_PINS] Check if a pin is set to a specific mode " alt="" coords="321,23,397,50"/>
+<area shape="rect" id="node5" href="$eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4" title="[COPY&amp;PASTE] set a pin to a certain mode =&gt; checkPin() will return true then " alt="" coords="329,74,388,100"/>
+<area shape="rect" id="node6" href="$eBoard_8h.html#ad6372ab439a73887b0800cc695599436" title="[SHIFT] Changes a single output Pin " alt="" coords="317,124,400,151"/>
+<area shape="rect" id="node7" href="$eBoard_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits " alt="" coords="454,124,517,151"/>
+</map>

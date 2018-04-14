@@ -1,0 +1,6 @@
+<map id="_serial" name="_serial">
+<area shape="rect" id="node2" href="$eBoard__comment_8h.html#a77e51ddd601b32f343b7addc1f602d07" title="[BLUETOOTH] checks if theres a lack of Data! " alt="" coords="113,5,223,32"/>
+<area shape="rect" id="node3" href="$eBoard__comment_8h.html#aca4f96af7c6736bf2b61c88d731af741" title="read a digital state from an INPUTpin " alt="" coords="271,107,337,133"/>
+<area shape="rect" id="node4" href="$eBoard__comment_8h.html#a013ff57a97587f0064777a3a28f9a2dd" title="[BLUETOOTH] reads a single value from bluetooth if available! " alt="" coords="135,107,201,133"/>
+<area shape="rect" id="node5" href="$eBoard__comment_8h.html#abf785ff4ead72e3118dfaa8270c04f0c" title="[BLUETOOTH] writes Data to bluetooth " alt="" coords="133,157,203,184"/>
+</map>

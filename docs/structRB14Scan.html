@@ -129,17 +129,17 @@ $(document).ready(function(){initNavTree('structRB14Scan.html','');});
 <p>[COPY&amp;PASTE] [BLUETOOTH] This is the <a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a> ghost struct :D  
  <a href="structRB14Scan.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="eBoard_8h_source.html">eBoard.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d14437180746170471cf0ec5ea6c547"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a0d14437180746170471cf0ec5ea6c547">RB14Scan</a> (void)</td></tr>
 <tr class="memdesc:a0d14437180746170471cf0ec5ea6c547"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a0d14437180746170471cf0ec5ea6c547">More...</a><br /></td></tr>
 <tr class="separator:a0d14437180746170471cf0ec5ea6c547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27e90f9b6d412b04af3f9d6341607bce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce">raw</a> (<a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>)</td></tr>
+<tr class="memitem:a27e90f9b6d412b04af3f9d6341607bce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a27e90f9b6d412b04af3f9d6341607bce">raw</a> (<a class="el" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>)</td></tr>
 <tr class="memdesc:a27e90f9b6d412b04af3f9d6341607bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will check for connection status [will return true if pin not connected]  <a href="#a27e90f9b6d412b04af3f9d6341607bce">More...</a><br /></td></tr>
 <tr class="separator:a27e90f9b6d412b04af3f9d6341607bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ff55470a07767513fb0c619ed78258"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a> (<a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>)</td></tr>
+<tr class="memitem:a35ff55470a07767513fb0c619ed78258"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a> (<a class="el" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>)</td></tr>
 <tr class="memdesc:a35ff55470a07767513fb0c619ed78258"><td class="mdescLeft">&#160;</td><td class="mdescRight">will return the next char received by the module. A 64 byte Serial buffer is included!  <a href="#a35ff55470a07767513fb0c619ed78258">More...</a><br /></td></tr>
 <tr class="separator:a35ff55470a07767513fb0c619ed78258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c3e020ffb6d8f23f6394e33c93964fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc">write</a> (const char *const val)</td></tr>
@@ -152,8 +152,8 @@ Public Member Functions</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class on UNO: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH   0x1</span></div></div><!-- fragment --> <br />
  <br />
  If you don't reconfigure the TX and RX on MEGA: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH 0x1</span></div></div><!-- fragment --></dd></dl>
-<p>[COPY&amp;PASTE] [BLUETOOTH] You can use this class like this on UNO: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH   0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"></div><div class="line"><a class="code" href="structRB14Scan.html">RB14Scan</a> remote;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <span class="keywordtype">int</span> x = remote.<a class="code" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a>(0); <span class="comment">//stores value, if available, in &#39;x&#39;</span></div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard_8h_source.html#l03210">3210</a> of file <a class="el" href="eBoard_8h_source.html">eBoard.h</a>.</p>
+<p>[COPY&amp;PASTE] [BLUETOOTH] You can use this class like this on UNO: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_BLUETOOTH   0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"></div><div class="line"><a class="code" href="structRB14Scan.html">RB14Scan</a> remote;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <span class="keywordtype">int</span> x = remote.<a class="code" href="structRB14Scan.html#a35ff55470a07767513fb0c619ed78258">channel</a>(0); <span class="comment">//stores value, if available, in &#39;x&#39;</span></div><div class="line">}</div></div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03309">3309</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d14437180746170471cf0ec5ea6c547"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d14437180746170471cf0ec5ea6c547">&#9670;&nbsp;</a></span>RB14Scan()</h2>
@@ -196,7 +196,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">char RB14Scan::channel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -225,7 +225,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">int RB14Scan::raw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="eBoard_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -272,7 +272,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/eagleoutice/projects/github/eBoard/<a class="el" href="eBoard_8h_source.html">eBoard.h</a></li>
+<li>/eagleoutice/projects/github/eBoard/<a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,15 @@
+<map id="eagle_impl::SPIClass::transfer" name="eagle_impl::SPIClass::transfer">
+<area shape="rect" id="node2" href="$structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3" title="ServoCds55::sendWait" alt="" coords="201,107,359,133"/>
+<area shape="rect" id="node3" href="$structServoCds55.html#aaa6a4ae05352b293318fd1c6c7d45c0a" title="ServoCds55::Reset" alt="" coords="431,5,569,32"/>
+<area shape="rect" id="node4" href="$structServoCds55.html#a4424d857bb52e7a6e3527209cc83d244" title="ServoCds55::SetID" alt="" coords="432,56,568,83"/>
+<area shape="rect" id="node5" href="$structServoCds55.html#ab9e5ab857983d3c0d1eaf43f60c53285" title="ServoCds55::SetMotormode" alt="" coords="407,107,593,133"/>
+<area shape="rect" id="node7" href="$structServoCds55.html#a5d77d36691d8a0fab7cf841a4feef530" title="ServoCds55::SetServoLimit" alt="" coords="408,157,592,184"/>
+<area shape="rect" id="node14" href="$structServoCds55.html#a78620c3a9f22c9a37449ba01c5bd08f3" title="ServoCds55::WritePos" alt="" coords="422,208,578,235"/>
+<area shape="rect" id="node6" href="$structServoCds55.html#a3d2a551e816185d455adb5b1add148f9" title="ServoCds55::rotate" alt="" coords="641,107,776,133"/>
+<area shape="rect" id="node8" href="$structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a" title="AX12Servo::setID" alt="" coords="645,157,773,184"/>
+<area shape="rect" id="node9" href="$structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="ServoCds55::write" alt="" coords="643,208,774,235"/>
+<area shape="rect" id="node10" href="$structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="SoccerBoard::motor" alt="" coords="835,183,974,209"/>
+<area shape="rect" id="node11" href="$structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="AX12Servo::setPosition" alt="" coords="824,233,985,260"/>
+<area shape="rect" id="node12" href="$structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="DynamixelBoard::action" alt="" coords="1033,233,1195,260"/>
+<area shape="rect" id="node13" href="$lcd__debug_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1243,233,1293,260"/>
+</map>

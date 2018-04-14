@@ -24,7 +24,7 @@ NeoPixel pixels = NeoPixel(PIXELS_COUNT);
 void shiftPx(uint8_t &pixBuf)
 {
   for(uint8_t i = 1; i < (PIXELS_COUNT+1); i++)
-      pixels.setPixelColor(i-1,(bitRead(pixBuf,i))?(NeoPixel::Color((RED/(6-i)),(GREEN/(6-i)),(BLUE/(6-i)))):(0));
+    pixels.setPixelColor(i-1,(bitRead(pixBuf,i))?(NeoPixel::Color((RED/((PIXELS_COUNT+1)-i)),(GREEN/((PIXELS_COUNT+1)-i)),(BLUE/((PIXELS_COUNT+1)-i)))):(0));
   //lock communication here
   pixels.show();
   //unlock communication here

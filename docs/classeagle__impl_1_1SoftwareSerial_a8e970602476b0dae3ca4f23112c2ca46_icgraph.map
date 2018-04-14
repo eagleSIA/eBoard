@@ -1,0 +1,9 @@
+<map id="eagle_impl::SoftwareSerial::isListening" name="eagle_impl::SoftwareSerial::isListening">
+<area shape="rect" id="node2" href="$eBoard_8h.html#af64dd115a90406cbd4df7eb6455c91c6" title="_Pragma" alt="" coords="456,113,531,139"/>
+<area shape="rect" id="node3" href="$classeagle__impl_1_1SoftwareSerial.html#a6a0c4bbe1cf6866ec54b98c6efdc4deb" title="checks if there is data to read available " alt="" coords="231,236,408,277"/>
+<area shape="rect" id="node6" href="$classeagle__impl_1_1SoftwareSerial.html#a95364d98124ae983de49dbccb9d5e920" title="resets the position in buffer and the buffer itself if the object is listening " alt="" coords="231,40,408,81"/>
+<area shape="rect" id="node7" href="$classeagle__impl_1_1SoftwareSerial.html#a330f9da007584d91908da3b4f394f50e" title="reads the actual pointed rxBuffer element without dropping it " alt="" coords="231,105,408,147"/>
+<area shape="rect" id="node8" href="$classeagle__impl_1_1SoftwareSerial.html#ac80b242424a292382f2ac3ea9d84ba43" title="reads the actual pointed rxBuffer top element " alt="" coords="231,171,408,212"/>
+<area shape="rect" id="node4" href="$eBoard__comment_8h.html#a013ff57a97587f0064777a3a28f9a2dd" title="[BLUETOOTH] reads a single value from bluetooth if available! " alt="" coords="460,211,527,238"/>
+<area shape="rect" id="node5" href="$structRB14Scan.html#a35ff55470a07767513fb0c619ed78258" title="RB14Scan::channel" alt="" coords="579,211,717,238"/>
+</map>

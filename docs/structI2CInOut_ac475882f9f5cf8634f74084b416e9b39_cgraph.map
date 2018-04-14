@@ -1,0 +1,5 @@
+<map id="I2CInOut::write" name="I2CInOut::write">
+<area shape="rect" id="node2" href="$eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4" title="[COPY&amp;PASTE] set a pin to a certain mode =&gt; checkPin() will return true then " alt="" coords="176,5,235,32"/>
+<area shape="rect" id="node4" href="$eBoard_8h.html#ad3f999233c04890710241b8b898d09cb" title="write a clamped pwm value to an output pin " alt="" coords="164,56,247,83"/>
+<area shape="rect" id="node3" href="$eBoard_8h.html#a757015d50a6c57414603841f728b670b" title="[DEBUG_MODE] used to check if a pin index is in bounds " alt="" coords="295,5,369,32"/>
+</map>

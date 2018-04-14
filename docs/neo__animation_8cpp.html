@@ -127,11 +127,14 @@ $(document).ready(function(){initNavTree('neo__animation_8cpp.html','');});
 
 <p>a simple neo-animation example  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="eBoard_8h_source.html">eBoard.h</a>&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for neo_animation.cpp:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp__incl.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="textblock"><code>#include &lt;eBoard.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for neo_animation.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp__incl.svg" width="234" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="neo__animation_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -394,10 +397,13 @@ Variables</h2></td></tr>
 <div class="ttc" id="neo__animation_8cpp_html_af16b42fccab1fb1eaf3658e792035c42"><div class="ttname"><a href="neo__animation_8cpp.html#af16b42fccab1fb1eaf3658e792035c42">shiftPx</a></div><div class="ttdeci">void shiftPx(uint8_t &amp;pixBuf)</div><div class="ttdoc">this will perform a single shift operation! </div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00024">neo_animation.cpp:24</a></div></div>
 <div class="ttc" id="structNeoPixel_html_a15d732945ae530d843910753ba9929f2"><div class="ttname"><a href="structNeoPixel.html#a15d732945ae530d843910753ba9929f2">NeoPixel::setBrightness</a></div><div class="ttdeci">void setBrightness(uint8_t val)</div><div class="ttdoc">changes the brightness for all further acceses via NeoPixel::setPixelColor() </div></div>
 <div class="ttc" id="structNeoPixel_html_ad31eb7e7b738586ea0361a470591226f"><div class="ttname"><a href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f">NeoPixel::begin</a></div><div class="ttdeci">void begin(void)</div><div class="ttdoc">this has to be called to start the communcation (you should call NeoPixel::setPin() before) ...</div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="482" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div><!-- fragment --><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="482" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
@@ -431,7 +437,7 @@ Here is the call graph for this function:</div>
 <p class="reference">References <a class="el" href="neo__animation_8cpp_source.html#l00016">BLUE</a>, <a class="el" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color()</a>, <a class="el" href="neo__animation_8cpp_source.html#l00015">GREEN</a>, <a class="el" href="neo__animation_8cpp_source.html#l00018">pixels</a>, <a class="el" href="neo__animation_8cpp_source.html#l00013">PIXELS_COUNT</a>, <a class="el" href="neo__animation_8cpp_source.html#l00014">RED</a>, <a class="el" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">NeoPixel::setPixelColor()</a>, and <a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">NeoPixel::show()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="neo__animation_8cpp_source.html#l00042">main()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">for</span>(uint8_t i = 1; i &lt; (<a class="code" href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a>+1); i++)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <a class="code" href="neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d">pixels</a>.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(i-1,(bitRead(pixBuf,i))?(<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>((<a class="code" href="neo__animation_8cpp.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>/(6-i)),(<a class="code" href="neo__animation_8cpp.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a>/(6-i)),(<a class="code" href="neo__animation_8cpp.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>/(6-i)))):(0));</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="comment">//lock communication here</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d">pixels</a>.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">//unlock communication here</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  pixBuf &lt;&lt;= 1;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">//if inverted: pixBuf &gt;&gt;= 1</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div><div class="ttc" id="neo__animation_8cpp_html_a79d10e672abb49ad63eeaa8aaef57c38"><div class="ttname"><a href="neo__animation_8cpp.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a></div><div class="ttdeci">#define BLUE</div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00016">neo_animation.cpp:16</a></div></div>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">for</span>(uint8_t i = 1; i &lt; (<a class="code" href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a>+1); i++)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d">pixels</a>.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(i-1,(bitRead(pixBuf,i))?(<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>((<a class="code" href="neo__animation_8cpp.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>/((<a class="code" href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a>+1)-i)),(<a class="code" href="neo__animation_8cpp.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a>/((<a class="code" href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a>+1)-i)),(<a class="code" href="neo__animation_8cpp.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>/((<a class="code" href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a>+1)-i)))):(0));</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="comment">//lock communication here</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d">pixels</a>.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">//unlock communication here</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  pixBuf &lt;&lt;= 1;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">//if inverted: pixBuf &gt;&gt;= 1</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div><div class="ttc" id="neo__animation_8cpp_html_a79d10e672abb49ad63eeaa8aaef57c38"><div class="ttname"><a href="neo__animation_8cpp.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a></div><div class="ttdeci">#define BLUE</div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00016">neo_animation.cpp:16</a></div></div>
 <div class="ttc" id="neo__animation_8cpp_html_a3e31c31cb2565ff5cc65b69050eb778d"><div class="ttname"><a href="neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d">pixels</a></div><div class="ttdeci">NeoPixel pixels</div><div class="ttdoc">the NeoPixel-object we use </div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00018">neo_animation.cpp:18</a></div></div>
 <div class="ttc" id="structNeoPixel_html_a3c6105546cfb9ccca5b31a1c26450d1d"><div class="ttname"><a href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">NeoPixel::setPixelColor</a></div><div class="ttdeci">void setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b)</div><div class="ttdoc">sets the rgb color of a specific pixel </div></div>
 <div class="ttc" id="structNeoPixel_html_a14aaaf801a74b5a608c4e94ae5293a3b"><div class="ttname"><a href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a></div><div class="ttdeci">static uint32_t Color(uint8_t r, uint8_t g, uint8_t b)</div><div class="ttdoc">returns a color value that can be used with NeoPixel::setPixelColor() </div></div>
@@ -439,15 +445,21 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="neo__animation_8cpp_html_acfbc006ea433ad708fdee3e82996e721"><div class="ttname"><a href="neo__animation_8cpp.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a></div><div class="ttdeci">#define GREEN</div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00015">neo_animation.cpp:15</a></div></div>
 <div class="ttc" id="neo__animation_8cpp_html_a445f48e70723c024f117a89c2c85fca0"><div class="ttname"><a href="neo__animation_8cpp.html#a445f48e70723c024f117a89c2c85fca0">PIXELS_COUNT</a></div><div class="ttdeci">#define PIXELS_COUNT</div><div class="ttdef"><b>Definition:</b> <a href="neo__animation_8cpp_source.html#l00013">neo_animation.cpp:13</a></div></div>
 <div class="ttc" id="structNeoPixel_html_a73a8e7c435b16a785430b5f3734e3216"><div class="ttname"><a href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">NeoPixel::show</a></div><div class="ttdeci">void show(void)</div><div class="ttdoc">this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] </div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_af16b42fccab1fb1eaf3658e792035c42_cgraph.svg" width="283" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div><!-- fragment --><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_af16b42fccab1fb1eaf3658e792035c42_icgraph.svg" width="172" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_af16b42fccab1fb1eaf3658e792035c42_cgraph.svg" width="283" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="neo__animation_8cpp_af16b42fccab1fb1eaf3658e792035c42_icgraph.svg" width="172" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>

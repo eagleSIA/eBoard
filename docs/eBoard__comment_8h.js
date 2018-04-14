@@ -117,6 +117,7 @@ var eBoard__comment_8h =
     [ "PIN_SHIFT_CLK", "eBoard__comment_8h.html#a22c712be288c2b94e2e864cbbe9d3d91", null ],
     [ "PIN_SHIFT_DAT", "eBoard__comment_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2", null ],
     [ "PIN_SHIFT_LAT", "eBoard__comment_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52", null ],
+    [ "PREPROCESS_DEBUG", "eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158", null ],
     [ "PWM_FAST", "eBoard__comment_8h.html#a6765502d4374ae2b9e6c28191312771b", null ],
     [ "PWM_SLOW", "eBoard__comment_8h.html#a6e20dff41fbcc35133f54db161cca0f9", null ],
     [ "REPT_TASK", "eBoard__comment_8h.html#a9f16e9572527274c376a2a369915ea51", null ],

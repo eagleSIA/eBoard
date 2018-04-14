@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structeagle__impl_1_1SPIClass.html#a447a5c2ceeee1b4ce509939ef2a415e2":[10,0,0,1,0],
 "structeagle__impl_1_1SPIClass.html#a47ba72d87bea0720bbb3566124a44008":[10,0,0,1,6],
 "structeagle__impl_1_1SPIClass.html#a99eb688e3e43296eb2853fdb521654c3":[10,0,0,1,1],
 "structeagle__impl_1_1SPIClass.html#aafcd3688d7564bdd178a250cbe07d650":[10,0,0,1,3],

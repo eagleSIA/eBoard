@@ -14,10 +14,18 @@
  #define EBOARD_VERSION "3.0c"
  ///@cond
  #define VALUE_TO_STRING(x) #x
+ ///@endcond
+#ifdef DOC
+///@macro_def determines if there should be preprocessor output from eBoard-headerfile
+#define PREPROCESS_DEBUG 1
+#endif
+ ///@cond
  #define VALUE(x) VALUE_TO_STRING(x)
+ ///@endcond
  #ifndef PREPROCESS_DEBUG
   #define PREPROCESS_DEBUG 0
  #endif
+///@cond
  #define PPERFORM_PRAGMA(str) _Pragma(#str)
  #if PREPROCESS_DEBUG == 1
   #define DEBUG_MSG(str) PPERFORM_PRAGMA(message ("" #str))
@@ -90,6 +98,7 @@
   #EBOARD_LCD                | [I2C] {bool} Default: 0x0        | 0x1: enable support for LCD display. Needs #EBOARD_I2C set to 0x1
   #EBOARD_NEO                | {bool} Default: 0x0              | 0x1: enable support for Adafruit-NeoPixel-Devices
   <b>#EBOARD_GUESSPATH       | {bool} Default: 0x1              | 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>
+  #PREPROCESS_DEBUG          | {bool} Default; 0x0              | 0x1: enable preprocessing messages from eBoard
 
  <b>Pins</b>
 
@@ -165,6 +174,9 @@
 */
 /**
   @page stats Statistics
+
+  @tableofcontents
+
   @brief Cuz everyone loves them :O
     @warning it's easy to misinterpret this statistics!
      \n eBoard is taking care of many things and only occupying a minimum of space! Most things you would have to write by yourselve otherwise (which may resulted in an even higher amount of used space!)
@@ -431,6 +443,7 @@
     - Documentation for all implemented features
     - This code is now a vaild ArduinoIDE library
       \n &nbsp; => <b> including Syntax highlighting </b>
+    - Servo functionality (including init time) for NANO [is part of update 3.1m! will be moved soon]
 
     <b>Changed</b>
 
@@ -2506,6 +2519,9 @@
 
     #ifdef REPT_TASK
         extern void rept_task(void);
+        DEBUG_MSG("You defined REPT_TASK: you have to define rept_task(void)!");
+    #else
+        DEBUG_MSG("You did not define REPT_TASK: rept_task(void) will not have any effect");
     #endif
 
 
@@ -5719,7 +5735,6 @@
 
     /**
      * @defgroup i2cEx [ 🐼 ] I2C
-     *
      */
 
     /**
@@ -5761,7 +5776,6 @@
 
     /**
      * @defgroup blueEx [ 🐼 ] BLUETOOTH
-     *
      */
     /**
         @addtogroup blueEx
@@ -5796,7 +5810,6 @@
 
     /**
      * @defgroup shiftEx [ 🐼 ] SHIFT
-     *
      */
     /**
         @addtogroup shiftEx
@@ -5840,7 +5853,6 @@
     */
     /**
      * @defgroup lcdEx [ 🐼 ] OLED
-     *
      */
     /**
         @addtogroup lcdEx
@@ -5992,7 +6004,6 @@
 
     /**
      * @defgroup portTu [ 🐼 ] UNO2MEGA
-     *
      */
     /**
         @addtogroup portTu

@@ -21,6 +21,7 @@ var searchData=
   ['power',['power',['../structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06',1,'SoccerBoard']]],
   ['poweroff',['powerOff',['../structSoccerBoard.html#a5442e3a7ca58ed90d9e4af0cac83ebdd',1,'SoccerBoard']]],
   ['poweron',['powerOn',['../structSoccerBoard.html#aa46822d5b727bf3e427c5ceba995f42f',1,'SoccerBoard']]],
+  ['preprocess_5fdebug',['PREPROCESS_DEBUG',['../eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158',1,'eBoard_comment.h']]],
   ['print',['print',['../structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56',1,'LCD::print(const char *data)'],['../structLCD.html#aa9c5618ffc1c26d568cc090f5f8ca026',1,'LCD::print(int data)'],['../structLCD.html#ab1b68d883d80dc7b8810e602b7032767',1,'LCD::print(optVAL_t line, optVAL_t col, const char *data)'],['../structLCD.html#a12938798b071cb53b83e26970c33fb0a',1,'LCD::print(optVAL_t line, optVAL_t col, int data)']]],
   ['pwm_5ffast',['PWM_FAST',['../eBoard__comment_8h.html#a6765502d4374ae2b9e6c28191312771b',1,'eBoard_comment.h']]],
   ['pwm_5fslow',['PWM_SLOW',['../eBoard__comment_8h.html#a6e20dff41fbcc35133f54db161cca0f9',1,'eBoard_comment.h']]],

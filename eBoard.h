@@ -1,16 +1,18 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 15.04.2018 00:25:24
+//Created: 15.04.2018 00:49:22
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
  #pragma pack(push)
  #pragma pack(16)
+#define EBOARD_VERSION "3.0c"
+#define VALUE_TO_STRING(x) #x
  
- #define EBOARD_VERSION "3.0c"
- 
- #define VALUE_TO_STRING(x) #x
- #define VALUE(x) VALUE_TO_STRING(x)
- #ifndef PREPROCESS_DEBUG
+#ifdef DOC
+#define PREPROCESS_DEBUG 1
+#endif
+#define VALUE(x) VALUE_TO_STRING(x)
+#ifndef PREPROCESS_DEBUG
   #define PREPROCESS_DEBUG 0
  #endif
  #define PPERFORM_PRAGMA(str) _Pragma(#str)
@@ -21,8 +23,7 @@
   #define DEBUG_MSG(str) ;
   #define MACRO_MSG(mac,str) ;
  #endif
- 
- DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
+DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
  DEBUG_MSG("You are using eBoard-header v3.0c written by EagleoutIce");
 
 
@@ -1431,6 +1432,9 @@
     }
     #ifdef REPT_TASK
         extern void rept_task(void);
+        DEBUG_MSG("You defined REPT_TASK: you have to define rept_task(void)!");
+    #else
+        DEBUG_MSG("You did not define REPT_TASK: rept_task(void) will not have any effect");
     #endif
    
     

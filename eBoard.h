@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 15.04.2018 20:16:17
+//Created: 15.04.2018 20:22:37
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
@@ -89,7 +89,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #include <avr/interrupt.h>
     #if EBOARD_I2C > 0x0 && EBOARD_GUESSPATH > 0x0
       DEBUG_MSG("You enabled I²C feature"s);
-       INTERNAL
+      
       #define twi_h
     //#define ATMEGA8
     #ifndef TWI_FREQ
@@ -408,7 +408,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
           #include <inttypes.h>
           //#include "twi.h"
         }
-         INTERNAL
+        
         uint8_t TwoWire::rxBuffer[BUFFER_LENGTH];
         uint8_t TwoWire::rxBufferIndex = 0;
         uint8_t TwoWire::rxBufferLength = 0;
@@ -605,7 +605,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
           inline static void setClockDivider(uint8_t rate);
         };
       }
-       INTERNAL
+      
       byte SPIClass::transfer(byte _data) {
         SPDR = _data;
         while (!(SPSR & _BV(SPIF)));
@@ -915,7 +915,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
            static inline void handle_interrupt(void);
          };
        }
-        INTERNAL
+       
          bool SoftwareSerial::isListening(void) {
             return this == active_object;
          }
@@ -1266,7 +1266,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         #include <assert.h>
         
         void __assert (const char *__func, const char *__file, optVAL_t __lineno, const char *__sexp);
-         INTERNAL
+        
         void __assert (const char *__func, const char *__file, optVAL_t __lineno, const char *__sexp){
             Serial.print("Error with: "); Serial.print(__func);
             Serial.print(" in "); Serial.print(__file);
@@ -1295,7 +1295,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #endif
     
     inline void checkIdx(optVAL_t idx);
-     INTERNAL
+    
     inline void checkIdx(optVAL_t idx){
         #if EBOARD_DEBUG_MODE > 0x0
             assert(idx>=0x0 && idx < PIN_MAX); //changed pins? change me! (didn't want to use macros)
@@ -1307,7 +1307,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         #if EBOARD_CHECK_PINS_PWM > 0x0
             
             optVAL_t countSetBits (optVAL_t x);
-             INTERNAL
+            
             optVAL_t countSetBits (optVAL_t x) {
                 optVAL_t count; //dont't want to overuse global space^^
                 for (count = 0; x; count++)
@@ -1331,7 +1331,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             #endif
             
             inline bool checkPin(optVAL_t idx, optVAL_t mode = OUTPUT);
-             INTERNAL
+            
             inline bool checkPin(optVAL_t idx, optVAL_t mode){
                 checkIdx(idx);
                 return (mode == OUTPUT)? ((pin_out & (1<<idx))>0x0):((pin_in & (1<<idx))>0x0);
@@ -1340,7 +1340,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         #endif
         
         void setPin(optVAL_t idx, optVAL_t mode = OUTPUT);
-         INTERNAL
+        
         void setPin(optVAL_t idx, optVAL_t mode){
             #if EBOARD_CHECK_PINS > 0x0
                 checkIdx(idx);
@@ -1367,7 +1367,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         inline void writeVal(const T& val);
         
         inline bool isConnected(void);
-         INTERNAL
+        
         inline bool checkOverflow(void) {
             #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
                 return false; //there is no hardware provided control for hardwareserial overflow
@@ -1406,7 +1406,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         inline void shiftSingle(optVAL_t idx, bool val);
         
         void shiftAll(void);
-         INTERNAL
+        
         inline void shiftSingle(optVAL_t idx, bool val) {
             bitWrite(store_bits,idx,val);
             shiftAll();
@@ -1425,7 +1425,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     optVAL_t _pwmValue = 0x0, _OpwmValue = 0x0;
     
     inline void writePWM (optVAL_t val);
-     INTERNAL
+    
     inline void writePWM(optVAL_t val){
         val = min(val,0xFF); val = max(0x0,val);
         _pwmValue = val;
@@ -1439,7 +1439,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
    
     
     inline void writePin(optVAL_t idx,bool val);
-     INTERNAL
+    
     inline void writePin(optVAL_t idx,bool val){
         #if EBOARD_SHIFT_REGISTER > 0x0
             if(idx>0x63) {
@@ -1462,7 +1462,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     
     
     inline optVAL_t readPin(optVAL_t idx,bool dig = true);
-     INTERNAL
+    
     inline optVAL_t readPin(optVAL_t idx,bool dig){
         #if EBOARD_CHECK_PINS > 0x0
             if(dig) checkIdx(idx);
@@ -1487,7 +1487,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     }
     
     #if EBOARD_USE_SPI > 0x0 && (EBOARD_NANO == 0x0)
-         INTERNAL
+        
         //won't be commented
         struct ServoCds55 {
             public:
@@ -1642,7 +1642,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             
             inline void reset(void);  
         };
-         INTERNAL
+        
         SoccerBoard::SoccerBoard(void) {}
         #if defined(__AVR_ATmega2560__)
             inline void SoccerBoard::led(int idx, bool state) {writePin(13,state);}
@@ -1751,7 +1751,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             
             optVAL_t C;
         };
-         INTERNAL
+        
         I2CInOut::I2CInOut(SoccerBoard&, optVAL_t, optVAL_t, optVAL_t, optVAL_t) {
             this->A=0x0;this->B=0x0;this->C=0x0;
         }
@@ -1765,7 +1765,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             writePWM(this->C);
         }
         
-         INTERNAL
+        
         struct DynamixelBoard;
         
         
@@ -1814,7 +1814,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             
             int actSpe;
         }; //shield //set limits auto register for begin
-         INTERNAL
+        
         AX12Servo::AX12Servo(void) {}
         #if EBOARD_USE_UTILITY > 0x0
             void AX12Servo::setID(optVAL_t newID) {this->id = newID;_servoHandler.SetServoLimit(this->id,_servoHandler.upperLimit_temp);}
@@ -1868,7 +1868,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             
             AX12Servo* connected[EBOARD_SPI_SERVO_MAX];
         };
-         INTERNAL
+        
         DynamixelBoard::DynamixelBoard(SoccerBoard&) {
             for(optVAL_t i = 0; i < EBOARD_SPI_SERVO_MAX; i++ ) {this->connected[i] = NULL;} //wanna use nullptr... wanna have c++11^^
         }
@@ -1910,7 +1910,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
                 
                 inline void write(const char* const  val);
             };
-             INTERNAL
+            
             inline RB14Scan::RB14Scan(void) {}
             inline int RB14Scan::raw(optVAL_t) {return isConnected();}
             inline char RB14Scan::channel(optVAL_t) {return ((isConnected())?(readVal()):(-1));}
@@ -1925,7 +1925,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         inline optVAL_t sendI2C(optVAL_t deviceID, byte buf);
         
         inline void pingI2C(optVAL_t ret[], optVAL_t ret_len);
-         INTERNAL
+        
         inline void pingI2C(optVAL_t ret[], optVAL_t ret_len){
             optVAL_t count = 0;
             for (byte i = 1; (i < 255 && !STOP); i++)  {
@@ -1951,7 +1951,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         
         
         inline void readI2C(optVAL_t deviceID, optVAL_t ret[], optVAL_t ret_len,bool blocking=true);
-         INTERNAL
+        
         inline void readI2C(optVAL_t deviceID,optVAL_t ret[] , optVAL_t ret_len,bool blocking) {
             for(optVAL_t rect = 0x0; (Wire.available() || (((blocking && (rect < ret_len))) && (!STOP))); rect++)
                 ret[rect] = Wire.read();
@@ -2146,7 +2146,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
                 
                 inline void s1Dat(optVAL_t o);
             };
-             INTERNAL
+            
             #if EBOARD_NANO == 0x0
             LCD::LCD(SoccerBoard &soccerBoard, optVAL_t id) {
                 this->_cI = false;
@@ -2424,7 +2424,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             uint8_t pinMask;       // Output PORT bitmask
           #endif
         };
-         INTERNAL
+        
        NeoPixel::NeoPixel(uint16_t n, uint8_t p, uint16_t t) :
           begun(false), brightness(0), pixels(NULL), endTime(0) {
           updateType(t);
@@ -3564,7 +3564,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
 //offer more functions
   #if EBOARD_GUESSPATH > 0x0
   //import servo-class
-   INTERNAL
+  
   //shameless copy paste :D
   #define _useTimer1
   typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t;
@@ -3795,7 +3795,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         
         
         void setup(void);
-         INTERNAL
+        
         void setup(void) {
             //setup of RX and TX should be handled manually - in everyCase ^^
             setPin(PIN_MOTOR_DIR);
@@ -3868,7 +3868,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         
         
         void loop(void);
-         INTERNAL
+        
         void loop(void){
           //shall be empty
           }

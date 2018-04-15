@@ -23,7 +23,6 @@ var searchData=
   ['settx',['setTX',['../classeagle__impl_1_1SoftwareSerial.html#a57f341d4c6da6dd8d2fb26efffe7a455',1,'eagle_impl::SoftwareSerial']]],
   ['setup',['setup',['../eBoard__comment_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'eBoard_comment.h']]],
   ['shiftall',['shiftAll',['../eBoard__comment_8h.html#aa0a7f697a49b0d038631c64e945f5c1a',1,'eBoard_comment.h']]],
-  ['shiftpx',['shiftPx',['../neo__animation_8cpp.html#af16b42fccab1fb1eaf3658e792035c42',1,'neo_animation.cpp']]],
   ['shiftsingle',['shiftSingle',['../eBoard__comment_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard_comment.h']]],
   ['show',['show',['../structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216',1,'NeoPixel']]],
   ['sine8',['sine8',['../structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b',1,'NeoPixel']]],

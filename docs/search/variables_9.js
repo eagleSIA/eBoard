@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel']]],
-  ['pin_5fin',['pin_in',['../eBoard__comment_8h.html#aa46dacd1127770f77e93c7c036ad0c03',1,'eBoard_comment.h']]],
-  ['pin_5fout',['pin_out',['../eBoard__comment_8h.html#ab6849f631838473916372c37eb6929ca',1,'eBoard_comment.h']]],
-  ['pinmask',['pinMask',['../structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce',1,'NeoPixel']]],
-  ['pixels',['pixels',['../structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362',1,'NeoPixel::pixels()'],['../neo__animation_8cpp.html#a3e31c31cb2565ff5cc65b69050eb778d',1,'pixels():&#160;neo_animation.cpp']]],
-  ['port',['port',['../structNeoPixel.html#a46cfa142dda28f412803b45347af5153',1,'NeoPixel']]],
-  ['px',['pX',['../structLCD.html#a0b9ca6a9475933ad8da45315fe74693f',1,'LCD']]],
-  ['py',['pY',['../structLCD.html#afb51248bd06d7ccd87ba5f4eac99ede2',1,'LCD']]]
+  ['spi',['SPI',['../eBoard__comment_8h.html#a56953eb3affc2a9f56e1680bbc537bf7',1,'eBoard_comment.h']]],
+  ['stop',['STOP',['../eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158',1,'eBoard_comment.h']]],
+  ['store_5fbits',['store_bits',['../eBoard__comment_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff',1,'eBoard_comment.h']]],
+  ['storedpos',['storedPos',['../structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390',1,'AX12Servo']]],
+  ['storedspe',['storedSpe',['../structAX12Servo.html#acef69c05250763a11bfc976b2817805e',1,'AX12Servo']]]
 ];

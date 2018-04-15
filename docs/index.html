@@ -115,6 +115,9 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Continue General Explain page </p>
+<p class="enddd">show how to configure motors etc...</p>
+</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc </dd>
 <dd>
 This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
@@ -122,12 +125,11 @@ This code was written for the Arduino UNO R3 used with the Smart Servo Shield an
 <dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <br />
  It is possible to add this header as library aswell: ArduinoIDE&gt;Sketch&gt;Include Library&gt;Add .ZIP Library... <div class="fragment"><div class="line"><span class="comment">//manual</span></div><div class="line"><span class="preprocessor">#include &quot;/path/to/eBoard.h&quot;</span> <span class="comment">//replace this :D</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div></div><!-- fragment --></dd></dl>
-<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>write tutorial and brief introduction page</dd></dl>
+<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>write tutorial and brief introduction page</dd></dl>
 <h1><a class="anchor" id="s1"></a>
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
 <p><b>General</b></p>
-<dl class="section note"><dt>Note</dt><dd>This Table is in pre state</dd></dl>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Identifier  </th><th class="markdownTableHeadNone">Requirement  </th><th class="markdownTableHeadNone">Meaning   </th></tr>
@@ -164,7 +166,7 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158">PREPROCESS_DEBUG</a>  </td><td class="markdownTableBodyNone">{bool} Default; 0x0  </td><td class="markdownTableBodyNone">0x1: enable preprocessing messages from eBoard   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158">PREPROCESS_DEBUG</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable preprocessing messages from eBoard   </td></tr>
 </table>
 <p class=""><b>Pins</b></p>
 <table class="markdownTable">
@@ -216,11 +218,11 @@ Tutorials</h1>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.11-->
+<!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">EagleoutIce 15.04.2018 00:49:22 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 15.04.2018 20:16:16 </li>
   </ul>
 </div>
 </body>

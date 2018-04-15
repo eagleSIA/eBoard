@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 15.04.2018 00:49:22
+//Created: 15.04.2018 20:16:17
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
@@ -1669,7 +1669,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         void SoccerBoard::reset(void) {
             #if EBOARD_USE_RESET > 0x0
                 wdt_enable(WDTO_15MS);
-                while(true) {}
+                for(;;) {}
             #endif
         }
         void SoccerBoard::power(optVAL_t id, bool state) {writePin(id,state);}
@@ -3578,7 +3578,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
   typedef struct  {
     uint8_t nbr        :6 ;             // a pin number from 0 to 63
     uint8_t isActive   :1 ;             // true if this channel is enabled, pin not pulsed if false
-  } ServoPin_t   ;
+  } ServoPin_t;
   typedef struct {
     ServoPin_t Pin;
     volatile unsigned int ticks;
@@ -3876,15 +3876,18 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
 #endif
 #if EBOARD_NANO > 0x0 || defined(DOC)
   
+  inline void set_motor_speed(optVAL_t spe);
+ inline void set_steer_angle(optVAL_t ang);
+  
   inline void set_motor_speed(optVAL_t spe){
       if(spe < 0 || spe > 180) return;
       mainMotor.write(spe);
   }
-  
   inline void set_steer_angle(optVAL_t ang){
       if(ang < 0 || ang > 180) return;
       steerMotor.write(ang);
   }
+  
 #endif
 #else
     #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process

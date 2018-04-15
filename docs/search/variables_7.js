@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel']]],
-  ['pin_5fin',['pin_in',['../eBoard__comment_8h.html#aa46dacd1127770f77e93c7c036ad0c03',1,'eBoard_comment.h']]],
-  ['pin_5fout',['pin_out',['../eBoard__comment_8h.html#ab6849f631838473916372c37eb6929ca',1,'eBoard_comment.h']]],
-  ['pinmask',['pinMask',['../structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce',1,'NeoPixel']]],
-  ['pixels',['pixels',['../structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362',1,'NeoPixel']]],
-  ['port',['port',['../structNeoPixel.html#a46cfa142dda28f412803b45347af5153',1,'NeoPixel']]],
-  ['px',['pX',['../structLCD.html#a0b9ca6a9475933ad8da45315fe74693f',1,'LCD']]],
-  ['py',['pY',['../structLCD.html#afb51248bd06d7ccd87ba5f4eac99ede2',1,'LCD']]]
+  ['lcd',['lcd',['../dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f',1,'lcd():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f',1,'lcd():&#160;lcd_debug.cpp']]],
+  ['links',['links',['../lcd__debug_8cpp.html#a9303e4d643a04086829fe08bfa105941',1,'lcd_debug.cpp']]]
 ];

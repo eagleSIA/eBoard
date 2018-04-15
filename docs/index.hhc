@@ -1311,7 +1311,7 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="twi_txBufferLength"><param name="Local" value="eBoard_8h.html#a4411b36af3e5ae5c039282041f762b4f"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="Wire"><param name="Local" value="eBoard_8h.html#a35bd3de386d23ba02c35f820303db472"><param name="ImageNumber" value="11"></OBJECT>
           </UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="eBoard_comment.h"><param name="Local" value="eBoard__comment_8h.html"><param name="ImageNumber" value="1"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="eBoard.h"><param name="Local" value="eBoard__comment_8h.html"><param name="ImageNumber" value="1"></OBJECT>
           <UL>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="TwoWire"><param name="Local" value="classeagle__impl_1_1TwoWire.html"><param name="ImageNumber" value="1"></OBJECT>
             <UL>

@@ -57,7 +57,8 @@ var NAVTREE =
         [ "Version 2.3h 🐦 - Addition to the family [120m]", "changelog_page.html#su8", null ]
       ] ],
       [ "Version 3 - Morpheus 🐉", "changelog_page.html#ver3", [
-        [ "Version 3.0c 🐝 - Special Touch", "changelog_page.html#su10", null ]
+        [ "Version 3.0c 🐝 - Special Touch", "changelog_page.html#su10", null ],
+        [ "[BETA] Version 3.1m 🦍  - So he can drive aswell?", "changelog_page.html#su11", null ]
       ] ]
     ] ],
     [ "The source code", "source_page.html", null ],
@@ -81,7 +82,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -94,7 +95,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749"
+"eBoard__comment_8h.html#ad3f999233c04890710241b8b898d09cb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

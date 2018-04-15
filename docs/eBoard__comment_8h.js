@@ -50,6 +50,8 @@ var eBoard__comment_8h =
     [ "EBOARD_I2C", "eBoard__comment_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1", null ],
     [ "EBOARD_LCD", "eBoard__comment_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25", null ],
     [ "EBOARD_NANO", "eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096", null ],
+    [ "EBOARD_NANO_MAIN", "eBoard__comment_8h.html#a3c86a34a6f6370c7380d108ca5e66b7f", null ],
+    [ "EBOARD_NANO_STEER", "eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a", null ],
     [ "EBOARD_NEO", "eBoard__comment_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575", null ],
     [ "EBOARD_NEO_400KHZ", "eBoard__comment_8h.html#aec86d951b6a2f8eb4e02ec3868ec555f", null ],
     [ "EBOARD_NEO_800KHZ", "eBoard__comment_8h.html#ac9c7d462fc2167034d7cf9841eadba6a", null ],

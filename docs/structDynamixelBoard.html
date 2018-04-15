@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('structDynamixelBoard.html','');});
 <p>[COPY&amp;PASTE] This is the <a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> ghost struct :D  
  <a href="structDynamixelBoard.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for DynamixelBoard:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -169,8 +169,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">[COPY&amp;PASTE] This is the <a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> ghost struct :D </p>
 <dl class="section author"><dt>Author</dt><dd>EagleoutIce</dd></dl>
-<p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><a class="code" href="structDynamixelBoard.html">DynamixelBoard</a> servoBoard(board);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Links(servoBoard,1);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Rechts(servoBoard,2);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    Links.setPosition(500);</div><div class="line">    Rechts.setPosition(200);</div><div class="line">    <span class="keywordflow">for</span>(;;) {}</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03237">3237</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><a class="code" href="structDynamixelBoard.html">DynamixelBoard</a> servoBoard(<a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Links(servoBoard,1);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Rechts(servoBoard,2);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    Links.setPosition(500);</div><div class="line">    Rechts.setPosition(200);</div><div class="line">    <span class="keywordflow">for</span>(;;) {}</div><div class="line">}</div></div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03258">3258</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad47e8beb1be07c2e245ef05ea3c7cb3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad47e8beb1be07c2e245ef05ea3c7cb3f">&#9670;&nbsp;</a></span>DynamixelBoard()</h2>
@@ -226,6 +226,15 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>will force every <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> to drive to <a class="el" href="structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390" title="stores the position the Servo should go to DynamixelBoard::action() ">AX12Servo::storedPos</a> with AX12Servo::storedSpeed </p>
+
+<p class="reference">Referenced by <a class="el" href="lcd__debug_8cpp_source.html#l00027">main()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structDynamixelBoard_a9b6d6166eaa2c42e87f424b54edce510_icgraph.svg" width="271" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -365,12 +374,12 @@ Protected Attributes</h2></td></tr>
 <p>stores the pointers to the registerd <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> </p>
 <dl class="section note"><dt>Note</dt><dd>in the docs, the Number will appear as 2, but it's the value of <a class="el" href="eBoard__comment_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03264">3264</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03285">3285</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a></li>
+<li><a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -379,7 +388,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structDynamixelBoard.html">DynamixelBoard</a></li>
-    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 15.04.2018 20:22:36 </li>
+    <li class="footer">[BETA-3.1c] <b>EagleoutIce</b> 15.04.2018 21:42:39 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 15.04.2018 20:22:37
+//Created: 15.04.2018 21:42:40
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
@@ -663,11 +663,13 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #ifndef EBOARD_NANO
       #define EBOARD_NANO 0x0
     #endif
-    #if EBOARD_NANO > 0x0
+    #if EBOARD_NANO > 0x0 || defined(DOC)
       #ifndef EBOARD_NANO_STEER
+      
         #define EBOARD_NANO_STEER 12
       #endif
       #ifndef EBOARD_NANO_MAIN
+      
         #define EBOARD_NANO_MAIN 13
       #endif
       MACRO_MSG(EBOARD_NANO,"Using Arduino NANO environment [e.g. remove SoccerBoard]");

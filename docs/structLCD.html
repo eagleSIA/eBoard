@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('structLCD.html','');});
 <p>[I2C] [<a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a>] This is used to add support for OLED displays connected to the '<a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a>'  
  <a href="structLCD.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -222,11 +222,11 @@ Private Attributes</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>This code is based on the offical library [<a href="https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library">https://github.com/deloarts/OLED_I2C_128x64_Monochrome_Library</a>] if you wan't to use this library in any official purpose, send a message to deloarts. cheers!</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>the usage of the <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> will need many Space due to the fact that font is handled by arduino</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
-<p>[I2C] [<a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a>] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> board;</div><div class="line"><a class="code" href="structLCD.html">LCD</a> lcd(board);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    board.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(2); <span class="comment">// not needed (it&#39;s just funny :P)</span></div><div class="line">    lcd.clear();</div><div class="line">    lcd.print(<span class="stringliteral">&quot;Hallo Mama,\n Wie gehts&#39;?&quot;</span>);</div><div class="line">    lcd.print(2,2,<span class="stringliteral">&quot;-- Gut&quot;</span>);</div><div class="line">    lcd.print(3,0,42);</div><div class="line">}</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>positions will only apply if both of them are smaller as the maximum declared with <a class="el" href="eBoard__comment_8h.html#a53a8b2a971de4b88047192655a48b651">LCD_HEIGHT</a> and <a class="el" href="eBoard__comment_8h.html#a19693eac3018d3e7800fde141921b812">LCD_WIDTH</a> </dd>
+<p>[I2C] [<a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a>] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><a class="code" href="structLCD.html">LCD</a> <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>(<a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(2); <span class="comment">// not needed (it&#39;s just funny :P)</span></div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#ad3120f397273bac2ad60e0291554b9e6">clear</a>();</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(<span class="stringliteral">&quot;Hallo Mama,\n Wie gehts&#39;?&quot;</span>);</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(2,2,<span class="stringliteral">&quot;-- Gut&quot;</span>);</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(3,0,42);</div><div class="line">}</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>positions will only apply if both of them are smaller as the maximum declared with <a class="el" href="eBoard__comment_8h.html#a53a8b2a971de4b88047192655a48b651">LCD_HEIGHT</a> and <a class="el" href="eBoard__comment_8h.html#a19693eac3018d3e7800fde141921b812">LCD_WIDTH</a> </dd>
 <dd>
 <a class="el" href="structLCD.html#a632d9c641930fe16c0b623b82136196e" title="initializes the Display called by: ">init()</a> will be called on the first display access! [<a class="el" href="changelog_page.html#su7">Version 2.2b 🐏 - Optimize it [52m]</a>] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03883">3883</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03904">3904</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad9f2d73441bde885fc34b567738c73fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9f2d73441bde885fc34b567738c73fb">&#9670;&nbsp;</a></span>LCD()</h2>
@@ -262,7 +262,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>if <a class="el" href="eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096">EBOARD_NANO</a> is set to 0x1 this will only take one argument [the id] </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>if <a class="el" href="neo__animation_8cpp.html#a46d205b09924db53e18bc4761d009096">EBOARD_NANO</a> is set to 0x1 this will only take one argument [the id] </dd></dl>
 
 </div>
 </div>
@@ -302,6 +302,15 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="dancing__dragon_8cpp_source.html#l00769">main()</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_aa01b7522d1e210f9cd071e3a5d4ae9e6_icgraph.svg" width="278" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -465,6 +474,15 @@ false if there was one of the following errors:<ul>
 </ul>
 </dd></dl>
 
+<p class="reference">Referenced by <a class="el" href="lcd__debug_8cpp_source.html#l00027">main()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_ad3120f397273bac2ad60e0291554b9e6_icgraph.svg" width="195" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a0fd055c88888db0e52fea11f1df24d4a"></a>
@@ -530,6 +548,15 @@ false if there was one of the following errors:<ul>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="dancing__dragon_8cpp_source.html#l00769">main()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a0fd055c88888db0e52fea11f1df24d4a_icgraph.svg" width="236" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -661,6 +688,15 @@ false if there was one of the following errors:<ul>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referenced by <a class="el" href="lcd__debug_8cpp_source.html#l00027">main()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a21c27f0eea9a6c281ddbb06b16ef7e56_icgraph.svg" width="192" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -1038,7 +1074,7 @@ false if there was one of the following errors:<ul>
 
 <p>called_guard </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04063">4063</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04084">4084</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1092,7 @@ false if there was one of the following errors:<ul>
 
 <p>ID of the Display. </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04051">4051</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04072">4072</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1081,10 +1117,10 @@ false if there was one of the following errors:<ul>
 </div><div class="memdoc">
 
 <p>the addressing mode (page/horizontal) </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>possbile Ads: scrollMode?; font? [size]; invert?</dd></dl>
 <p>posX </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04059">4059</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04080">4080</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1110,12 +1146,12 @@ false if there was one of the following errors:<ul>
 
 <p>posY </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04061">4061</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l04082">4082</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="eBoard__comment_8h_source.html">eBoard_comment.h</a></li>
+<li><a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1124,7 +1160,7 @@ false if there was one of the following errors:<ul>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structLCD.html">LCD</a></li>
-    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 15.04.2018 20:22:36 </li>
+    <li class="footer">[BETA-3.1c] <b>EagleoutIce</b> 15.04.2018 21:42:39 </li>
   </ul>
 </div>
 </body>

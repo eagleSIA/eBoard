@@ -9,10 +9,10 @@ var searchData=
   ['changemodes',['changeModes',['../structI2CInOut.html#af97125d8c60cbede65bb08437a1e7aa3',1,'I2CInOut']]],
   ['changemotorid',['changeMotorID',['../structAX12Servo.html#ad5cdfcbff1f77985e939ba4988fb78ad',1,'AX12Servo::changeMotorID()'],['../structDynamixelBoard.html#a96f78d5cfdacf610af7be814ffdb1f37',1,'DynamixelBoard::changeMotorID()']]],
   ['channel',['channel',['../structRB14Scan.html#a35ff55470a07767513fb0c619ed78258',1,'RB14Scan']]],
-  ['checkidx',['checkIdx',['../eBoard__comment_8h.html#a757015d50a6c57414603841f728b670b',1,'eBoard_comment.h']]],
-  ['checkoverflow',['checkOverflow',['../eBoard__comment_8h.html#a77e51ddd601b32f343b7addc1f602d07',1,'eBoard_comment.h']]],
-  ['checkpin',['checkPin',['../eBoard__comment_8h.html#a06400a6dce24e4eda610644893c1bbd7',1,'eBoard_comment.h']]],
+  ['checkidx',['checkIdx',['../eBoard__comment_8h.html#a757015d50a6c57414603841f728b670b',1,'eBoard.h']]],
+  ['checkoverflow',['checkOverflow',['../eBoard__comment_8h.html#a77e51ddd601b32f343b7addc1f602d07',1,'eBoard.h']]],
+  ['checkpin',['checkPin',['../eBoard__comment_8h.html#a06400a6dce24e4eda610644893c1bbd7',1,'eBoard.h']]],
   ['clear',['clear',['../structLCD.html#ad3120f397273bac2ad60e0291554b9e6',1,'LCD::clear()'],['../structNeoPixel.html#a9168956fe081052f22c7af4ec82c2055',1,'NeoPixel::clear()']]],
   ['color',['Color',['../structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b)'],['../structNeoPixel.html#abb4a45baf1d8d06b1640a5798fde9ee4',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w)']]],
-  ['countsetbits',['countSetBits',['../eBoard__comment_8h.html#ae97c5c24a1abcc6ea910fb0ecb67010d',1,'eBoard_comment.h']]]
+  ['countsetbits',['countSetBits',['../eBoard__comment_8h.html#ae97c5c24a1abcc6ea910fb0ecb67010d',1,'eBoard.h']]]
 ];

@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard 3.0c - shackle the Arduino!", "index.html", [
+    [ "eBoard 3.1m - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
       [ "Philosophy", "index.html#s4", [
@@ -58,7 +58,7 @@ var NAVTREE =
       ] ],
       [ "Version 3 - Morpheus 🐉", "changelog_page.html#ver3", [
         [ "Version 3.0c 🐝 - Special Touch", "changelog_page.html#su10", null ],
-        [ "[BETA] Version 3.1m 🦍  - So he can drive aswell?", "changelog_page.html#su11", null ]
+        [ "Version 3.1m 🦍  - So he can drive aswell? [BETA]", "changelog_page.html#su11", null ]
       ] ]
     ] ],
     [ "The source code", "source_page.html", null ],

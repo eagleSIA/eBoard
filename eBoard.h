@@ -1,11 +1,11 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 15.04.2018 21:42:40
+//Created: 16.04.2018 13:57:55
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
  #pragma pack(push)
  #pragma pack(16)
-#define EBOARD_VERSION "3.0c"
+#define EBOARD_VERSION "3.1m"
 #define VALUE_TO_STRING(x) #x
  
 #ifdef DOC
@@ -24,7 +24,7 @@
   #define MACRO_MSG(mac,str) ;
  #endif
 DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
- DEBUG_MSG("You are using eBoard-header v3.0c written by EagleoutIce");
+ DEBUG_MSG("You are using eBoard-header v3.1m written by EagleoutIce");
 
 
 

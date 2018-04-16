@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 16.04.2018 13:57:55
+//Created: 16.04.2018 19:10:38
 #pragma GCC diagnostic push
  #pragma GCC diagnostic ignored "-Wall"
  #pragma GCC diagnostic ignored "-Wextra"
@@ -88,7 +88,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #include <avr/io.h>
     #include <avr/interrupt.h>
     #if EBOARD_I2C > 0x0 && EBOARD_GUESSPATH > 0x0
-      DEBUG_MSG("You enabled I²C feature"s);
+      DEBUG_MSG("You enabled I²C featurea");
       
       #define twi_h
     //#define ATMEGA8
@@ -1503,7 +1503,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
               void write(int ID,int Pos);
               inline void setVelocity(int velocity);
               inline void setPoslimit(int posLimit);
-              void rotate(int ID,int velocity);
+              inline void rotate(int ID,int velocity);
               void SetServoLimit(int ID,int upperLimit);
               void SetMotormode(int ID, int velocity);
               void SetID(int ID, int newID);
@@ -1511,7 +1511,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
               byte sendWait (const byte what);
               int velocity_temp;
               int upperLimit_temp;
-              int cs;
+              optVAL_t cs;
             };
             ServoCds55::ServoCds55 (int CS):cs(CS) {
               velocity_temp = 150;
@@ -1538,7 +1538,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
           SetServoLimit(ID,upperLimit_temp);
           WritePos(ID,Pos);// default velocity:150
         }
-        void ServoCds55::rotate(int ID,int velocity){ // Motor Mode
+        inline void ServoCds55::rotate(int ID,int velocity){ // Motor Mode
           SetServoLimit(ID,0);
           delay(100);
           SetMotormode(ID,velocity);
@@ -1820,7 +1820,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         AX12Servo::AX12Servo(void) {}
         #if EBOARD_USE_UTILITY > 0x0
             void AX12Servo::setID(optVAL_t newID) {this->id = newID;_servoHandler.SetServoLimit(this->id,_servoHandler.upperLimit_temp);}
-            void AX12Servo::changeMotorID(optVAL_t newID) {this->id = newID;} //this should change the hardwareaddress...
+            void AX12Servo::changeMotorID(optVAL_t newID) {this->id = newID; _servoHandler.setID(this->id, newID);} //this -should- *does now* change the hardwareaddress...
             //IF needed: _servoHandler.setID(this->id, newID);
             void AX12Servo::setPositionMode(void)  {}
             void AX12Servo::setSpeedMode(void) {}
@@ -3561,6 +3561,10 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     
     
     
+    
+    
+    
+   
     
 #if EBOARD_NANO > 0x0 || defined(DOC)
 //offer more functions

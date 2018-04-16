@@ -152,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9830f46998b838d3558aaf5245c7960a"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the AX-12 Servo this object should speak to  <a href="#a9830f46998b838d3558aaf5245c7960a">More...</a><br /></td></tr>
 <tr class="separator:a9830f46998b838d3558aaf5245c7960a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5cdfcbff1f77985e939ba4988fb78ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAX12Servo.html#ad5cdfcbff1f77985e939ba4988fb78ad">changeMotorID</a> (<a class="el" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> newID)</td></tr>
-<tr class="memdesc:ad5cdfcbff1f77985e939ba4988fb78ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the AX-12 Servo this object should speak to  <a href="#ad5cdfcbff1f77985e939ba4988fb78ad">More...</a><br /></td></tr>
+<tr class="memdesc:ad5cdfcbff1f77985e939ba4988fb78ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the hardwareID of this AX-12 Servo and will continue speaking to the new [reconnection recommended]  <a href="#ad5cdfcbff1f77985e939ba4988fb78ad">More...</a><br /></td></tr>
 <tr class="separator:ad5cdfcbff1f77985e939ba4988fb78ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad87d3cc9e6c4090591e80978a785c70b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAX12Servo.html#ad87d3cc9e6c4090591e80978a785c70b">setPositionMode</a> (void)</td></tr>
 <tr class="memdesc:ad87d3cc9e6c4090591e80978a785c70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the AX-12 Servo to positionMode  <a href="#ad87d3cc9e6c4090591e80978a785c70b">More...</a><br /></td></tr>
@@ -212,7 +212,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p class="">[COPY&amp;PASTE] This is the <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> ghost struct :D </p>
 <dl class="section author"><dt>Author</dt><dd>EagleoutIce</dd></dl>
 <p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;/home/eagleoutice/Dokumente/proj/_sia/src/eBoard.h&quot;</span></div><div class="line"><span class="comment">//added as library &#39;#include &lt;eBoard.h&gt;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><a class="code" href="structDynamixelBoard.html">DynamixelBoard</a> servoBoard(<a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Links(servoBoard,1);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> Rechts(servoBoard,2);</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    Links.setPosition(500);</div><div class="line">    Rechts.setPosition(200);</div><div class="line">    <span class="keywordflow">for</span>(;;) {}</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03086">3086</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03091">3091</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a632577b2931f3312dc0f242b53331aac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a632577b2931f3312dc0f242b53331aac">&#9670;&nbsp;</a></span>AX12Servo() <span class="overload">[1/2]</span></h2>
@@ -297,16 +297,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>change the AX-12 Servo this object should speak to </p>
+<p>change the hardwareID of this AX-12 Servo and will continue speaking to the new [reconnection recommended] </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newID</td><td>the new ID of the Servo</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>this should change the hardwareID of the Servo... but we don't want to mess things up do we? </dd>
-<dd>
-if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
+<p> <div style='color:gray;text-decoration:line-through'>this should change the hardwareID of the Servo... but we don't want to mess things up do we? \n if we want to: _servoHandler.setID(this->id, newID);</div> </p>
 
 </div>
 </div>
@@ -688,7 +686,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03100">3100</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03105">3105</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -714,7 +712,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 
 <p>stores the actual pos or move-to pos of the <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03195">3195</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03199">3199</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -740,7 +738,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 
 <p>stores the actual 'would use speed' of the <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03197">3197</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03201">3201</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -758,7 +756,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 
 <p>stores the id of the <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> obejct </p>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03192">3192</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03196">3196</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -777,7 +775,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 <p>stores the position the Servo should go to <a class="el" href="structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="will force every AX12Servo to drive to AX12Servo::storedPos with AX12Servo::storedSpeed ...">DynamixelBoard::action()</a> </p>
 <dl class="section note"><dt>Note</dt><dd>pls do me a favour and don't change them manually... use <a class="el" href="structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. ">AX12Servo::storePosition()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03181">3181</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03185">3185</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -796,7 +794,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 <p>stores the Speed of the Servo <a class="el" href="structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="will force every AX12Servo to drive to AX12Servo::storedPos with AX12Servo::storedSpeed ...">DynamixelBoard::action()</a> </p>
 <dl class="section note"><dt>Note</dt><dd>pls do me a favour and don't change them manually... use <a class="el" href="structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. ">AX12Servo::storePosition()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03187">3187</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l03191">3191</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -810,7 +808,7 @@ if we want to: _servoHandler.setID(this-&gt;id, newID); </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structAX12Servo.html">AX12Servo</a></li>
-    <li class="footer">[BETA-BUILD] <b>EagleoutIce</b> 16.04.2018 13:57:54 </li>
+    <li class="footer">[BETA-BUILD] <b>EagleoutIce</b> 16.04.2018 19:10:37 </li>
   </ul>
 </div>
 </body>

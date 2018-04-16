@@ -227,7 +227,7 @@ Version 2.1d 🐺 - #Oversize [~60m]</h2>
 <li>Some tutorial declarations</li>
 <li>Serial feature on MEGA R3 [No need for SoftwareSerial anymore :D]</li>
 </ul>
-<p class=""><b>Fixes</b></p><ul>
+<p class=""><b>Fixed</b></p><ul>
 <li>Fixed bug in <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> (private access failure)</li>
 <li>Fixed bug in <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> (double clamp on <a class="el" href="structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. ">AX12Servo::storePosition()</a>)</li>
 <li>Fixed bug of clamp_overflow (no check for in_range and out_range in <a class="el" href="structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="This moves the Servo to the new position. ">AX12Servo::setPosition()</a>)</li>
@@ -241,7 +241,7 @@ Version 2.2b 🐏 - Optimize it [52m]</h2>
 <li>dancing_dragon as funny example (created while debugging)</li>
 <li>lcd_debug as debug example</li>
 </ul>
-<p class=""><b>Fixes</b></p><ul>
+<p class=""><b>Fixed</b></p><ul>
 <li>Fixed blocking bug on Hardware-calls (pre init)</li>
 <li>Fixed <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> err send</li>
 <li>Fixed several bugs/optimized ranges to avoid undefined behaviour</li>
@@ -257,7 +257,7 @@ Version 2.3h 🐦 - Addition to the family [120m]</h2>
 <li>flexibal pin_out and pin_in size based on arduino</li>
 <li>arduino adafruit lightstrip support (via <a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>)</li>
 </ul>
-<p class=""><b>Fixes</b></p>
+<p class=""><b>Fixed</b></p>
 <ul>
 <li><a class="el" href="structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a" title="Reads an analog value from a pin. ">SoccerBoard::analog()</a> range check (swapped ranges)</li>
 <li>several over/under-flow errors fixed</li>
@@ -281,7 +281,7 @@ Version 3.0c 🐝 - Special Touch</h2>
 <li>reduced program finished message to save a few bytes of code in EBOARD_DEBUG_MODE [not impl in statistics]</li>
 <li>Grouped NEO offsets</li>
 </ul>
-<p class=""><b>Fixes</b></p>
+<p class=""><b>Fixed</b></p>
 <ul>
 <li>Path problems =&gt; all libs are hardcoded into this doc</li>
 <li>Removed <a class="el" href="structRB14Scan.html" title="[COPY&amp;PASTE] [BLUETOOTH] This is the RB14Scan ghost struct :D ">RB14Scan</a> from <a class="el" href="namespaceeagle__impl.html" title="this namespace contains all the Don&#39;t use manually classes ;) ">eagle_impl</a></li>
@@ -300,8 +300,9 @@ Version 3.1m 🦍  - So he can drive aswell? [BETA]</h2>
 <p class=""><b>Changed</b></p>
 <ul>
 <li>Some descriptors have been adapted</li>
+<li><a class="el" href="structAX12Servo.html#ad5cdfcbff1f77985e939ba4988fb78ad" title="change the hardwareID of this AX-12 Servo and will continue speaking to the new [reconnection recomme...">AX12Servo::changeMotorID()</a> will now change the hardwareID of the Motor</li>
 </ul>
-<p class=""><b>Fixes</b></p>
+<p class=""><b>Fixed</b></p>
 <ul>
 <li>Changed used Timer from Timer1 to Timer2 </li>
 </ul>
@@ -312,7 +313,7 @@ Version 3.1m 🦍  - So he can drive aswell? [BETA]</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[BETA-BUILD] <b>EagleoutIce</b> 16.04.2018 13:57:54 </li>
+    <li class="footer">[BETA-BUILD] <b>EagleoutIce</b> 16.04.2018 19:10:37 </li>
   </ul>
 </div>
 </body>

@@ -26,7 +26,7 @@ var searchData=
   ['shiftpx',['shiftPx',['../neo__animation_8cpp.html#af16b42fccab1fb1eaf3658e792035c42',1,'neo_animation.cpp']]],
   ['shiftsingle',['shiftSingle',['../eBoard__comment_8h.html#ad6372ab439a73887b0800cc695599436',1,'eBoard.h']]],
   ['show',['show',['../structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216',1,'NeoPixel']]],
-  ['sine8',['sine8',['../structNeoPixel.html#a9d8182500908c9f5a965d634702f6f3b',1,'NeoPixel']]],
+  ['sine8',['sine8',['../eBoard__comment_8h.html#a8de5034379a9830a98c0d3ecf9c9f979',1,'eBoard.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
   ['soccerboard',['SoccerBoard',['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard']]],
   ['softwareserial',['SoftwareSerial',['../classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48',1,'eagle_impl::SoftwareSerial']]],

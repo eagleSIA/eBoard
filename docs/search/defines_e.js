@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['softwareserial_5fh',['SoftwareSerial_h',['../eBoard__comment_8h.html#abf9cebd5a376e0e460c0fc6f020f228d',1,'eBoard.h']]],
   ['spi_5f2xclock_5fmask',['SPI_2XCLOCK_MASK',['../eBoard__comment_8h.html#a6a0a7018061769d9202d1e1753f9708e',1,'eBoard.h']]],
   ['spi_5fclock_5fdiv128',['SPI_CLOCK_DIV128',['../eBoard__comment_8h.html#ae7bbb331aa1b0f066aeaf652b3a1fdec',1,'eBoard.h']]],
   ['spi_5fclock_5fdiv16',['SPI_CLOCK_DIV16',['../eBoard__comment_8h.html#a84c3e36d173ca9b2bf4314da5fb688a9',1,'eBoard.h']]],

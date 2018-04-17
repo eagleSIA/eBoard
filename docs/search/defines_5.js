@@ -52,5 +52,6 @@ var searchData=
   ['eboard_5fuse_5freset',['EBOARD_USE_RESET',['../eBoard__comment_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a',1,'eBoard.h']]],
   ['eboard_5fuse_5fspi',['EBOARD_USE_SPI',['../eBoard__comment_8h.html#a63b32b42597ed968630c5c82cc3fa713',1,'eBoard.h']]],
   ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard__comment_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;eBoard.h'],['../neo__animation_8cpp.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;neo_animation.cpp']]],
-  ['eboard_5fversion',['EBOARD_VERSION',['../eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059',1,'eBoard.h']]]
+  ['eboard_5fversion',['EBOARD_VERSION',['../eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059',1,'eBoard.h']]],
+  ['eboard_5fversion_5fnbr',['EBOARD_VERSION_NBR',['../eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495',1,'eBoard.h']]]
 ];

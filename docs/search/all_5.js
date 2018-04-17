@@ -55,6 +55,7 @@ var searchData=
   ['eboard_5fuse_5fspi',['EBOARD_USE_SPI',['../eBoard__comment_8h.html#a63b32b42597ed968630c5c82cc3fa713',1,'eBoard.h']]],
   ['eboard_5fuse_5futility',['EBOARD_USE_UTILITY',['../eBoard__comment_8h.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;eBoard.h'],['../neo__animation_8cpp.html#a488e51d67078d86a1d703e397d9ce968',1,'EBOARD_USE_UTILITY():&#160;neo_animation.cpp']]],
   ['eboard_5fversion',['EBOARD_VERSION',['../eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059',1,'eBoard.h']]],
+  ['eboard_5fversion_5fnbr',['EBOARD_VERSION_NBR',['../eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495',1,'eBoard.h']]],
   ['end',['end',['../structeagle__impl_1_1SPIClass.html#aafcd3688d7564bdd178a250cbe07d650',1,'eagle_impl::SPIClass::end()'],['../classeagle__impl_1_1SoftwareSerial.html#a1b2011b111bf68a1b885e999eef99418',1,'eagle_impl::SoftwareSerial::end()']]],
   ['endtime',['endTime',['../structNeoPixel.html#a144b933f6c30dde60707f40ca93eca60',1,'NeoPixel']]],
   ['endtransmission',['endTransmission',['../classeagle__impl_1_1TwoWire.html#a55b2fb318a6b7666623a585f9f2be838',1,'eagle_impl::TwoWire::endTransmission(void)'],['../classeagle__impl_1_1TwoWire.html#ad8be918b5d4efbd524c0dba16ff5f9d2',1,'eagle_impl::TwoWire::endTransmission(uint8_t sendStop)']]],

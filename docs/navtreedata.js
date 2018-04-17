@@ -62,7 +62,6 @@ var NAVTREE =
       ] ]
     ] ],
     [ "The source code", "source_page.html", null ],
-    [ "Todo List", "todo.html", null ],
     [ "Macros and Constants", "macro.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Tutorials", "modules.html", "modules" ],
@@ -95,7 +94,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eBoard__comment_8h.html#acf57ef5be6e1891dbe06d2233d8575d2"
+"eBoard__comment_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

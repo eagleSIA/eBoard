@@ -1,5 +1,6 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 17.04.2018 16:01:42
+//Created: 17.04.2018 19:16:59
+
 #ifndef EBOARD_HEADER_GUARD
      #define EBOARD_HEADER_GUARD
      #pragma GCC diagnostic push
@@ -7,7 +8,8 @@
      #pragma GCC diagnostic ignored "-Wextra"
      #pragma pack(push)
      #pragma pack(16)
-#define EBOARD_VERSION "3.1m"
+#define EBOARD_VERSION "3.1.5m"
+#define EBOARD_VERSION_NBR 315
 #define VALUE_TO_STRING(x) #x
      
     #ifdef DOC
@@ -102,7 +104,9 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #if EBOARD_I2C > 0x0 && EBOARD_GUESSPATH > 0x0
       DEBUG_MSG("You enabled I²C featurea");
       
+      #ifndef twi_h
       #define twi_h
+      #ifndef TwoWire_h
     //#define ATMEGA8
     #ifndef TWI_FREQ
       #define TWI_FREQ 100000L
@@ -339,7 +343,10 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
             break;
         }
       }
+      #endif
       
+      #endif
+      #ifndef TwoWire_h
       #include <inttypes.h>
       #include "Stream.h"
       #define BUFFER_LENGTH 32
@@ -555,7 +562,11 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
         }
         
       
-      TwoWire Wire = TwoWire();
+        TwoWire Wire = TwoWire();
+        
+        #define TwoWire_h
+        
+      #endif
       #else
       DEBUG_MSG("You disabled I²C");
       #endif
@@ -565,6 +576,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
       #endif
     #if EBOARD_USE_SPI > 0x0
       DEBUG_MSG("You enabled SPI");
+      #ifndef _SPI_H_INCLUDED
       
       #define _SPI_H_INCLUDED
       #include <stdio.h>
@@ -645,6 +657,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
       }
       
       SPIClass SPI;
+      #endif
     #else
     DEBUG_MSG("You disabled SPI");
     #endif
@@ -846,7 +859,9 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
     #endif
     #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
       #if EBOARD_GUESSPATH > 0x0
+        #ifndef SoftwareSerial_h
          //again to resolve including errors we'll include the SoftwareSerial cpp file
+         #define SoftwareSerial_h
          #define _SS_MAX_RX_BUFF 64 // RX buffer size
          #ifndef GCC_VERSION
             #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
@@ -1270,6 +1285,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
            return _receive_buffer[_receive_buffer_head];
          }
         
+        #endif
       #endif
         
         SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
@@ -1515,7 +1531,6 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
               void write(int ID,int Pos);
               inline void setVelocity(int velocity);
               inline void setPoslimit(int posLimit);
-              inline void rotate(int ID,int velocity);
               void SetServoLimit(int ID,int upperLimit);
               void SetMotormode(int ID, int velocity);
               void SetID(int ID, int newID);
@@ -1550,12 +1565,7 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
           SetServoLimit(ID,upperLimit_temp);
           WritePos(ID,Pos);// default velocity:150
         }
-        inline void ServoCds55::rotate(int ID,int velocity){ // Motor Mode
-          SetServoLimit(ID,0);
-          delay(100);
-          SetMotormode(ID,velocity);
-        }
-        void ServoCds55::WritePos(int ID,int Pos){
+       void ServoCds55::WritePos(int ID,int Pos){
           int PosB = (Pos>>8 & 0xff);//low
           int PosS = (Pos & 0xff);//high
           int velocityB = (velocity_temp>>8 & 0xff);
@@ -3767,7 +3777,6 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
        
         extern int eVirtual_main();
         
-        
         void setup(void);
         
         void setup(void) {
@@ -3794,8 +3803,6 @@ DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Hea
               sei();
             #endif
             #if EBOARD_BLUETOOTH > 0x0
-                
-                
                 #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
                     Serial1.begin(38400);
                 #else

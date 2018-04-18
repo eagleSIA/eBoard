@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 18.04.2018 19:59:08
+//Created: 18.04.2018 20:47:12
 
 long store_bits = 0L;
 void shiftSingle(optVAL_t idx, bool val);

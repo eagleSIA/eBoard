@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 18.04.2018 19:59:08
+//Created: 18.04.2018 20:47:12
 
 #ifndef EBOARD_HEADER_GUARD
      #define EBOARD_HEADER_GUARD
@@ -8,8 +8,8 @@
      #pragma GCC diagnostic ignored "-Wextra"
      #pragma pack(push)
      #pragma pack(16)
-#define EBOARD_VERSION "3.1.13m"
-#define EBOARD_VERSION_NBR 323
+#define EBOARD_VERSION "3.1.14m"
+#define EBOARD_VERSION_NBR 324
 #define VALUE_TO_STRING(x) #x
      
     #ifdef DOC

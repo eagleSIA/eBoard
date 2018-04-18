@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 18.04.2018 22:39:18
+//Created: 18.04.2018 23:34:37
 
 optVAL_t _pwmValue = 0x0, _OpwmValue = 0x0;
 inline void writePWM (optVAL_t val);

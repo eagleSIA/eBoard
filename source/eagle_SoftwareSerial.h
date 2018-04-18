@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 18.04.2018 22:39:18
+//Created: 18.04.2018 23:34:37
 #define _SS_MAX_RX_BUFF 64 // RX buffer size
 #ifndef GCC_VERSION
    #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)

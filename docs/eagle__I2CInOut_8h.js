@@ -1,0 +1,28 @@
+var eagle__I2CInOut_8h =
+[
+    [ "I2CInOut", "structI2CInOut.html", "structI2CInOut" ],
+    [ "ANALOG_IN_10_BIT", "eagle__I2CInOut_8h.html#a8e3597e352e3c5ee4e2e4cfed5f12403", null ],
+    [ "ANALOG_IN_8_BIT", "eagle__I2CInOut_8h.html#a3f28788d6e90ca08a2806e620ec67df7", null ],
+    [ "ANALOG_IN_MEAN_10_BIT", "eagle__I2CInOut_8h.html#ab16468df147ccd2712b763eb52d49ec9", null ],
+    [ "ANALOG_IN_MEAN_8_BIT", "eagle__I2CInOut_8h.html#a631eacf49daeb44608198e0798c295a2", null ],
+    [ "COUNTER_16_BIT", "eagle__I2CInOut_8h.html#a71f438f540615074ddea2a3a4d38ae95", null ],
+    [ "COUNTER_8_BIT", "eagle__I2CInOut_8h.html#aa40e841cf249e38817048624fa190405", null ],
+    [ "COUNTER_B_DIR", "eagle__I2CInOut_8h.html#abc532617ac3a0fb6a93b170f15ced7d1", null ],
+    [ "COUNTER_B_DIR_PULLUP", "eagle__I2CInOut_8h.html#a497c96f17830e7ef4ba5e235b17057e3", null ],
+    [ "COUNTER_MEAN_16_BIT", "eagle__I2CInOut_8h.html#ae12e2a74c3dbca7950bc7d55b0b3dcfc", null ],
+    [ "COUNTER_MEAN_8_BIT", "eagle__I2CInOut_8h.html#a93c1089bdf85a8de3ea13ca1c6b06e13", null ],
+    [ "COUNTER_RISE_16_BIT", "eagle__I2CInOut_8h.html#aa0f205876e941e329e26cd52961ab07f", null ],
+    [ "COUNTER_RISE_8_BIT", "eagle__I2CInOut_8h.html#a1c6856832cc9aad00c5d406925f81d1c", null ],
+    [ "DIGITAL_IN", "eagle__I2CInOut_8h.html#a3127d4438f2120da4e5e5d35a67c5260", null ],
+    [ "DIGITAL_IN_INV", "eagle__I2CInOut_8h.html#aedc6c7b8511d3db854b1a0e663ff691f", null ],
+    [ "DIGITAL_IN_PULLUP", "eagle__I2CInOut_8h.html#a424cfd0a79d49d04d0bc7e795ddd8477", null ],
+    [ "DIGITAL_IN_PULLUP_INV", "eagle__I2CInOut_8h.html#a75985751246cd2415d1d2e48649f08a8", null ],
+    [ "DIGITAL_OUT", "eagle__I2CInOut_8h.html#a61d48bd5dbb3762b89411e607b5000fc", null ],
+    [ "DIGITAL_OUT_HIGH", "eagle__I2CInOut_8h.html#ab69273d2dcf698165f9d3f2d48b482dd", null ],
+    [ "DIGITAL_OUT_INV", "eagle__I2CInOut_8h.html#a10a1e48e0bb8bd07382e9bf0523749a8", null ],
+    [ "DIGITAL_OUT_LOW", "eagle__I2CInOut_8h.html#a21a3b596f6b282ac7dfa467c8234b4de", null ],
+    [ "FREQ_HIGH", "eagle__I2CInOut_8h.html#ad783c59bd6197d2160e05922a288df69", null ],
+    [ "FREQ_LOW", "eagle__I2CInOut_8h.html#ae3f472fe453a9ca5165e4d550b459700", null ],
+    [ "PWM_FAST", "eagle__I2CInOut_8h.html#a6765502d4374ae2b9e6c28191312771b", null ],
+    [ "PWM_SLOW", "eagle__I2CInOut_8h.html#a6e20dff41fbcc35133f54db161cca0f9", null ]
+];

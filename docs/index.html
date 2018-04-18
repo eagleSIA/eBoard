@@ -114,17 +114,13 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">eBoard 3.1m - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p class="">If you have any problems or questions I recommend reading <a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a> first.<br />
-Please note that, <b>This code comes with absolutely no warranty</b>! <br />
-<br />
-You should note the following things:</p><ul>
-<li>It was an explicit decision to pack everything needed in one headerfile - readability is granted by the doc</li>
-<li>This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard</li>
-</ul>
-<p class=""><b> What you should care about: </b> <br />
- This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
+<div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
+<dl class="section note"><dt>Note</dt><dd>This code was written for the Arduino UNO R3 used with the Smart Servo Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart Servo Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <br />
- It is possible to add this header as library aswell: <a class="el" href="index.html#s3">Tutorials</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --><p class="">The following sections will introduce you further ;)</p>
+ It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ 🐼 ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
+<p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>show how to configure motors write nicer mainpage :D</dd></dl>
 <h1><a class="anchor" id="s1"></a>
 Macros</h1>
 <p class="">There are multiple macros you can manipulate the behaviour of this header [full list is here: <a class="el" href="macro.html">Macros and Constants</a>]: </p><dl class="section note"><dt>Note</dt><dd>The constants will appear with their default values in codeSnippets -&gt; be careful with assumptions ;)</dd></dl>
@@ -200,8 +196,7 @@ Smart Servo Shield</h1>
 <p> This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A Servo directly from the arduino... but this is very expensive :/ </p><dl class="section note"><dt>Note</dt><dd>to use the motors properly you <em>have</em> to connect the Board with a ~12V power supply!</dd></dl>
 <h1><a class="anchor" id="s4"></a>
 Philosophy</h1>
-<p class="">On small projects I prefer the single-file header! <br />
- Your able to 'manage the includings' via the preprocessor constants</p>
+<p class=""> <div style='color:gray;text-decoration:line-through'>On small projects I prefer the single-file header! \n Your able to 'manage the includings' via the preprocessor constants</div> The project got packed :D</p>
 <dl class="section note"><dt>Note</dt><dd>There is no internal reset command on the Arduino. To 'create' a remote reset mechanism use the onBoard Reset-Pin!</dd></dl>
 <h2><a class="anchor" id="su111"></a>
 Async task execution</h2>
@@ -211,22 +206,14 @@ The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da4
 <h1><a class="anchor" id="s3"></a>
 Tutorials</h1>
 <ul>
-<li>If you want to know general important stuff: <br />
- <a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a></li>
-<li>If you need information about the I²C-Interface provided by eBoard: <br />
- <a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a></li>
-<li>If you want to use the 74HC595 Shift-Register extension: <br />
- <a class="el" href="group__shiftEx.html">[ 🐼 ] SHIFT</a></li>
-<li>To use the HC-05/any Bluetooth-based service, read this: <br />
- <a class="el" href="group__blueEx.html">[ 🐼 ] BLUETOOTH</a></li>
-<li>Any off-pc Debug or just nice pictures! For mor information about supporting the OLED this: <br />
- <a class="el" href="group__lcdEx.html">[ 🐼 ] OLED</a></li>
-<li>Out of Memory? If you need to port the code and the hardware to the Arduino MEGA, read this: <br />
- <a class="el" href="group__portTu.html">[ 🐼 ] UNO2MEGA</a></li>
-<li>Problems with the AX12-Servos? This may help you: <br />
- <a class="el" href="group__tutMot.html">[ 🐼 ] HOW TO SETUP THE AX12-SERVOS</a></li>
-<li>Still have this Library installed manually? Sick! You should try this: <br />
- <a class="el" href="group__updLib.html">[ 🐼 ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
+<li><a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a></li>
+<li><a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a></li>
+<li><a class="el" href="group__shiftEx.html">[ 🐼 ] SHIFT</a></li>
+<li><a class="el" href="group__blueEx.html">[ 🐼 ] BLUETOOTH</a></li>
+<li><a class="el" href="group__lcdEx.html">[ 🐼 ] OLED</a></li>
+<li><a class="el" href="group__portTu.html">[ 🐼 ] UNO2MEGA</a></li>
+<li><a class="el" href="group__tutMot.html">[ 🐼 ] HOW TO SETUP THE AX12-SERVOS</a></li>
+<li><a class="el" href="group__updLib.html">[ 🐼 ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -235,7 +222,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[BETA-3.1m] <b>EagleoutIce</b> 17.04.2018 19:16:58 </li>
+    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 19:59:08 </li>
   </ul>
 </div>
 </body>

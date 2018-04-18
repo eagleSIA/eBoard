@@ -29,7 +29,5 @@ var structNeoPixel =
     [ "numBytes", "structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92", null ],
     [ "numLEDs", "structNeoPixel.html#aebac537c1d4be50f0c49a2c9f297ead9", null ],
     [ "pin", "structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a", null ],
-    [ "pinMask", "structNeoPixel.html#a5d5dd2efa609426057457cbcb84962ce", null ],
-    [ "pixels", "structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362", null ],
-    [ "port", "structNeoPixel.html#a46cfa142dda28f412803b45347af5153", null ]
+    [ "pixels", "structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362", null ]
 ];

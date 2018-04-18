@@ -1,8 +1,19 @@
 var searchData=
 [
   ['transfer',['transfer',['../structeagle__impl_1_1SPIClass.html#add4542baedbded4756ba6568a699ae77',1,'eagle_impl::SPIClass']]],
-  ['trig_5frept_5ftask',['trig_rept_task',['../eBoard__comment_8h.html#aa1a0a3a5e9131c8e40900d020e9dcc74',1,'eBoard.h']]],
   ['tuneddelay',['tunedDelay',['../classeagle__impl_1_1SoftwareSerial.html#a2dc32e482c1f009cdab78fc40b3af15c',1,'eagle_impl::SoftwareSerial']]],
+  ['twi_5fattachslaverxevent',['twi_attachSlaveRxEvent',['../eagle__twi_8h.html#ac8e9aa6430dccea8d986ca33f76fe487',1,'eagle_twi.h']]],
+  ['twi_5fattachslavetxevent',['twi_attachSlaveTxEvent',['../eagle__twi_8h.html#a73cd75244e3fa0d7e288adb7bc7430e8',1,'eagle_twi.h']]],
+  ['twi_5fdisable',['twi_disable',['../eagle__twi_8h.html#a730512b772605e6836d8a16b0052d3bd',1,'eagle_twi.h']]],
+  ['twi_5finit',['twi_init',['../eagle__twi_8h.html#a16f0e6b2fa5a26eadbf4086ab6d54467',1,'eagle_twi.h']]],
+  ['twi_5freadfrom',['twi_readFrom',['../eagle__twi_8h.html#a8f8b3d441d9dd1bd867b83729211b183',1,'eagle_twi.h']]],
+  ['twi_5freleasebus',['twi_releaseBus',['../eagle__twi_8h.html#a7f830793058786f5597ddd1d80b885ae',1,'eagle_twi.h']]],
+  ['twi_5freply',['twi_reply',['../eagle__twi_8h.html#a54e17133aa927c4c76725f1f55e37531',1,'eagle_twi.h']]],
+  ['twi_5fsetaddress',['twi_setAddress',['../eagle__twi_8h.html#a77c13a875e935f91b58c3b8596aae88d',1,'eagle_twi.h']]],
+  ['twi_5fsetfrequency',['twi_setFrequency',['../eagle__twi_8h.html#a417871416ce31039d42f958154a12bc1',1,'eagle_twi.h']]],
+  ['twi_5fstop',['twi_stop',['../eagle__twi_8h.html#acf52d6c93df110dee6d402b389e5042e',1,'eagle_twi.h']]],
+  ['twi_5ftransmit',['twi_transmit',['../eagle__twi_8h.html#a4fbb74866c71979506ac52d758cfdeac',1,'eagle_twi.h']]],
+  ['twi_5fwriteto',['twi_writeTo',['../eagle__twi_8h.html#a090e0c5c98f5f7255d43a349c4bb1b72',1,'eagle_twi.h']]],
   ['twowire',['TwoWire',['../classeagle__impl_1_1TwoWire.html#ac69c3ab7219001d11f41b05067ae2933',1,'eagle_impl::TwoWire']]],
   ['tx_5fpin_5fwrite',['tx_pin_write',['../classeagle__impl_1_1SoftwareSerial.html#a498a6d7c1ac20042a816897a297dc3b0',1,'eagle_impl::SoftwareSerial']]]
 ];

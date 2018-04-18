@@ -1,2 +1,8 @@
-<map id="eBoard.h" name="eBoard.h">
+<map id="eBoard_tsS/eBoard_tSS/eBoard.h" name="eBoard_tsS/eBoard_tSS/eBoard.h">
+<area shape="rect" id="node6" href="$eagle__twi_8h.html" title="source/eagle_twi.h" alt="" coords="463,95,593,121"/>
+<area shape="rect" id="node8" href="$eagle__TwoWire_8h.html" title="source/eagle_TwoWire.h" alt="" coords="618,95,785,121"/>
+<area shape="rect" id="node14" href="$eagle__SoftwareSerial_8h.html" title="source/eagle_SoftwareSerial.h" alt="" coords="995,95,1194,121"/>
+<area shape="rect" id="node15" href="$eagle__assert_8h.html" title="source/eagle_assert.h" alt="" coords="1218,95,1369,121"/>
+<area shape="rect" id="node17" href="$eagle__checks_8h.html" title="source/eagle_checks.h" alt="" coords="1393,95,1549,121"/>
+<area shape="rect" id="node18" href="$eagle__nanoMot_8h.html" title="eagle_nanoMot.h" alt="" coords="1573,95,1694,121"/>
 </map>

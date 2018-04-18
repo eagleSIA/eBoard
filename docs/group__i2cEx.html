@@ -120,23 +120,23 @@ $(document).ready(function(){initNavTree('group__i2cEx.html','');});
 <p class="">This tutorial shows you how to deal with the I²C extension! </p>
 <dl class="section note"><dt>Note</dt><dd>To use this: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --> If you use the ARDUINO MEGA the I2C pins are not A4 (SDA) and A5 (SDL). They are seperate (20-SDA;21-SDL)!</dd></dl>
 <ul>
-<li>It is possible to send Data via I2C with <a class="el" href="eBoard__comment_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6" title="Sends a buffer of bytes to a certain I²C-Device. ">sendI2C()</a> <br />
+<li>It is possible to send Data via I2C with <a class="el" href="eagle__I2C_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6" title="Sends a buffer of bytes to a certain I²C-Device. ">sendI2C()</a> <br />
 </li>
-<li>It is possible to read Data via I2C with <a class="el" href="eBoard__comment_8h.html#a9410e48b56af483fa869e4b9375f094c" title="Reads a special amount of bits from a certain I²C-Device. ">readI2C()</a> <br />
+<li>It is possible to read Data via I2C with <a class="el" href="eagle__I2C_8h.html#a9410e48b56af483fa869e4b9375f094c" title="Reads a special amount of bits from a certain I²C-Device. ">readI2C()</a> <br />
 </li>
-<li>It is possible to scan for I2C addresses with <a class="el" href="eBoard__comment_8h.html#a1441d9460afebb6bfe9b7b21fcc08641" title="Sends a byte to a certain I²C-Device. ">pingI2C()</a>; <br />
+<li>It is possible to scan for I2C addresses with <a class="el" href="eagle__I2C_8h.html#a1441d9460afebb6bfe9b7b21fcc08641" title="Sends a byte to a certain I²C-Device. ">pingI2C()</a>; <br />
 </li>
 </ul>
 <h1><a class="anchor" id="example"></a>
 Example</h1>
-<p class="">An Example of how to scan for I2C addresses: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <a class="code" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> test[3] = {0,0,0};</div><div class="line">    <a class="code" href="eBoard__comment_8h.html#a1441d9460afebb6bfe9b7b21fcc08641">pingI2C</a>(test,3);</div><div class="line">    Serial.println(test[0]);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p> Connected an PCF8591 this produces this output: </p><div class="fragment"><div class="line">72</div><div class="line">0 -- Exit Code.</div><div class="line">Program has finished. Reset to start again</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost. </dd></dl>
+<p class="">An Example of how to scan for I2C addresses: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <a class="code" href="eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a">optVAL_t</a> test[3] = {0,0,0};</div><div class="line">    <a class="code" href="eagle__I2C_8h.html#a1441d9460afebb6bfe9b7b21fcc08641">pingI2C</a>(test,3);</div><div class="line">    Serial.println(test[0]);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p> Connected an PCF8591 this produces this output: </p><div class="fragment"><div class="line">72</div><div class="line">0 -- Exit Code.</div><div class="line">Program has finished. Reset to start again</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The size of the optVAL_t array can be as big as you want to... If its smaller than the amount of addresses found, the addresses will be lost. </dd></dl>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.15-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[BETA-3.1m] <b>EagleoutIce</b> 17.04.2018 19:16:58 </li>
+    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 19:59:08 </li>
   </ul>
 </div>
 </body>

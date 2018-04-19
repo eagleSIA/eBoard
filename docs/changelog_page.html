@@ -166,7 +166,7 @@ Version 1.2e 🐧 - On your command, master [~100m]</h2>
 <p class=""><b>Changed</b></p>
 <ul>
 <li>Changed <a class="el" href="eBoard__comment_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> and <a class="el" href="eBoard__comment_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a> to 2,3 for SoftwareSerial based on common problems</li>
-<li>Rewritten ServoCds55</li>
+<li>Rewritten <a class="el" href="structServoCds55.html" title="[SPI] This is used to communicate with the smart servo shield   &#160;&#160;&#160;&#160;&#160;&#160;&#160; Don&#39;t use manually ...">ServoCds55</a></li>
 <li>Tried to make code more compact :D</li>
 <li>Optimized PWM support</li>
 </ul>
@@ -177,7 +177,7 @@ Version 1.2e 🐧 - On your command, master [~100m]</h2>
 </ul>
 <p class=""><b>Removed</b></p>
 <ul>
-<li><a class="el" href="eBoard__comment_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a> doesn't checks full range anymore ... should be fixed</li>
+<li><a class="el" href="neo__animation_8cpp.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a> doesn't checks full range anymore ... should be fixed</li>
 </ul>
 <h2><a class="anchor" id="su4"></a>
 Version 1.3g 🐊 - Make this safe! [~30m]</h2>
@@ -293,28 +293,31 @@ Version 3.1m 🦍  - So he can drive aswell? [BETA]</h2>
 <p class="">Fixes and follow-up car support :D</p>
 <p class=""><b>Added</b></p>
 <ul>
-<li>Servo functionality (including init time) for NANO</li>
+<li><a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> functionality (including init time) for NANO</li>
 <li>Tutorials and Information :D</li>
 <li>Written better 'create_doc' to automate generation of this documentation etc....</li>
 <li>New Statistics</li>
-<li><a class="el" href="eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059">EBOARD_VERSION</a> &amp;&amp; <a class="el" href="eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495">EBOARD_VERSION_NBR</a> to check your eBoard-Version in-code</li>
+<li><a class="el" href="eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059">EBOARD_VERSION</a> &amp;&amp; <a class="el" href="eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495">EBOARD_VERSION_NBR</a> to check your eBoard Version incode</li>
+<li>Full Debug while preprocessing</li>
+<li>Grouped eBoard into several sourcefiles on request</li>
 </ul>
 <p class=""><b>Changed</b></p>
 <ul>
 <li>Some descriptors have been adapted</li>
 <li>AX12Servo::changeMotorID() will now change the hardwareID of the Motor</li>
-<li>Replaced NeoPixel::sine8() with <a class="el" href="eBoard__comment_8h.html#a8de5034379a9830a98c0d3ecf9c9f979" title="will return the mapped 8-bit sin you can use in e.g. NeoPixel ">sine8()</a></li>
-<li>Replaced NeoPixel::gamma8() with <a class="el" href="eBoard__comment_8h.html#a35204453c4d7c63cc4c1d5c3a48be095" title="will return the mapped 8-bit gamma correction you can use in e.g. NeoPixel ">gamma8()</a></li>
+<li>Replaced NeoPixel::sine8() with <a class="el" href="eagle__Comfort_8h.html#a8de5034379a9830a98c0d3ecf9c9f979" title="will return the mapped 8-bit sin you can use in e.g. NeoPixel ">sine8()</a></li>
+<li>Replaced NeoPixel::gamma8() with <a class="el" href="eagle__Comfort_8h.html#a35204453c4d7c63cc4c1d5c3a48be095" title="will return the mapped 8-bit gamma correction you can use in e.g. NeoPixel ">gamma8()</a></li>
 </ul>
 <p class=""><b>Fixed</b></p>
 <ul>
 <li>Changed used Timer from Timer1 to Timer2</li>
 <li>critical typos ^^</li>
+<li>stability issues</li>
 </ul>
 <p class=""><b>Removed</b></p>
 <ul>
-<li>As mentioned in <em>Changed</em> NeoPixel::sine8() has been removed!</li>
-<li>As mentioned in <em>Changed</em> NeoPixel::gamma8() has been removed! </li>
+<li>As mentioned in <em>changed</em> NeoPixel::sine8() has been removed!</li>
+<li>As mentioned in <em>changed</em> NeoPixel::gamma8() has been removed! </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -323,7 +326,7 @@ Version 3.1m 🦍  - So he can drive aswell? [BETA]</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 23:34:37 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 19.04.2018 16:49:12 </li>
   </ul>
 </div>
 </body>

@@ -1,8 +1,10 @@
-<map id="eBoard_tsS/eBoard_tSS/eBoard.h" name="eBoard_tsS/eBoard_tSS/eBoard.h">
-<area shape="rect" id="node6" href="$eagle__twi_8h.html" title="source/eagle_twi.h" alt="" coords="463,95,593,121"/>
-<area shape="rect" id="node8" href="$eagle__TwoWire_8h.html" title="source/eagle_TwoWire.h" alt="" coords="618,95,785,121"/>
-<area shape="rect" id="node14" href="$eagle__SoftwareSerial_8h.html" title="source/eagle_SoftwareSerial.h" alt="" coords="995,95,1194,121"/>
-<area shape="rect" id="node15" href="$eagle__assert_8h.html" title="source/eagle_assert.h" alt="" coords="1218,95,1369,121"/>
-<area shape="rect" id="node17" href="$eagle__checks_8h.html" title="source/eagle_checks.h" alt="" coords="1393,95,1549,121"/>
-<area shape="rect" id="node18" href="$eagle__nanoMot_8h.html" title="eagle_nanoMot.h" alt="" coords="1573,95,1694,121"/>
+<map id="eBoard/eBoard.h" name="eBoard/eBoard.h">
+<area shape="rect" id="node4" href="$eagle__Comfort_8h.html" title="source/eagle_Comfort.h" alt="" coords="245,80,406,107"/>
+<area shape="rect" id="node7" href="$eagle__Twi_8h.html" title="source/eagle_Twi.h" alt="" coords="646,80,781,107"/>
+<area shape="rect" id="node9" href="$eagle__TwoWire_8h.html" title="source/eagle_TwoWire.h" alt="" coords="805,80,971,107"/>
+<area shape="rect" id="node13" href="$eagle__SPI_8h.html" title="source/eagle_SPI.h" alt="" coords="996,80,1132,107"/>
+<area shape="rect" id="node16" href="$eagle__SoftwareSerial_8h.html" title="source/eagle_SoftwareSerial.h" alt="" coords="1257,80,1455,107"/>
+<area shape="rect" id="node17" href="$eagle__Assert_8h.html" title="source/eagle_Assert.h" alt="" coords="1480,80,1632,107"/>
+<area shape="rect" id="node19" href="$eagle__Checks_8h.html" title="source/eagle_Checks.h" alt="" coords="1657,80,1815,107"/>
+<area shape="rect" id="node20" href="$eagle__NanoMot_8h.html" title="source/eagle_NanoMot.h" alt="" coords="1839,80,2006,107"/>
 </map>

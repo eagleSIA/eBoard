@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('structSoccerBoard.html','');});
 <p>[COPY&amp;PASTE] This is the <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> ghost struct :D  
  <a href="structSoccerBoard.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="eagle__soccerBoard_8h_source.html">eagle_soccerBoard.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="eagle__SoccerBoard_8h_source.html">eagle_SoccerBoard.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -173,7 +173,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Some calls like led-calls won't have any effect due to the hardware of the UNO <br />
  But they will work on the MEGA!</dd></dl>
 <p>[COPY&amp;PASTE] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"><span class="keywordtype">bool</span> toggle = <span class="keyword">true</span>;</div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <span class="keywordflow">for</span>(;;){</div><div class="line">        <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06">power</a>(3,toggle);</div><div class="line">        <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(1);</div><div class="line">        toggle = !toggle;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="eagle__soccerBoard_8h_source.html#l00026">26</a> of file <a class="el" href="eagle__soccerBoard_8h_source.html">eagle_soccerBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__SoccerBoard_8h_source.html#l00028">28</a> of file <a class="el" href="eagle__SoccerBoard_8h_source.html">eagle_SoccerBoard.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a92982113e80865edf52a32fd36e0997c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92982113e80865edf52a32fd36e0997c">&#9670;&nbsp;</a></span>SoccerBoard()</h2>
@@ -314,8 +314,8 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">id</td><td>set to<ul>
 <li>0 it will access the main Motor (accessed with <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> otherwise)</li>
-<li>1 it will try to access the Servo with the lower ID</li>
-<li>2 it will try to access the Servo with the higher ID </li>
+<li>1 it will try to access the <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> with the lower ID</li>
+<li>2 it will try to access the <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> with the higher ID </li>
 </ul>
 </td></tr>
     <tr><td class="paramname">val</td><td>the value you wan't to send<ul>
@@ -437,7 +437,7 @@ Public Member Functions</h2></td></tr>
 <p>Set the state of a certain D-pin. </p>
 <dl class="section note"><dt>Note</dt><dd>unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins </dd>
 <dd>
-if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__shiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;)</dd></dl>
+if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__ShiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;)</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>The id of the pin </td></tr>
@@ -475,7 +475,7 @@ if you want to have e.g. 64 bits you can hack the specific code (<a class="el" h
 <p>Set the state of a certain D-pin to LOW. </p>
 <dl class="section note"><dt>Note</dt><dd>unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins </dd>
 <dd>
-if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__shiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;) </dd>
+if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__ShiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;) </dd>
 <dd>
 shortcut for power(id, LOW)</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -514,7 +514,7 @@ shortcut for power(id, LOW)</dd></dl>
 <p>Set the state of a certain D-pin to HIGH. </p>
 <dl class="section note"><dt>Note</dt><dd>unlike the soccerboard you can (if SHIFT_REGISTER enabled) use pinIDs from 100 to 131 (if provided by SN74HC595) directly to set shift-register Pins </dd>
 <dd>
-if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__shiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;) </dd>
+if you want to have e.g. 64 bits you can hack the specific code (<a class="el" href="eagle__ShiftExt_8h.html#aa0a7f697a49b0d038631c64e945f5c1a" title="[SHIFT] Changes bits according to store_bits ">shiftAll()</a>) to your needs;) </dd>
 <dd>
 shortcut for power(id, HIGH)</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -598,7 +598,7 @@ shortcut for power(id, HIGH)</dd></dl>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>eBoard_tsS/eBoard_tSS/source/<a class="el" href="eagle__soccerBoard_8h_source.html">eagle_soccerBoard.h</a></li>
+<li>eBoard/source/<a class="el" href="eagle__SoccerBoard_8h_source.html">eagle_SoccerBoard.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -607,7 +607,7 @@ shortcut for power(id, HIGH)</dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structSoccerBoard.html">SoccerBoard</a></li>
-    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 23:34:37 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 19.04.2018 16:49:12 </li>
   </ul>
 </div>
 </body>

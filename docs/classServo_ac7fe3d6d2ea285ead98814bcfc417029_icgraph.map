@@ -1,6 +1,0 @@
-<map id="Servo::writeMicroseconds" name="Servo::writeMicroseconds">
-<area shape="rect" id="node2" href="$classServo.html#a72b4b546912eada96a6ef705168ceb8a" title="Servo::write" alt="" coords="227,56,319,83"/>
-<area shape="rect" id="node3" href="$eBoard_8h.html#af76fc7dcd925860b0b8c36f0ce835995" title="set_motor_speed" alt="" coords="367,5,489,32"/>
-<area shape="rect" id="node4" href="$eBoard_8h.html#a4146de617b5c6f9e17b72097e9374ed4" title="set_steer_angle" alt="" coords="371,56,485,83"/>
-<area shape="rect" id="node5" href="$eBoard__comment_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="this is a guard " alt="" coords="401,107,455,133"/>
-</map>

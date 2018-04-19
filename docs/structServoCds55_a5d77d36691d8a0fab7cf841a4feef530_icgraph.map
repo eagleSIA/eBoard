@@ -1,9 +1,0 @@
-<map id="ServoCds55::SetServoLimit" name="ServoCds55::SetServoLimit">
-<area shape="rect" id="node2" href="$structServoCds55.html#a3d2a551e816185d455adb5b1add148f9" title="ServoCds55::rotate" alt="" coords="237,5,372,32"/>
-<area shape="rect" id="node3" href="$structAX12Servo.html#a9830f46998b838d3558aaf5245c7960a" title="AX12Servo::setID" alt="" coords="241,56,369,83"/>
-<area shape="rect" id="node4" href="$structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="ServoCds55::write" alt="" coords="239,107,370,133"/>
-<area shape="rect" id="node5" href="$structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="SoccerBoard::motor" alt="" coords="431,81,570,108"/>
-<area shape="rect" id="node6" href="$structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="AX12Servo::setPosition" alt="" coords="420,132,581,159"/>
-<area shape="rect" id="node7" href="$structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="DynamixelBoard::action" alt="" coords="629,132,791,159"/>
-<area shape="rect" id="node8" href="$lcd__debug_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="839,132,889,159"/>
-</map>

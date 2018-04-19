@@ -237,14 +237,14 @@ Protected Attributes</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Adafruit</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>this code was documented and modified by EagleoutIce in 2018 for custom use!</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div></div><!-- fragment --></dd></dl>
-<p>[NEO] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"></div><div class="line"><a class="code" href="structNeoPixel.html">NeoPixel</a> nPixel = <a class="code" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a>(5);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f">begin</a>();</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(3,<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>(0,255,0)); <span class="comment">//the order is based on your configuration</span></div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line">}</div></div><!-- fragment --><p class="">There is also an example code provided with this library, called <a class="el" href="neo__animation_8cpp.html">neo_animation.cpp</a>. <br />
+<p>[NEO] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_NEO 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"></div><div class="line"><a class="code" href="structNeoPixel.html">NeoPixel</a> nPixel = <a class="code" href="structNeoPixel.html#a03381a47c33f21e2e7e10f7d1bfbb369">NeoPixel</a>(5);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f">begin</a>();</div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d">setPixelColor</a>(3,<a class="code" href="structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b">NeoPixel::Color</a>(0,255,0)); <span class="comment">//the order is based on your configuration</span></div><div class="line">    nPixel.<a class="code" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216">show</a>();</div><div class="line">}</div></div><!-- fragment --><p class="">There is also an example code provided with this library, called neo_animation <br />
  If you've included eBoard as an Arduino Library it is available via the examples tab [as the corresponding .ino file]</p>
 <p class=""><b> Keep in mind: </b> <br />
 The <a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a> uses a one-wire interface and is therefore very timing sensitive! <br />
 You can't expect any interrupt or buffer working properly! <br />
 So you should always have a listening line that will be disabled whenever <a class="el" href="structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] ">NeoPixel::show()</a> is called </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00113">113</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00116">116</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa2c4c5a68ddab0787375e5b1e451e2ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2c4c5a68ddab0787375e5b1e451e2ee">&#9670;&nbsp;</a></span>NeoPixel() <span class="overload">[1/2]</span></h2>
@@ -993,7 +993,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the offsets in rgbw format </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00254">254</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00257">257</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1019,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>true if <a class="el" href="structNeoPixel.html#ad31eb7e7b738586ea0361a470591226f" title="this has to be called to start the communcation (you should call NeoPixel::setPin() before) ...">NeoPixel::begin</a> has been called </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00239">239</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00242">242</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1045,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the brightness </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00250">250</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00253">253</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1071,7 +1071,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the last call time of show for <a class="el" href="structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7" title="this will determine if the next show is available [last show finished] ">NeoPixel::canShow()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00256">256</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00259">259</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1097,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>determines the speed the communcation is working on </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00237">237</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00240">240</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1123,7 +1123,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the byte size [pixels] used internally </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00243">243</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00246">246</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1149,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the amount of LEDs </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00241">241</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00244">244</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1175,7 +1175,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the pin -1 if the pin wasn't set </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00248">248</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00251">251</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
@@ -1201,12 +1201,12 @@ So you should always have a listening line that will be disabled whenever <a cla
 
 <p>stores the pixels </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00252">252</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__NeoPixel_8h_source.html#l00255">255</a> of file <a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>eBoard_tsS/eBoard_tSS/source/<a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a></li>
+<li>eBoard/source/<a class="el" href="eagle__NeoPixel_8h_source.html">eagle_NeoPixel.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1215,7 +1215,7 @@ So you should always have a listening line that will be disabled whenever <a cla
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structNeoPixel.html">NeoPixel</a></li>
-    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 23:34:37 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 19.04.2018 16:49:12 </li>
   </ul>
 </div>
 </body>

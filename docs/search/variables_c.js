@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['transmitting',['transmitting',['../classeagle__impl_1_1TwoWire.html#a5a5bf9f5d20d158fbab698dc519db2cb',1,'eagle_impl::TwoWire']]],
-  ['txaddress',['txAddress',['../classeagle__impl_1_1TwoWire.html#a983285ddbb8bd9bdfec6e2226077f828',1,'eagle_impl::TwoWire']]],
-  ['txbuffer',['txBuffer',['../classeagle__impl_1_1TwoWire.html#abead83e5ce98a14a42c1bd2e3746e744',1,'eagle_impl::TwoWire']]],
-  ['txbufferindex',['txBufferIndex',['../classeagle__impl_1_1TwoWire.html#ac4cfb8fc2a4476bbac1ced203dbc9f67',1,'eagle_impl::TwoWire']]],
-  ['txbufferlength',['txBufferLength',['../classeagle__impl_1_1TwoWire.html#a70e76cf5c6edddeb4fb4b2fbfc097ec4',1,'eagle_impl::TwoWire']]]
+  ['servoindex',['servoIndex',['../classServo.html#a01fa8c02563163757164771304f9ab3a',1,'Servo']]],
+  ['stop',['STOP',['../eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158',1,'eBoard.h']]],
+  ['store_5fbits',['store_bits',['../eagle__ShiftExt_8h.html#a5c5b4b1c9b5749ad8b1c20e8f1e907ff',1,'eagle_ShiftExt.h']]],
+  ['storedpos',['storedPos',['../structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390',1,'AX12Servo']]],
+  ['storedspe',['storedSpe',['../structAX12Servo.html#acef69c05250763a11bfc976b2817805e',1,'AX12Servo']]]
 ];

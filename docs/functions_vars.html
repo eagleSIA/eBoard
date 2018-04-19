@@ -101,12 +101,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
-      <li class="current"><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li class="current"><a href="#index_v"><span>v</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -234,6 +236,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>connected
 : <a class="el" href="structDynamixelBoard.html#a4ba7b970667784ba4d3459c09a49f515">DynamixelBoard</a>
 </li>
+<li>cs
+: <a class="el" href="structServoCds55.html#aa82a455946cfc8ddeaa4b23c4eb9a02b">ServoCds55</a>
+</li>
 </ul>
 
 
@@ -254,10 +259,26 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>is800KHz
 : <a class="el" href="structNeoPixel.html#aa08964ef9a4ad9c03a56e44c9f88fae8">NeoPixel</a>
 </li>
+<li>isActive
+: <a class="el" href="structServoPin__t.html#aaf3c1889bb99bc6f936a3cfb6eba532a">ServoPin_t</a>
+</li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>max
+: <a class="el" href="classServo.html#a71f71fd80677c88515444c3b88b51a21">Servo</a>
+</li>
+<li>min
+: <a class="el" href="classServo.html#a11ac140aa7696dc424526f4f4562853d">Servo</a>
+</li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
+<li>nbr
+: <a class="el" href="structServoPin__t.html#ad2ff0e34820e04a276e38d359021b03c">ServoPin_t</a>
+</li>
 <li>numBytes
 : <a class="el" href="structNeoPixel.html#a1e645e3b4e66318cbfb63f20abb17a92">NeoPixel</a>
 </li>
@@ -270,6 +291,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>pin
 : <a class="el" href="structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a">NeoPixel</a>
+</li>
+<li>Pin
+: <a class="el" href="structservo__t.html#a04bcc6cf13ea5cd2c4dabdc977e054cb">servo_t</a>
 </li>
 <li>pixels
 : <a class="el" href="structNeoPixel.html#aa4bfaf77bdde887b0bfdaef98c562362">NeoPixel</a>
@@ -297,6 +321,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>servoIndex
+: <a class="el" href="classServo.html#a01fa8c02563163757164771304f9ab3a">Servo</a>
+</li>
 <li>storedPos
 : <a class="el" href="structAX12Servo.html#a09d3cbefc9ecc22c41a76be3f2c6a390">AX12Servo</a>
 </li>
@@ -307,6 +334,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>ticks
+: <a class="el" href="structservo__t.html#a9405b5e5266318f889ef6ff95a97943b">servo_t</a>
+</li>
 <li>transmitting
 : <a class="el" href="classeagle__impl_1_1TwoWire.html#a5a5bf9f5d20d158fbab698dc519db2cb">eagle_impl::TwoWire</a>
 </li>
@@ -326,11 +356,21 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a id="index_u"></a>- u -</h3><ul>
+<li>upperLimit_temp
+: <a class="el" href="structServoCds55.html#a6f7a62964e32990b3e92bda071a0ecb9">ServoCds55</a>
+</li>
 <li>user_onReceive
 : <a class="el" href="classeagle__impl_1_1TwoWire.html#a862d41ac4265bb5551ec0309407c3fdb">eagle_impl::TwoWire</a>
 </li>
 <li>user_onRequest
 : <a class="el" href="classeagle__impl_1_1TwoWire.html#ac370cb2ad2689a888690889ddf711e50">eagle_impl::TwoWire</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>velocity_temp
+: <a class="el" href="structServoCds55.html#a147067f9cf5d97cfb9efa9432ad75b67">ServoCds55</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -339,7 +379,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[[WIP-UNSAFE] <b>EagleoutIce</b> 18.04.2018 23:34:37 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 19.04.2018 16:49:12 </li>
   </ul>
 </div>
 </body>

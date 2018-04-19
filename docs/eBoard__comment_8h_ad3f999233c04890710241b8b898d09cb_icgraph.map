@@ -1,6 +1,0 @@
-<map id="writePWM" name="writePWM">
-<area shape="rect" id="node2" href="$structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="SoccerBoard::motor" alt="" coords="148,5,287,32"/>
-<area shape="rect" id="node3" href="$structSoccerBoard.html#a663162cfb4e213610cc7145de442662a" title="SoccerBoard::motorsOff" alt="" coords="136,56,299,83"/>
-<area shape="rect" id="node4" href="$eBoard__comment_8h.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="this is a guard " alt="" coords="190,107,245,133"/>
-<area shape="rect" id="node5" href="$structI2CInOut.html#ac475882f9f5cf8634f74084b416e9b39" title="I2CInOut::write" alt="" coords="162,157,273,184"/>
-</map>

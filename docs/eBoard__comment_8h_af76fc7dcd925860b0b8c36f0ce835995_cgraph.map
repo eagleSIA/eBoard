@@ -1,4 +1,0 @@
-<map id="set_motor_speed" name="set_motor_speed">
-<area shape="rect" id="node2" href="$classServo.html#a72b4b546912eada96a6ef705168ceb8a" title="Servo::write" alt="" coords="176,5,268,32"/>
-<area shape="rect" id="node3" href="$classServo.html#ac7fe3d6d2ea285ead98814bcfc417029" title="Servo::writeMicroseconds" alt="" coords="316,5,489,32"/>
-</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['neo_5fanimation_2ecpp',['neo_animation.cpp',['../neo__animation_8cpp.html',1,'']]]
+  ['lcd_5fdebug_2ecpp',['lcd_debug.cpp',['../lcd__debug_8cpp.html',1,'']]]
 ];

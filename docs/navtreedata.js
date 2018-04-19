@@ -61,8 +61,8 @@ var NAVTREE =
         [ "Version 3.1m 🦍  - So he can drive aswell? [BETA]", "changelog_page.html#su11", null ]
       ] ]
     ] ],
-    [ "Todo List", "todo.html", null ],
     [ "Macros and Constants", "macro.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Tutorials", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
@@ -94,8 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eagle__NeoPixel_8h.html#a8accbf745a5b810ec8fd52f6bff11bfd",
-"structRB14Scan.html#a2c3e020ffb6d8f23f6394e33c93964fc"
+"eagle__NeoPixel_8h.html#a0ebcc94a820403d090dfcbfc11d8898d",
+"structNeoPixel.html#a9168956fe081052f22c7af4ec82c2055"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

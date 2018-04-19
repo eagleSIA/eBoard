@@ -8,10 +8,11 @@ var searchData=
   ['changelog',['Changelog',['../changelog_page.html',1,'']]],
   ['changemode',['changeMode',['../structLCD.html#ad31ee94d401b7c28d6cc2f472e2eb8fd',1,'LCD']]],
   ['channel',['channel',['../structRB14Scan.html#a35ff55470a07767513fb0c619ed78258',1,'RB14Scan']]],
-  ['checkidx',['checkIdx',['../eagle__checks_8h.html#a757015d50a6c57414603841f728b670b',1,'eagle_checks.h']]],
-  ['checkoverflow',['checkOverflow',['../eagle__bluetooth_8h.html#a77e51ddd601b32f343b7addc1f602d07',1,'eagle_bluetooth.h']]],
+  ['checkidx',['checkIdx',['../eagle__Checks_8h.html#a757015d50a6c57414603841f728b670b',1,'eagle_Checks.h']]],
+  ['checkoverflow',['checkOverflow',['../eagle__Bluetooth_8h.html#a77e51ddd601b32f343b7addc1f602d07',1,'eagle_Bluetooth.h']]],
   ['clear',['clear',['../structLCD.html#ad3120f397273bac2ad60e0291554b9e6',1,'LCD::clear()'],['../structNeoPixel.html#a9168956fe081052f22c7af4ec82c2055',1,'NeoPixel::clear()']]],
   ['color',['Color',['../structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b)'],['../structNeoPixel.html#abb4a45baf1d8d06b1640a5798fde9ee4',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w)']]],
+  ['comment_5fmax_2edox',['comment_max.dox',['../comment__max_8dox.html',1,'']]],
   ['connected',['connected',['../structDynamixelBoard.html#a4ba7b970667784ba4d3459c09a49f515',1,'DynamixelBoard']]],
   ['counter_5f16_5fbit',['COUNTER_16_BIT',['../eagle__I2CInOut_8h.html#a71f438f540615074ddea2a3a4d38ae95',1,'eagle_I2CInOut.h']]],
   ['counter_5f8_5fbit',['COUNTER_8_BIT',['../eagle__I2CInOut_8h.html#aa40e841cf249e38817048624fa190405',1,'eagle_I2CInOut.h']]],
@@ -20,5 +21,6 @@ var searchData=
   ['counter_5fmean_5f16_5fbit',['COUNTER_MEAN_16_BIT',['../eagle__I2CInOut_8h.html#ae12e2a74c3dbca7950bc7d55b0b3dcfc',1,'eagle_I2CInOut.h']]],
   ['counter_5fmean_5f8_5fbit',['COUNTER_MEAN_8_BIT',['../eagle__I2CInOut_8h.html#a93c1089bdf85a8de3ea13ca1c6b06e13',1,'eagle_I2CInOut.h']]],
   ['counter_5frise_5f16_5fbit',['COUNTER_RISE_16_BIT',['../eagle__I2CInOut_8h.html#aa0f205876e941e329e26cd52961ab07f',1,'eagle_I2CInOut.h']]],
-  ['counter_5frise_5f8_5fbit',['COUNTER_RISE_8_BIT',['../eagle__I2CInOut_8h.html#a1c6856832cc9aad00c5d406925f81d1c',1,'eagle_I2CInOut.h']]]
+  ['counter_5frise_5f8_5fbit',['COUNTER_RISE_8_BIT',['../eagle__I2CInOut_8h.html#a1c6856832cc9aad00c5d406925f81d1c',1,'eagle_I2CInOut.h']]],
+  ['cs',['cs',['../structServoCds55.html#aa82a455946cfc8ddeaa4b23c4eb9a02b',1,'ServoCds55']]]
 ];

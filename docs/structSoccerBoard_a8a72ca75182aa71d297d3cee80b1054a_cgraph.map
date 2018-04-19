@@ -1,6 +1,0 @@
-<map id="SoccerBoard::analog" name="SoccerBoard::analog">
-<area shape="rect" id="node2" href="$eBoard_8h.html#aca4f96af7c6736bf2b61c88d731af741" title="read a digital state from an INPUTpin " alt="" coords="196,21,263,48"/>
-<area shape="rect" id="node3" href="$eBoard_8h.html#a757015d50a6c57414603841f728b670b" title="[DEBUG_MODE] used to check if a pin index is in bounds " alt="" coords="435,21,509,48"/>
-<area shape="rect" id="node4" href="$eBoard_8h.html#a06400a6dce24e4eda610644893c1bbd7" title="[COPY&amp;PASTE] [CHECK_PINS] Check if a pin is set to a specific mode " alt="" coords="311,21,387,48"/>
-<area shape="rect" id="node5" href="$eBoard_8h.html#a78b0e873cb50c282c6243d4913406be4" title="[COPY&amp;PASTE] set a pin to a certain mode =&gt; checkPin() will return true then " alt="" coords="319,72,378,98"/>
-</map>

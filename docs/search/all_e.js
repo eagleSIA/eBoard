@@ -1,7 +1,7 @@
 var searchData=
 [
   ['peek',['peek',['../classeagle__impl_1_1SoftwareSerial.html#ad7af080229f892aa915a5595f94a3e99',1,'eagle_impl::SoftwareSerial::peek()'],['../classeagle__impl_1_1TwoWire.html#a796f1dd91b05b366f2f2fe510ff5ef58',1,'eagle_impl::TwoWire::peek()']]],
-  ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel']]],
+  ['pin',['pin',['../structNeoPixel.html#aeb3079e514116ba5f19d44cfc71a495a',1,'NeoPixel::pin()'],['../structservo__t.html#a04bcc6cf13ea5cd2c4dabdc977e054cb',1,'servo_t::Pin()']]],
   ['pin_5fbluetooth_5frx',['PIN_BLUETOOTH_RX',['../eBoard__comment_8h.html#a89aeef1315893831a4aa3841884b15a3',1,'eBoard.h']]],
   ['pin_5fbluetooth_5fstate',['PIN_BLUETOOTH_STATE',['../eBoard__comment_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52',1,'eBoard.h']]],
   ['pin_5fbluetooth_5ftx',['PIN_BLUETOOTH_TX',['../eBoard__comment_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c',1,'eBoard.h']]],

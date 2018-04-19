@@ -1,7 +1,0 @@
-<map id="ServoCds55::WritePos" name="ServoCds55::WritePos">
-<area shape="rect" id="node2" href="$structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="ServoCds55::write" alt="" coords="209,31,340,57"/>
-<area shape="rect" id="node3" href="$structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="SoccerBoard::motor" alt="" coords="399,5,538,32"/>
-<area shape="rect" id="node4" href="$structAX12Servo.html#ae6005da90335d13c253a246edb247178" title="AX12Servo::setPosition" alt="" coords="388,56,549,83"/>
-<area shape="rect" id="node5" href="$structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="DynamixelBoard::action" alt="" coords="597,56,759,83"/>
-<area shape="rect" id="node6" href="$lcd__debug_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="807,56,857,83"/>
-</map>

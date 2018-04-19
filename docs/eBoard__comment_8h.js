@@ -1,6 +1,5 @@
 var eBoard__comment_8h =
 [
-    [ "SPIClass", "structeagle__impl_1_1SPIClass.html", "structeagle__impl_1_1SPIClass" ],
     [ "__ASSERT_USE_STDERR", "eBoard__comment_8h.html#a412557130ca57a31095a506f4535b5fe", null ],
     [ "__AVR__", "eBoard__comment_8h.html#a2c5e50d229c92b7a531ebf48b411457b", null ],
     [ "__AVR_ATmega2560__", "eBoard__comment_8h.html#abf42623921c4853f2e40a168b3b6ea81", null ],
@@ -43,25 +42,8 @@ var eBoard__comment_8h =
     [ "PREPROCESS_DEBUG", "eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158", null ],
     [ "REPT_TASK", "eBoard__comment_8h.html#a9f16e9572527274c376a2a369915ea51", null ],
     [ "SoftwareSerial_h", "eBoard__comment_8h.html#abf9cebd5a376e0e460c0fc6f020f228d", null ],
-    [ "SPI_2XCLOCK_MASK", "eBoard__comment_8h.html#a6a0a7018061769d9202d1e1753f9708e", null ],
-    [ "SPI_CLOCK_DIV128", "eBoard__comment_8h.html#ae7bbb331aa1b0f066aeaf652b3a1fdec", null ],
-    [ "SPI_CLOCK_DIV16", "eBoard__comment_8h.html#a84c3e36d173ca9b2bf4314da5fb688a9", null ],
-    [ "SPI_CLOCK_DIV2", "eBoard__comment_8h.html#ae40dbea74458f8f2aa56f163b4f9a592", null ],
-    [ "SPI_CLOCK_DIV32", "eBoard__comment_8h.html#a51ee7ab477a5076a2768aead6d311b95", null ],
-    [ "SPI_CLOCK_DIV4", "eBoard__comment_8h.html#aa5277a58d46a44a61456b5c32b70d596", null ],
-    [ "SPI_CLOCK_DIV64", "eBoard__comment_8h.html#ae5d8e597407d89c8fe4e7d2cddfd4963", null ],
-    [ "SPI_CLOCK_DIV8", "eBoard__comment_8h.html#a1c17812f1dcf847c8c5f97ea58659663", null ],
-    [ "SPI_CLOCK_MASK", "eBoard__comment_8h.html#ac44360456dd55fc9c0e3bcda82ac7812", null ],
-    [ "SPI_MODE0", "eBoard__comment_8h.html#ac9d0bde2b42b2403d00b7a611514b006", null ],
-    [ "SPI_MODE1", "eBoard__comment_8h.html#a9481b7327b91aa52ff5f70eb2d0acc95", null ],
-    [ "SPI_MODE2", "eBoard__comment_8h.html#a991dec04d2fb38979cfb0d9fc7f8b026", null ],
-    [ "SPI_MODE3", "eBoard__comment_8h.html#a5f928a2445070981765ee0416c12369d", null ],
-    [ "SPI_MODE_MASK", "eBoard__comment_8h.html#aa64ece5364d0d7e1226d50e8773ab654", null ],
     [ "twi_h", "eBoard__comment_8h.html#a72282c2bbeb6330cad4030fa564a869f", null ],
     [ "optVAL_t", "eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a", null ],
     [ "_serial", "eBoard__comment_8h.html#acb51742a61b072bb500b6e0713d7dc2c", null ],
-    [ "gamma8", "eBoard__comment_8h.html#a35204453c4d7c63cc4c1d5c3a48be095", null ],
-    [ "sine8", "eBoard__comment_8h.html#a8de5034379a9830a98c0d3ecf9c9f979", null ],
-    [ "SPI", "eBoard__comment_8h.html#a56953eb3affc2a9f56e1680bbc537bf7", null ],
     [ "STOP", "eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158", null ]
 ];

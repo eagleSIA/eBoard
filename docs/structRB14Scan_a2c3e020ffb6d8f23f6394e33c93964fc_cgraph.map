@@ -1,7 +1,0 @@
-<map id="RB14Scan::write" name="RB14Scan::write">
-<area shape="rect" id="node2" href="$eBoard_8h.html#abf785ff4ead72e3118dfaa8270c04f0c" title="[BLUETOOTH] writes Data to bluetooth " alt="" coords="175,35,244,61"/>
-<area shape="rect" id="node3" href="$eBoard_8h.html#acb51742a61b072bb500b6e0713d7dc2c" title="_serial" alt="" coords="351,5,411,32"/>
-<area shape="rect" id="node4" href="$classeagle__impl_1_1SoftwareSerial.html#ac24e5c6af203ec636c0a200b0cb3caf0" title="eagle_impl::SoftwareSerial\l::write" alt="" coords="292,57,469,98"/>
-<area shape="rect" id="node5" href="$classeagle__impl_1_1SoftwareSerial.html#a4fcb85cb384df8030835af3e8cafae71" title="eagle_impl::SoftwareSerial\l::tx_pin_write" alt="" coords="517,23,695,65"/>
-<area shape="rect" id="node6" href="$classeagle__impl_1_1SoftwareSerial.html#a1dc4448e5fdf2516f47439fb4f62f4be" title="eagle_impl::SoftwareSerial\l::tunedDelay" alt="" coords="517,89,695,130"/>
-</map>

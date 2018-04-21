@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 20.04.2018 22:20:28
+//Created: 21.04.2018 16:31:58
 #ifndef EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
 #define EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
 	#define _SS_MAX_RX_BUFF 64 // RX buffer size

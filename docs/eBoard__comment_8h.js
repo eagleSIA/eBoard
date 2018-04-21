@@ -39,7 +39,6 @@ var eBoard__comment_8h =
     [ "PIN_SHIFT_CLK", "eBoard__comment_8h.html#a22c712be288c2b94e2e864cbbe9d3d91", null ],
     [ "PIN_SHIFT_DAT", "eBoard__comment_8h.html#af4f1e011bf273b29d52c1ded6f3ddea2", null ],
     [ "PIN_SHIFT_LAT", "eBoard__comment_8h.html#acbd75f5e8dd6beb1d47b21cb27c80f52", null ],
-    [ "PREPROCESS_DEBUG", "eBoard__comment_8h.html#a2423814a8c1071bb3f82017115574158", null ],
     [ "REPT_TASK", "eBoard__comment_8h.html#a9f16e9572527274c376a2a369915ea51", null ],
     [ "SoftwareSerial_h", "eBoard__comment_8h.html#abf9cebd5a376e0e460c0fc6f020f228d", null ],
     [ "twi_h", "eBoard__comment_8h.html#a72282c2bbeb6330cad4030fa564a869f", null ],

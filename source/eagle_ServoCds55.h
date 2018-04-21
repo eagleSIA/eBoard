@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 19.04.2018 16:49:13
+//Created: 20.04.2018 22:20:28
 #ifndef EAGLE_EBOARD_HELPLIB_SERVOCDS55
 #define EAGLE_EBOARD_HELPLIB_SERVOCDS55
 struct ServoCds55 {

@@ -1,36 +1,21 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 19.04.2018 16:49:13
+//Created: 20.04.2018 22:20:28
 
 #ifndef EBOARD_HEADER_GUARD
    #define EBOARD_HEADER_GUARD
-   #pragma GCC diagnostic push
-   #pragma GCC diagnostic ignored "-Wall"
-   #pragma GCC diagnostic ignored "-Wextra"
-   #pragma pack(push)
-   #pragma pack(16)
-#define EBOARD_VERSION "3.1.18m"
-#define EBOARD_VERSION_NBR 328
-#define VALUE_TO_STRING(x) #x
-
-#define VALUE(x) VALUE_TO_STRING(x)
-#ifndef PREPROCESS_DEBUG
-    #define PREPROCESS_DEBUG 0
-   #endif
-#define PPERFORM_PRAGMA(str) _Pragma(#str)
-  #if PREPROCESS_DEBUG == 1
-	 	#pragma message("You are using eBoard-header " VALUE(EBOARD_VERSION) "{" VALUE(EBOARD_VERSION_NBR) "} written by EagleoutIce")
-    #define DEBUG_MSG(str) PPERFORM_PRAGMA(message ("" #str))
-    #define MACRO_MSG(mac,str) PPERFORM_PRAGMA(message("You set " #mac " to " VALUE(mac) ": " #str))
-   #else
-    #define DEBUG_MSG(str) ;
-    #define MACRO_MSG(mac,str) ;
-   #endif
-   
+	 #pragma GCC diagnostic push
+	 #pragma GCC diagnostic ignored "-Wall"
+	 #pragma GCC diagnostic ignored "-Wextra"
+	 #pragma pack(push)
+	 #pragma pack(16)
+	 #include "source/eagle_PreprocessorControl.h"
+	 
+	 #define EBOARD_VERSION "3.1.19m"
+	 
+	 #define EBOARD_VERSION_NBR 329
   DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
  //i am a guard... leave me alone :D
-  
-
- #if defined(ARDUINO) //general platform-check [No tab]
+#if defined(ARDUINO) //general platform-check [No tab]
     #include <avr/pgmspace.h>
         namespace eagle_impl {}
     using namespace eagle_impl;
@@ -49,7 +34,6 @@
    #if not ( defined(__AVR_ATmega2560__) || defined(__AVR_ATmega328P__))
         #error "This library was build for ARDUINO UNO R3 Aand ARDUINO MEGA 2560!"
     #endif
-
 		#include "source/eagle_Comfort.h"
    #if defined(__AVR_ATmega2560__)
       DEBUG_MSG("Building for Arduino Mega with ATmega2560");
@@ -156,7 +140,6 @@
     #if PREPROCESS_DEBUG > 0x0
     #pragma message("Set Debugging speed to " VALUE(EBOARD_DEBUG_SPEED))
     #endif
-
        #ifndef EBOARD_SPI_SERVO_MAX
         #define EBOARD_SPI_SERVO_MAX 2
     #endif
@@ -250,7 +233,6 @@
         #ifndef PIN_SHIFT_LAT
         #define PIN_SHIFT_LAT 0x8
     #endif
-
    //done by arduino
     //if this has an effect... something went wrong :D
     #ifndef HIGH
@@ -331,11 +313,9 @@
   #if EBOARD_NANO > 0x0
   #include "source/eagle_NanoMot.h"
   #endif
-
 #else
   #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process
 #endif
 #pragma GCC diagnostic pop
 #pragma pack(pop)
-
 #endif

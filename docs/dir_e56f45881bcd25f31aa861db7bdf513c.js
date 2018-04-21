@@ -16,6 +16,7 @@ var dir_e56f45881bcd25f31aa861db7bdf513c =
     [ "eagle_NanoMot.h", "eagle__NanoMot_8h.html", "eagle__NanoMot_8h" ],
     [ "eagle_NeoPixel.h", "eagle__NeoPixel_8h.html", "eagle__NeoPixel_8h" ],
     [ "eagle_PinCtrl.h", "eagle__PinCtrl_8h.html", "eagle__PinCtrl_8h" ],
+    [ "eagle_PreprocessorControl.h", "eagle__PreprocessorControl_8h.html", "eagle__PreprocessorControl_8h" ],
     [ "eagle_RB14Scan.h", "eagle__RB14Scan_8h.html", [
       [ "RB14Scan", "structRB14Scan.html", "structRB14Scan" ]
     ] ],

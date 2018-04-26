@@ -22,8 +22,6 @@ var dir_e56f45881bcd25f31aa861db7bdf513c =
     ] ],
     [ "eagle_ReptTask.h", "eagle__ReptTask_8h.html", "eagle__ReptTask_8h" ],
     [ "eagle_Servo.h", "eagle__Servo_8h.html", [
-      [ "ServoPin_t", "structServoPin__t.html", "structServoPin__t" ],
-      [ "servo_t", "structservo__t.html", "structservo__t" ],
       [ "Servo", "classServo.html", "classServo" ]
     ] ],
     [ "eagle_ServoCds55.h", "eagle__ServoCds55_8h.html", [

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ticks',['ticks',['../structservo__t.html#a9405b5e5266318f889ef6ff95a97943b',1,'servo_t']]],
   ['transmitting',['transmitting',['../classeagle__impl_1_1TwoWire.html#a5a5bf9f5d20d158fbab698dc519db2cb',1,'eagle_impl::TwoWire']]],
   ['txaddress',['txAddress',['../classeagle__impl_1_1TwoWire.html#a983285ddbb8bd9bdfec6e2226077f828',1,'eagle_impl::TwoWire']]],
   ['txbuffer',['txBuffer',['../classeagle__impl_1_1TwoWire.html#abead83e5ce98a14a42c1bd2e3746e744',1,'eagle_impl::TwoWire']]],

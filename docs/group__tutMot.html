@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<title>eBoard: [ 🐼 ] HOW TO SETUP THE AX12-SERVOS</title>
+<title>eBoard: [  ] HOW TO SETUP THE AX12-SERVOS</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('group__tutMot.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">[ 🐼 ] HOW TO SETUP THE AX12-SERVOS</div>  </div>
+<div class="title">[ ] HOW TO SETUP THE AX12-SERVOS</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('group__tutMot.html','');});
 <p>If both Servos respond to the same ID (we will assume it's ID1 in this Tutorial) there are several steps to perform:</p><ol type="1">
 <li>Disconnect any power supply from the smart servo shield, detach smart servo shield and the Arduino and connect the arduino to the PC</li>
 <li>Flush this code onto the Arduino (preferably via the Arduino IDE ;) ): <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><a class="code" href="structDynamixelBoard.html">DynamixelBoard</a> servoBoard(<a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>);</div><div class="line"><a class="code" href="structAX12Servo.html">AX12Servo</a> steerMotor1(servoBoard,1); <span class="comment">//if the assumed ID1 is wrong change the 1</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">   <span class="keywordflow">for</span>(;;) {</div><div class="line">    steerMotor1.changeMotorID(2); <span class="comment">//2 can be 1/3/4...</span></div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(1);</div><div class="line">    steerMotor1.setPosition(200); <span class="comment">//If the servo is already in this position.. change the servo position^^</span></div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(1);</div><div class="line">   }</div><div class="line">}</div></div><!-- fragment --></li>
-<li>Connect only one AX12-Servo to the smart servo shield (which schould be connected to the arduino (^,^) and make sure the power supply is sufficient (and stable)</li>
+<li>Connect only one AX12-<a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> to the smart servo shield (which schould be connected to the arduino (^,^) and make sure the power supply is sufficient (and stable)</li>
 <li>Wait for the Motor to move!</li>
 <li>The process is completed... unplug everything (except the Arduino from the PC) and flush another Code onto the Arduino. E.g. this one: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>(){</div><div class="line">   <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --></li>
 <li>Now you can reattach the smart servo shield to the arduino and write your code! The AX12-Servos should now respond to their different IDs </li>
@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('group__tutMot.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><b>EagleoutIce</b> 21.04.2018 16:31:57 </li>
+    <li class="footer"><b>EagleoutIce</b> 27.04.2018 00:20:07 </li>
   </ul>
 </div>
 </body>

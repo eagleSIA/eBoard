@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['ticks',['ticks',['../structservo__t.html#a9405b5e5266318f889ef6ff95a97943b',1,'servo_t']]],
   ['todo_20list',['Todo List',['../todo.html',1,'']]],
-  ['transfer',['transfer',['../structeagle__impl_1_1SPIClass.html#add4542baedbded4756ba6568a699ae77',1,'eagle_impl::SPIClass']]],
+  ['transfer',['transfer',['../structeagle__impl_1_1SPIClass.html#a232b52cc16702fc57eae04bfde6440f8',1,'eagle_impl::SPIClass']]],
   ['transmitting',['transmitting',['../classeagle__impl_1_1TwoWire.html#a5a5bf9f5d20d158fbab698dc519db2cb',1,'eagle_impl::TwoWire']]],
   ['trig_5frept_5ftask',['trig_rept_task',['../eagle__ReptTask_8h.html#a86b1263028ffefd2c8c93900893dd300',1,'eagle_ReptTask.h']]],
   ['tuneddelay',['tunedDelay',['../classeagle__impl_1_1SoftwareSerial.html#a2dc32e482c1f009cdab78fc40b3af15c',1,'eagle_impl::SoftwareSerial']]],

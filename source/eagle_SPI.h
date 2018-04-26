@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 21.04.2018 16:31:58
+//Created: 27.04.2018 00:20:08
 #ifndef EAGLE_EBOARD_HELPLIB_SPI
 #define EAGLE_EBOARD_HELPLIB_SPI
 	#include <stdio.h>
@@ -35,7 +35,7 @@
 	
 	  struct SPIClass {
 	    
-	    inline static byte transfer(byte _data);
+	    inline static byte transfer(byte data);
 	    
 	    inline static void attachInterrupt(void);
 	    
@@ -53,8 +53,8 @@
 	  };
 	}
 	
-	byte SPIClass::transfer(byte _data) {
-	  SPDR = _data;
+	byte SPIClass::transfer(byte data) {
+	  SPDR = data;
 	  while (!(SPSR & _BV(SPIF)));
 	  return SPDR;
 	}

@@ -8,8 +8,6 @@ var annotated_dup =
     [ "NeoPixel", "structNeoPixel.html", "structNeoPixel" ],
     [ "RB14Scan", "structRB14Scan.html", "structRB14Scan" ],
     [ "Servo", "classServo.html", "classServo" ],
-    [ "servo_t", "structservo__t.html", "structservo__t" ],
     [ "ServoCds55", "structServoCds55.html", "structServoCds55" ],
-    [ "ServoPin_t", "structServoPin__t.html", "structServoPin__t" ],
     [ "SoccerBoard", "structSoccerBoard.html", "structSoccerBoard" ]
 ];

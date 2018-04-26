@@ -7,5 +7,5 @@ var structeagle__impl_1_1SPIClass =
     [ "setBitOrder", "structeagle__impl_1_1SPIClass.html#a379249fd1918df800abc5e2bf182b971", null ],
     [ "setClockDivider", "structeagle__impl_1_1SPIClass.html#adb1163b9f76c93765b8aaa5a1185583b", null ],
     [ "setDataMode", "structeagle__impl_1_1SPIClass.html#a47ba72d87bea0720bbb3566124a44008", null ],
-    [ "transfer", "structeagle__impl_1_1SPIClass.html#add4542baedbded4756ba6568a699ae77", null ]
+    [ "transfer", "structeagle__impl_1_1SPIClass.html#a232b52cc16702fc57eae04bfde6440f8", null ]
 ];

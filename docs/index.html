@@ -114,12 +114,12 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">eBoard 3.1m - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
-<dl class="section note"><dt>Note</dt><dd>This code was written for the Arduino UNO R3 used with the Smart <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
+<div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
+<dl class="section note"><dt>Note</dt><dd>This code was written for the Arduino UNO R3 used with the Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> Shield]. <br />
+<dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <br />
- It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ 🐼 ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
+ It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
 <p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>write nicer mainpage :D</dd></dl>
 <h1><a class="anchor" id="s1"></a>
 Macros</h1>
@@ -157,7 +157,7 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25" title="we want to use the LCD ">EBOARD_LCD</a>  </td><td class="markdownTableBodyNone">[I2C] {bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a> set to 0x1   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-NeoPixel-Devices   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-<a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>-Devices   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
@@ -168,9 +168,9 @@ Macros</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Identifier  </th><th class="markdownTableHeadNone">Default ID [UNO/NANO \ MEGA]  </th><th class="markdownTableHeadNone">Addiotional Information   </th></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a>  </td><td class="markdownTableBodyNone">pinID(2\19)  </td><td class="markdownTableBodyNone">RX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a>  </td><td class="markdownTableBodyNone">pinID(2\19)  </td><td class="markdownTableBodyNone">RX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e - On your command, master [~100m]</a>]   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a>  </td><td class="markdownTableBodyNone">pinID(3\18)  </td><td class="markdownTableBodyNone">TX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e 🐧 - On your command, master [~100m]</a>]   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#ab8e666db238944dab0ed4fc0dc8ed86c">PIN_BLUETOOTH_TX</a>  </td><td class="markdownTableBodyNone">pinID(3\18)  </td><td class="markdownTableBodyNone">TX-Pin &ndash; why? [<a class="el" href="changelog_page.html#su3">Version 1.2e - On your command, master [~100m]</a>]   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a834f33b1c264b485a083e8800fa38b36">PIN_MOTOR_DIR</a>  </td><td class="markdownTableBodyNone">pinID(4)  </td><td class="markdownTableBodyNone">MotorControl [DIR]   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
@@ -186,20 +186,20 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a3c86a34a6f6370c7380d108ca5e66b7f">EBOARD_NANO_MAIN</a>  </td><td class="markdownTableBodyNone">[NANO] pin(13)  </td><td class="markdownTableBodyNone">data-Pin for the main Motor used for driving   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a">EBOARD_NANO_STEER</a>  </td><td class="markdownTableBodyNone">[NANO] pin(12)  </td><td class="markdownTableBodyNone">data-Pin fot the steering <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> used for steering   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a">EBOARD_NANO_STEER</a>  </td><td class="markdownTableBodyNone">[NANO] pin(12)  </td><td class="markdownTableBodyNone">data-Pin fot the steering <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> used for steering   </td></tr>
 </table>
 <h1><a class="anchor" id="s2"></a>
 Smart Servo Shield</h1>
 <div class="image">
 <img src="sss.jpeg" alt="sss.jpeg"/>
 </div>
-<p> This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A <a class="el" href="classServo.html" title="The standard Arduino Servo Class. ">Servo</a> directly from the arduino... but this is very expensive :/ </p><dl class="section note"><dt>Note</dt><dd>to use the motors properly you <em>have</em> to connect the Board with a ~12V power supply!</dd></dl>
+<p> This is the smart-servo shield this code was written for its connected by SPI with the UNO R3. In case of an emergency it is possible to hardcode a connection interface to drive the AX-12A <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> directly from the arduino... but this is very expensive :/ </p><dl class="section note"><dt>Note</dt><dd>to use the motors properly you <em>have</em> to connect the Board with a ~12V power supply!</dd></dl>
 <h1><a class="anchor" id="s4"></a>
 Philosophy</h1>
 <p class=""> <div style='color:gray;text-decoration:line-through'>On small projects I prefer the single-file header! \n Your able to 'manage the includings' via the preprocessor constants</div> The project got packed :D</p>
 <dl class="section note"><dt>Note</dt><dd>There is no internal reset command on the Arduino. To 'create' a remote reset mechanism use the onBoard Reset-Pin!</dd></dl>
-<h2><a class="anchor" id="su111"></a>
-Async task execution</h2>
+<h1><a class="anchor" id="su111"></a>
+Async task execution</h1>
 <p class="">The Arduino is a single core processor. That means it isn't possible to do multiple tasks at once. <br />
 To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). <br />
 The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
@@ -209,14 +209,14 @@ The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da4
 <h1><a class="anchor" id="s3"></a>
 Tutorials</h1>
 <ul>
-<li><a class="el" href="group__genExpl.html">[ 🐼 ] GENERAL INTRODUCTION</a></li>
-<li><a class="el" href="group__i2cEx.html">[ 🐼 ] I2C</a></li>
-<li><a class="el" href="group__shiftEx.html">[ 🐼 ] SHIFT</a></li>
-<li><a class="el" href="group__blueEx.html">[ 🐼 ] BLUETOOTH</a></li>
-<li><a class="el" href="group__lcdEx.html">[ 🐼 ] OLED</a></li>
-<li><a class="el" href="group__portTu.html">[ 🐼 ] UNO2MEGA</a></li>
-<li><a class="el" href="group__tutMot.html">[ 🐼 ] HOW TO SETUP THE AX12-SERVOS</a></li>
-<li><a class="el" href="group__updLib.html">[ 🐼 ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
+<li><a class="el" href="group__genExpl.html">[ ] GENERAL INTRODUCTION</a></li>
+<li><a class="el" href="group__i2cEx.html">[ ] I2C</a></li>
+<li><a class="el" href="group__shiftEx.html">[ ] SHIFT</a></li>
+<li><a class="el" href="group__blueEx.html">[ ] BLUETOOTH</a></li>
+<li><a class="el" href="group__lcdEx.html">[ ] OLED</a></li>
+<li><a class="el" href="group__portTu.html">[ ] UNO2MEGA</a></li>
+<li><a class="el" href="group__tutMot.html">[ ] HOW TO SETUP THE AX12-SERVOS</a></li>
+<li><a class="el" href="group__updLib.html">[ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -225,7 +225,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><b>EagleoutIce</b> 21.04.2018 16:31:57 </li>
+    <li class="footer"><b>EagleoutIce</b> 27.04.2018 00:20:07 </li>
   </ul>
 </div>
 </body>

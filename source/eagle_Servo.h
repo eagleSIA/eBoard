@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 21.04.2018 16:31:58
+//Created: 27.04.2018 00:20:08
 #ifndef EAGLE_EBOARD_HELPLIB_SERVO
 #define EAGLE_EBOARD_HELPLIB_SERVO
 	//import servo-class
@@ -15,7 +15,6 @@
 	#define MAX_SERVOS   (_Nbr_16timers  * SERVOS_PER_TIMER)
 	#define INVALID_SERVO         255     // flag indicating an invalid servo index
 	
-	
 	typedef struct  {
 		
 	  uint8_t nbr        :6 ;             // a pin number from 0 to 63
@@ -29,6 +28,7 @@
 		
 	  volatile unsigned int ticks;
 	} servo_t;
+	
 	
 	class Servo {
 	  public:

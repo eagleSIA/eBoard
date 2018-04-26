@@ -27,9 +27,8 @@ var NAVTREE =
     [ "eBoard 3.1m - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
-      [ "Philosophy", "index.html#s4", [
-        [ "Async task execution", "index.html#su111", null ]
-      ] ],
+      [ "Philosophy", "index.html#s4", null ],
+      [ "Async task execution", "index.html#su111", null ],
       [ "Tutorials", "index.html#s3", null ]
     ] ],
     [ "About", "about_page.html", [
@@ -44,21 +43,21 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Changelog", "changelog_page.html", [
-      [ "Version 1 - Ollivander 🐁", "changelog_page.html#ver1", [
-        [ "Version 1.0e 🐪 - I ate the alpha-cookie :D [~130m]", "changelog_page.html#su1", null ],
-        [ "Version 1.1b 🐓 - Hello Slave [~70m]", "changelog_page.html#su2", null ],
-        [ "Version 1.2e 🐧 - On your command, master [~100m]", "changelog_page.html#su3", null ],
-        [ "Version 1.3g 🐊 - Make this safe! [~30m]", "changelog_page.html#su4", null ]
+      [ "Version 1 - Ollivander", "changelog_page.html#ver1", [
+        [ "Version 1.0e  - I ate the alpha-cookie :D [~130m]", "changelog_page.html#su1", null ],
+        [ "Version 1.1b  - Hello Slave [~70m]", "changelog_page.html#su2", null ],
+        [ "Version 1.2e  - On your command, master [~100m]", "changelog_page.html#su3", null ],
+        [ "Version 1.3g  - Make this safe! [~30m]", "changelog_page.html#su4", null ]
       ] ],
-      [ "Version 2 - Scofield 🐩", "changelog_page.html#ver2", [
-        [ "Version 2.0c 🐈 - Facing Interfaces [~130m]", "changelog_page.html#su5", null ],
-        [ "Version 2.1d 🐺 - #Oversize [~60m]", "changelog_page.html#su6", null ],
-        [ "Version 2.2b 🐏 - Optimize it [52m]", "changelog_page.html#su7", null ],
-        [ "Version 2.3h 🐦 - Addition to the family [120m]", "changelog_page.html#su8", null ]
+      [ "Version 2 - Scofield", "changelog_page.html#ver2", [
+        [ "Version 2.0c  - Facing Interfaces [~130m]", "changelog_page.html#su5", null ],
+        [ "Version 2.1d  - #Oversize [~60m]", "changelog_page.html#su6", null ],
+        [ "Version 2.2b  - Optimize it [52m]", "changelog_page.html#su7", null ],
+        [ "Version 2.3h  - Addition to the family [120m]", "changelog_page.html#su8", null ]
       ] ],
-      [ "Version 3 - Morpheus 🐉", "changelog_page.html#ver3", [
-        [ "Version 3.0c 🐝 - Special Touch [100m]", "changelog_page.html#su10", null ],
-        [ "Version 3.1m 🦍  - So he can drive aswell? [BETA]", "changelog_page.html#su11", null ]
+      [ "Version 3 - Morpheus", "changelog_page.html#ver3", [
+        [ "Version 3.0c  - Special Touch [100m]", "changelog_page.html#su10", null ],
+        [ "Version 3.1m   - So he can drive aswell? [BETA]", "changelog_page.html#su11", null ]
       ] ]
     ] ],
     [ "Macros and Constants", "macro.html", null ],

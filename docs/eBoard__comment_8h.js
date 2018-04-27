@@ -14,11 +14,11 @@ var eBoard__comment_8h =
     [ "EBOARD_DEBUG_MODE", "eBoard__comment_8h.html#a9576a738d44de713d21e71123b5ee344", null ],
     [ "EBOARD_DEBUG_SPEED", "eBoard__comment_8h.html#ab40166b3dbfe220aef870dccc9fd5386", null ],
     [ "EBOARD_GUESSPATH", "eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e", null ],
+    [ "EBOARD_HELPCAR_MAIN", "eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec", null ],
+    [ "EBOARD_HELPCAR_STEER", "eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1", null ],
     [ "EBOARD_I2C", "eBoard__comment_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1", null ],
     [ "EBOARD_LCD", "eBoard__comment_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25", null ],
     [ "EBOARD_NANO", "eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096", null ],
-    [ "EBOARD_NANO_MAIN", "eBoard__comment_8h.html#a3c86a34a6f6370c7380d108ca5e66b7f", null ],
-    [ "EBOARD_NANO_STEER", "eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a", null ],
     [ "EBOARD_NEO", "eBoard__comment_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575", null ],
     [ "EBOARD_PWM_SPE", "eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f", null ],
     [ "EBOARD_SHIFT_REGISTER", "eBoard__comment_8h.html#abb24d7ee5b65e44b961cba7186cc5ded", null ],
@@ -44,5 +44,7 @@ var eBoard__comment_8h =
     [ "twi_h", "eBoard__comment_8h.html#a72282c2bbeb6330cad4030fa564a869f", null ],
     [ "optVAL_t", "eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a", null ],
     [ "_serial", "eBoard__comment_8h.html#acb51742a61b072bb500b6e0713d7dc2c", null ],
+    [ "mainMotor", "eBoard__comment_8h.html#ad6bafe55c33ec1a31d6b421ea0570666", null ],
+    [ "steerMotor", "eBoard__comment_8h.html#a62c1578b310837f1bbc0f697a0d772fc", null ],
     [ "STOP", "eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158", null ]
 ];

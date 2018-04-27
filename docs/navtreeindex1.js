@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"eagle__NeoPixel_8h.html#a0b13a996bead2e1a108199ee8d29fcaf":[10,0,0,1,10,32],
+"eagle__NeoPixel_8h.html#a0ebcc94a820403d090dfcbfc11d8898d":[10,0,0,1,10,28],
 "eagle__NeoPixel_8h.html#a0ffdc0e3442970e43ce9596a89aae2e1":[10,0,0,1,10,12],
 "eagle__NeoPixel_8h.html#a143ef515e77d10c7365f420bb4075b61":[10,0,0,1,10,6],
 "eagle__NeoPixel_8h.html#a2015cbe940150c5446624b8008d67d3e":[10,0,0,1,10,16],
@@ -110,8 +112,8 @@ var NAVTREEINDEX1 =
 "functions.html":[9,3,0],
 "functions_func.html":[9,3,1],
 "functions_vars.html":[9,3,2],
-"globals.html":[10,1,0,0],
 "globals.html":[10,1,0],
+"globals.html":[10,1,0,0],
 "globals_a.html":[10,1,0,1],
 "globals_b.html":[10,1,0,2],
 "globals_c.html":[10,1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d":[9,0,5,15],
 "structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47":[9,0,5,20],
 "structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07":[9,0,5,23],
-"structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b":[9,0,5,22],
-"structNeoPixel.html#a72151f49019d5b44ef34c2023e9e43bd":[9,0,5,8],
-"structNeoPixel.html#a727940c53255151376dea65d5d4ee364":[9,0,5,9]
+"structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b":[9,0,5,22]
 };

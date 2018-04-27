@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 27.04.2018 00:20:08
+//Created: 27.04.2018 20:00:37
 #ifndef EAGLE_EBOARD_HELPLIB_SPI
 #define EAGLE_EBOARD_HELPLIB_SPI
 	#include <stdio.h>

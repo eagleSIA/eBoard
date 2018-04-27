@@ -137,9 +137,10 @@ $(document).ready(function(){initNavTree('eBoard__comment_8h.html','');});
 <code>#include &quot;<a class="el" href="eagle__SPI_8h_source.html">source/eagle_SPI.h</a>&quot;</code><br />
 <code>#include &lt;avr/wdt.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="eagle__SoftwareSerial_8h_source.html">source/eagle_SoftwareSerial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="eagle__Servo_8h_source.html">source/eagle_Servo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eagle__Assert_8h_source.html">source/eagle_Assert.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eagle__Checks_8h_source.html">source/eagle_Checks.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="eagle__NanoMot_8h_source.html">source/eagle_NanoMot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="eagle__HelpMot_8h_source.html">source/eagle_HelpMot.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for eBoard.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -158,9 +159,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7edd26e4abc5d8882f94ac1243a04059"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059">EBOARD_VERSION</a>&#160;&#160;&#160;&quot;3.1.23m&quot;</td></tr>
+<tr class="memitem:a7edd26e4abc5d8882f94ac1243a04059"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a7edd26e4abc5d8882f94ac1243a04059">EBOARD_VERSION</a>&#160;&#160;&#160;&quot;3.1.21m&quot;</td></tr>
 <tr class="separator:a7edd26e4abc5d8882f94ac1243a04059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe24e4f3dac8b99b2a0005e5a8a2495"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495">EBOARD_VERSION_NBR</a>&#160;&#160;&#160;333</td></tr>
+<tr class="memitem:a7fe24e4f3dac8b99b2a0005e5a8a2495"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a7fe24e4f3dac8b99b2a0005e5a8a2495">EBOARD_VERSION_NBR</a>&#160;&#160;&#160;331</td></tr>
 <tr class="separator:a7fe24e4f3dac8b99b2a0005e5a8a2495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5deccebbf24e21ddc073c8774179f1b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a5deccebbf24e21ddc073c8774179f1b3">ARDUINO</a>&#160;&#160;&#160;200</td></tr>
 <tr class="separator:a5deccebbf24e21ddc073c8774179f1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,10 +202,10 @@ Macros</h2></td></tr>
 <tr class="separator:a9576a738d44de713d21e71123b5ee344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46d205b09924db53e18bc4761d009096"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096">EBOARD_NANO</a>&#160;&#160;&#160;0x0</td></tr>
 <tr class="separator:a46d205b09924db53e18bc4761d009096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f2c1d9a8d3dfab502cdf6ba1d1a62a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a">EBOARD_NANO_STEER</a>&#160;&#160;&#160;12</td></tr>
-<tr class="separator:ac3f2c1d9a8d3dfab502cdf6ba1d1a62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c86a34a6f6370c7380d108ca5e66b7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a3c86a34a6f6370c7380d108ca5e66b7f">EBOARD_NANO_MAIN</a>&#160;&#160;&#160;13</td></tr>
-<tr class="separator:a3c86a34a6f6370c7380d108ca5e66b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b9a99bfdfec7c1a9a6a84bfc3d42e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1">EBOARD_HELPCAR_STEER</a>&#160;&#160;&#160;12</td></tr>
+<tr class="separator:aa0b9a99bfdfec7c1a9a6a84bfc3d42e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed053b95491d850f42016b6d3e8b6cec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec">EBOARD_HELPCAR_MAIN</a>&#160;&#160;&#160;13</td></tr>
+<tr class="separator:aed053b95491d850f42016b6d3e8b6cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a832845f47786296c94e24d6c27821503"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a>&#160;&#160;&#160;0x1</td></tr>
 <tr class="separator:a832845f47786296c94e24d6c27821503"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f6af3a3569cbe0d77e85d4dbd0e4119"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119">EBOARD_CHECK_PINS_PWM</a>&#160;&#160;&#160;0x1</td></tr>
@@ -259,6 +260,10 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ae72a810f4976962c2cafb810b17ae158"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158">STOP</a> = false</td></tr>
 <tr class="separator:ae72a810f4976962c2cafb810b17ae158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6bafe55c33ec1a31d6b421ea0570666"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServo.html">Servo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#ad6bafe55c33ec1a31d6b421ea0570666">mainMotor</a></td></tr>
+<tr class="separator:ad6bafe55c33ec1a31d6b421ea0570666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c1578b310837f1bbc0f697a0d772fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServo.html">Servo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eBoard__comment_8h.html#a62c1578b310837f1bbc0f697a0d772fc">steerMotor</a></td></tr>
+<tr class="separator:a62c1578b310837f1bbc0f697a0d772fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">EagleoutIce 2018 IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS </p>
@@ -278,7 +283,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000040">Macro or Constant :</a></b></dt><dd>[DEBUG_MODE] enables to use custom assert output </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00455">455</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00467">467</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +352,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000016">Macro or Constant :</a></b></dt><dd>the header macro to assure that there is a SPIClass available </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00146">146</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00152">152</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -397,7 +402,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000023">Macro or Constant :</a></b></dt><dd>this is a copy and paste guard to check if the pins used are still in Bound... it was designed for digital pins and shouldnt be disabled </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00220">220</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00226">226</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -414,7 +419,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000024">Macro or Constant :</a></b></dt><dd>this should be disabled when reaching RELEASED-state. This will check if an PWM-controlled pin is really capable of HPWM ^^ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00246">246</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00252">252</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -431,7 +436,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000030">Macro or Constant :</a></b></dt><dd>set this to 0x0 to disable clamp </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00325">325</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00331">331</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +453,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000028">Macro or Constant :</a></b></dt><dd>unable to disable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00290">290</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00296">296</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -465,7 +470,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000019">Macro or Constant :</a></b></dt><dd>you should definitly set EBOARD_DEBUG_MODE to 0x0 when completed developing. This will shrink the size of the program :D </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00179">179</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00185">185</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -482,7 +487,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000025">Macro or Constant :</a></b></dt><dd>this sets the speed of the Serial connection.... you probably don't need to change this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00259">259</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00265">265</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -500,6 +505,40 @@ Variables</h2></td></tr>
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000012">Macro or Constant :</a></b></dt><dd>If this is set to 0x1 the library will guess the paths of included libraries based on your operating system </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00083">83</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="aed053b95491d850f42016b6d3e8b6cec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed053b95491d850f42016b6d3e8b6cec">&#9670;&nbsp;</a></span>EBOARD_HELPCAR_MAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EBOARD_HELPCAR_MAIN&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="macro"><dt><b><a class="el" href="macro.html#_macro000022">Macro or Constant :</a></b></dt><dd>Data pin of the main Motor </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00211">211</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="aa0b9a99bfdfec7c1a9a6a84bfc3d42e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1">&#9670;&nbsp;</a></span>EBOARD_HELPCAR_STEER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EBOARD_HELPCAR_STEER&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="macro"><dt><b><a class="el" href="macro.html#_macro000021">Macro or Constant :</a></b></dt><dd>Data pin of the steering Motor </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00205">205</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -550,41 +589,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000020">Macro or Constant :</a></b></dt><dd>this will disable soccerBoard class <a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00191">191</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
-
-</div>
-</div>
-<a id="a3c86a34a6f6370c7380d108ca5e66b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c86a34a6f6370c7380d108ca5e66b7f">&#9670;&nbsp;</a></span>EBOARD_NANO_MAIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define EBOARD_NANO_MAIN&#160;&#160;&#160;13</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="macro"><dt><b><a class="el" href="macro.html#_macro000022">Macro or Constant :</a></b></dt><dd>Data pin of the main Motor </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00205">205</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
-
-</div>
-</div>
-<a id="ac3f2c1d9a8d3dfab502cdf6ba1d1a62a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a">&#9670;&nbsp;</a></span>EBOARD_NANO_STEER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define EBOARD_NANO_STEER&#160;&#160;&#160;12</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="macro"><dt><b><a class="el" href="macro.html#_macro000021">Macro or Constant :</a></b></dt><dd>Data pin of the steering Motor </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00199">199</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00197">197</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -618,7 +623,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000029">Macro or Constant :</a></b></dt><dd>duty cycle for async task execution... should be higher than 1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00295">295</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00301">301</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -652,7 +657,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000026">Macro or Constant :</a></b></dt><dd>this sets the amount of connected servos to the shield </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00270">270</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00276">276</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +674,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000031">Macro or Constant :</a></b></dt><dd>set this to 0x0 to disable software reset </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00349">349</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00355">355</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -703,7 +708,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000027">Macro or Constant :</a></b></dt><dd>this will remove multiple wrapper from compile-segment. Probably <em>won't</em> change program size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00279">279</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00285">285</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -714,7 +719,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define EBOARD_VERSION&#160;&#160;&#160;&quot;3.1.23m&quot;</td>
+          <td class="memname">#define EBOARD_VERSION&#160;&#160;&#160;&quot;3.1.21m&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -731,7 +736,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define EBOARD_VERSION_NBR&#160;&#160;&#160;333</td>
+          <td class="memname">#define EBOARD_VERSION_NBR&#160;&#160;&#160;331</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -789,7 +794,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000033">Macro or Constant :</a></b></dt><dd>this is the RX-Pin reserved for bluetooth communication </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00375">375</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00381">381</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -806,7 +811,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000032">Macro or Constant :</a></b></dt><dd>this is the STATE PIN. If it is equal to the <a class="el" href="eBoard__comment_8h.html#a89aeef1315893831a4aa3841884b15a3">PIN_BLUETOOTH_RX</a> it won't be used! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00364">364</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00370">370</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -823,7 +828,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000034">Macro or Constant :</a></b></dt><dd>this is the TX-Pin reserved for bluetooth communication </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00386">386</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00392">392</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -857,7 +862,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000035">Macro or Constant :</a></b></dt><dd>this is the DiOut pin reserved to control the dir of the main motor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00396">396</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00402">402</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -874,7 +879,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000036">Macro or Constant :</a></b></dt><dd>this is the DiOut FAST_PWM [~1kHz] pin reserved to control the dir of the main motor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00403">403</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00409">409</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -891,7 +896,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000037">Macro or Constant :</a></b></dt><dd>this is the clock pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00410">410</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00416">416</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -908,7 +913,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000038">Macro or Constant :</a></b></dt><dd>this is the data pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00416">416</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00422">422</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -925,7 +930,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="macro"><dt><b><a class="el" href="macro.html#_macro000039">Macro or Constant :</a></b></dt><dd>this is the latch pin for the SN74HC595 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00422">422</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00428">428</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -959,7 +964,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00439">439</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00445">445</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -992,7 +997,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00172">172</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00178">178</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1029,6 +1034,38 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ad6bafe55c33ec1a31d6b421ea0570666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6bafe55c33ec1a31d6b421ea0570666">&#9670;&nbsp;</a></span>mainMotor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classServo.html">Servo</a> mainMotor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00460">460</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
+<a id="a62c1578b310837f1bbc0f697a0d772fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c1578b310837f1bbc0f697a0d772fc">&#9670;&nbsp;</a></span>steerMotor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classServo.html">Servo</a> steerMotor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00460">460</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+
+</div>
+</div>
 <a id="ae72a810f4976962c2cafb810b17ae158"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae72a810f4976962c2cafb810b17ae158">&#9670;&nbsp;</a></span>STOP</h2>
 
@@ -1053,7 +1090,7 @@ Variables</h2></td></tr>
 <dd>
 to avoid desync bug this won't stop the nonblocking <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> connection! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00162">162</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eBoard__comment_8h_source.html#l00168">168</a> of file <a class="el" href="eBoard__comment_8h_source.html">eBoard.h</a>.</p>
 
 </div>
 </div>
@@ -1064,7 +1101,7 @@ to avoid desync bug this won't stop the nonblocking <a class="el" href="structLC
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_60e1801270816c7ef7035c95934d2318.html">eBoard</a></li><li class="navelem"><a class="el" href="eBoard__comment_8h.html">eBoard.h</a></li>
-    <li class="footer"><b>EagleoutIce</b> 27.04.2018 00:20:07 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 27.04.2018 20:00:37 </li>
   </ul>
 </div>
 </body>

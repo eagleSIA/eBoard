@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 27.04.2018 00:20:08
+//Created: 27.04.2018 20:00:37
 #ifndef EAGLE_EBOARD_HELPLIB_SOCCERBOARD
 #define EAGLE_EBOARD_HELPLIB_SOCCERBOARD
 	
@@ -70,10 +70,27 @@
 	    void SoccerBoard::waitForButton(int) {}
 	#endif
 	void SoccerBoard::motor(uint8_t id,int16_t val) {
-	  if(id==0&&(val>-256 && val < 256)) {setPin(PIN_MOTOR_DIR,val<0); writePWM(abs(val));}
-	  else if(id>0&&id<3&&(val>-0 && val < 1024)) {_servoHandler.write((id-1),(val *600/1023 - 300));}
+    #ifndef EBOARD_HELPCAR
+        if(id==0&&(val>-256 && val < 256)) {setPin(PIN_MOTOR_DIR,val<0); writePWM(abs(val));}
+        else if(id>0&&id<3) {_servoHandler.write(id,val);}
+    #else
+        if (id == 0) {
+         if(val < 0 || val > 180) return;
+            mainMotor.write(val);   
+        }
+        else if (id == 1){
+            if(val < 0 || val > 180) return;
+            steerMotor.write(val);
+        }
+    #endif
 	}
-	void SoccerBoard::motorsOff(void) {writePWM(0);}
+	void SoccerBoard::motorsOff(void) {
+        #ifndef EBOARD_HELPCAR
+                writePWM(0);
+        #else
+            mainMotor.write(90);
+        #endif
+    }
 	void SoccerBoard::reset(void) {
 	    #if EBOARD_USE_RESET > 0x0
 	        wdt_enable(WDTO_15MS);

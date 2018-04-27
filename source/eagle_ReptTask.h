@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 27.04.2018 00:20:08
+//Created: 27.04.2018 20:00:37
 #ifndef EAGLE_EBOARD_HELPLIB_REPTTASK
 #define EAGLE_EBOARD_HELPLIB_REPTTASK
 void trig_rept_task(void);
@@ -14,9 +14,6 @@ void trig_rept_task(void);
 		          rept_task();
 		      #endif
 		}
-	  #if EBOARD_NANO > 0x0
-	    Servo mainMotor,steerMotor;
-	  #endif
 	  int timer_count = 0;
 	  bool timer_ofl = false;
 	  ISR(TIMER2_OVF_vect) {

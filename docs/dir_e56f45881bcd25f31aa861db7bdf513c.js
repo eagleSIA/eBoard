@@ -10,10 +10,10 @@ var dir_e56f45881bcd25f31aa861db7bdf513c =
     [ "eagle_DynamixelBoard.h", "eagle__DynamixelBoard_8h.html", [
       [ "DynamixelBoard", "structDynamixelBoard.html", "structDynamixelBoard" ]
     ] ],
+    [ "eagle_HelpMot.h", "eagle__HelpMot_8h.html", "eagle__HelpMot_8h" ],
     [ "eagle_I2C.h", "eagle__I2C_8h.html", "eagle__I2C_8h" ],
     [ "eagle_I2CInOut.h", "eagle__I2CInOut_8h.html", "eagle__I2CInOut_8h" ],
     [ "eagle_LCD.h", "eagle__LCD_8h.html", "eagle__LCD_8h" ],
-    [ "eagle_NanoMot.h", "eagle__NanoMot_8h.html", "eagle__NanoMot_8h" ],
     [ "eagle_NeoPixel.h", "eagle__NeoPixel_8h.html", "eagle__NeoPixel_8h" ],
     [ "eagle_PinCtrl.h", "eagle__PinCtrl_8h.html", "eagle__PinCtrl_8h" ],
     [ "eagle_PreprocessorControl.h", "eagle__PreprocessorControl_8h.html", "eagle__PreprocessorControl_8h" ],

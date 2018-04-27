@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 27.04.2018 00:20:08
+//Created: 27.04.2018 20:00:37
 #ifndef EAGLE_EBOARD_HELPLIB_SETUP
 #define EAGLE_EBOARD_HELPLIB_SETUP
 	
@@ -56,9 +56,9 @@
 	    #if EBOARD_USE_SPI > 0x0 && (EBOARD_NANO == 0)
 	        _servoHandler.begin(); //Setup SPI
 	    #endif
-	    #if EBOARD_NANO > 0x0
-	      mainMotor.attach(EBOARD_NANO_MAIN);
-	      steerMotor.attach(EBOARD_NANO_STEER);
+	    #if defined(EBOARD_HELPCAR)
+	      mainMotor.attach(EBOARD_HELPCAR_MAIN);
+	      steerMotor.attach(EBOARD_HELPCAR_STEER);
 	      #if EBOARD_DEBUG_MODE > 0x0
 	        Serial.println("Initializing main driving motor (3s)");
 	      #endif
@@ -76,11 +76,11 @@
 	    #endif
 	    if (STOP) {} //prevent unused error
 	    delay(200);
-	    #if EBOARD_NANO > 0x0
+	    #if defined(EBOARD_HELPCAR)
 	      mainMotor.write(90);
 	    #endif
 	    cli(); //disable timers after running the program :D
-	    #if EBOARD_NANO == 0x0
+	    #if EBOARD_USE_SPI > 0x0
 	      writePWM(0);analogWrite(PIN_MOTOR_SPE,0);
 	    #endif
 	}

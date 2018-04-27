@@ -114,12 +114,12 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">eBoard 3.1m - shackle the Arduino! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
+<div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ ✍️ ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
 <dl class="section note"><dt>Note</dt><dd>This code was written for the Arduino UNO R3 used with the Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <br />
- It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
+ It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ ✍️ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
 <p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>write nicer mainpage :D</dd></dl>
 <h1><a class="anchor" id="s1"></a>
 Macros</h1>
@@ -131,36 +131,38 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">[IGNORE_SIZE]  </td><td class="markdownTableBodyNone">Define via 'define'  </td><td class="markdownTableBodyNone">the size of this program will grow but the used variable-space will shrink...   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">[EBOARD_HELPCAR]  </td><td class="markdownTableBodyNone">Define via 'define'  </td><td class="markdownTableBodyNone">This will change motor setup etc. to the Helpcar and enable <a class="el" href="eagle__HelpMot_8h.html#af76fc7dcd925860b0b8c36f0ce835995" title="sets the speed of the main (data pin: EBOARD_HELPCAR_MAIN) motor ">set_motor_speed()</a> etc... This will change the behaviour of the <a class="el" href="structSoccerBoard.html#a5039fee586408ce515f300d8db073818" title="As requested this is the ultimate shortcut ;) ">SoccerBoard::motor()</a> shortcut   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a9576a738d44de713d21e71123b5ee344">EBOARD_DEBUG_MODE</a>  </td><td class="markdownTableBodyNone">[DEBUGMODE] {int } Default: 9600  </td><td class="markdownTableBodyNone">Sets the Serial debug speed for DEBUG   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a832845f47786296c94e24d6c27821503">EBOARD_CHECK_PINS</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables range-check for normal READ and WRITE.   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a7f6af3a3569cbe0d77e85d4dbd0e4119">EBOARD_CHECK_PINS_PWM</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables range-check for PWM-WRITE   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a63b32b42597ed968630c5c82cc3fa713">EBOARD_USE_SPI</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables internal SPI-handling   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a488e51d67078d86a1d703e397d9ce968">EBOARD_USE_UTILITY</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">removes useless code-parts [will vary on used board]   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a>  </td><td class="markdownTableBodyNone">{int } Default: 2  </td><td class="markdownTableBodyNone">Sets the amount of the visible, connected <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> objects   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables I2C tools   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables SHIFT_REGISTER   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables Bluetooth support   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a>  </td><td class="markdownTableBodyNone">{int } Default: 1  </td><td class="markdownTableBodyNone">Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a>   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables clamp   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disable software reset   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25" title="we want to use the LCD ">EBOARD_LCD</a>  </td><td class="markdownTableBodyNone">[I2C] {bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a> set to 0x1   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-<a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>-Devices   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-<a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>-Devices   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eagle__PreprocessorControl_8h.html#a2423814a8c1071bb3f82017115574158">PREPROCESS_DEBUG</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable preprocessing messages from eBoard   </td></tr>
 </table>
 <p class=""><b>Pins</b></p>
@@ -184,9 +186,9 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a51c325bd8d1f4fa9fd1d8db16a52fa52">PIN_BLUETOOTH_STATE</a>  </td><td class="markdownTableBodyNone">pinID(2\19) (if==RX-Pin: unset)  </td><td class="markdownTableBodyNone">if != RX-Pin: Pin of HC-05 connection-state   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a3c86a34a6f6370c7380d108ca5e66b7f">EBOARD_NANO_MAIN</a>  </td><td class="markdownTableBodyNone">[NANO] pin(13)  </td><td class="markdownTableBodyNone">data-Pin for the main Motor used for driving   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec">EBOARD_HELPCAR_MAIN</a>  </td><td class="markdownTableBodyNone">[NANO] pin(13)  </td><td class="markdownTableBodyNone">data-Pin for the main Motor used for driving   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#ac3f2c1d9a8d3dfab502cdf6ba1d1a62a">EBOARD_NANO_STEER</a>  </td><td class="markdownTableBodyNone">[NANO] pin(12)  </td><td class="markdownTableBodyNone">data-Pin fot the steering <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> used for steering   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1">EBOARD_HELPCAR_STEER</a>  </td><td class="markdownTableBodyNone">[NANO] pin(12)  </td><td class="markdownTableBodyNone">data-Pin fot the steering <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> used for steering   </td></tr>
 </table>
 <h1><a class="anchor" id="s2"></a>
 Smart Servo Shield</h1>
@@ -209,14 +211,14 @@ The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da4
 <h1><a class="anchor" id="s3"></a>
 Tutorials</h1>
 <ul>
-<li><a class="el" href="group__genExpl.html">[ ] GENERAL INTRODUCTION</a></li>
-<li><a class="el" href="group__i2cEx.html">[ ] I2C</a></li>
-<li><a class="el" href="group__shiftEx.html">[ ] SHIFT</a></li>
-<li><a class="el" href="group__blueEx.html">[ ] BLUETOOTH</a></li>
-<li><a class="el" href="group__lcdEx.html">[ ] OLED</a></li>
-<li><a class="el" href="group__portTu.html">[ ] UNO2MEGA</a></li>
-<li><a class="el" href="group__tutMot.html">[ ] HOW TO SETUP THE AX12-SERVOS</a></li>
-<li><a class="el" href="group__updLib.html">[ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
+<li><a class="el" href="group__genExpl.html">[ ✍️ ] GENERAL INTRODUCTION</a></li>
+<li><a class="el" href="group__i2cEx.html">[ ✍️ ] I2C</a></li>
+<li><a class="el" href="group__shiftEx.html">[ ✍️ ] SHIFT</a></li>
+<li><a class="el" href="group__blueEx.html">[ ✍️ ] BLUETOOTH</a></li>
+<li><a class="el" href="group__lcdEx.html">[ ✍️ ] OLED</a></li>
+<li><a class="el" href="group__portTu.html">[ ✍️ ] UNO2MEGA</a></li>
+<li><a class="el" href="group__tutMot.html">[ ✍️ ] HOW TO SETUP THE AX12-SERVOS</a></li>
+<li><a class="el" href="group__updLib.html">[ ✍️ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -225,7 +227,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><b>EagleoutIce</b> 27.04.2018 00:20:07 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 27.04.2018 20:00:37 </li>
   </ul>
 </div>
 </body>

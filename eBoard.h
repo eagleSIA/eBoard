@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 27.04.2018 00:20:08
+//Created: 27.04.2018 20:00:37
 
 #ifndef EBOARD_HEADER_GUARD
    #define EBOARD_HEADER_GUARD
@@ -10,9 +10,9 @@
 	 #pragma pack(16)
 	 #include "source/eagle_PreprocessorControl.h"
 	 
-	 #define EBOARD_VERSION "3.1.24m"
+	 #define EBOARD_VERSION "3.1.22m"
 	 
-	 #define EBOARD_VERSION_NBR 334
+	 #define EBOARD_VERSION_NBR 332
   DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
  //i am a guard... leave me alone :D
 #if defined(ARDUINO) //general platform-check [No tab]
@@ -62,7 +62,13 @@
         #ifndef EBOARD_USE_SPI
       #define EBOARD_USE_SPI 0x1
     #endif
-   #if EBOARD_USE_SPI > 0x0
+   
+    #ifdef EBOARD_HELPCAR
+        DEBUG_MSG("You switched to helpcar and disabled SPI");
+        #define EBOARD_USE_SPI 0x0
+    #endif
+    
+    #if EBOARD_USE_SPI > 0x0
       DEBUG_MSG("You enabled SPI");
       #ifndef _SPI_H_INCLUDED
         
@@ -95,17 +101,17 @@
         #ifndef EBOARD_NANO
       #define EBOARD_NANO 0x0
     #endif
-   #if EBOARD_NANO > 0x0
-      #ifndef EBOARD_NANO_STEER
-              #define EBOARD_NANO_STEER 12
+   #ifdef EBOARD_HELPCAR
+      #ifndef EBOARD_HELPCAR_STEER
+              #define EBOARD_HELPCAR_STEER 12
       #endif
-      #ifndef EBOARD_NANO_MAIN
-              #define EBOARD_NANO_MAIN 13
+      #ifndef EBOARD_HELPCAR_MAIN
+              #define EBOARD_HELPCAR_MAIN 13
       #endif
-      MACRO_MSG(EBOARD_NANO,"Using Arduino NANO environment [e.g. remove SoccerBoard]");
+      MACRO_MSG(EBOARD_NANO,"Using Arduino Helpcar environment [e.g. remove AX12Servo]");
       #if PREPROCESS_DEBUG > 0x1
-        #pragma message("Using " VALUE(EBOARD_NANO_STEER) " as data pin for STEERING MOTOR")
-        #pragma message("Using " VALUE(EBOARD_NANO_MAIN) " as data pin for MAIN (Driving) MOTOR")
+        #pragma message("Using " VALUE(EBOARD_HELPCAR_STEER) " as data pin for STEERING MOTOR")
+        #pragma message("Using " VALUE(EBOARD_HELPCAR_MAIN) " as data pin for MAIN (Driving) MOTOR")
       #endif
     #else
       MACRO_MSG(EBOARD_NANO,"Using Arduino UNO/MEGA environment");
@@ -251,7 +257,14 @@
       #endif
                 SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
     #endif
-   #if EBOARD_DEBUG_MODE > 0x0
+    #ifdef EBOARD_HELPCAR
+        //offer more functions
+        #if EBOARD_GUESSPATH > 0x0
+            #include "source/eagle_Servo.h"
+            Servo mainMotor,steerMotor;
+        #endif
+    #endif
+    #if EBOARD_DEBUG_MODE > 0x0
                 #define __ASSERT_USE_STDERR
         #include "source/eagle_Assert.h"
     #endif
@@ -265,7 +278,7 @@
    #include "source/eagle_PinCtrl.h"
    #ifdef REPT_TASK
         extern void rept_task(void);
-        DEBUG_MSG("You defined REPT_TASK: you have to define rept_task(void)!");
+//         DEBUG_MSG("You defined REPT_TASK: you have to define rept_task(void)!");
     #else
         DEBUG_MSG("You did not define REPT_TASK: rept_task(void) will not have any effect");
     #endif
@@ -277,11 +290,13 @@
    #if EBOARD_COPY_AND_PASTE > 0x0 && EBOARD_NANO == 0
         #include "source/eagle_SoccerBoard.h"
         #include "source/eagle_I2CInOut.h"
-       #include "source/eagle_AX12Servo.h"
-        #include "source/eagle_DynamixelBoard.h"
-       #endif
-        #if EBOARD_BLUETOOTH > 0x0
-          #include "source/eagle_RB14Scan.h"
+        #ifndef EBOARD_HELPCAR
+            #include "source/eagle_AX12Servo.h"
+            #include "source/eagle_DynamixelBoard.h"
+        #endif
+   #endif
+    #if EBOARD_BLUETOOTH > 0x0
+        #include "source/eagle_RB14Scan.h"
    #endif
   #if EBOARD_I2C > 0x0
       #include "source/eagle_I2C.h"
@@ -292,12 +307,6 @@
   #endif
   #if EBOARD_NEO > 0x0
     #include "source/eagle_NeoPixel.h"
-  #endif
-  #if EBOARD_NANO > 0x0
-    //offer more functions
-    #if EBOARD_GUESSPATH > 0x0
-      #include "source/eagle_Servo.h"
-    #endif
   #endif
  #if EBOARD_COPY_AND_PASTE > 0x0
         #include "source/eagle_ReptTask.h"
@@ -310,8 +319,8 @@
           }
         
   #endif
-  #if EBOARD_NANO > 0x0
-  #include "source/eagle_NanoMot.h"
+  #if defined(EBOARD_HELPCAR)
+  #include "source/eagle_HelpMot.h"
   #endif
 #else
   #error This library is build for arduino-devices and should be used only in the Arduino IDE or with a similar linking process

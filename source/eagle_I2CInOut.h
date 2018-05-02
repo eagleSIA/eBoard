@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 02.05.2018 21:53:42
+//Created: 02.05.2018 22:41:44
 #ifndef EAGLE_EBOARD_HELPLIB_I2CINOUT
 #define EAGLE_EBOARD_HELPLIB_I2CINOUT
 	//To avoid not_found issues

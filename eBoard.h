@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 02.05.2018 21:53:42
+//Created: 02.05.2018 22:41:44
 
 #ifndef EBOARD_HEADER_GUARD
    #define EBOARD_HEADER_GUARD
@@ -10,9 +10,9 @@
 	 #pragma pack(16)
 	 #include "source/eagle_PreprocessorControl.h"
 	 
-	 #define EBOARD_VERSION "3.1.25m"
+	 #define EBOARD_VERSION "3.1.26m"
 	 
-	 #define EBOARD_VERSION_NBR 335
+	 #define EBOARD_VERSION_NBR 336
   DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
  //i am a guard... leave me alone :D
 #if defined(ARDUINO) //general platform-check [No tab]

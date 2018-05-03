@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 03.05.2018 21:51:29
+//Created: 03.05.2018 22:22:30
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.5d"
+    #define EBOARD_VERSION "3.2.8d"
     
 
-    #define EBOARD_VERSION_NBR 347
+    #define EBOARD_VERSION_NBR 350
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 
@@ -489,14 +489,15 @@
             SoftwareSerial _serial(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
         #endif
 
-        #if EBOARD_BLUETOOTH > 0x0
-            #include "source/eagle_RB14Scan.h"
-        #endif
+
 
         #if EBOARD_BLUETOOTH > 0x0
             #include "source/eagle_Bluetooth.h"
         #endif
-
+        
+        #if EBOARD_BLUETOOTH > 0x0
+            #include "source/eagle_RB14Scan.h"
+        #endif
     //-------------------------------------------------------------------------------------------------------------------------------------------------
     //                                                               sine and gamma8                                                                   
     //-------------------------------------------------------------------------------------------------------------------------------------------------

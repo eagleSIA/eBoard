@@ -200,32 +200,32 @@ var sectionId = 'dynsection-0';
 <!-- Node16 -->
 <g id="node17" class="node">
 <title>Node16</title>
-<g id="a_node17"><a xlink:href="eagle__RB14Scan_8h.html" target="_top" xlink:title="this file contains the RB14Scan class ">
-<polygon fill="#ffffff" stroke="#000000" points="1121,-62 1121,-81 1254,-81 1254,-62 1121,-62"/>
-<text text-anchor="middle" x="1187.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">source/eagle_RB14Scan.h</text>
+<g id="a_node17"><a xlink:href="eagle__Bluetooth_8h.html" target="_top" xlink:title="this file contains cool stuff to access the bluetooth interface ">
+<polygon fill="#ffffff" stroke="#000000" points="1121,-62 1121,-81 1248,-81 1248,-62 1121,-62"/>
+<text text-anchor="middle" x="1184.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">source/eagle_Bluetooth.h</text>
 </a>
 </g>
 </g>
 <!-- Node0&#45;&gt;Node16 -->
 <g id="edge17" class="edge">
 <title>Node0&#45;&gt;Node16</title>
-<path fill="none" stroke="#191970" d="M950.9428,-123.4581C1000.2956,-112.6181 1080.8616,-94.9224 1134.032,-83.2439"/>
-<polygon fill="#191970" stroke="#191970" points="1134.939,-86.6282 1143.9553,-81.0643 1133.4372,-79.7911 1134.939,-86.6282"/>
+<path fill="none" stroke="#191970" d="M950.4773,-123.4581C999.3014,-112.6181 1079.0041,-94.9224 1131.6049,-83.2439"/>
+<polygon fill="#191970" stroke="#191970" points="1132.4182,-86.6486 1141.4219,-81.0643 1130.9009,-79.815 1132.4182,-86.6486"/>
 </g>
 <!-- Node17 -->
 <g id="node18" class="node">
 <title>Node17</title>
-<g id="a_node18"><a xlink:href="eagle__Bluetooth_8h.html" target="_top" xlink:title="this file contains cool stuff to access the bluetooth interface ">
-<polygon fill="#ffffff" stroke="#000000" points="1272,-62 1272,-81 1399,-81 1399,-62 1272,-62"/>
-<text text-anchor="middle" x="1335.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">source/eagle_Bluetooth.h</text>
+<g id="a_node18"><a xlink:href="eagle__RB14Scan_8h.html" target="_top" xlink:title="this file contains the RB14Scan class ">
+<polygon fill="#ffffff" stroke="#000000" points="1266,-62 1266,-81 1399,-81 1399,-62 1266,-62"/>
+<text text-anchor="middle" x="1332.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">source/eagle_RB14Scan.h</text>
 </a>
 </g>
 </g>
 <!-- Node0&#45;&gt;Node17 -->
 <g id="edge18" class="edge">
 <title>Node0&#45;&gt;Node17</title>
-<path fill="none" stroke="#191970" d="M975.1364,-125.8729C1046.7428,-117.9454 1162.9502,-103.9901 1262.5,-87 1269.2789,-85.8431 1276.3849,-84.4995 1283.3909,-83.0966"/>
-<polygon fill="#191970" stroke="#191970" points="1284.443,-86.4536 1293.5344,-81.0133 1283.0347,-79.5967 1284.443,-86.4536"/>
+<path fill="none" stroke="#191970" d="M975.2668,-125.4949C1045.7388,-117.3564 1159.1591,-103.3206 1256.5,-87 1263.6218,-85.8059 1271.0947,-84.432 1278.4592,-83.0059"/>
+<polygon fill="#191970" stroke="#191970" points="1279.2607,-86.4153 1288.3912,-81.041 1277.9021,-79.5484 1279.2607,-86.4153"/>
 </g>
 <!-- Node18 -->
 <g id="node19" class="node">

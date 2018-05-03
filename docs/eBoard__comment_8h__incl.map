@@ -4,8 +4,8 @@
 <area shape="rect" id="node9" href="$eagle__TwoWire_8h.html" title="this file contains the TwoWire class " alt="" coords="825,87,992,114"/>
 <area shape="rect" id="node13" href="$eagle__SPI_8h.html" title="this file contains the SPI class " alt="" coords="1017,87,1153,114"/>
 <area shape="rect" id="node16" href="$eagle__SoftwareSerial_8h.html" title="this file contains the SoftwareSerial class " alt="" coords="1277,87,1476,114"/>
-<area shape="rect" id="node17" href="$eagle__RB14Scan_8h.html" title="this file contains the RB14Scan class " alt="" coords="1500,87,1677,114"/>
-<area shape="rect" id="node18" href="$eagle__Bluetooth_8h.html" title="this file contains cool stuff to access the bluetooth interface " alt="" coords="1701,87,1871,114"/>
+<area shape="rect" id="node17" href="$eagle__Bluetooth_8h.html" title="this file contains cool stuff to access the bluetooth interface " alt="" coords="1500,87,1669,114"/>
+<area shape="rect" id="node18" href="$eagle__RB14Scan_8h.html" title="this file contains the RB14Scan class " alt="" coords="1693,87,1871,114"/>
 <area shape="rect" id="node19" href="$eagle__Comfort_8h.html" title="this file contains sine8 and gamma8 " alt="" coords="1895,87,2056,114"/>
 <area shape="rect" id="node20" href="$eagle__Servo_8h.html" title="this file contains the Servo class " alt="" coords="2080,87,2228,114"/>
 <area shape="rect" id="node21" href="$eagle__Assert_8h.html" title="this file contains the assert wrapper for EBOARD_DEBUG_MODE " alt="" coords="2253,87,2405,114"/>

@@ -1,8 +1,17 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 02.05.2018 22:41:44
+//Created: 03.05.2018 21:51:29
 #ifndef EAGLE_EBOARD_HELPLIB_LCD
-#define EAGLE_EBOARD_HELPLIB_LCD
-PROGMEM const byte basicFont[][8] = {
+  #define EAGLE_EBOARD_HELPLIB_LCD
+
+    
+
+
+//=====================================================================================================================================================
+//                                                                       Memory                                                                        
+//=====================================================================================================================================================
+
+
+  PROGMEM const byte basicFont[][8] = {
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
     {0x00,0x00,0x5F,0x00,0x00,0x00,0x00,0x00},
     {0x00,0x00,0x07,0x00,0x07,0x00,0x00,0x00},
@@ -100,62 +109,158 @@ PROGMEM const byte basicFont[][8] = {
     {0x00,0x02,0x01,0x01,0x02,0x01,0x00,0x00},
     {0x00,0x02,0x05,0x05,0x02,0x00,0x00,0x00}
   };
-//Definition of OLED Constants
-#define LCD_COMMAND_MODE                0x80
-#define LCD_DATA_MODE                   0x40
-#define LCD_COMMAND_DISPLAY_OFF         0xAE
-#define LCD_COMMAND_DISPLAY_ON          0xAF
-#define LCD_COMMAND_BLACK_BACKGROUND    0xA6
-#define LCD_COMMAND_WHITE_BACKGROUND    0xA7
-#define LCD_COMMAND_SET_BRIGHTNESS      0x81
-#define LCD_PAGE_ADDRESSING	            0x02
-#define LCD_HORIZONTAL_ADDRESSING       0x00
+
+//=====================================================================================================================================================
+//                                                                  Macro Definitions                                                                  
+//=====================================================================================================================================================
+
+  //Definition of OLED Constants
+  
+
+  #define LCD_COMMAND_MODE                0x80
+  
+
+  #define LCD_DATA_MODE                   0x40
+  
+
+  #define LCD_COMMAND_DISPLAY_OFF         0xAE
+  
+
+  #define LCD_COMMAND_DISPLAY_ON          0xAF
+  
+
+  #define LCD_COMMAND_BLACK_BACKGROUND    0xA6
+  
+
+  #define LCD_COMMAND_WHITE_BACKGROUND    0xA7
+  
+
+  #define LCD_COMMAND_SET_BRIGHTNESS      0x81
+  
+
+  #define LCD_PAGE_ADDRESSING	            0x02
+  
+
+  #define LCD_HORIZONTAL_ADDRESSING       0x00
   //The regulator
-#define LCD_COMMAND_CHARGE_PUMP_SETTING	0x8d
-#define LCD_COMMAND_CHARGE_PUMP_ENABLE 0x14
-#ifndef LCD_WIDTH
-#define LCD_WIDTH 128
+  
+
+  #define LCD_COMMAND_CHARGE_PUMP_SETTING	0x8d
+  
+
+  #define LCD_COMMAND_CHARGE_PUMP_ENABLE 0x14
+
+  #ifndef LCD_WIDTH
+      
+
+      #define LCD_WIDTH 128
   #endif
   #ifndef LCD_HEIGHT
-#define LCD_HEIGHT 64
+      
+
+      #define LCD_HEIGHT 64
   #endif
-struct LCD {
+
+//=====================================================================================================================================================
+//                                                                         LCD                                                                         
+//=====================================================================================================================================================
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                    class                                                                        
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+  struct LCD {
       #if EBOARD_NANO == 0
-LCD(SoccerBoard &soccerBoard, optVAL_t id=0x3C);
+      
+
+      LCD(SoccerBoard &soccerBoard, optVAL_t id=0x3C);
       #else
       LCD(optVAL_t id=0x3C);
       #endif
-inline bool changeID(optVAL_t newID = 0x3C);
-inline bool clear(void);
-inline void print(const char* data);
-inline void print(int data);
-inline void print(optVAL_t line, optVAL_t col, const char* data);
-inline void print(optVAL_t line, optVAL_t col, int data);
-     
-      inline void lightOn(void);
-inline void lightOff(void);
-inline bool reset(void);
-    //added features
-inline bool init(void);
-inline void drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY);
-inline void changeMode(bool newMode = true);
-inline bool setCursor(byte posX = 0x0, byte posY = 0x0);
-inline bool changeBrightness (byte val = 0x64);
       
-    inline void changeBackground(bool newBackground = false);
-optVAL_t ID;
+
+      bool changeID(optVAL_t newID = 0x3C);
+      
+
+      bool clear(void);
+      
+
+      void print(const char* data);
+      
+
+      void print(int data);
+      
+
+      void print(optVAL_t line, optVAL_t col, const char* data);
+      
+
+      void print(optVAL_t line, optVAL_t col, int data);
+     
+
+      void lightOn(void);
+      
+
+      void lightOff(void);
+      
+
+      bool reset(void);
+
+      //added features
+      
+
+      bool init(void);
+      
+
+      void drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY);
+      
+
+      void changeMode(bool newMode = true);
+      
+
+      bool setCursor(byte posX = 0x0, byte posY = 0x0);
+      
+
+      bool changeBrightness (byte val = 0x64);
+      
+
+
+      void changeBackground(bool newBackground = false);
+      
+
+      optVAL_t ID;
       private:
+      
+
+      
 
       byte pX;
-byte pY;
-bool _cI;
-    
-      inline void s2Cmd(optVAL_t o, optVAL_t t);
-inline bool s1Cmd(optVAL_t o);
-inline void s1Dat(optVAL_t o);
-};
+      
 
-	
+      byte pY;
+      
+
+      bool _cI;
+
+      
+
+      void s2Cmd(optVAL_t o, optVAL_t t);
+      
+
+      bool s1Cmd(optVAL_t o);
+      
+
+      void s1Dat(optVAL_t o);
+
+  };
+
+
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                definitions                                                                      
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+
 	#if EBOARD_NANO == 0x0
 	LCD::LCD(SoccerBoard &soccerBoard, optVAL_t id) {
 	    this->_cI = false;
@@ -169,11 +274,11 @@ inline void s1Dat(optVAL_t o);
 	    //this->init();
 	}
 	#endif
-	inline bool LCD::changeID(optVAL_t newID) {
+	bool LCD::changeID(optVAL_t newID) {
 	    this->ID = newID;
 	    return this->init();
 	}
-	inline bool LCD::clear(void) {
+	bool LCD::clear(void) {
 	  if(!this->_cI) this->init();
 	    for(byte i = 0; i < 8; i++){
 	        //maybe *8
@@ -211,18 +316,18 @@ inline void s1Dat(optVAL_t o);
 	    itoa(data,buffer,10);
 	    this->print(line,col,buffer);
 	}
-	inline void LCD::lightOn(void) {
+	void LCD::lightOn(void) {
 	    this->changeBrightness(255);
 	}
-	inline void LCD::lightOff(void) {
+	void LCD::lightOff(void) {
 	    this->changeBrightness(0);
 	}
-	inline bool LCD::reset(void) {
+	bool LCD::reset(void) {
 	    return this->clear();
 	}
-	inline void LCD::print(int data) {this->print(255,255,data);}
-	inline void LCD::print(const char* data) {this->print(255,255,data);}
-	inline bool LCD::init() {
+	void LCD::print(int data) {this->print(255,255,data);}
+	void LCD::print(const char* data) {this->print(255,255,data);}
+	bool LCD::init() {
 	    #ifdef HIGHSPEED
 	        TWBR = 0xC;
 	    #endif
@@ -238,7 +343,7 @@ inline void s1Dat(optVAL_t o);
 	        return this->clear();
 	}
 
-	inline void LCD::drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY){
+	void LCD::drawBitmap(const unsigned char *bitmap, byte posX, byte posY, byte hiX, byte hiY){
 	    if(!this->_cI) this->init();
 	    setCursor(posX,posY);
 	    byte col = 0x0;
@@ -250,46 +355,47 @@ inline void s1Dat(optVAL_t o);
 	        }
 	    }
 	}
-	inline void LCD::changeMode(bool newMode) {
+	void LCD::changeMode(bool newMode) {
 	    if(!this->_cI) this->init();
 	    if(newMode) this->s1Cmd(LCD_COMMAND_DISPLAY_ON);
 	    else this->s1Cmd(LCD_COMMAND_DISPLAY_OFF);
 	}
-	inline bool LCD::setCursor(byte posX, byte posY) {
+	bool LCD::setCursor(byte posX, byte posY) {
 	    if(!this->_cI) this->init();
 	    this->s2Cmd((0x00 + (8 *posX & 0x0F)),(0x10 + ((8 * posX >> 4) & 0x0F))); //lower and higher address
 	    this->pX = posX; this->pY = posY;
 	    return this->s1Cmd(0xB0 + posY);
 	}
 
-	inline bool LCD::changeBrightness(byte val) {
+	bool LCD::changeBrightness(byte val) {
 	    if(!this->_cI) this->init();
 	    this->s2Cmd(0x81,val); //brightness mode
 	    Wire.beginTransmission(this->ID);
 	    return (Wire.endTransmission() == 0);
 	}
-	inline void LCD::changeBackground(bool newBackground) {
+	void LCD::changeBackground(bool newBackground) {
 	    if(!this->_cI) this->init();
 	    if(newBackground) this->s1Cmd(LCD_COMMAND_WHITE_BACKGROUND);
 	    else this->s1Cmd(LCD_COMMAND_BLACK_BACKGROUND);
 	}
 
-	inline void LCD::s2Cmd(optVAL_t o, optVAL_t t){
+	void LCD::s2Cmd(optVAL_t o, optVAL_t t){
 	    if(!this->_cI) this->init();
 	    this->s1Cmd(o); this->s1Cmd(t);
 	}
 
-	inline bool LCD::s1Cmd(optVAL_t C) {
+	bool LCD::s1Cmd(optVAL_t C) {
 	    if(!this->_cI) this->init();
 	    Wire.beginTransmission(this->ID);
 	    Wire.write(LCD_COMMAND_MODE); Wire.write(C);
 	    return (Wire.endTransmission()==0);
 	}
-	inline void LCD::s1Dat(optVAL_t o){
+	void LCD::s1Dat(optVAL_t o){
 	    if(!this->_cI) this->init();
 	    Wire.beginTransmission(this->ID);
 	    Wire.write(LCD_DATA_MODE); Wire.write(o);
 	    Wire.endTransmission();
 	}
 	
+
 #endif

@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "eBoard", "index.html", [
-    [ "eBoard 3.1m - shackle the Arduino!", "index.html", [
+    [ "eBoard 3.2d - shackle the Arduino!", "index.html", [
       [ "Macros", "index.html#s1", null ],
       [ "Smart Servo Shield", "index.html#s2", null ],
       [ "Philosophy", "index.html#s4", null ],
@@ -57,7 +57,8 @@ var NAVTREE =
       ] ],
       [ "Version 3 - Morpheus", "changelog_page.html#ver3", [
         [ "Version 3.0c  - Special Touch [100m]", "changelog_page.html#su10", null ],
-        [ "Version 3.1m   - So he can drive aswell? [BETA]", "changelog_page.html#su11", null ]
+        [ "Version 3.1m   - So he can drive aswell? [110m]", "changelog_page.html#su11", null ],
+        [ "Version 3.2d   - Cleanup [BETA]", "changelog_page.html#su12", null ]
       ] ]
     ] ],
     [ "Macros and Constants", "macro.html", null ],
@@ -93,8 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eagle__NeoPixel_8h.html#a0b13a996bead2e1a108199ee8d29fcaf",
-"structNeoPixel.html#a72151f49019d5b44ef34c2023e9e43bd"
+"eagle__NeoPixel_8h.html#a0998b395a748e3af867d4a9d4f51ee3e",
+"structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

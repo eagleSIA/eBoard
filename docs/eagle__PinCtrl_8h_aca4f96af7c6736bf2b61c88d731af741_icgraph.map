@@ -1,0 +1,4 @@
+<map id="readPin" name="readPin">
+<area shape="rect" id="node2" href="$structSoccerBoard.html#a8a72ca75182aa71d297d3cee80b1054a" title="Reads an analog value from a pin. " alt="" coords="120,5,263,32"/>
+<area shape="rect" id="node3" href="$structSoccerBoard.html#ac415567d530e78c9f46b00db4e64d9d5" title="Reads a digital value from a pin. " alt="" coords="122,56,261,83"/>
+</map>

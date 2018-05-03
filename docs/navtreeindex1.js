@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"eagle__NeoPixel_8h.html#a0998b395a748e3af867d4a9d4f51ee3e":[10,0,0,1,10,13],
 "eagle__NeoPixel_8h.html#a0b13a996bead2e1a108199ee8d29fcaf":[10,0,0,1,10,32],
 "eagle__NeoPixel_8h.html#a0ebcc94a820403d090dfcbfc11d8898d":[10,0,0,1,10,28],
 "eagle__NeoPixel_8h.html#a0ffdc0e3442970e43ce9596a89aae2e1":[10,0,0,1,10,12],
@@ -63,6 +64,7 @@ var NAVTREEINDEX1 =
 "eagle__SPI_8h.html#ae7bbb331aa1b0f066aeaf652b3a1fdec":[10,0,0,1,21,2],
 "eagle__SPI_8h_source.html":[10,0,0,1,21],
 "eagle__ServoCds55_8h.html":[10,0,0,1,16],
+"eagle__ServoCds55_8h.html#a176c8fd69620a612067a5a2f3adc7f21":[10,0,0,1,16,1],
 "eagle__ServoCds55_8h_source.html":[10,0,0,1,16],
 "eagle__Servo_8h.html":[10,0,0,1,15],
 "eagle__Servo_8h_source.html":[10,0,0,1,15],
@@ -163,8 +165,8 @@ var NAVTREEINDEX1 =
 "lcd__debug_8cpp_source.html":[10,0,0,0,1,0],
 "macro.html":[4],
 "modules.html":[7],
-"namespaceeagle__impl.html":[9,0,0],
 "namespaceeagle__impl.html":[8,0,0],
+"namespaceeagle__impl.html":[9,0,0],
 "namespaces.html":[8,0],
 "neo__animation_8cpp.html":[10,0,0,0,2,0],
 "neo__animation_8cpp.html#a141fe0b4d8ca6affcbc57e0d47c61cab":[10,0,0,0,2,0,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "structNeoPixel.html#a3107e85218e123e300d8ee99886b6200":[9,0,5,21],
 "structNeoPixel.html#a311d6f56416a2315803e68479110e4d6":[9,0,5,17],
 "structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d":[9,0,5,15],
-"structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47":[9,0,5,20],
-"structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07":[9,0,5,23],
-"structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b":[9,0,5,22]
+"structNeoPixel.html#a3eef199e4d0d7fb7bf27cec07fcf9c47":[9,0,5,20]
 };

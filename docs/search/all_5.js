@@ -85,5 +85,5 @@ var searchData=
   ['endtime',['endTime',['../structNeoPixel.html#a144b933f6c30dde60707f40ca93eca60',1,'NeoPixel']]],
   ['endtransmission',['endTransmission',['../classeagle__impl_1_1TwoWire.html#a55b2fb318a6b7666623a585f9f2be838',1,'eagle_impl::TwoWire::endTransmission(void)'],['../classeagle__impl_1_1TwoWire.html#ad8be918b5d4efbd524c0dba16ff5f9d2',1,'eagle_impl::TwoWire::endTransmission(uint8_t sendStop)']]],
   ['evirtual_5fmain',['eVirtual_main',['../eagle__Setup_8h.html#a3161479854ea3c6efccc25dfb4f83a99',1,'eagle_Setup.h']]],
-  ['eboard_203_2e1m_20_2d_20shackle_20the_20arduino_21',['eBoard 3.1m - shackle the Arduino!',['../index.html',1,'']]]
+  ['eboard_203_2e2d_20_2d_20shackle_20the_20arduino_21',['eBoard 3.2d - shackle the Arduino!',['../index.html',1,'']]]
 ];

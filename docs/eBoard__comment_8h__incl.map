@@ -1,12 +1,14 @@
 <map id="eBoard/eBoard.h" name="eBoard/eBoard.h">
-<area shape="rect" id="node2" href="$eagle__PreprocessorControl_8h.html" title="source/eagle_Preprocessor\lControl.h" alt="" coords="5,80,196,121"/>
-<area shape="rect" id="node5" href="$eagle__Comfort_8h.html" title="source/eagle_Comfort.h" alt="" coords="465,87,632,114"/>
-<area shape="rect" id="node8" href="$eagle__Twi_8h.html" title="source/eagle_Twi.h" alt="" coords="873,87,1016,114"/>
-<area shape="rect" id="node10" href="$eagle__TwoWire_8h.html" title="source/eagle_TwoWire.h" alt="" coords="1040,87,1215,114"/>
-<area shape="rect" id="node14" href="$eagle__SPI_8h.html" title="source/eagle_SPI.h" alt="" coords="1239,87,1379,114"/>
-<area shape="rect" id="node17" href="$eagle__SoftwareSerial_8h.html" title="source/eagle_SoftwareSerial.h" alt="" coords="1503,87,1709,114"/>
-<area shape="rect" id="node18" href="$eagle__Servo_8h.html" title="source/eagle_Servo.h" alt="" coords="1734,87,1889,114"/>
-<area shape="rect" id="node19" href="$eagle__Assert_8h.html" title="source/eagle_Assert.h" alt="" coords="1913,87,2070,114"/>
-<area shape="rect" id="node21" href="$eagle__Checks_8h.html" title="source/eagle_Checks.h" alt="" coords="2094,87,2259,114"/>
-<area shape="rect" id="node22" href="$eagle__HelpMot_8h.html" title="source/eagle_HelpMot.h" alt="" coords="2283,87,2451,114"/>
+<area shape="rect" id="node2" href="$eagle__PreprocessorControl_8h.html" title="this file contains cool stuff never seen by the Arduino :/ " alt="" coords="5,80,185,121"/>
+<area shape="rect" id="node7" href="$eagle__Twi_8h.html" title="this file contains the Twi class " alt="" coords="667,87,801,114"/>
+<area shape="rect" id="node9" href="$eagle__TwoWire_8h.html" title="this file contains the TwoWire class " alt="" coords="825,87,992,114"/>
+<area shape="rect" id="node13" href="$eagle__SPI_8h.html" title="this file contains the SPI class " alt="" coords="1017,87,1153,114"/>
+<area shape="rect" id="node16" href="$eagle__SoftwareSerial_8h.html" title="this file contains the SoftwareSerial class " alt="" coords="1277,87,1476,114"/>
+<area shape="rect" id="node17" href="$eagle__RB14Scan_8h.html" title="this file contains the RB14Scan class " alt="" coords="1500,87,1677,114"/>
+<area shape="rect" id="node18" href="$eagle__Bluetooth_8h.html" title="this file contains cool stuff to access the bluetooth interface " alt="" coords="1701,87,1871,114"/>
+<area shape="rect" id="node19" href="$eagle__Comfort_8h.html" title="this file contains sine8 and gamma8 " alt="" coords="1895,87,2056,114"/>
+<area shape="rect" id="node20" href="$eagle__Servo_8h.html" title="this file contains the Servo class " alt="" coords="2080,87,2228,114"/>
+<area shape="rect" id="node21" href="$eagle__Assert_8h.html" title="this file contains the assert wrapper for EBOARD_DEBUG_MODE " alt="" coords="2253,87,2405,114"/>
+<area shape="rect" id="node23" href="$eagle__Checks_8h.html" title="this file contains various checkers like checkIdx " alt="" coords="2429,87,2588,114"/>
+<area shape="rect" id="node24" href="$eagle__HelpMot_8h.html" title="this file contains the helper to acces the motor on the main car " alt="" coords="2613,87,2775,114"/>
 </map>

@@ -191,9 +191,9 @@ Public Attributes</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>[COPY&amp;PASTE] use <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a>, <a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> and <a class="el" href="structI2CInOut.html" title="[COPY&amp;PASTE] This is the I2CInOut ghost struct :D ">I2CInOut</a> ! </dd>
 <dd>
 this code is for internal use only and shouldnt be used otherwise </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>This code is based on the offical library [<a href="https://github.com/leffhub/ServoCds55">https://github.com/leffhub/ServoCds55</a> (undocumented :/)] cheers! [COPY&amp;PASTE] [SPI] You can use this class like this: <div class="fragment"><div class="line">_servoHandler.write(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --> [SPI] You can use this class like this: <div class="fragment"><div class="line"><span class="comment">//in setup:</span></div><div class="line">_servoHandler.begin();</div><div class="line"><span class="comment">//... in code:</span></div><div class="line">_servoHandler.write(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>This code is based on the offical library [<a href="https://github.com/leffhub/ServoCds55">https://github.com/leffhub/ServoCds55</a> (undocumented :/)] cheers! [COPY&amp;PASTE] [SPI] You can use this class like this: <div class="fragment"><div class="line"><a class="code" href="eagle__ServoCds55_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935">write</a>(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --> [SPI] You can use this class like this: <div class="fragment"><div class="line"><span class="comment">//in setup:</span></div><div class="line"><a class="code" href="eagle__ServoCds55_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#a3858bceac16a453ec83f99c646090406">begin</a>();</div><div class="line"><span class="comment">//... in code:</span></div><div class="line"><a class="code" href="eagle__ServoCds55_8h.html#a176c8fd69620a612067a5a2f3adc7f21">_servoHandler</a>.<a class="code" href="structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935">write</a>(0,150); <span class="comment">//will move servo id 0 to pos 150 [standard limit is 300]</span></div></div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00023">23</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00040">40</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa2e8ecd5f9dfc2aebae11c0963df628c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2e8ecd5f9dfc2aebae11c0963df628c">&#9670;&nbsp;</a></span>ServoCds55()</h2>
@@ -269,9 +269,6 @@ This class isn't static! </dd></dl>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ServoCds55::rotate </td>
@@ -291,11 +288,6 @@ This class isn't static! </dd></dl>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>makes nothing </p>
@@ -410,9 +402,6 @@ This class isn't static! </dd></dl>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ServoCds55::setPoslimit </td>
@@ -422,11 +411,6 @@ This class isn't static! </dd></dl>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the position limits for the servos. </p>
@@ -483,9 +467,6 @@ This class isn't static! </dd></dl>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ServoCds55::setVelocity </td>
@@ -495,11 +476,6 @@ This class isn't static! </dd></dl>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the default speed of servos. </p>
@@ -602,7 +578,7 @@ This class isn't static! </dd></dl>
 
 <p>stores the posLimit value send with <a class="el" href="structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="Moves a Servo to a certain position. ">write()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00101">101</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00118">118</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +596,7 @@ This class isn't static! </dd></dl>
 
 <p>stores the posLimit value send with <a class="el" href="structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="Moves a Servo to a certain position. ">write()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00099">99</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00116">116</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
 
 </div>
 </div>
@@ -638,7 +614,7 @@ This class isn't static! </dd></dl>
 
 <p>stores the posLimit value send with <a class="el" href="structServoCds55.html#ab74eb7a47800fedd7405adca0bf1e935" title="Moves a Servo to a certain position. ">write()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00097">97</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eagle__ServoCds55_8h_source.html#l00114">114</a> of file <a class="el" href="eagle__ServoCds55_8h_source.html">eagle_ServoCds55.h</a>.</p>
 
 </div>
 </div>
@@ -652,7 +628,7 @@ This class isn't static! </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structServoCds55.html">ServoCds55</a></li>
-    <li class="footer"><b>EagleoutIce</b> 02.05.2018 22:41:43 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 03.05.2018 21:51:29 </li>
   </ul>
 </div>
 </body>

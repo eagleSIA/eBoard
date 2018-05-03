@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07":[9,0,5,23],
+"structNeoPixel.html#a69cfffa78b2a47c34d4737556f4d085b":[9,0,5,22],
 "structNeoPixel.html#a72151f49019d5b44ef34c2023e9e43bd":[9,0,5,8],
 "structNeoPixel.html#a727940c53255151376dea65d5d4ee364":[9,0,5,9],
 "structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216":[9,0,5,18],

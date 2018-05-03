@@ -9,6 +9,7 @@ var NAVTREEINDEX0 =
 "changelog_page.html#su1":[3,0,0],
 "changelog_page.html#su10":[3,2,0],
 "changelog_page.html#su11":[3,2,1],
+"changelog_page.html#su12":[3,2,2],
 "changelog_page.html#su2":[3,0,1],
 "changelog_page.html#su3":[3,0,2],
 "changelog_page.html#su4":[3,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "eagle__LCD_8h.html#afb495f6ae8fe8a972aaf549d96eb3c99":[10,0,0,1,9,1],
 "eagle__LCD_8h_source.html":[10,0,0,1,9],
 "eagle__NeoPixel_8h.html":[10,0,0,1,10],
-"eagle__NeoPixel_8h.html#a059253434dba00c7b871c6c836b09db5":[10,0,0,1,10,7],
-"eagle__NeoPixel_8h.html#a0998b395a748e3af867d4a9d4f51ee3e":[10,0,0,1,10,13]
+"eagle__NeoPixel_8h.html#a059253434dba00c7b871c6c836b09db5":[10,0,0,1,10,7]
 };

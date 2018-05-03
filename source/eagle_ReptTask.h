@@ -1,19 +1,36 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 02.05.2018 22:41:44
+//Created: 03.05.2018 21:51:29
 #ifndef EAGLE_EBOARD_HELPLIB_REPTTASK
 #define EAGLE_EBOARD_HELPLIB_REPTTASK
+
+
+    
+
+
+//=====================================================================================================================================================
+//                                                                      Rept Task                                                                      
+//=====================================================================================================================================================
+
+
+
 void trig_rept_task(void);
+
+
+
 	  void trig_rept_task() {
+
 			#if EBOARD_NANO == 0x0 || defined(DOC)
 		    if (_pwmValue!=_OpwmValue){
 		      analogWrite(PIN_MOTOR_SPE,_pwmValue);
 		      _OpwmValue = _pwmValue;
 		    }
 			#endif
-		      #ifdef REPT_TASK
-		          rept_task();
-		      #endif
+
+            #ifdef REPT_TASK
+                rept_task();
+            #endif
 		}
+
 	  int timer_count = 0;
 	  bool timer_ofl = false;
 	  ISR(TIMER2_OVF_vect) {
@@ -26,4 +43,7 @@ void trig_rept_task(void);
 	    }
 	    TCNT2 =  256 - (int)((float)F_CPU * 0.001 / 64);
 	  }
+
+
+
 #endif

@@ -24,9 +24,7 @@ var dir_e56f45881bcd25f31aa861db7bdf513c =
     [ "eagle_Servo.h", "eagle__Servo_8h.html", [
       [ "Servo", "classServo.html", "classServo" ]
     ] ],
-    [ "eagle_ServoCds55.h", "eagle__ServoCds55_8h.html", [
-      [ "ServoCds55", "structServoCds55.html", "structServoCds55" ]
-    ] ],
+    [ "eagle_ServoCds55.h", "eagle__ServoCds55_8h.html", "eagle__ServoCds55_8h" ],
     [ "eagle_Setup.h", "eagle__Setup_8h.html", "eagle__Setup_8h" ],
     [ "eagle_ShiftExt.h", "eagle__ShiftExt_8h.html", "eagle__ShiftExt_8h" ],
     [ "eagle_SoccerBoard.h", "eagle__SoccerBoard_8h.html", [

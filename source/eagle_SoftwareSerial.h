@@ -1,99 +1,161 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 02.05.2018 22:41:44
+//Created: 03.05.2018 21:51:29
 #ifndef EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
-#define EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
+    #define EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
+
+    
+
+
+//=====================================================================================================================================================
+//                                                                    SoftwareSerial                                                                   
+//=====================================================================================================================================================
+
 	#define _SS_MAX_RX_BUFF 64 // RX buffer size
 	#ifndef GCC_VERSION
 	   #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 	#endif
+
 	namespace eagle_impl {
-	
-	class SoftwareSerial : public Stream {
-	private:
-	  
-	  uint8_t _receivePin;
-	  
-	  uint8_t _receiveBitMask;
-	  
-	  volatile uint8_t *_receivePortRegister;
-	  
-	  uint8_t _transmitBitMask;
-	  
-	  volatile uint8_t *_transmitPortRegister;
-	  
-	  uint16_t _rx_delay_centering;
-	  
-	  uint16_t _rx_delay_intrabit;
-	  
-	  uint16_t _rx_delay_stopbit;
-	  
-	  uint16_t _tx_delay;
-	  
-	  uint16_t _buffer_overflow:1;
-	  
-	  uint16_t _inverse_logic:1;
-	  
-	  static char _receive_buffer[_SS_MAX_RX_BUFF];
-	  
-	  static volatile uint8_t _receive_buffer_tail;
-	  
-	  static volatile uint8_t _receive_buffer_head;
-	  
-	  static SoftwareSerial *active_object;
-	  
-	  void recv(void);
-	  
-	  inline uint8_t rx_pin_read(void);
-	  
-	  inline void tx_pin_write(uint8_t pin_state);
-	  
-	  void setTX(uint8_t transmitPin);
-	  
-	  void setRX(uint8_t receivePin);
-	  
-	  static inline void tunedDelay(uint16_t delay);
-	public:
-	  // public methods
-	  
-	  SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
-	  
-	  ~SoftwareSerial(void);
-	  
-	  void begin(long speed);
-	  
-	  bool listen(void);
-	  
-	  inline void end(void);
-	  
-	  inline bool isListening(void);
-	  
-	  inline bool overflow(void);
-	  
-	  int peek(void);
-	  
-	  virtual size_t write(uint8_t byte);
-	  
-	  virtual int read(void);
-	  
-	  virtual int available(void);
-	  
-	  virtual void flush(void);
-	  //used to save codespace
-	  using Print::write;
-	  
-	  static inline void handle_interrupt(void);
-	};
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------------
+        //                                                                    class                                                                        
+        //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+        
+
+        class SoftwareSerial : public Stream {
+        private:
+        
+
+        uint8_t _receivePin;
+        
+
+        uint8_t _receiveBitMask;
+        
+
+        volatile uint8_t *_receivePortRegister;
+        
+
+        uint8_t _transmitBitMask;
+        
+
+        volatile uint8_t *_transmitPortRegister;
+
+        
+
+        uint16_t _rx_delay_centering;
+        
+
+        uint16_t _rx_delay_intrabit;
+        
+
+        uint16_t _rx_delay_stopbit;
+        
+
+        uint16_t _tx_delay;
+
+        
+
+        uint16_t _buffer_overflow:1;
+        
+
+        uint16_t _inverse_logic:1;
+        
+
+        static char _receive_buffer[_SS_MAX_RX_BUFF];
+        
+
+        static volatile uint8_t _receive_buffer_tail;
+        
+
+        static volatile uint8_t _receive_buffer_head;
+        
+
+        static SoftwareSerial *active_object;
+
+        
+
+        void recv(void);
+        
+
+        inline uint8_t rx_pin_read(void);
+        
+
+        inline void tx_pin_write(uint8_t pin_state);
+        
+
+        void setTX(uint8_t transmitPin);
+        
+
+        void setRX(uint8_t receivePin);
+        
+
+        static inline void tunedDelay(uint16_t delay);
+
+        public:
+        // public methods
+        
+
+        SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
+        
+
+        ~SoftwareSerial(void);
+        
+
+        void begin(long speed);
+        
+
+        bool listen(void);
+        
+
+        inline void end(void);
+        
+
+        inline bool isListening(void);
+        
+
+        inline bool overflow(void);
+        
+
+        int peek(void);
+        
+
+        virtual size_t write(uint8_t byte);
+        
+
+        virtual int read(void);
+        
+
+        virtual int available(void);
+        
+
+        virtual void flush(void);
+        //used to save codespace
+        using Print::write;
+        
+
+        static inline void handle_interrupt(void);
+        };
 	}
+
 	
+
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                definitions                                                                      
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+
 	bool SoftwareSerial::isListening(void) {
 	   return this == active_object;
 	}
+
 	bool SoftwareSerial::overflow(void) {
 	   bool ret = _buffer_overflow;
 	   _buffer_overflow = false;
 	   return ret;
 	}
 	
+
 	#if EBOARD_DEBUG_MODE > 0x0
 	 #define _DEBUG 0
 	 #define _DEBUG_PIN1 11
@@ -107,6 +169,7 @@
 	  unsigned short tx_delay;
 	} DELAY_TABLE;
 	#if F_CPU == 16000000
+
 	static const DELAY_TABLE PROGMEM table[] = {
 	  //  baud    rxcenter   rxintra    rxstop    tx
 	  { 115200,   1,         17,        17,       12,    },
@@ -123,8 +186,11 @@
 	  { 600,      1902,      3804,      3804,     3800,  },
 	  { 300,      3804,      7617,      7617,     7614,  },
 	};
+
 	const int XMIT_START_ADJUSTMENT = 5;
+
 	#elif F_CPU == 8000000
+
 	static const DELAY_TABLE table[] PROGMEM = {
 	  //  baud    rxcenter    rxintra    rxstop  tx
 	  { 115200,   1,          5,         5,      3,      },
@@ -141,8 +207,11 @@
 	  { 600,      948,        1895,      1895,   1890,   },
 	  { 300,      1895,       3805,      3805,   3802,   },
 	};
+
 	const int XMIT_START_ADJUSTMENT = 4;
+
 	#elif F_CPU == 20000000
+
 	static const DELAY_TABLE PROGMEM table[] = {
 	  //  baud    rxcenter    rxintra    rxstop  tx
 	  { 115200,   3,          21,        21,     18,     },
@@ -159,29 +228,16 @@
 	  { 600,      2379,       4759,      4759,   4755,   },
 	  { 300,      4759,       9523,      9523,   9520,   },
 	};
+
 	const int XMIT_START_ADJUSTMENT = 6;
+
 	#else
 	 #error This version of SoftwareSerial supports only 20, 16 and 8MHz processors
 	#endif
-	SoftwareSerial *SoftwareSerial::active_object = 0;
-	char SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF];
-	volatile uint8_t SoftwareSerial::_receive_buffer_tail = 0;
-	volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;
-	#if EBOARD_DEBUG_MODE > 0x0
-	  inline void DebugPulse(uint8_t pin, uint8_t count) {
-	  #if _DEBUG
-	    volatile uint8_t *pport = portOutputRegister(digitalPinToPort(pin));
-	    uint8_t val = *pport;
-	    while (count--)
-	    {
-	      *pport = val | digitalPinToBitMask(pin);
-	      *pport = val;
-	    }
-	  #endif
-	  }
-	#endif
+
 	inline void SoftwareSerial::tunedDelay(uint16_t delay) {
 	  uint8_t tmp=0;
+
 	  asm volatile("sbiw    %0, 0x01 \n\t"
 	    "ldi %1, 0xFF \n\t"
 	    "cpi %A0, 0xFF \n\t"
@@ -191,7 +247,79 @@
 	    : "0" (delay)
 	    );
 	}
-	bool SoftwareSerial::listen() {
+
+	
+
+	void SoftwareSerial::tx_pin_write(uint8_t pin_state) {
+	  if (pin_state == LOW)
+	    *_transmitPortRegister &= ~_transmitBitMask;
+	  else
+	    *_transmitPortRegister |= _transmitBitMask;
+	}
+
+	uint8_t SoftwareSerial::rx_pin_read() {
+	  return *_receivePortRegister & _receiveBitMask;
+	}
+
+	inline void SoftwareSerial::handle_interrupt() {
+	  if (active_object) {
+	    active_object->recv();
+	  }
+	}
+
+	#if defined(PCINT0_vect)
+	  ISR(PCINT0_vect) {
+	    SoftwareSerial::handle_interrupt();
+	  }
+	#endif
+
+	#if defined(PCINT1_vect)
+	  ISR(PCINT1_vect) {
+	    SoftwareSerial::handle_interrupt();
+	  }
+	#endif
+
+	#if defined(PCINT2_vect)
+	  ISR(PCINT2_vect) {
+	    SoftwareSerial::handle_interrupt();
+	  }
+	#endif
+
+	#if defined(PCINT3_vect)
+	  ISR(PCINT3_vect) {
+	    SoftwareSerial::handle_interrupt();
+	  }
+	#endif
+
+	
+
+	void SoftwareSerial::end() {
+	  if (digitalPinToPCMSK(_receivePin))
+	    *digitalPinToPCMSK(_receivePin) &= ~_BV(digitalPinToPCMSKbit(_receivePin));
+	}
+
+
+	SoftwareSerial *SoftwareSerial::active_object = 0;
+char SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF];
+volatile uint8_t SoftwareSerial::_receive_buffer_tail = 0;
+volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;
+#if EBOARD_DEBUG_MODE > 0x0
+    inline void DebugPulse(uint8_t pin, uint8_t count) {
+    #if _DEBUG
+    volatile uint8_t *pport = portOutputRegister(digitalPinToPort(pin));
+
+    uint8_t val = *pport;
+    while (count--)
+    {
+        *pport = val | digitalPinToBitMask(pin);
+        *pport = val;
+    }
+    #endif
+    }
+#endif
+
+
+bool SoftwareSerial::listen() {
 	  if (active_object != this)
 	  {
 	    _buffer_overflow = false;
@@ -202,9 +330,12 @@
 	    SREG = oldSREG;
 	    return true;
 	  }
+
 	  return false;
 	}
+
 	void SoftwareSerial::recv() {
+
 	  #if GCC_VERSION < 40302
 	    asm volatile(
 	      "push r18 \n\t"
@@ -217,7 +348,9 @@
 	      "push r27 \n\t"
 	      ::);
 	  #endif
+
 	  uint8_t d = 0;
+
 	  if (_inverse_logic ? rx_pin_read() : !rx_pin_read()) {
 	    // Wait approximately 1/2 of a bit width to "center" the sample
 	    tunedDelay(_rx_delay_centering);
@@ -237,6 +370,7 @@
 	      else
 	        d &= noti;
 	    }
+
 	    // skip the stop bit
 	    tunedDelay(_rx_delay_stopbit);
 	    #if EBOARD_DEBUG_MODE > 0x0
@@ -244,6 +378,7 @@
 	    #endif
 	    if (_inverse_logic)
 	      d = ~d;
+
 	    if ((_receive_buffer_tail + 1) % _SS_MAX_RX_BUFF != _receive_buffer_head) {
 	      _receive_buffer[_receive_buffer_tail] = d; // save new byte
 	      _receive_buffer_tail = (_receive_buffer_tail + 1) % _SS_MAX_RX_BUFF;
@@ -257,6 +392,7 @@
 	      _buffer_overflow = true;
 	    }
 	  }
+
 	#if GCC_VERSION < 40302
 	  asm volatile(
 	    "pop r27 \n\t"
@@ -270,41 +406,10 @@
 	    ::);
 	#endif
 	}
-	void SoftwareSerial::tx_pin_write(uint8_t pin_state) {
-	  if (pin_state == LOW)
-	    *_transmitPortRegister &= ~_transmitBitMask;
-	  else
-	    *_transmitPortRegister |= _transmitBitMask;
-	}
-	uint8_t SoftwareSerial::rx_pin_read() {
-	  return *_receivePortRegister & _receiveBitMask;
-	}
-	inline void SoftwareSerial::handle_interrupt() {
-	  if (active_object) {
-	    active_object->recv();
-	  }
-	}
-	#if defined(PCINT0_vect)
-	  ISR(PCINT0_vect) {
-	    SoftwareSerial::handle_interrupt();
-	  }
-	#endif
-	#if defined(PCINT1_vect)
-	  ISR(PCINT1_vect) {
-	    SoftwareSerial::handle_interrupt();
-	  }
-	#endif
-	#if defined(PCINT2_vect)
-	  ISR(PCINT2_vect) {
-	    SoftwareSerial::handle_interrupt();
-	  }
-	#endif
-	#if defined(PCINT3_vect)
-	  ISR(PCINT3_vect) {
-	    SoftwareSerial::handle_interrupt();
-	  }
-	#endif
-	SoftwareSerial::SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic ) :
+
+	
+	SoftwareSerial::SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic 
+) :
 	  _rx_delay_centering(0),
 	  _rx_delay_intrabit(0),
 	  _rx_delay_stopbit(0),
@@ -314,9 +419,11 @@
 	  setTX(transmitPin);
 	  setRX(receivePin);
 	}
+
 	SoftwareSerial::~SoftwareSerial() {
 	  end();
 	}
+
 	void SoftwareSerial::setTX(uint8_t tx) {
 	  pinMode(tx, OUTPUT);
 	  digitalWrite(tx, HIGH);
@@ -324,6 +431,7 @@
 	  uint8_t port = digitalPinToPort(tx);
 	  _transmitPortRegister = portOutputRegister(port);
 	}
+
 	void SoftwareSerial::setRX(uint8_t rx) {
 	  pinMode(rx, INPUT);
 	  if (!_inverse_logic)
@@ -333,8 +441,10 @@
 	  uint8_t port = digitalPinToPort(rx);
 	  _receivePortRegister = portInputRegister(port);
 	}
+
 	void SoftwareSerial::begin(long speed) {
 	  _rx_delay_centering = _rx_delay_intrabit = _rx_delay_stopbit = _tx_delay = 0;
+
 	  for (unsigned i=0; i<sizeof(table)/sizeof(table[0]); ++i) {
 	    long baud = pgm_read_dword(&table[i].baud);
 	    if (baud == speed) {
@@ -345,6 +455,7 @@
 	      break;
 	    }
 	  }
+
 	  if (_rx_delay_stopbit) {
 	    if (digitalPinToPCICR(_receivePin)) {
 	      *digitalPinToPCICR(_receivePin) |= _BV(digitalPinToPCICRbit(_receivePin));
@@ -352,47 +463,56 @@
 	    }
 	    tunedDelay(_tx_delay);
 	  }
+
 	#if _DEBUG
 	  pinMode(_DEBUG_PIN1, OUTPUT);
 	  pinMode(_DEBUG_PIN2, OUTPUT);
 	#endif
+
 	  listen();
 	}
-	void SoftwareSerial::end() {
-	  if (digitalPinToPCMSK(_receivePin))
-	    *digitalPinToPCMSK(_receivePin) &= ~_BV(digitalPinToPCMSKbit(_receivePin));
-	}
+	
 	int SoftwareSerial::read() {
 	  if (!isListening())
 	    return -1;
+
 	  if (_receive_buffer_head == _receive_buffer_tail)
 	    return -1;
+
 	  uint8_t d = _receive_buffer[_receive_buffer_head]; // grab next byte
 	  _receive_buffer_head = (_receive_buffer_head + 1) % _SS_MAX_RX_BUFF;
 	  return d;
 	}
+
 	int SoftwareSerial::available() {
 	  if (!isListening())
 	    return 0;
+
 	  return (_receive_buffer_tail + _SS_MAX_RX_BUFF - _receive_buffer_head) % _SS_MAX_RX_BUFF;
 	}
+
 	size_t SoftwareSerial::write(uint8_t b) {
 	  if (_tx_delay == 0) {
 	    setWriteError();
 	    return 0;
 	  }
+
 	  uint8_t oldSREG = SREG;
 	  cli();
+
 	  tx_pin_write(_inverse_logic ? HIGH : LOW);
 	  tunedDelay(_tx_delay + XMIT_START_ADJUSTMENT);
+
 	  if (_inverse_logic) {
 	    for (byte mask = 0x01; mask; mask <<= 1) {
 	      if (b & mask)
 	        tx_pin_write(LOW);
 	      else
 	        tx_pin_write(HIGH);
+
 	      tunedDelay(_tx_delay);
 	    }
+
 	    tx_pin_write(LOW);
 	  }
 	  else {
@@ -403,26 +523,36 @@
 	        tx_pin_write(LOW);
 	      tunedDelay(_tx_delay);
 	    }
+
 	    tx_pin_write(HIGH);
 	  }
+
 	  SREG = oldSREG;
 	  tunedDelay(_tx_delay);
+
 	  return 1;
 	}
+
 	void SoftwareSerial::flush() {
 	  if (!isListening())
 	    return;
+
 	  uint8_t oldSREG = SREG;
 	  cli();
 	  _receive_buffer_head = _receive_buffer_tail = 0;
 	  SREG = oldSREG;
 	}
+
 	int SoftwareSerial::peek() {
 	  if (!isListening())
 	    return -1;
+
 	  if (_receive_buffer_head == _receive_buffer_tail)
 	    return -1;
+
 	  return _receive_buffer[_receive_buffer_head];
 	}
+
 	
+
 #endif

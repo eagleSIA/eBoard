@@ -94,8 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eagle__NeoPixel_8h.html#a0998b395a748e3af867d4a9d4f51ee3e",
-"structNeoPixel.html#a65215292b7153b25952ce674ccb6fe07"
+"eagle__LCD_8h_source.html",
+"structNeoPixel.html#a3107e85218e123e300d8ee99886b6200"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

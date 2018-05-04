@@ -1,5 +1,6 @@
 var dancing__dragon_8cpp =
 [
+    [ "EBOARD_DEBUG_MODE", "dancing__dragon_8cpp.html#a9576a738d44de713d21e71123b5ee344", null ],
     [ "EBOARD_I2C", "dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1", null ],
     [ "EBOARD_LCD", "dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25", null ],
     [ "HIGHSPEED", "dancing__dragon_8cpp.html#ab0a1f7733eaf1448e5b3bd9f4771da81", null ],

@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 03.05.2018 22:22:30
+//Created: 04.05.2018 22:38:04
 #ifndef EAGLE_EBOARD_HELPLIB_REPTTASK
 #define EAGLE_EBOARD_HELPLIB_REPTTASK
 
@@ -20,10 +20,10 @@ void trig_rept_task(void);
 	  void trig_rept_task() {
 
 			#if EBOARD_NANO == 0x0 || defined(DOC)
-		    if (_pwmValue!=_OpwmValue){
-		      analogWrite(PIN_MOTOR_SPE,_pwmValue);
-		      _OpwmValue = _pwmValue;
-		    }
+                if (_pwmValue!=_OpwmValue){
+                analogWrite(PIN_MOTOR_SPE,_pwmValue);
+                _OpwmValue = _pwmValue;
+                }
 			#endif
 
             #ifdef REPT_TASK
@@ -33,6 +33,7 @@ void trig_rept_task(void);
 
 	  int timer_count = 0;
 	  bool timer_ofl = false;
+
 	  ISR(TIMER2_OVF_vect) {
 	    timer_count++;
 	    if(timer_count >= EBOARD_PWM_SPE*1000 && !timer_ofl){

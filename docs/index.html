@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="textblock"><p class=""><b> YOU SHOULD READ <a class="el" href="group__genExpl.html">[ ✍️ ] GENERAL INTRODUCTION</a> THIS IS A WIP PAGE ;) </b></p>
 <dl class="section note"><dt>Note</dt><dd>This code was written for the Arduino UNO R3 used with the Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield and allows to copy-paste Code running on a qfixSoccerboard</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This code comes with absolutely <b>no</b> warranty</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="[COPY&amp;PASTE] This is the SoccerBoard ghost struct :D ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="[COPY&amp;PASTE] This is the DynamixelBoard ghost struct :D ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield]. <br />
+<dl class="section pre"><dt>Precondition</dt><dd>This Header file was created to port Codes running on the qfix <a class="el" href="structSoccerBoard.html" title="This is the SoccerBoard ghost struct :D. ">SoccerBoard</a> [<a class="el" href="structDynamixelBoard.html" title="This is the DynamixelBoard ghost struct :D. ">DynamixelBoard</a> etc...] directly onto the Arduino UNO R3 [with Smart <a class="el" href="classServo.html" title="[NANO] The standard Arduino Servo Class ">Servo</a> Shield]. <br />
  To use it you'll have to replace all qfix-related header-files [*.h] with the following: <br />
  It is possible to add this header as library aswell: <a class="el" href="group__updLib.html">[ ✍️ ] HOW TO SOURCE EBOARD FROM THE OFFICIAL ARDUINO LIBRARY MANAGER</a> <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div></div><!-- fragment --></dd></dl>
 <p>If you wan't to use the I2C extensions you should have this two lines the beginning of your code: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div></div><!-- fragment --><p class="">While in development you shouldn't disable any macro... If you change to release mode, write (as a minimum) the following before all includings: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_DEBUG_MODE 0x0</span></div></div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>write nicer mainpage :D</dd></dl>
@@ -143,7 +143,7 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a488e51d67078d86a1d703e397d9ce968">EBOARD_USE_UTILITY</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">removes useless code-parts [will vary on used board]   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a>  </td><td class="markdownTableBodyNone">{int } Default: 2  </td><td class="markdownTableBodyNone">Sets the amount of the visible, connected <a class="el" href="structAX12Servo.html" title="[COPY&amp;PASTE] This is the AX12Servo ghost struct :D ">AX12Servo</a> objects   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a622747cb42068368c1d3d34f23c96d43">EBOARD_SPI_SERVO_MAX</a>  </td><td class="markdownTableBodyNone">{int } Default: 2  </td><td class="markdownTableBodyNone">Sets the amount of the visible, connected <a class="el" href="structAX12Servo.html" title="This is the AX12Servo ghost struct :D. ">AX12Servo</a> objects   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables I2C tools   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
@@ -204,7 +204,7 @@ Philosophy</h1>
 Async task execution</h1>
 <p class="">The Arduino is a single core processor. That means it isn't possible to do multiple tasks at once. <br />
 To enable async task execution eBoard provides this mechanism (write this before including the eBoard header!). <br />
-The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> rept_task(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
+The execution cycle is <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds and the method will be invoked after the resend of the Motor-PWM value. </p><div class="fragment"><div class="line"><span class="preprocessor">#define REPT_TASK</span></div><div class="line"><span class="keywordtype">void</span> <a class="code" href="eBoard__comment_8h.html#a2c2fbf17da89298ceb0e017da0583ef6">rept_task</a>(<span class="keywordtype">void</span>){</div><div class="line">  <span class="comment">//do some stuff - non blocking!!!!</span></div><div class="line">}</div></div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Don't put any endless loop etc. in this method! The execution time <b>has</b> to be lower than <a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a> seconds !</dd></dl>
 <p>Take a look at this cool stability graph: </p><div class="image">
 <object type="image/svg+xml" data="stabi.svg">stabi.svg</object>
 </div>
@@ -227,7 +227,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 03.05.2018 22:22:29 </li>
+    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 04.05.2018 22:38:04 </li>
   </ul>
 </div>
 </body>

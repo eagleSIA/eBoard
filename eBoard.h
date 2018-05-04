@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 03.05.2018 22:22:30
+//Created: 04.05.2018 22:38:04
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.8d"
+    #define EBOARD_VERSION "3.2.24d"
     
 
-    #define EBOARD_VERSION_NBR 350
+    #define EBOARD_VERSION_NBR 366
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 
@@ -323,13 +323,6 @@
         #endif
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------
-    //                                                               copy n' paste                                                                     
-    //-------------------------------------------------------------------------------------------------------------------------------------------------
-
-        
-        #define EBOARD_COPY_AND_PASTE 0x1
-
-    //-------------------------------------------------------------------------------------------------------------------------------------------------
     //                                                                 pwm speed                                                                       
     //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -555,7 +548,7 @@
             #include "source/eagle_ServoCds55.h"
         #endif
 
-        #if EBOARD_COPY_AND_PASTE > 0x0 && EBOARD_NANO == 0
+        #if EBOARD_NANO == 0
             #include "source/eagle_SoccerBoard.h"
             #include "source/eagle_I2CInOut.h"
             #ifndef EBOARD_HELPCAR
@@ -595,20 +588,18 @@
             DEBUG_MSG("You did not define REPT_TASK: rept_task(void) will not have any effect");
         #endif
 
-        #if EBOARD_COPY_AND_PASTE > 0x0
-                #include "source/eagle_ReptTask.h"
-                #include "source/eagle_Setup.h"
-                
+        #include "source/eagle_ReptTask.h"
+        #include "source/eagle_Setup.h"
+        
 
-                void loop(void);
-                
+        void loop(void);
+        
 
-                void loop(void){
-                //shall be empty
-                }
-                
+        void loop(void){
+        //shall be empty
+        }
+        
 
-        #endif
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------
     //                                                                    helpcar                                                                      

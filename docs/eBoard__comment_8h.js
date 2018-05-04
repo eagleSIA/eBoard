@@ -10,7 +10,6 @@ var eBoard__comment_8h =
     [ "EBOARD_CHECK_PINS", "eBoard__comment_8h.html#a832845f47786296c94e24d6c27821503", null ],
     [ "EBOARD_CHECK_PINS_PWM", "eBoard__comment_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119", null ],
     [ "EBOARD_CLAMP", "eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749", null ],
-    [ "EBOARD_COPY_AND_PASTE", "eBoard__comment_8h.html#aa3b98de0551fc7154d125da50865d539", null ],
     [ "EBOARD_DEBUG_MODE", "eBoard__comment_8h.html#a9576a738d44de713d21e71123b5ee344", null ],
     [ "EBOARD_DEBUG_SPEED", "eBoard__comment_8h.html#ab40166b3dbfe220aef870dccc9fd5386", null ],
     [ "EBOARD_GUESSPATH", "eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e", null ],
@@ -44,6 +43,8 @@ var eBoard__comment_8h =
     [ "twi_h", "eBoard__comment_8h.html#a72282c2bbeb6330cad4030fa564a869f", null ],
     [ "optVAL_t", "eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a", null ],
     [ "_serial", "eBoard__comment_8h.html#acb51742a61b072bb500b6e0713d7dc2c", null ],
+    [ "loop", "eBoard__comment_8h.html#a0b33edabd7f1c4e4a0bf32c67269be2f", null ],
+    [ "rept_task", "eBoard__comment_8h.html#a2c2fbf17da89298ceb0e017da0583ef6", null ],
     [ "mainMotor", "eBoard__comment_8h.html#ad6bafe55c33ec1a31d6b421ea0570666", null ],
     [ "steerMotor", "eBoard__comment_8h.html#a62c1578b310837f1bbc0f697a0d772fc", null ],
     [ "STOP", "eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158", null ]

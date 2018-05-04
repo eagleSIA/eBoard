@@ -8,6 +8,7 @@ var searchData=
   ['readpin',['readPin',['../eagle__PinCtrl_8h.html#aca4f96af7c6736bf2b61c88d731af741',1,'eagle_PinCtrl.h']]],
   ['readval',['readVal',['../eagle__Bluetooth_8h.html#a013ff57a97587f0064777a3a28f9a2dd',1,'eagle_Bluetooth.h']]],
   ['recv',['recv',['../classeagle__impl_1_1SoftwareSerial.html#a1a2cdc19493104999f142dfe06016c2d',1,'eagle_impl::SoftwareSerial']]],
+  ['rept_5ftask',['rept_task',['../eBoard__comment_8h.html#a2c2fbf17da89298ceb0e017da0583ef6',1,'eBoard.h']]],
   ['requestfrom',['requestFrom',['../classeagle__impl_1_1TwoWire.html#a732837c28828e4afc8c231f543f61833',1,'eagle_impl::TwoWire::requestFrom(uint8_t address, uint8_t quantity)'],['../classeagle__impl_1_1TwoWire.html#aefc0c1aba37fd905cecddefb7a138e05',1,'eagle_impl::TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop)'],['../classeagle__impl_1_1TwoWire.html#afa65815392dcdc94092127e184f02ff4',1,'eagle_impl::TwoWire::requestFrom(int address, int quantity)'],['../classeagle__impl_1_1TwoWire.html#ad6798ae075343ac958025c69585a7fc6',1,'eagle_impl::TwoWire::requestFrom(int address, int quantity, int sendStop)']]],
   ['reset',['Reset',['../structServoCds55.html#aaa6a4ae05352b293318fd1c6c7d45c0a',1,'ServoCds55::Reset()'],['../structLCD.html#a7912ad9a12d649cdec2dd53ae893a8ce',1,'LCD::reset()'],['../structSoccerBoard.html#a4318ef2a49b14d4e0d2dff6af662fd9c',1,'SoccerBoard::reset()']]],
   ['rotate',['rotate',['../structServoCds55.html#a3d2a551e816185d455adb5b1add148f9',1,'ServoCds55']]],

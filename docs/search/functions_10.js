@@ -16,7 +16,7 @@ var searchData=
   ['setdatamode',['setDataMode',['../structeagle__impl_1_1SPIClass.html#a47ba72d87bea0720bbb3566124a44008',1,'eagle_impl::SPIClass']]],
   ['setid',['SetID',['../structServoCds55.html#a4424d857bb52e7a6e3527209cc83d244',1,'ServoCds55']]],
   ['setmotormode',['SetMotormode',['../structServoCds55.html#ab9e5ab857983d3c0d1eaf43f60c53285',1,'ServoCds55']]],
-  ['setpin',['setPin',['../structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d',1,'NeoPixel']]],
+  ['setpin',['setPin',['../structNeoPixel.html#a96dfdd54b20616ae8b2eeb944042d27d',1,'NeoPixel::setPin()'],['../eagle__Checks_8h.html#aa2ff1428d8a2d48eb783619dc107fc22',1,'setPin():&#160;eagle_Checks.h']]],
   ['setpixelcolor',['setPixelColor',['../structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d',1,'NeoPixel::setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b)'],['../structNeoPixel.html#a95a534f17417d038f8b8f86a4b8637df',1,'NeoPixel::setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w)'],['../structNeoPixel.html#a311d6f56416a2315803e68479110e4d6',1,'NeoPixel::setPixelColor(uint16_t n, uint32_t c)']]],
   ['setposition',['setPosition',['../structAX12Servo.html#ae6005da90335d13c253a246edb247178',1,'AX12Servo']]],
   ['setposlimit',['setPoslimit',['../structServoCds55.html#a94e897d29bea9ff223e5a2221cc603a8',1,'ServoCds55']]],

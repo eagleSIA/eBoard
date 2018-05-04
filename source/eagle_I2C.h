@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 03.05.2018 22:22:30
+//Created: 04.05.2018 22:38:04
 #ifndef EAGLE_EBOARD_HELPLIB_I2C
     #define EAGLE_EBOARD_HELPLIB_I2C
 
@@ -43,6 +43,7 @@
 	inline void readI2C(optVAL_t deviceID, optVAL_t ret[], optVAL_t ret_len,bool blocking=true);
 
 
+    
 
 
     void pingI2C(optVAL_t ret[], optVAL_t ret_len){

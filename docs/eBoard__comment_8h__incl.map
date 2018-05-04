@@ -10,5 +10,17 @@
 <area shape="rect" id="node20" href="$eagle__Servo_8h.html" title="this file contains the Servo class " alt="" coords="2080,87,2228,114"/>
 <area shape="rect" id="node21" href="$eagle__Assert_8h.html" title="this file contains the assert wrapper for EBOARD_DEBUG_MODE " alt="" coords="2253,87,2405,114"/>
 <area shape="rect" id="node23" href="$eagle__Checks_8h.html" title="this file contains various checkers like checkIdx " alt="" coords="2429,87,2588,114"/>
-<area shape="rect" id="node24" href="$eagle__HelpMot_8h.html" title="this file contains the helper to acces the motor on the main car " alt="" coords="2613,87,2775,114"/>
+<area shape="rect" id="node24" href="$eagle__ShiftExt_8h.html" title="this file contains the cool shift&#45;EXTension " alt="" coords="2612,87,2773,114"/>
+<area shape="rect" id="node25" href="$eagle__PinCtrl_8h.html" title="this file contains cool stuff... it controls pins " alt="" coords="2798,87,2953,114"/>
+<area shape="rect" id="node26" href="$eagle__ServoCds55_8h.html" title="this file contains the ServoCds55 class " alt="" coords="2977,87,3163,114"/>
+<area shape="rect" id="node27" href="$eagle__SoccerBoard_8h.html" title="this file contains the SoccerBoard class " alt="" coords="3187,87,3377,114"/>
+<area shape="rect" id="node28" href="$eagle__I2CInOut_8h.html" title="this file contains the I2CInOut class " alt="" coords="3401,87,3568,114"/>
+<area shape="rect" id="node29" href="$eagle__AX12Servo_8h.html" title="this file contains the AX12Servo class " alt="" coords="3592,87,3772,114"/>
+<area shape="rect" id="node30" href="$eagle__DynamixelBoard_8h.html" title="this file contains the DynamixelBoard class " alt="" coords="3797,87,4007,114"/>
+<area shape="rect" id="node31" href="$eagle__I2C_8h.html" title="this file contains cool stuff to access the I²C interface " alt="" coords="4032,87,4167,114"/>
+<area shape="rect" id="node32" href="$eagle__LCD_8h.html" title="this file contains the LCD class " alt="" coords="4191,87,4333,114"/>
+<area shape="rect" id="node33" href="$eagle__NeoPixel_8h.html" title="this file contains the NeoPixel class " alt="" coords="4357,87,4524,114"/>
+<area shape="rect" id="node34" href="$eagle__ReptTask_8h.html" title="this file contains cool stuff... this file contains cool stuff... this file contains cool stuff..." alt="" coords="4549,87,4719,114"/>
+<area shape="rect" id="node35" href="$eagle__Setup_8h.html" title="this file contains the setup method " alt="" coords="4744,87,4892,114"/>
+<area shape="rect" id="node36" href="$eagle__HelpMot_8h.html" title="this file contains the helper to acces the motor on the main car " alt="" coords="4917,87,5079,114"/>
 </map>

@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 03.05.2018 22:22:30
+//Created: 04.05.2018 22:38:04
 #ifndef EAGLE_EBOARD_HELPLIB_SERVOCDS55
     #define EAGLE_EBOARD_HELPLIB_SERVOCDS55
 
@@ -20,9 +20,9 @@
 			
 
         #if defined(__AVR_ATmega2560__)
-          ServoCds55(int CS=53);
+            ServoCds55(int CS=53);
         #else
-          ServoCds55(int CS=10);
+            ServoCds55(int CS=10);
         #endif
 				
 
@@ -168,8 +168,8 @@
     
 
 
-          
+    
 
-        ServoCds55 _servoHandler;
+    ServoCds55 _servoHandler;
 
 #endif

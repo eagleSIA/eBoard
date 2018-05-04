@@ -159,7 +159,7 @@
 	void SoccerBoard::sleep(uint16_t t) {delay(1000*t);}
 	void SoccerBoard::msleep(uint16_t t) {delay(t);}
 	bool SoccerBoard::digital (optVAL_t id) {return readPin(id);}
-	optVAL_t  SoccerBoard::analog (optVAL_t id) {return readPin(id,0);}
+	optVAL_t  SoccerBoard::analog (optVAL_t id) {pinMode(id,INPUT); return analogRead(id);}
 	
 
 #endif

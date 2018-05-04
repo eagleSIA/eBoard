@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:38:04
+//Created: 04.05.2018 22:46:51
 #ifndef EAGLE_EBOARD_HELPLIB_SOCCERBOARD
     #define EAGLE_EBOARD_HELPLIB_SOCCERBOARD
 
@@ -159,7 +159,7 @@
 	void SoccerBoard::sleep(uint16_t t) {delay(1000*t);}
 	void SoccerBoard::msleep(uint16_t t) {delay(t);}
 	bool SoccerBoard::digital (optVAL_t id) {return readPin(id);}
-	optVAL_t  SoccerBoard::analog (optVAL_t id) {pinMode(id,INPUT); return analogRead(id);}
+	optVAL_t  SoccerBoard::analog (optVAL_t id) {return readPin(id,0);}
 	
 
 #endif

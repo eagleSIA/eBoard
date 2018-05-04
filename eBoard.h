@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:51:25
+//Created: 04.05.2018 22:58:22
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.26d"
+    #define EBOARD_VERSION "3.2.29d"
     
 
-    #define EBOARD_VERSION_NBR 368
+    #define EBOARD_VERSION_NBR 371
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 

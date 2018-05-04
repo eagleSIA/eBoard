@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:51:25
+//Created: 04.05.2018 22:58:22
 #ifndef EAGLE_EBOARD_HELPLIB_PINCTRL
     #define EAGLE_EBOARD_HELPLIB_PINCTRL
 
@@ -57,11 +57,7 @@
 	        checkIdx(idx);
 	        if(!checkPin(idx))
 	    #endif
-	    #if EBOARD_COPY_AND_PASTE > 0x0
-	        setPin(idx);
-	    #else
-	        pinMode(idx,OUTPUT);
-	    #endif
+        setPin(idx);
 	    digitalWrite(idx,val);
 	}
 
@@ -92,11 +88,8 @@
 	        }
 	        if(dig && !checkPin(idx,INPUT))
 	    #endif
-	    #if EBOARD_COPY_AND_PASTE > 0x0
 	        setPin(idx,INPUT);
-	    #else
-	        pinMode(idx,INPUT);
-	    #endif
+
 	    return((dig)? digitalRead(idx) : analogRead(idx));
 	}
 	

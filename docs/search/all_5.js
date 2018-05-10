@@ -37,6 +37,7 @@ var searchData=
   ['eboard_5fhelpcar_5fmain',['EBOARD_HELPCAR_MAIN',['../eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec',1,'eBoard.h']]],
   ['eboard_5fhelpcar_5fsteer',['EBOARD_HELPCAR_STEER',['../eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1',1,'eBoard.h']]],
   ['eboard_5fi2c',['EBOARD_I2C',['../eBoard__comment_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1',1,'EBOARD_I2C():&#160;lcd_debug.cpp']]],
+  ['eboard_5fi2c_5fhelper',['EBOARD_I2C_HELPER',['../eBoard__comment_8h.html#a85ee4c3c374058b2dd65533cc94a4a50',1,'eBoard.h']]],
   ['eboard_5flcd',['EBOARD_LCD',['../eBoard__comment_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25',1,'EBOARD_LCD():&#160;lcd_debug.cpp']]],
   ['eboard_5fnano',['EBOARD_NANO',['../eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096',1,'EBOARD_NANO():&#160;eBoard.h'],['../neo__animation_8cpp.html#a46d205b09924db53e18bc4761d009096',1,'EBOARD_NANO():&#160;neo_animation.cpp']]],
   ['eboard_5fneo',['EBOARD_NEO',['../eBoard__comment_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'EBOARD_NEO():&#160;eBoard.h'],['../neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575',1,'EBOARD_NEO():&#160;neo_animation.cpp']]],

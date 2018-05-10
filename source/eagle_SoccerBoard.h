@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:58:22
+//Created: 10.05.2018 16:26:20
 #ifndef EAGLE_EBOARD_HELPLIB_SOCCERBOARD
     #define EAGLE_EBOARD_HELPLIB_SOCCERBOARD
 
@@ -123,8 +123,6 @@
 	    #endif
 	}
 
-	
-
     void SoccerBoard::motor(uint8_t id,int16_t val) {
         #ifndef EBOARD_HELPCAR
             if(id==0&&(val>-256 && val < 256)) {setPin(PIN_MOTOR_DIR,val<0); writePWM(abs(val));}
@@ -140,16 +138,15 @@
             }
         #endif
         }
-        void SoccerBoard::motorsOff(void) {
-            #ifndef EBOARD_HELPCAR
-                    writePWM(0);
-            #else
-                mainMotor.write(90);
-            #endif
+        
+    void SoccerBoard::motorsOff(void) {
+        #ifndef EBOARD_HELPCAR
+                writePWM(0);
+        #else
+            mainMotor.write(90);
+        #endif
 
-        }
-    
-
+    }
 
 	
 	void SoccerBoard::power(optVAL_t id, bool state) {writePin(id,state);}

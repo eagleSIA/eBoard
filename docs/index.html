@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sacramento">
 <title>eBoard: eBoard 3.2d - shackle the Arduino!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -36,7 +37,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font color="#007535">eBoard 🐉</font>
+   <div id="projectname"><font face="" color="#007535">eBoard 🐉</font>
    &#160;<span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
@@ -147,22 +148,24 @@ Macros</h1>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables I2C tools   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a85ee4c3c374058b2dd65533cc94a4a50">EBOARD_I2C_HELPER</a>  </td><td class="markdownTableBodyNone">[I2C] {bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables I2C helper   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#abb24d7ee5b65e44b961cba7186cc5ded">EBOARD_SHIFT_REGISTER</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables SHIFT_REGISTER   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#acf57ef5be6e1891dbe06d2233d8575d2">EBOARD_BLUETOOTH</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enables Bluetooth support   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a9c1a88f38da45b69ecf6461a3bad667f">EBOARD_PWM_SPE</a>  </td><td class="markdownTableBodyNone">{int } Default: 1  </td><td class="markdownTableBodyNone">Sets the duty cycle for <a class="el" href="index.html#su111">Async task execution</a>   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749">EBOARD_CLAMP</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disables clamp   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eBoard__comment_8h.html#a4cb888e82f2423b0e0dfef28e4337c9a">EBOARD_USE_RESET</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x1  </td><td class="markdownTableBodyNone">0x0: disable software reset   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowOdd">
+<tr class="markdownTableBody" class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="lcd__debug_8cpp.html#a5c67f6d36d5bb36d28f2142d4d491d25" title="we want to use the LCD ">EBOARD_LCD</a>  </td><td class="markdownTableBodyNone">[I2C] {bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for <a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a> display. Needs <a class="el" href="lcd__debug_8cpp.html#a0be9d7d8fdc6fcde2a9a46c6877335f1" title="we need the I2C functionality ">EBOARD_I2C</a> set to 0x1   </td></tr>
-<tr class="markdownTableBody" class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-<a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>-Devices   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="neo__animation_8cpp.html#a4f3f76c6c29dc0d7d71c15edeefd7575">EBOARD_NEO</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable support for Adafruit-<a class="el" href="structNeoPixel.html" title="[NEO] this allows you to access Adafruit LED-stripes ">NeoPixel</a>-Devices   </td></tr>
 <tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b><a class="el" href="eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e">EBOARD_GUESSPATH</a>  </b></td><td class="markdownTableBodyNone"><b> {bool} Default: 0x1  </b></td><td class="markdownTableBodyNone"><b> 0x0: disable automatic path_guess this will increase the program size [manual includings necessary]</b>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="eagle__PreprocessorControl_8h.html#a2423814a8c1071bb3f82017115574158">PREPROCESS_DEBUG</a>  </td><td class="markdownTableBodyNone">{bool} Default: 0x0  </td><td class="markdownTableBodyNone">0x1: enable preprocessing messages from eBoard   </td></tr>
 </table>
 <p class=""><b>Pins</b></p>
@@ -227,7 +230,7 @@ Tutorials</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">[WIP-BUILD] <b>EagleoutIce</b> 04.05.2018 22:58:22 </li>
+    <li class="footer"><b>EagleoutIce</b> 10.05.2018 16:26:19 </li>
   </ul>
 </div>
 </body>

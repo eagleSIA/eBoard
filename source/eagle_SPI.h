@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:58:22
+//Created: 10.05.2018 16:26:20
 #ifndef EAGLE_EBOARD_HELPLIB_SPI
     #define EAGLE_EBOARD_HELPLIB_SPI
 
@@ -103,9 +103,9 @@
     //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 	byte SPIClass::transfer(byte data) {
-	  SPDR = data;
-	  while (!(SPSR & _BV(SPIF)));
-	  return SPDR;
+        SPDR = data;
+        while (!(SPSR & _BV(SPIF)));
+        return SPDR;
 	}
 
 	void SPIClass::attachInterrupt() { SPCR |=  _BV(SPIE);}
@@ -114,18 +114,18 @@
 
 	
 
-	void SPIClass::end() {SPCR &= ~_BV(SPE);}
+	void SPIClass::end() { SPCR &= ~_BV(SPE); }
 
 	void SPIClass::setBitOrder(uint8_t bitOrder) {
-	  if(bitOrder == LSBFIRST) SPCR |= _BV(DORD);
-	  else SPCR &= ~(_BV(DORD));
+        if(bitOrder == LSBFIRST) SPCR |= _BV(DORD);
+        else SPCR &= ~(_BV(DORD));
 	}
 
 	void SPIClass::setDataMode(uint8_t mode) { SPCR = (SPCR & ~SPI_MODE_MASK) | mode; }
 
 	void SPIClass::setClockDivider(uint8_t rate) {
-	  SPCR = (SPCR & ~SPI_CLOCK_MASK) | (rate & SPI_CLOCK_MASK);
-	  SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((rate >> 2) & SPI_2XCLOCK_MASK);
+        SPCR = (SPCR & ~SPI_CLOCK_MASK) | (rate & SPI_CLOCK_MASK);
+        SPSR = (SPSR & ~SPI_2XCLOCK_MASK) | ((rate >> 2) & SPI_2XCLOCK_MASK);
 	}
 	SPIClass SPI;
     void SPIClass::begin() {
@@ -135,7 +135,7 @@
         SPCR |= _BV(SPE);
         pinMode(SCK, OUTPUT);
         pinMode(MOSI, OUTPUT);
-        }
+    }
 
 	
 

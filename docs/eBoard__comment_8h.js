@@ -16,6 +16,7 @@ var eBoard__comment_8h =
     [ "EBOARD_HELPCAR_MAIN", "eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec", null ],
     [ "EBOARD_HELPCAR_STEER", "eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1", null ],
     [ "EBOARD_I2C", "eBoard__comment_8h.html#a0be9d7d8fdc6fcde2a9a46c6877335f1", null ],
+    [ "EBOARD_I2C_HELPER", "eBoard__comment_8h.html#a85ee4c3c374058b2dd65533cc94a4a50", null ],
     [ "EBOARD_LCD", "eBoard__comment_8h.html#a5c67f6d36d5bb36d28f2142d4d491d25", null ],
     [ "EBOARD_NANO", "eBoard__comment_8h.html#a46d205b09924db53e18bc4761d009096", null ],
     [ "EBOARD_NEO", "eBoard__comment_8h.html#a4f3f76c6c29dc0d7d71c15edeefd7575", null ],

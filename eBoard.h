@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:58:22
+//Created: 10.05.2018 16:26:20
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.29d"
+    #define EBOARD_VERSION "3.2.89d"
     
 
-    #define EBOARD_VERSION_NBR 371
+    #define EBOARD_VERSION_NBR 431
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 
@@ -140,6 +140,11 @@
         #ifndef EBOARD_I2C
             
             #define EBOARD_I2C 0x0 //disabled by default
+        #endif
+
+        #ifndef EBOARD_I2C_HELPER
+            
+            #define EBOARD_I2C_HELPER 0x0
         #endif
 
         #if EBOARD_I2C > 0x0 && EBOARD_GUESSPATH > 0x0
@@ -356,7 +361,7 @@
 
         
         #ifndef EBOARD_CLAMP
-            #define EBOARD_CLAMP 0x1
+            #define EBOARD_CLAMP 0x0
         #endif
 
         #if EBOARD_CLAMP > 0x0
@@ -562,6 +567,7 @@
     //-------------------------------------------------------------------------------------------------------------------------------------------------
 
         #if EBOARD_I2C > 0x0
+            
             #include "source/eagle_I2C.h"
             //Beginof LCD configuration
             #if EBOARD_LCD > 0x0

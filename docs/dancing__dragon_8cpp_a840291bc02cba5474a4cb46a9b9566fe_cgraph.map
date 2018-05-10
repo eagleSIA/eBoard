@@ -1,5 +1,5 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6" title="changes the background of the display " alt="" coords="104,5,272,32"/>
-<area shape="rect" id="node3" href="$structLCD.html#a0fd055c88888db0e52fea11f1df24d4a" title="draws a bitmap representet as an array of bytes " alt="" coords="125,56,251,83"/>
-<area shape="rect" id="node4" href="$structSoccerBoard.html#a52bcbb2cc7e2d56ee0b0deff26a45b49" title="Say goodnight! " alt="" coords="115,107,261,133"/>
+<area shape="rect" id="node2" href="$structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6" title="changes the background of the display " alt="" coords="108,5,299,32"/>
+<area shape="rect" id="node3" href="$structLCD.html#a0fd055c88888db0e52fea11f1df24d4a" title="draws a bitmap representet as an array of bytes " alt="" coords="132,56,275,83"/>
+<area shape="rect" id="node4" href="$structSoccerBoard.html#a52bcbb2cc7e2d56ee0b0deff26a45b49" title="Say goodnight! " alt="" coords="116,107,291,133"/>
 </map>

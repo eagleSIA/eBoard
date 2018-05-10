@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cbi',['cbi',['../eagle__Twi_8h.html#ae70baf5399951da1e7ad45a0ed890832',1,'eagle_Twi.h']]],
   ['counter_5f16_5fbit',['COUNTER_16_BIT',['../eagle__I2CInOut_8h.html#a71f438f540615074ddea2a3a4d38ae95',1,'eagle_I2CInOut.h']]],
   ['counter_5f8_5fbit',['COUNTER_8_BIT',['../eagle__I2CInOut_8h.html#aa40e841cf249e38817048624fa190405',1,'eagle_I2CInOut.h']]],
   ['counter_5fb_5fdir',['COUNTER_B_DIR',['../eagle__I2CInOut_8h.html#abc532617ac3a0fb6a93b170f15ced7d1',1,'eagle_I2CInOut.h']]],

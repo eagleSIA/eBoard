@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 04.05.2018 22:58:22
+//Created: 10.05.2018 16:26:20
 #ifndef EAGLE_EBOARD_HELPLIB_AX12SERVO
     #define EAGLE_EBOARD_HELPLIB_AX12SERVO
 
@@ -123,7 +123,6 @@
             this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;
             speed = speed*600/1023 - 300;
             pos   = pos  *600/1023 - 300;
-
         #else
             if(pos>300 || speed > 300) return;
             this->actPos=pos; this->storedPos=pos; this->storedSpe = speed;

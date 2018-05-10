@@ -2,6 +2,7 @@ var searchData=
 [
   ['c',['C',['../structI2CInOut.html#af644441b5416d0fb03527a14e4e54479',1,'I2CInOut']]],
   ['canshow',['canShow',['../structNeoPixel.html#aae0bc578baf4fc49fc4c3024c53368a7',1,'NeoPixel']]],
+  ['cbi',['cbi',['../eagle__Twi_8h.html#ae70baf5399951da1e7ad45a0ed890832',1,'eagle_Twi.h']]],
   ['changebackground',['changeBackground',['../structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6',1,'LCD']]],
   ['changebrightness',['changeBrightness',['../structLCD.html#a75cacb94de3b3ff71e9a4497b5cc4a81',1,'LCD']]],
   ['changeid',['changeID',['../structLCD.html#aa5e25fef7649532af402df06f05b6d4c',1,'LCD']]],

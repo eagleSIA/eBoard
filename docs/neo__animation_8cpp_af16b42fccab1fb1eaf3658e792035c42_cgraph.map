@@ -1,5 +1,5 @@
 <map id="shiftPx" name="shiftPx">
-<area shape="rect" id="node2" href="$structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b" title="returns a color value that can be used with NeoPixel::setPixelColor() " alt="" coords="139,5,254,32"/>
-<area shape="rect" id="node3" href="$structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel " alt="" coords="116,56,277,83"/>
-<area shape="rect" id="node4" href="$structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] " alt="" coords="139,107,254,133"/>
+<area shape="rect" id="node2" href="$structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b" title="returns a color value that can be used with NeoPixel::setPixelColor() " alt="" coords="164,5,307,32"/>
+<area shape="rect" id="node3" href="$structNeoPixel.html#a3c6105546cfb9ccca5b31a1c26450d1d" title="sets the rgb color of a specific pixel " alt="" coords="132,56,339,83"/>
+<area shape="rect" id="node4" href="$structNeoPixel.html#a73a8e7c435b16a785430b5f3734e3216" title="this will reveal the setPixels [via NeoPixel::setPixelColor() etc...] " alt="" coords="168,107,303,133"/>
 </map>

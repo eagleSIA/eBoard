@@ -3,6 +3,7 @@ var searchData=
   ['s1cmd',['s1Cmd',['../structLCD.html#a739998fad0591a092255676c8c8d532f',1,'LCD']]],
   ['s1dat',['s1Dat',['../structLCD.html#ae5873763db265cd00da32664cce88873',1,'LCD']]],
   ['s2cmd',['s2Cmd',['../structLCD.html#ae7a8d9bc1581cfeeb0f098c8bb6d1229',1,'LCD']]],
+  ['sbi',['sbi',['../eagle__Twi_8h.html#ac4a5536d9bf092116f88b94797ddc882',1,'eagle_Twi.h']]],
   ['sendi2c',['sendI2C',['../eagle__I2C_8h.html#aa63f515ecc1c17545b9692c7d5f2fac6',1,'sendI2C(optVAL_t deviceID, byte *buf, byte buf_len):&#160;eagle_I2C.h'],['../eagle__I2C_8h.html#ab43ab8c6fc457f361d203915d1352203',1,'sendI2C(optVAL_t deviceID, byte buf):&#160;eagle_I2C.h']]],
   ['sendwait',['sendWait',['../structServoCds55.html#a0ddbf204d991dae881cc22b8985efee3',1,'ServoCds55']]],
   ['servo',['Servo',['../classServo.html',1,'Servo'],['../classServo.html#a70b2b17657cf258cdcb57503bcf62cd2',1,'Servo::Servo()']]],

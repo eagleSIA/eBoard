@@ -1,4 +1,0 @@
-<map id="SoccerBoard::powerOn" name="SoccerBoard::powerOn">
-<area shape="rect" id="node2" href="$structSoccerBoard.html#a04c6b8fd4b6d1cd24be9c1b3291dbf06" title="Set the state of a certain D&#45;pin. " alt="" coords="211,5,351,32"/>
-<area shape="rect" id="node3" href="$eagle__PinCtrl_8h.html#ad6d4c1b1e3b495ed81fb28fac04d2bd6" title="write a boolean state to an output pin " alt="" coords="399,5,468,32"/>
-</map>

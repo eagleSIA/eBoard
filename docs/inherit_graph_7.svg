@@ -14,7 +14,7 @@
 <title>Node0</title>
 <g id="a_node1"><a xlink:href="structRB14Scan.html" target="_top" xlink:title="[BLUETOOTH] This is the RB14Scan ghost struct :D ">
 <polygon fill="#ffffff" stroke="#000000" points="0,-.5 0,-19.5 65,-19.5 65,-.5 0,-.5"/>
-<text text-anchor="middle" x="32.5" y="-7.5" font-family="Hack" font-size="10.00" fill="#000000">RB14Scan</text>
+<text text-anchor="middle" x="32.5" y="-7.5" font-family="RobotoMono" font-size="10.00" fill="#000000">RB14Scan</text>
 </a>
 </g>
 </g>

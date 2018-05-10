@@ -1,9 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="will force every AX12Servo to drive to AX12Servo::storedPos with AX12Servo::storedSpeed ..." alt="" coords="116,5,315,32"/>
-<area shape="rect" id="node3" href="$structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6" title="changes the background of the display " alt="" coords="120,56,311,83"/>
-<area shape="rect" id="node4" href="$structLCD.html#ad3120f397273bac2ad60e0291554b9e6" title="clears the LCD " alt="" coords="164,107,267,133"/>
-<area shape="rect" id="node5" href="$structAX12Servo.html#a8027cdd101d213b8f7d2c1988fd87fcb" title="This &quot;kind of&quot; returns the Servo&#45;Position. " alt="" coords="116,157,315,184"/>
-<area shape="rect" id="node6" href="$structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56" title="prints a string to the display " alt="" coords="164,208,267,235"/>
-<area shape="rect" id="node7" href="$structSoccerBoard.html#a30d756751a9866cd4547b2041921463f" title="Say goodnight! " alt="" coords="132,259,299,285"/>
-<area shape="rect" id="node8" href="$structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. " alt="" coords="108,309,323,336"/>
+<area shape="rect" id="node2" href="$structDynamixelBoard.html#a9b6d6166eaa2c42e87f424b54edce510" title="will force every AX12Servo to drive to AX12Servo::storedPos with AX12Servo::storedSpeed ..." alt="" coords="112,5,291,32"/>
+<area shape="rect" id="node3" href="$structLCD.html#aa01b7522d1e210f9cd071e3a5d4ae9e6" title="changes the background of the display " alt="" coords="111,56,291,83"/>
+<area shape="rect" id="node4" href="$structLCD.html#ad3120f397273bac2ad60e0291554b9e6" title="clears the LCD " alt="" coords="157,107,245,133"/>
+<area shape="rect" id="node5" href="$structAX12Servo.html#a8027cdd101d213b8f7d2c1988fd87fcb" title="This &quot;kind of&quot; returns the Servo&#45;Position. " alt="" coords="114,157,289,184"/>
+<area shape="rect" id="node6" href="$structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56" title="prints a string to the display " alt="" coords="158,208,245,235"/>
+<area shape="rect" id="node7" href="$structSoccerBoard.html#a30d756751a9866cd4547b2041921463f" title="Say goodnight! " alt="" coords="128,259,275,285"/>
+<area shape="rect" id="node8" href="$structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94" title="This saves the Servo Position. " alt="" coords="108,309,295,336"/>
 </map>

@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sacramento">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:light">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
 <title>eBoard: LCD Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -37,8 +38,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="ohnezahn_anim.gif" style="width:82px;height:70px;"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><font face="" color="#007535">eBoard 🐉</font>
-   &#160;<span id="projectnumber">①⑧⑨</span>
+   <div id="projectname">eBoard
+   <span id="projectnumber">①⑧⑨</span>
    </div>
    <div id="projectbrief">Written for SIA 2017/2018</div>
   </td>
@@ -225,7 +226,7 @@ Private Attributes</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>to use this class: <div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1 //do you think this is obsolete ? tell me :D</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div></div><!-- fragment --></dd></dl>
 <p>[I2C] [<a class="el" href="structLCD.html" title="[I2C] [LCD] This is used to add support for OLED displays connected to the &#39;SoccerBoard&#39; ...">LCD</a>] You can use this class like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#define EBOARD_I2C 0x1</span></div><div class="line"><span class="preprocessor">#define EBOARD_LCD 0x1</span></div><div class="line"><span class="preprocessor">#include &lt;eBoard.h&gt;</span></div><div class="line"><span class="comment">//manual: &#39;#include &quot;/path/to/eBoard.h&quot;&#39;</span></div><div class="line"><a class="code" href="structSoccerBoard.html">SoccerBoard</a> <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>;</div><div class="line"><a class="code" href="structLCD.html">LCD</a> <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>(<a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>);</div><div class="line"><span class="keywordtype">int</span> <a class="code" href="eBoard__comment_8h.html#aa4e97f3782107649d3e4eb3875090b3a">main</a>() {</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#a07fa1f63efdbd75411eb435aa22f7b8b">board</a>.<a class="code" href="structSoccerBoard.html#a30d756751a9866cd4547b2041921463f">sleep</a>(2); <span class="comment">// not needed (it&#39;s just funny :P)</span></div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#ad3120f397273bac2ad60e0291554b9e6">clear</a>();</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(<span class="stringliteral">&quot;Hallo Mama,\n Wie gehts&#39;?&quot;</span>);</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(2,2,<span class="stringliteral">&quot;-- Gut&quot;</span>);</div><div class="line">    <a class="code" href="dancing__dragon_8cpp.html#aaecae0c9d7b6fd1165e973949ebefc1f">lcd</a>.<a class="code" href="structLCD.html#a21c27f0eea9a6c281ddbb06b16ef7e56">print</a>(3,0,42);</div><div class="line">}</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>positions will only apply if both of them are smaller as the maximum declared with <a class="el" href="eagle__LCD_8h.html#a53a8b2a971de4b88047192655a48b651">LCD_HEIGHT</a> and <a class="el" href="eagle__LCD_8h.html#a19693eac3018d3e7800fde141921b812">LCD_WIDTH</a> </dd>
 <dd>
-<a class="el" href="structLCD.html#a632d9c641930fe16c0b623b82136196e" title="initializes the Display called by: ">init()</a> will be called on the first display access! [<a class="el" href="changelog_page.html#su7">Version 2.2b - Optimize it [52m]</a>] </dd></dl>
+<a class="el" href="structLCD.html#a632d9c641930fe16c0b623b82136196e" title="initializes the Display called by: ">init()</a> will be called on the first display access! [<a class="el" href="changelog_page.html#su7">Version 2.2b 🦍 - Optimize it [52m]</a>] </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="eagle__LCD_8h_source.html#l00203">203</a> of file <a class="el" href="eagle__LCD_8h_source.html">eagle_LCD.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -302,7 +303,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_aa01b7522d1e210f9cd071e3a5d4ae9e6_icgraph.svg" width="304" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_aa01b7522d1e210f9cd071e3a5d4ae9e6_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -441,7 +442,7 @@ false if there was one of the following errors:<ul>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_ad3120f397273bac2ad60e0291554b9e6_icgraph.svg" width="216" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_ad3120f397273bac2ad60e0291554b9e6_icgraph.svg" width="202" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -508,7 +509,7 @@ false if there was one of the following errors:<ul>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a0fd055c88888db0e52fea11f1df24d4a_icgraph.svg" width="256" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a0fd055c88888db0e52fea11f1df24d4a_icgraph.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -632,7 +633,7 @@ false if there was one of the following errors:<ul>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a21c27f0eea9a6c281ddbb06b16ef7e56_icgraph.svg" width="216" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLCD_a21c27f0eea9a6c281ddbb06b16ef7e56_icgraph.svg" width="200" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1056,7 +1057,7 @@ false if there was one of the following errors:<ul>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structLCD.html">LCD</a></li>
-    <li class="footer"><b>EagleoutIce</b> 10.05.2018 16:26:19 </li>
+    <li class="footer">[[WIP-BUILD]] <b>EagleoutIce</b> 10.05.2018 18:22:41 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classeagle__impl_1_1SoftwareSerial.html" title="[328p] This is used to avoid path resolving issues and defines the common known Arduino SoftwareSeria..." alt="" coords="124,5,355,32"/>
-<area shape="rect" id="node3" href="$classeagle__impl_1_1TwoWire.html" title="[I2C] This is used to avoid path resolving issues and defines the common known Arduino Wire&#45;Interface..." alt="" coords="152,56,327,83"/>
+<area shape="rect" id="node2" href="$classeagle__impl_1_1SoftwareSerial.html" title="[328p] This is used to avoid path resolving issues and defines the common known Arduino SoftwareSeria..." alt="" coords="123,5,320,32"/>
+<area shape="rect" id="node3" href="$classeagle__impl_1_1TwoWire.html" title="[I2C] This is used to avoid path resolving issues and defines the common known Arduino Wire&#45;Interface..." alt="" coords="143,56,300,83"/>
 </map>

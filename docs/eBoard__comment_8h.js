@@ -7,6 +7,7 @@ var eBoard__comment_8h =
     [ "_SPI_H_INCLUDED", "eBoard__comment_8h.html#a26a47194bff09a4eb078605381880ea0", null ],
     [ "ARDUINO", "eBoard__comment_8h.html#a5deccebbf24e21ddc073c8774179f1b3", null ],
     [ "EBOARD_BLUETOOTH", "eBoard__comment_8h.html#acf57ef5be6e1891dbe06d2233d8575d2", null ],
+    [ "EBOARD_BLUETOOTH_SPEED", "eBoard__comment_8h.html#a3e6be8be8ffd867ca868a846b926aab7", null ],
     [ "EBOARD_CHECK_PINS", "eBoard__comment_8h.html#a832845f47786296c94e24d6c27821503", null ],
     [ "EBOARD_CHECK_PINS_PWM", "eBoard__comment_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119", null ],
     [ "EBOARD_CLAMP", "eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749", null ],
@@ -43,9 +44,9 @@ var eBoard__comment_8h =
     [ "SoftwareSerial_h", "eBoard__comment_8h.html#abf9cebd5a376e0e460c0fc6f020f228d", null ],
     [ "twi_h", "eBoard__comment_8h.html#a72282c2bbeb6330cad4030fa564a869f", null ],
     [ "optVAL_t", "eBoard__comment_8h.html#ae1f00379a6f3ef77812f6753eeb1994a", null ],
-    [ "_serial", "eBoard__comment_8h.html#acb51742a61b072bb500b6e0713d7dc2c", null ],
     [ "loop", "eBoard__comment_8h.html#a0b33edabd7f1c4e4a0bf32c67269be2f", null ],
     [ "rept_task", "eBoard__comment_8h.html#a2c2fbf17da89298ceb0e017da0583ef6", null ],
+    [ "_serial", "eBoard__comment_8h.html#a5fb18dcee3c843972b9c793c71a3ea18", null ],
     [ "mainMotor", "eBoard__comment_8h.html#ad6bafe55c33ec1a31d6b421ea0570666", null ],
     [ "steerMotor", "eBoard__comment_8h.html#a62c1578b310837f1bbc0f697a0d772fc", null ],
     [ "STOP", "eBoard__comment_8h.html#ae72a810f4976962c2cafb810b17ae158", null ]

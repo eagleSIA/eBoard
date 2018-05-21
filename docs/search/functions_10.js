@@ -32,6 +32,6 @@ var searchData=
   ['sine8',['sine8',['../eagle__Comfort_8h.html#a8de5034379a9830a98c0d3ecf9c9f979',1,'eagle_Comfort.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
   ['soccerboard',['SoccerBoard',['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard']]],
-  ['softwareserial',['SoftwareSerial',['../classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48',1,'eagle_impl::SoftwareSerial']]],
+  ['softwareserial',['SoftwareSerial',['../classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48',1,'eagle_impl::SoftwareSerial::SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic=false)'],['../classeagle__impl_1_1SoftwareSerial.html#a4a873087e52b24a4161fde7f251d0d7d',1,'eagle_impl::SoftwareSerial::SoftwareSerial(void)']]],
   ['storeposition',['storePosition',['../structAX12Servo.html#ab4370f84cb53a93880f58c270c290c94',1,'AX12Servo']]]
 ];

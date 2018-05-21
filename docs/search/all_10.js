@@ -34,7 +34,7 @@ var searchData=
   ['sine8',['sine8',['../eagle__Comfort_8h.html#a8de5034379a9830a98c0d3ecf9c9f979',1,'eagle_Comfort.h']]],
   ['sleep',['sleep',['../structSoccerBoard.html#a30d756751a9866cd4547b2041921463f',1,'SoccerBoard']]],
   ['soccerboard',['SoccerBoard',['../structSoccerBoard.html',1,'SoccerBoard'],['../structSoccerBoard.html#a92982113e80865edf52a32fd36e0997c',1,'SoccerBoard::SoccerBoard()']]],
-  ['softwareserial',['SoftwareSerial',['../classeagle__impl_1_1SoftwareSerial.html',1,'eagle_impl::SoftwareSerial'],['../classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48',1,'eagle_impl::SoftwareSerial::SoftwareSerial()']]],
+  ['softwareserial',['SoftwareSerial',['../classeagle__impl_1_1SoftwareSerial.html',1,'eagle_impl::SoftwareSerial'],['../classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48',1,'eagle_impl::SoftwareSerial::SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic=false)'],['../classeagle__impl_1_1SoftwareSerial.html#a4a873087e52b24a4161fde7f251d0d7d',1,'eagle_impl::SoftwareSerial::SoftwareSerial(void)']]],
   ['softwareserial_5fh',['SoftwareSerial_h',['../eBoard__comment_8h.html#abf9cebd5a376e0e460c0fc6f020f228d',1,'eBoard.h']]],
   ['spi_5f2xclock_5fmask',['SPI_2XCLOCK_MASK',['../eagle__SPI_8h.html#a6a0a7018061769d9202d1e1753f9708e',1,'eagle_SPI.h']]],
   ['spi_5fclock_5fdiv128',['SPI_CLOCK_DIV128',['../eagle__SPI_8h.html#ae7bbb331aa1b0f066aeaf652b3a1fdec',1,'eagle_SPI.h']]],

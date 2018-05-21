@@ -94,8 +94,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about_page.html",
-"eagle__LCD_8h.html#afb495f6ae8fe8a972aaf549d96eb3c99",
-"structLCD.html#a75cacb94de3b3ff71e9a4497b5cc4a81"
+"eagle__LCD_8h.html#ad5cc81614bed12ef1b51087321a9e44e",
+"structLCD.html#a632d9c641930fe16c0b623b82136196e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

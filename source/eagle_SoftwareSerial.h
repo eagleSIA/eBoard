@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 10.05.2018 18:22:41
+//Created: 21.05.2018 05:40:11
 #ifndef EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
     #define EAGLE_EBOARD_HELPLIB_SOFTWARESERIAL
 
@@ -96,6 +96,13 @@
         
 
         SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
+        
+
+        SoftwareSerial(void);
+        
+
+        void configure(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
+        
         
 
         ~SoftwareSerial(void);
@@ -399,6 +406,19 @@
                 "pop r18 \n\t"
                 ::);
         #endif
+	}
+
+	eagle_impl::SoftwareSerial::SoftwareSerial(){}
+
+	void eagle_impl::SoftwareSerial::configure(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic) {
+        _rx_delay_centering = 0;
+        _rx_delay_intrabit = 0;
+        _rx_delay_stopbit = 0;
+        _tx_delay = 0;
+        _buffer_overflow = false;
+        _inverse_logic = inverse_logic;
+        setTX(transmitPin);
+        setRX(receivePin);
 	}
 
 	

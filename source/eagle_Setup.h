@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 10.05.2018 18:22:41
+//Created: 21.05.2018 05:40:11
 #ifndef EAGLE_EBOARD_HELPLIB_SETUP
     #define EAGLE_EBOARD_HELPLIB_SETUP
 
@@ -67,9 +67,10 @@
 	        
 
 	        #if (EBOARD_BLUETOOTH > 0x0) && (((PIN_BLUETOOTH_RX==0x13) && (PIN_BLUETOOTH_TX==0x12)) && defined(__AVR_ATmega2560__))
-	            Serial1.begin(38400);
+	            Serial1.begin(EBOARD_BLUETOOTH_SPEED);
 	        #else
-	            _serial.begin(38400);
+                _serial.configure(PIN_BLUETOOTH_RX,PIN_BLUETOOTH_TX);
+	            _serial.begin(EBOARD_BLUETOOTH_SPEED);
 	        #endif
 	        if(PIN_BLUETOOTH_STATE!=PIN_BLUETOOTH_RX) setPin(PIN_BLUETOOTH_STATE,INPUT);
 	    #endif

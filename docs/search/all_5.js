@@ -27,6 +27,7 @@ var searchData=
   ['eagle_5ftwi_2eh',['eagle_Twi.h',['../eagle__Twi_8h.html',1,'']]],
   ['eagle_5ftwowire_2eh',['eagle_TwoWire.h',['../eagle__TwoWire_8h.html',1,'']]],
   ['eboard_5fbluetooth',['EBOARD_BLUETOOTH',['../eBoard__comment_8h.html#acf57ef5be6e1891dbe06d2233d8575d2',1,'eBoard.h']]],
+  ['eboard_5fbluetooth_5fspeed',['EBOARD_BLUETOOTH_SPEED',['../eBoard__comment_8h.html#a3e6be8be8ffd867ca868a846b926aab7',1,'eBoard.h']]],
   ['eboard_5fcheck_5fpins',['EBOARD_CHECK_PINS',['../eBoard__comment_8h.html#a832845f47786296c94e24d6c27821503',1,'EBOARD_CHECK_PINS():&#160;eBoard.h'],['../neo__animation_8cpp.html#a832845f47786296c94e24d6c27821503',1,'EBOARD_CHECK_PINS():&#160;neo_animation.cpp']]],
   ['eboard_5fcheck_5fpins_5fpwm',['EBOARD_CHECK_PINS_PWM',['../eBoard__comment_8h.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'EBOARD_CHECK_PINS_PWM():&#160;eBoard.h'],['../neo__animation_8cpp.html#a7f6af3a3569cbe0d77e85d4dbd0e4119',1,'EBOARD_CHECK_PINS_PWM():&#160;neo_animation.cpp']]],
   ['eboard_5fclamp',['EBOARD_CLAMP',['../eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749',1,'eBoard.h']]],

@@ -15,6 +15,7 @@ var searchData=
   ['_5frx_5fdelay_5fcentering',['_rx_delay_centering',['../classeagle__impl_1_1SoftwareSerial.html#a807a77387e23a3d0d132acd05d1c7a79',1,'eagle_impl::SoftwareSerial']]],
   ['_5frx_5fdelay_5fintrabit',['_rx_delay_intrabit',['../classeagle__impl_1_1SoftwareSerial.html#a26ff186095aa4b1260659819e39dddbc',1,'eagle_impl::SoftwareSerial']]],
   ['_5frx_5fdelay_5fstopbit',['_rx_delay_stopbit',['../classeagle__impl_1_1SoftwareSerial.html#a2412f969b12a0cd8f670bd3c5b95e106',1,'eagle_impl::SoftwareSerial']]],
+  ['_5fserial',['_serial',['../eBoard__comment_8h.html#a5fb18dcee3c843972b9c793c71a3ea18',1,'eBoard.h']]],
   ['_5fservohandler',['_servoHandler',['../eagle__ServoCds55_8h.html#a176c8fd69620a612067a5a2f3adc7f21',1,'eagle_ServoCds55.h']]],
   ['_5ftransmitbitmask',['_transmitBitMask',['../classeagle__impl_1_1SoftwareSerial.html#aff6d5b5ae2df7037d90be086e0732306',1,'eagle_impl::SoftwareSerial']]],
   ['_5ftransmitportregister',['_transmitPortRegister',['../classeagle__impl_1_1SoftwareSerial.html#a9631a3309b8d7d9fa88b016395ad7fb3',1,'eagle_impl::SoftwareSerial']]],

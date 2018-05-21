@@ -14,6 +14,7 @@ var searchData=
   ['clear',['clear',['../structLCD.html#ad3120f397273bac2ad60e0291554b9e6',1,'LCD::clear()'],['../structNeoPixel.html#a9168956fe081052f22c7af4ec82c2055',1,'NeoPixel::clear()']]],
   ['color',['Color',['../structNeoPixel.html#a14aaaf801a74b5a608c4e94ae5293a3b',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b)'],['../structNeoPixel.html#abb4a45baf1d8d06b1640a5798fde9ee4',1,'NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w)']]],
   ['comment_5fmax_2edox',['comment_max.dox',['../comment__max_8dox.html',1,'']]],
+  ['configure',['configure',['../classeagle__impl_1_1SoftwareSerial.html#a804991df112f3ee8f3451f74d94a3aea',1,'eagle_impl::SoftwareSerial']]],
   ['connected',['connected',['../structDynamixelBoard.html#a4ba7b970667784ba4d3459c09a49f515',1,'DynamixelBoard']]],
   ['counter_5f16_5fbit',['COUNTER_16_BIT',['../eagle__I2CInOut_8h.html#a71f438f540615074ddea2a3a4d38ae95',1,'eagle_I2CInOut.h']]],
   ['counter_5f8_5fbit',['COUNTER_8_BIT',['../eagle__I2CInOut_8h.html#aa40e841cf249e38817048624fa190405',1,'eagle_I2CInOut.h']]],

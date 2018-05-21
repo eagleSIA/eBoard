@@ -1,9 +1,11 @@
 var classeagle__impl_1_1SoftwareSerial =
 [
     [ "SoftwareSerial", "classeagle__impl_1_1SoftwareSerial.html#a108f4472be21919a5b0db4b315d9da48", null ],
+    [ "SoftwareSerial", "classeagle__impl_1_1SoftwareSerial.html#a4a873087e52b24a4161fde7f251d0d7d", null ],
     [ "~SoftwareSerial", "classeagle__impl_1_1SoftwareSerial.html#a8fdef1efeef0d023301c288f1d8e08d2", null ],
     [ "available", "classeagle__impl_1_1SoftwareSerial.html#a5ff86dda07e4babf4ba511a6b70a85cf", null ],
     [ "begin", "classeagle__impl_1_1SoftwareSerial.html#aee6fb9e9ac0092d92d578177877af1d8", null ],
+    [ "configure", "classeagle__impl_1_1SoftwareSerial.html#a804991df112f3ee8f3451f74d94a3aea", null ],
     [ "end", "classeagle__impl_1_1SoftwareSerial.html#a1b2011b111bf68a1b885e999eef99418", null ],
     [ "flush", "classeagle__impl_1_1SoftwareSerial.html#a39057b57c7a257613e9455f5c9abb0c9", null ],
     [ "handle_interrupt", "classeagle__impl_1_1SoftwareSerial.html#a49909ca5040cad08db1cc5ef6185ce87", null ],

@@ -7,6 +7,7 @@ var searchData=
   ['eboard_5fclamp',['EBOARD_CLAMP',['../eBoard__comment_8h.html#afbec632cd64539f26aaeb1bc68948749',1,'eBoard.h']]],
   ['eboard_5fdebug_5fmode',['EBOARD_DEBUG_MODE',['../eBoard__comment_8h.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;eBoard.h'],['../dancing__dragon_8cpp.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;dancing_dragon.cpp'],['../lcd__debug_8cpp.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;lcd_debug.cpp'],['../neo__animation_8cpp.html#a9576a738d44de713d21e71123b5ee344',1,'EBOARD_DEBUG_MODE():&#160;neo_animation.cpp']]],
   ['eboard_5fdebug_5fspeed',['EBOARD_DEBUG_SPEED',['../eBoard__comment_8h.html#ab40166b3dbfe220aef870dccc9fd5386',1,'eBoard.h']]],
+  ['eboard_5fdrive_5fzero',['EBOARD_DRIVE_ZERO',['../eBoard__comment_8h.html#a9acf3a048408a735dbd071161180e791',1,'eBoard.h']]],
   ['eboard_5fguesspath',['EBOARD_GUESSPATH',['../eBoard__comment_8h.html#a56a4e2c4c6092a1a84046e6c377f3e2e',1,'eBoard.h']]],
   ['eboard_5fhelpcar_5fmain',['EBOARD_HELPCAR_MAIN',['../eBoard__comment_8h.html#aed053b95491d850f42016b6d3e8b6cec',1,'eBoard.h']]],
   ['eboard_5fhelpcar_5fsteer',['EBOARD_HELPCAR_STEER',['../eBoard__comment_8h.html#aa0b9a99bfdfec7c1a9a6a84bfc3d42e1',1,'eBoard.h']]],

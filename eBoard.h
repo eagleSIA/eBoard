@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 01.06.2018 01:59:36
+//Created: 09.06.2018 13:17:47
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.48d"
+    #define EBOARD_VERSION "3.2.50d"
     
 
-    #define EBOARD_VERSION_NBR 505
+    #define EBOARD_VERSION_NBR 507
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 
@@ -256,6 +256,11 @@
                 #define EBOARD_HELPCAR_MAIN 13
             #endif
 
+            #ifndef EBOARD_DRIVE_ZERO
+                
+                #define EBOARD_DRIVE_ZERO 90
+            #endif
+            
             MACRO_MSG(EBOARD_NANO,"Using Arduino Helpcar environment [e.g. remove AX12Servo]");
 
             #if PREPROCESS_DEBUG > 0x1

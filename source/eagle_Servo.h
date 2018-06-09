@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 01.06.2018 01:59:36
+//Created: 09.06.2018 13:17:47
 #ifndef EAGLE_EBOARD_HELPLIB_SERVO
     #define EAGLE_EBOARD_HELPLIB_SERVO
 
@@ -140,6 +140,47 @@
 	#define SERVO_MIN() (MIN_PULSE_WIDTH - this->min * 4)  // minimum value in uS for this servo
 	#define SERVO_MAX() (MAX_PULSE_WIDTH - this->max * 4)  // maximum value in uS for this servo
 
+	
+	//========= TIMER 
+	
+		static void initISR(timer16_Sequence_t timer) {
+	  if(timer == _timer1) {
+	    TCCR1A = 0;             // normal counting mode
+	    TCCR1B = _BV(CS11);     // set prescaler of 8
+	    TCNT1 = 0;              // clear the timer count
+	    TIFR1 |= _BV(OCF1A);     // clear any pending interrupts;
+	    TIMSK1 |=  _BV(OCIE1A) ; // enable the output compare interrupt
+	    #if defined(WIRING)
+	      timerAttach(TIMER1OUTCOMPAREA_INT, Timer1Service);
+	    #endif
+	    }
+	}
+
+	static void finISR(timer16_Sequence_t timer) {
+	  #if defined WIRING   // Wiring
+	  if(timer == _timer1) {
+	    TIMSK &=  ~_BV(OCIE1A) ;  // disable timer 1 output compare interrupt
+	    timerDetach(TIMER1OUTCOMPAREA_INT);
+	  }
+	  else if(timer == _timer3) {
+	    ETIMSK &= ~_BV(OCIE3A);    // disable the timer3 output compare A interrupt
+	    timerDetach(TIMER3OUTCOMPAREA_INT);
+	  }
+	  #else
+	  //For arduino - in future: call here to a currently undefined function to reset the timer
+	  (void) timer;  // squash "unused parameter 'timer' [-Wunused-parameter]" warning
+	  #endif
+	}
+    
+    static bool isTimerActive(timer16_Sequence_t timer) {
+	  // returns true if any servo is active on this timer
+	  for(uint8_t channel=0; channel < SERVOS_PER_TIMER; channel++) {
+	    if(SERVO(timer,channel).Pin.isActive == true)
+	      return true;
+	  }
+	  return false;
+	}
+	
 	static inline void handle_interrupts(timer16_Sequence_t timer, volatile uint16_t *TCNTn, volatile uint16_t* OCRnA)
 	{
 	  if( Channel[timer] < 0 )
@@ -271,45 +312,6 @@ Servo::Servo() {
 	  return servos[this->servoIndex].Pin.isActive ;
 	}
 
-	//========= TIMER 
-	
-		static void initISR(timer16_Sequence_t timer) {
-	  if(timer == _timer1) {
-	    TCCR1A = 0;             // normal counting mode
-	    TCCR1B = _BV(CS11);     // set prescaler of 8
-	    TCNT1 = 0;              // clear the timer count
-	    TIFR1 |= _BV(OCF1A);     // clear any pending interrupts;
-	    TIMSK1 |=  _BV(OCIE1A) ; // enable the output compare interrupt
-	    #if defined(WIRING)
-	      timerAttach(TIMER1OUTCOMPAREA_INT, Timer1Service);
-	    #endif
-	    }
-	}
-
-	static void finISR(timer16_Sequence_t timer) {
-	  #if defined WIRING   // Wiring
-	  if(timer == _timer1) {
-	    TIMSK &=  ~_BV(OCIE1A) ;  // disable timer 1 output compare interrupt
-	    timerDetach(TIMER1OUTCOMPAREA_INT);
-	  }
-	  else if(timer == _timer3) {
-	    ETIMSK &= ~_BV(OCIE3A);    // disable the timer3 output compare A interrupt
-	    timerDetach(TIMER3OUTCOMPAREA_INT);
-	  }
-	  #else
-	  //For arduino - in future: call here to a currently undefined function to reset the timer
-	  (void) timer;  // squash "unused parameter 'timer' [-Wunused-parameter]" warning
-	  #endif
-	}
-    
-    static bool isTimerActive(timer16_Sequence_t timer) {
-	  // returns true if any servo is active on this timer
-	  for(uint8_t channel=0; channel < SERVOS_PER_TIMER; channel++) {
-	    if(SERVO(timer,channel).Pin.isActive == true)
-	      return true;
-	  }
-	  return false;
-	}
 
 
 	

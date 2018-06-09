@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 01.06.2018 01:59:36
+//Created: 09.06.2018 13:17:47
 #ifndef EAGLE_EBOARD_HELPLIB_SETUP
     #define EAGLE_EBOARD_HELPLIB_SETUP
 
@@ -92,7 +92,8 @@
 	      #if EBOARD_DEBUG_MODE > 0x0
 	        Serial.println("Initializing main driving motor (3s)");
 	      #endif
-	        mainMotor.write(90);
+	        mainMotor.write(EBOARD_DRIVE_ZERO);
+            steerMotor.write(45);
 	        delay(3005);
 	      #if EBOARD_DEBUG_MODE > 0x0
 	        Serial.println("Initializing of main driving motor completed");

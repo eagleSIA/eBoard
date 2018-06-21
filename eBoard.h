@@ -1,5 +1,5 @@
 //This was created by EagleoutIce 'document creator: create_doc' using doxygen 1.8.15 and python 3.5.2
-//Created: 09.06.2018 13:17:47
+//Created: 22.06.2018 00:17:40
 
 //EagleoutIce 2018
 //IF YOU SEE THIS THIS IS THE UNPROCESSED FILE! GO TO 'SOURCE CODE' IN THE DOCS
@@ -28,10 +28,10 @@
 
     
 
-    #define EBOARD_VERSION "3.2.50d"
+    #define EBOARD_VERSION "3.2.52d"
     
 
-    #define EBOARD_VERSION_NBR 507
+    #define EBOARD_VERSION_NBR 509
 
     DEBUG_MSG("If you do not want any preprocessing information from this eBoard-Header set PREPROCESS_DEBUG to 0");
 
@@ -168,14 +168,16 @@
     //                                                                     SPI                                                                         
     //-------------------------------------------------------------------------------------------------------------------------------------------------
 
-        
-        #ifndef EBOARD_USE_SPI
-            #define EBOARD_USE_SPI 0x1
-        #endif
+
 
         #ifdef EBOARD_HELPCAR
             DEBUG_MSG("You switched to helpcar and disabled SPI");
             #define EBOARD_USE_SPI 0x0
+        #endif
+
+        
+        #ifndef EBOARD_USE_SPI
+            #define EBOARD_USE_SPI 0x1
         #endif
 
         #if EBOARD_USE_SPI > 0x0
@@ -488,7 +490,9 @@
     //                                                                 bluetooth                                                                       
     //-------------------------------------------------------------------------------------------------------------------------------------------------
 
-        #if (EBOARD_BLUETOOTH > 0x0) && defined(__AVR_ATmega328P__)
+    
+        
+        #if (EBOARD_BLUETOOTH > 0x0)
             #if EBOARD_GUESSPATH > 0x0
                 #ifndef SoftwareSerial_h
                     //again to resolve including errors we'll include the SoftwareSerial cpp file
